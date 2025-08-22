@@ -1,0 +1,19 @@
+@use "../../styles/mixins" as *;
+
+.blockHero {
+	.block__content {
+		@include flex-column;
+		justify-content: center;
+		align-items: center;
+		.lead {
+			max-width: 60ch;
+		}
+		@include respond(md) {
+			flex-direction: row;
+		}
+	}
+}
+.heroCopy {
+	@include flex-column;
+	gap: var(--space-4);
+}

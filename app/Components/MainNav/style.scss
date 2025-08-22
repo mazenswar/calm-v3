@@ -1,0 +1,238 @@
+/* File: /components/nav/style.scss */
+@use "../../styles/mixins" as *;
+
+/* Single sticky header */
+.mainnav {
+	--header-h: 56px;
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	background: var(--color-surface);
+	box-shadow: var(--shadow-1);
+}
+@include respond(lg) {
+	.mainnav {
+		--header-h: 64px;
+	}
+}
+
+.mainnav__inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: var(--header-h);
+}
+.mainnav__logo {
+	display: inline-flex;
+	align-items: center;
+}
+.mainnav__logo img {
+	height: 32px;
+	width: auto;
+}
+
+/* Burger */
+.mainnav__burger {
+	--bar-h: 2px;
+	--bar-w: 22px;
+	width: 40px;
+	height: 40px;
+	display: inline-flex;
+	flex-direction: column;
+	gap: 5px;
+	align-items: center;
+	justify-content: center;
+	background: transparent;
+	border: 0;
+	cursor: pointer;
+}
+@include respond(lg) {
+	.mainnav__burger {
+		display: none;
+	}
+}
+.mainnav__burger span {
+	display: block;
+	width: var(--bar-w);
+	height: var(--bar-h);
+	background: var(--color-text);
+	transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+/* MOBILE PANEL (below lg) */
+.mainnav__nav {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: var(--header-h);
+	height: calc(100dvh - var(--header-h));
+	background: var(--color-surface);
+	border-top: 1px solid var(--color-border);
+	overflow: auto;
+	opacity: 0;
+	pointer-events: none;
+	transform: translateY(-8px);
+	transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.mainnav.is-open .mainnav__nav {
+	opacity: 1;
+	pointer-events: auto;
+	transform: translateY(0);
+}
+
+/* DESKTOP inline nav (>= lg) */
+@include respond(lg) {
+	.mainnav__nav {
+		position: static;
+		height: auto;
+		overflow: visible;
+		opacity: 1;
+		pointer-events: auto;
+		transform: none;
+		background: transparent;
+		border: 0;
+		display: flex;
+		align-items: center;
+		gap: var(--space-6);
+	}
+}
+
+.mainnav__list {
+	list-style: none;
+	margin: 0;
+	padding: var(--space-4);
+	display: grid;
+	gap: var(--space-2);
+}
+@include respond(lg) {
+	.mainnav__list {
+		padding: 0;
+		display: flex;
+		align-items: center;
+		gap: var(--space-4);
+	}
+}
+
+.mainnav__item {
+	position: relative;
+}
+
+.mainnav__toplink {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 8px 10px;
+	border-radius: var(--radius-md);
+	background: transparent;
+	border: 0;
+	color: inherit;
+	font: inherit;
+	cursor: pointer;
+	text-decoration: none;
+}
+.mainnav__toplink:hover,
+.mainnav__toplink:focus-visible {
+	background: var(--color-background-alt);
+}
+
+.mainnav__caret {
+	width: 16px;
+	height: 16px;
+	opacity: 0.7;
+	transition: transform 0.18s ease;
+}
+.mainnav__toplink[aria-expanded="true"] .mainnav__caret {
+	transform: rotate(180deg);
+}
+
+/* Dropdown (desktop) */
+.mainnav__dropdownWrap {
+	position: static;
+}
+.mainnav__dropdown {
+	position: absolute;
+	top: calc(100% + 8px);
+	left: 0;
+	min-width: 280px;
+	padding: var(--space-2);
+	background: var(--color-surface);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-md);
+	box-shadow: var(--shadow-2);
+	opacity: 0;
+	pointer-events: none;
+	transform: translateY(-6px);
+	transition: opacity 0.18s ease, transform 0.18s ease;
+	z-index: 60;
+	margin-top: -4px;
+}
+.mainnav__dropdown.is-open {
+	opacity: 1;
+	pointer-events: auto;
+	transform: translateY(0);
+}
+
+/* Desktop hover keep-open (pure CSS; no JS hover listeners) */
+@include respond(lg) {
+	.mainnav__item:hover > .mainnav__dropdownWrap > .mainnav__dropdown {
+		opacity: 1;
+		pointer-events: auto;
+		transform: translateY(0);
+	}
+}
+
+/* Submenu links */
+.mainnav__dropdownLink {
+	display: block;
+	padding: 10px 12px;
+	border-radius: var(--radius-sm);
+	color: var(--color-text);
+}
+.mainnav__dropdownLink:hover {
+	background: var(--color-background-alt);
+}
+.mainnav__dropdownLink:focus-visible {
+	outline: 2px solid var(--accent-1);
+	outline-offset: 2px;
+}
+
+/* CTA */
+.mainnav__cta {
+	padding: var(--space-4);
+	border-top: 1px solid var(--color-border);
+}
+@include respond(lg) {
+	.mainnav__cta {
+		padding: 0;
+		border: 0;
+	}
+}
+
+/* Mobile submenu accordion (below lg): hidden by default, shown when item.has-open */
+@media (max-width: 1023px) {
+	.mainnav__dropdown {
+		position: static;
+		min-width: 0;
+		border: 0;
+		box-shadow: none;
+		padding: 0;
+		display: none;
+		opacity: 1;
+		pointer-events: auto;
+		transform: none;
+	}
+	.mainnav__item.has-open > .mainnav__dropdownWrap > .mainnav__dropdown {
+		display: block;
+	}
+	.mainnav__dropdownLink {
+		padding: 10px 8px 10px 14px;
+	}
+	.mainnav__dropdownLink + .mainnav__dropdownLink {
+		border-top: 1px solid var(--color-border);
+	}
+}
+
+/* Lock scroll with open menu */
+html.nav-open {
+	overflow: hidden;
+}

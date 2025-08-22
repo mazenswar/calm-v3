@@ -1,0 +1,71 @@
+/* =========================
+   /styles/base/_globals.scss
+   App-wide defaults
+   ========================= */
+@use "../tokens" as *;
+
+html,
+body {
+	background: var(--color-bg);
+	color: var(--color-text);
+	font-family: var(--font-sans);
+}
+
+a {
+	color: var(--accent-1);
+	text-decoration: underline;
+	text-underline-offset: 2px;
+	transition: color 0.5s ease-in;
+	font-size: inherit;
+}
+
+.link {
+	text-decoration: underline;
+	color: var(--brand-1);
+	width: fit-content;
+	font-size: inherit;
+	transition: 0.2s;
+	&:hover {
+		color: var(--brand-5);
+	}
+}
+
+::selection {
+	background: var(--brand-2);
+	color: #1b1b1d;
+}
+
+/* Buttons baseline to keep consistency across components */
+.btnPrimary,
+.btnSecondary {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem 2rem;
+	border-radius: var(--radius-xl);
+	line-height: 1;
+	text-decoration: none;
+}
+
+.btnPrimary {
+	background: var(--brand-1);
+	color: #fff;
+	box-shadow: var(--shadow-1);
+	transition: 0.3s;
+	&:hover {
+		background: var(--brand-5);
+	}
+}
+.btnSecondary {
+	background: transparent;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	color: var(--color-text);
+	transition: 0.3s;
+	&:hover {
+		background: var(--brand-1);
+		color: var(--color-surface);
+		&::after {
+			width: 0%;
+		}
+	}
+}

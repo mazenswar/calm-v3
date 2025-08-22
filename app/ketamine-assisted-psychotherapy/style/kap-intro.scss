@@ -1,0 +1,100 @@
+@use "../../styles/mixins" as *;
+/* -------------------------------------------------- */
+/*  Hero (KAP intro)                                  */
+/* -------------------------------------------------- */
+
+.kap-intro {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	background: var(--color-bg);
+
+	/* inner wrapper */
+	.block__content {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		gap: 3rem;
+		min-height: 80vh; /* taller hero for breathing space */
+		padding: var(--space-12) var(--space-10);
+
+		@include respond(md) {
+			flex-direction: row-reverse; /* keep waves on right for larger screens */
+			align-items: center;
+			justify-content: flex-end;
+			gap: 6rem; /* more space between text & image */
+		}
+	}
+
+	/* text column */
+	.hero__copy {
+		max-width: 40rem;
+		// text-align: center;
+		@include flex-column;
+		align-items: center;
+		.btnSecondary {
+			// align-self: center;
+			// justify-self: center;
+			margin: 0 auto;
+		}
+		@include respond(md) {
+			text-align: left;
+		}
+
+		h1 {
+			font-size: clamp(2rem, 5vw, 3rem);
+			margin-bottom: var(--space-6);
+		}
+
+		.hero__subtitle {
+			// font-size: 1.25rem;
+			color: var(--color-accent);
+			margin-bottom: var(--space-6);
+			font-weight: 400;
+		}
+
+		p {
+			margin-bottom: var(--space-6);
+			line-height: 1.6;
+		}
+
+		.hero__cta {
+			display: inline-block;
+			margin-top: var(--space-6);
+		}
+	}
+
+	/* visual column */
+	.hero__img {
+		width: 14rem;
+		height: 14rem;
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		border-radius: 50%; /* circular crop for symbolic motif */
+		position: relative;
+		overflow: hidden; /* ensure overlay is clipped inside circle */
+
+		@include respond(md) {
+			width: 20rem;
+			height: 20rem;
+		}
+
+		.hero__overlay {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(
+				180deg,
+				rgba(127, 90, 131, 0.4),
+				rgba(127, 90, 131, 0.1)
+			); /* duotone overlay */
+			mix-blend-mode: multiply; /* subtle color treatment */
+		}
+	}
+}

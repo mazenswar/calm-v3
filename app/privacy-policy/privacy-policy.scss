@@ -1,0 +1,18 @@
+@use "../styles/mixins" as *;
+#privacy__policy {
+	h1,
+	h2,
+	h3,
+	p,
+	li {
+		margin: 0;
+		padding: 0;
+	}
+	.pp-section {
+		margin: var(--space-10) 0;
+		@include flex-column;
+		justify-content: center;
+		align-items: center;
+		gap: var(--space-10);
+	}
+}

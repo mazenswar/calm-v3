@@ -1,0 +1,107 @@
+@use "../../styles/mixins" as *;
+
+.kap-process {
+	.block__content {
+		/* ...your existing rules remain... */
+		.kap-step__keys {
+			margin-bottom: var(--space-10);
+			padding: 0;
+			height: 100%;
+			// background: red;
+			@include flex-column;
+			justify-content: flex-start;
+			// align-items: flex-start;
+			gap: var(--space-2);
+			li {
+				background: var(--brand-2);
+				padding: var(--space-2) var(--space-4);
+				width: 15rem;
+				text-align: center;
+				border-radius: var(--radius-xl);
+			}
+		}
+
+		/* Head: leave stacked by default (mobile) */
+		.kap-step__head {
+			display: grid;
+			row-gap: var(--space-3);
+		}
+
+		/* Keys: chips already styled in your file */
+
+		/* Content wrapper (new element in markup) */
+		.kap-step__content {
+			display: grid;
+			row-gap: var(--space-3);
+			.kap-step__bullets {
+				margin: 0;
+			}
+		}
+
+		////////////
+		///
+		///
+		.kap-step__body {
+			margin: var(--space-10) 0;
+			padding: var(--space-6);
+			background: var(
+				--color-surface
+			); /* same surface color to avoid a different tone */
+			border-radius: var(--radius-lg);
+			box-shadow: var(--shadow-1);
+			overflow: clip; /* ensures soft edges on inner content and keys chips */
+		}
+
+		#step-followup {
+			.kap-step__body {
+				margin-bottom: 0;
+			}
+		}
+
+		.kap-step {
+			ul {
+				padding-left: var(--space-6);
+				li {
+					margin-top: var(--space-3);
+				}
+				@include respond(md) {
+					padding-left: var(--space-10);
+				}
+			}
+		}
+
+		/* ====== md and up (remember: 'and up') ====== */
+		@include respond(md) {
+			.kap-step__body {
+				display: grid;
+				grid-template-columns: 1fr minmax(14rem, 22rem);
+				grid-template-areas:
+					"head head"
+					"content keys";
+				column-gap: var(--space-8);
+				align-items: start;
+				margin: var(--space-10) 0;
+			}
+
+			.kap-step__head {
+				grid-area: head;
+			}
+			.kap-step__content {
+				grid-area: content;
+			}
+			.kap-step__keys {
+				grid-area: keys;
+				align-self: start;
+				justify-self: end;
+				margin: 0;
+				padding: 0;
+				height: 100%;
+				// background: red;
+				@include flex-column;
+				justify-content: flex-start;
+				// align-items: flex-start;
+				gap: var(--space-2);
+			}
+		}
+	}
+}

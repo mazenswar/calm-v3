@@ -1,0 +1,86 @@
+@use "../../styles/mixins" as *;
+
+/* Mobile-first; md = and up */
+.kap-safety {
+	.block__content {
+		/* Intro rhythm consistent with page */
+		.intro {
+			margin-top: 0;
+			p {
+				margin: 0 0 var(--space-3);
+			}
+			.subhead {
+				color: var(--color-muted);
+			}
+		}
+
+		/* Grid of panels */
+		.kap-safety__grid {
+			margin-top: var(--space-8);
+			display: grid;
+			grid-template-columns: 1fr; /* stack on mobile */
+			gap: var(--space-6);
+		}
+
+		/* Cards: lighter than Investment (border + surface, minimal elevation) */
+		.kap-safety__panel {
+			background: var(--color-surface);
+			border: 1px solid rgba(0, 0, 0, 0.06);
+			border-radius: var(--radius-lg);
+			/* No strong shadow here to keep the section light */
+			box-shadow: none;
+			padding: var(--space-6);
+			display: grid;
+			row-gap: var(--space-4);
+		}
+
+		.kap-safety__heading {
+			margin: 0;
+			font-weight: 600; /* subtle emphasis, keep type scale system */
+		}
+
+		/* Neutral, accessible bullets (same language as earlier sections) */
+		.kap-safety__bullets {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			display: grid;
+			row-gap: var(--space-3);
+		}
+
+		.kap-safety__bullets > li {
+			position: relative;
+			padding-left: var(--space-5);
+			line-height: 1.6;
+		}
+
+		.kap-safety__bullets > li::before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0.75em; /* aligns with first text baseline */
+			inline-size: 8px;
+			block-size: 8px;
+			border-radius: 50%;
+			border: 2px solid currentColor; /* hollow circle bullet */
+			opacity: 0.5;
+		}
+
+		/* Bridge line to Resources */
+		.kap-safety__bridge {
+			margin-top: var(--space-8);
+		}
+
+		/* md and up: balanced 3-card pattern with full-width third card */
+		@include respond(md) {
+			.kap-safety__grid {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				gap: var(--space-8);
+			}
+
+			.kap-safety__panel:nth-child(3) {
+				grid-column: 1 / -1; /* full width for balance on md+ */
+			}
+		}
+	}
+}

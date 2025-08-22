@@ -1,0 +1,120 @@
+@use "../../styles/mixins" as *;
+
+.kap-eligibility {
+	// li {
+	// 	margin: var(--space-6) 0;
+	// }
+
+	.block__content {
+		@include flex-center;
+		flex-direction: column;
+
+		// gap: var(--space-12);
+
+		.fit__copy {
+			// max-width: 48rem;
+		}
+		.fit__img {
+			width: 20rem;
+			height: 20rem;
+			background-position: center;
+			background-size: cover; /* was 'position' typo */
+			background-repeat: no-repeat;
+			border-radius: 100%; /* optional rounded corners */
+		}
+		@include respond(md) {
+			flex-direction: row;
+			justify-content: space-between;
+		}
+	}
+
+	.fit__steps {
+		margin: var(--space-8) 0;
+		margin-left: var(--space-2);
+		display: grid;
+		gap: var(--space-2);
+	}
+	.fit__num {
+		inline-size: 0.75rem;
+		block-size: 0.75rem;
+		display: inline-grid;
+		place-items: center;
+
+		align-self: center;
+		justify-self: center;
+		svg {
+			inline-size: 100%;
+			block-size: 100%;
+			display: block;
+		}
+	}
+	.fit__step {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		column-gap: var(--space-4);
+		align-items: start;
+		padding: var(--space-4) 0;
+		border-bottom: 1px solid var(--border);
+		@include respond(md) {
+			margin-left: var(--space-8);
+		}
+
+		&:first-child {
+			// padding-top: 0;
+		}
+		&:last-child {
+			border-bottom: 0;
+			// padding-bottom: 0;
+		}
+
+		p {
+			margin: 0;
+		}
+	}
+
+	.fit__num {
+		font-variant-numeric: tabular-nums lining-nums;
+		letter-spacing: 0.06em;
+		color: var(--color-muted);
+		min-inline-size: 2.2ch; /* keeps numbers aligned */
+	}
+
+	/*
+	.fit__list {
+		margin-top: var(--space-8);
+		display: grid;
+		gap: var(--space-6);
+
+		@include respond(md) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	.fit__item {
+		background-color: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-md);
+		padding: var(--space-6);
+		display: flex;
+		align-items: flex-start;
+		gap: var(--space-4);
+	}
+
+	.fit__icon {
+		flex-shrink: 0;
+		inline-size: 1.5rem;
+		block-size: 1.5rem;
+		color: var(--brand-purple);
+
+		svg {
+			inline-size: 100%;
+			block-size: 100%;
+			display: block;
+		}
+	}
+
+	.fit__item p {
+		margin: 0;
+	}
+	*/
+}

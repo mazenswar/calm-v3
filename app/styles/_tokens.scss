@@ -1,0 +1,62 @@
+/* =========================
+   /styles/_tokens.scss
+   Single source of truth for brand tokens
+   ========================= */
+:root {
+	/* Colors */
+	--color-bg: #fff7f3;
+	--color-surface: #ffffff;
+	--color-text: #4d4d4d;
+	--color-muted: #6b7280;
+	--brand-1: #7f5a83;
+	--brand-2: #f9d8cd; /* brain character */
+	--brand-3: #4c2f6f;
+	--brand-4: #52489f;
+	--brand-5: #c266a7;
+	--brand-6: #e7c8e7;
+	--brand-7: #fcf3e8;
+	--brand-8: #7f5a830d; /* 10% brand-purple tint */
+	--accent-1: #174ea6;
+	--success: #0f9d58;
+	--warning: #fbbc05;
+	--danger: #d93025;
+
+	--gradient: linear-gradient(0deg, var(--brand-6) 0%, var(--brand-7) 100%);
+
+	/* Typography */
+	--font-sans: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial,
+		sans-serif;
+
+	--font-body: var(--font-lexend);
+	--font-heading: var(--font-serif);
+
+	/* Spacing scale (4pt base) */
+	--space-1: 4px;
+	--space-2: 8px;
+	--space-3: 12px;
+	--space-4: 16px;
+	--space-5: 20px;
+	--space-6: 24px;
+	--space-8: 32px;
+	--space-10: 40px;
+	--space-12: 48px;
+	--space-16: 64px;
+
+	/* Radii and shadows */
+	--radius-sm: 8px;
+	--radius-md: 12px;
+	--radius-lg: 16px;
+	--radius-xl: 24px;
+	--shadow-1: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+	--shadow-2: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Dark mode hook if you need it later */
+// @media (prefers-color-scheme: dark) {
+// 	:root {
+// 		--color-bg: #0f0f10;
+// 		--color-surface: #161617;
+// 		--color-text: #e9eaec;
+// 		--color-muted: #a1a1aa;
+// 	}
+// }
