@@ -1,5 +1,64 @@
+@use "../../styles/mixins" as *;
+
+/* Mobile-first; md = and up */
 .resources {
-	li {
-		margin: var(--space-6) 0;
+	.block__content {
+		.resources__intro {
+			margin-top: 0;
+			p {
+				margin: 0;
+			}
+		}
+
+		/* Cards grid */
+		.resources__grid {
+			margin: var(--space-8) 0 0;
+			padding: 0;
+			list-style: none;
+
+			display: grid;
+			grid-template-columns: 1fr; /* stack on mobile */
+			gap: var(--space-5);
+		}
+
+		/* Resource card: light, readable, consistent with site */
+		.resource-card {
+			background: var(--color-surface);
+			border: 1px solid rgba(0, 0, 0, 0.06);
+			border-radius: var(--radius-lg);
+			box-shadow: var(--shadow-1);
+			padding: var(--space-6);
+
+			display: grid;
+			row-gap: var(--space-3);
+		}
+
+		.resource-card__title {
+			margin: 0;
+			font-weight: 600; /* subtle emphasis, keep type scale system */
+			/* Link inherits brand link styling from CustomLink */
+		}
+
+		.resource-card__desc {
+			margin: 0;
+			line-height: 1.6;
+		}
+
+		.resource-card__meta {
+			color: var(--color-muted);
+			font-size: 0.95em;
+		}
+
+		/* md and up */
+		@include respond(md) {
+			.resources__grid {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				gap: var(--space-6);
+			}
+
+			.resource-card {
+				padding: var(--space-8);
+			}
+		}
 	}
 }
