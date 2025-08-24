@@ -4,6 +4,10 @@
 	@include flex-column;
 	.block__content {
 		@include flex-column;
+		.text {
+			@include flex-column;
+			gap: var(--space-4);
+		}
 
 		h2 {
 			align-self: flex-start;

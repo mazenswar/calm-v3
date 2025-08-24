@@ -1,0 +1,318 @@
+@use "../styles/mixins" as *;
+
+/* Mobile-first; respond(md) applies to medium and up */
+#fees-insurance {
+	/* Alternating section backgrounds */
+
+	section.block:nth-of-type(odd) {
+		background: var(--brand-8);
+	}
+	section.block:nth-of-type(even) {
+		background: var(--color-surface);
+		// background: #000;
+	}
+
+	section.block > .block__content > *:first-child {
+		margin-top: 0;
+	}
+	section.block > .block__content > *:last-child {
+		margin-bottom: 0;
+	}
+
+	/* Shared helpers */
+	.section-title {
+		margin-bottom: var(--space-4);
+	}
+	.lead {
+		color: inherit;
+		font-weight: 300;
+		margin: var(--space-4) 0;
+	}
+	.prose {
+		max-width: none;
+		@include flex-column;
+		align-items: flex-start;
+		gap: var(--space-6);
+	}
+
+	.bullets {
+		/* keep native markers for simplicity */
+		padding-left: var(--space-8);
+		@include flex-column;
+		align-items: flex-start;
+		gap: var(--space-3);
+	}
+	li {
+		line-height: 1.6;
+	}
+	.bullets li::marker {
+		color: var(--brand-1);
+	}
+
+	/* ---------- HERO + PRICES ---------- */
+	.fees-hero__title {
+		margin: 0;
+	}
+
+	/* HERO layout: text + illustration */
+	.fees-hero {
+		display: grid;
+		grid-template-columns: 1fr;
+		align-items: center;
+		gap: var(--space-6);
+
+		@include respond(md) {
+			grid-template-columns: 3fr 2fr; /* text : image on md+ */
+			gap: var(--space-8);
+		}
+	}
+
+	.fees-hero__text {
+		@include flex-column;
+		gap: var(--space-4);
+	}
+
+	.fees-hero__media {
+		margin: 0; /* reset figure */
+		max-width: 28rem; /* keep image from overpowering text */
+		justify-self: center;
+
+		@include respond(md) {
+			justify-self: end;
+			max-width: 27rem;
+		}
+
+		img {
+			/* Next/Image rendered img */
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	.fees__intro .fees-cards {
+		margin-top: var(--space-6);
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-4);
+
+		@include respond(md) {
+			grid-template-columns: repeat(2, 1fr);
+			gap: var(--space-6);
+		}
+	}
+	.price-card {
+		background: var(--color-surface);
+		border-radius: var(--radius-lg);
+		box-shadow: var(--shadow-1);
+		padding: var(--space-6);
+		text-align: center;
+
+		&__label {
+			font-weight: 600;
+			margin: 0 0 var(--space-2);
+		}
+		&__value {
+			font-size: clamp(1.75rem, 6vw, 2.25rem);
+			font-weight: 400;
+			color: var(--brand-1);
+		}
+		&__note {
+			color: var(--color-muted);
+			margin-top: var(--space-2);
+		}
+	}
+
+	/* ---------- INSURANCE BASICS ---------- */
+	.fees__insurance-basics {
+	}
+
+	/* ---------- VERIFY COVERAGE ---------- */
+	.fees__verify {
+	}
+
+	.info-box {
+		margin-top: var(--space-5);
+		background: var(--brand-8);
+		border: 1px solid rgba(0, 0, 0, 0.06);
+		border-radius: var(--radius-lg);
+		box-shadow: var(--shadow-1);
+		padding: var(--space-5);
+
+		&__title {
+			margin: 0 0 var(--space-6);
+			font-weight: 600;
+			@include respond(md) {
+				margin: 0 0 var(--space-10);
+			}
+		}
+		&__list {
+			margin: 0;
+			padding: 0;
+			display: grid;
+			grid-template-columns: 1fr; // mobile: stacked
+			row-gap: var(--space-2);
+			column-gap: var(--space-4);
+			@include respond(md) {
+				row-gap: var(--space-8);
+			}
+		}
+
+		/* Base (mobile): stack label then value */
+		dt {
+			grid-column: 1;
+			font-weight: 600;
+			margin: 0;
+		}
+		dd {
+			grid-column: 1;
+			margin: var(--space-1) 0 0;
+			color: var(--color-muted);
+		}
+
+		.muted-note dd {
+			font-style: italic;
+		}
+
+		@include respond(md) {
+			.info-box__list {
+				grid-template-columns: 1fr 2fr; // md+: two-column pairs
+			}
+			.info-box__list dt {
+				grid-column: 1;
+			}
+			.info-box__list dd {
+				grid-column: 2;
+				margin-top: 0;
+			}
+		}
+	}
+
+	.verify-questions {
+		margin-top: var(--space-5);
+		background: var(--brand-8);
+		// border: 1px solid rgba(0, 0, 0, 0.06);
+		border-radius: var(--radius-lg);
+		box-shadow: var(--shadow-1);
+		padding: var(--space-5);
+	}
+
+	/* ---------- WHY OON ---------- */
+	.fees__why {
+	}
+	.why-intro {
+		color: var(--color-muted);
+	}
+
+	.why-grid {
+		margin-top: var(--space-5);
+		display: grid;
+		gap: var(--space-4);
+		grid-template-columns: 1fr;
+
+		@include respond(md) {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			gap: var(--space-6);
+		}
+	}
+
+	.why-card {
+		background: var(--color-surface);
+
+		border-radius: var(--radius-lg);
+		box-shadow: var(--shadow-1);
+		padding: var(--space-6);
+
+		h3 {
+			margin: 0 0 var(--space-2);
+			display: inline-flex;
+			align-items: center;
+			gap: var(--space-2);
+		}
+
+		/* Icon directly left of title with breathing room */
+		.why-card__icon {
+			flex: 0 0 auto;
+			line-height: 1;
+			font-size: 1.1em;
+			color: var(--brand-1);
+			margin-right: var(--space-2); // breathing room beside the title
+			margin-bottom: 0; // avoid dropping onto the first line of text
+			vertical-align: middle;
+		}
+
+		p {
+			margin: 0;
+			color: var(--color-muted);
+		}
+	}
+
+	/* Optional modifier if you want icon on far right later:
+     .why-card--split h3 { justify-content: space-between; }
+     (Keep default left placement for now per your direction.) */
+
+	/* ---------- HOW REIMBURSEMENT WORKS ---------- */
+	.fees__how {
+		width: 100%;
+	}
+
+	.steps {
+		margin-top: var(--space-6);
+		display: grid;
+		gap: var(--space-4);
+		grid-template-columns: 1fr;
+		padding-left: 0;
+
+		@include respond(md) {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	.step {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: var(--space-3);
+		align-items: start;
+		// background: var(--color-surface);
+		background: var(--brand-8);
+		border-radius: var(--radius-lg);
+		box-shadow: var(--shadow-1);
+		padding: var(--space-5);
+
+		&__badge {
+			width: 2.25rem;
+			height: 2.25rem;
+			border-radius: 999px;
+			display: grid;
+			place-items: center;
+			font-weight: 700;
+			font-size: 0.95rem; /* keeps digits inside the circle */
+			line-height: 1;
+			background: color-mix(in oklab, var(--brand-1) 12%, var(--color-surface));
+			color: var(--brand-1);
+		}
+		&__title {
+			margin: 0 0 var(--space-2);
+			font-weight: 600;
+		}
+		p {
+			margin: 0;
+			color: var(--color-muted);
+		}
+	}
+
+	.fees-contact {
+		margin-top: var(--space-8);
+		// background: var(--color-surface);
+		// border: 1px solid rgba(0, 0, 0, 0.06);
+		// border-radius: var(--radius-lg);
+		// box-shadow: var(--shadow-1);
+		padding-top: var(--space-6);
+		@include flex-column;
+
+		a {
+			text-decoration: underline;
+			text-underline-offset: 2px;
+		}
+	}
+}

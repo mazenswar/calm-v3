@@ -1,0 +1,181 @@
+@use "@/app/styles/mixins" as *;
+
+/* Root shell */
+.site-footer {
+	color: var(--color-surface);
+	background: var(--brand-1);
+
+	.block {
+		/* vertical rhythm */
+		padding: var(--space-12) 0;
+		.block__content {
+			padding: var(--space-8);
+		}
+	}
+
+	a.footer-link {
+		color: var(--color-surface);
+		text-decoration: underline;
+		text-underline-offset: 2px;
+
+		&:hover,
+		&:focus-visible {
+			text-decoration-thickness: 2px;
+		}
+	}
+}
+
+/* =====================
+   Content band (single)
+   ===================== */
+.footer-content {
+	background: color-mix(in oklab, var(--brand-1) 92%, black 0%);
+
+	.block__content {
+		color: inherit;
+		display: grid;
+		gap: var(--space-16);
+	}
+
+	/* Inclusion: flex with space-between; round 100px image */
+	.footer-inclusion {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		gap: var(--space-12);
+
+		.footer-inclusion__media {
+			flex: 0 0 auto;
+
+			.footer-inclusion__img {
+				width: 100px;
+				height: 100px;
+				border-radius: 9999px;
+				object-fit: cover;
+				display: block;
+			}
+		}
+
+		.footer-inclusion__text {
+			margin: 0;
+			// text-align: center;
+			// max-width: 70ch;
+			opacity: 0.95;
+			/* ensure it shrinks gracefully if space gets tight */
+			flex: 1 1 auto;
+		}
+
+		@include respond(md) {
+			/* keep same layout on desktop; spacing already adequate */
+			flex-direction: row;
+		}
+	}
+
+	/* SEO line just above utilities */
+	.footer-seo-line {
+		margin: 0;
+		// max-width: 75ch;
+		opacity: 0.92;
+		// text-align: center;
+	}
+
+	.footer-links {
+		display: flex;
+		flex-direction: row;
+	}
+	/* Utilities: two columns on md+, stacked on mobile */
+	.footer-utilities {
+		display: flex;
+		flex-direction: column;
+		// justify-content: center;
+		// align-items: center;
+		gap: var(--space-8);
+
+		@include respond(md) {
+			justify-content: space-between;
+			gap: var(--space-10);
+		}
+
+		.footer-utilities__col {
+			display: flex;
+			flex-direction: column;
+			gap: var(--space-3);
+		}
+
+		.footer-utilities__label {
+			font-weight: 600;
+			opacity: 0.95;
+		}
+
+		.footer-partners {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			display: flex;
+			flex-wrap: wrap;
+			gap: var(--space-3);
+
+			li {
+				border: 1px solid var(--brand-8);
+				border-radius: 999px;
+				padding: 0.375rem 0.75rem;
+				line-height: 1.2;
+				background: color-mix(in oklab, var(--color-surface) 10%, transparent);
+			}
+		}
+
+		/* Right side: make links a column, not a row */
+		.footer-links {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			display: flex;
+			flex-direction: column;
+
+			gap: var(--space-2);
+
+			@include respond(md) {
+				gap: var(--space-2);
+			}
+		}
+	}
+}
+
+/* =====================
+   Bottom bar (legal)
+   ===================== */
+.footer-bottombar {
+	background: var(--brand-1);
+	border-top: 1px solid
+		color-mix(in oklab, var(--color-surface) 18%, transparent);
+
+	.container {
+		padding: var(--space-4) 0;
+	}
+
+	.footer-copy {
+		margin: 0;
+		text-align: center;
+		font-size: 0.65rem;
+		opacity: 0.92;
+		a {
+			font-size: 0.65rem;
+		}
+		@include respond(md) {
+			font-size: 1rem;
+			a {
+				font-size: 1rem;
+			}
+		}
+	}
+}
+
+/* Small type normalization inside footer */
+.site-footer {
+	p,
+	li,
+	a {
+		font-size: 0.95rem;
+	}
+}

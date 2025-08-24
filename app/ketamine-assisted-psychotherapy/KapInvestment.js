@@ -84,7 +84,16 @@ export function KapInvestment() {
 
 					{/* Medical SECOND (Journey Clinical) */}
 					<div className="medical-costs">
-						<h3>Medical Costs (via Journey Clinical)</h3>
+						<h3>
+							Medical Costs (via{" "}
+							<CustomLink
+								url="https://www.journeyclinical.com/patients"
+								newWindow={true}
+							>
+								Journey Clinical
+							</CustomLink>
+							)
+						</h3>
 						<p>
 							Journey Clinical is a separate medical provider that handles all
 							evaluations and prescriptions related to ketamine.

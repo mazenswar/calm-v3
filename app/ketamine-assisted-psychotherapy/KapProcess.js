@@ -1,3 +1,4 @@
+import CustomLink from "../Components/ui/CustomLink";
 import "./style/kap-process.scss";
 
 export default function KapProcess() {
@@ -93,8 +94,14 @@ export default function KapProcess() {
 							<div className="kap-step__content">
 								<ul className="kap-step__bullets">
 									<li>
-										Virtual consultation to review your medical and psychiatric
-										history
+										Virtual consult with{" "}
+										<CustomLink
+											url="https://www.journeyclinical.com/patients"
+											newWindow={true}
+										>
+											Journey Clinical
+										</CustomLink>{" "}
+										to review your medical and psychiatric history
 									</li>
 									<li>
 										If approved, ketamine lozenges are prescribed and shipped to

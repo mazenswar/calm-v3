@@ -24,10 +24,12 @@ function Hero() {
 				<div className="heroImg">
 					<Image
 						src={ts.src}
-						alt="Dr Tanya Singh smiling"
+						alt="Tanya Singh, PhD — therapist offering integrative care"
 						width={480}
 						height={640}
 						priority
+						sizes="(max-width: 768px) 90vw, 480px"
+						style={{ width: "100%", height: "auto" }}
 					/>
 				</div>
 			</div>

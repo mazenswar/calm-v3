@@ -1,30 +1,108 @@
 @use "../../styles/mixins" as *;
 
-.specialty__grid {
-	display: grid;
-	gap: var(--space-4);
-	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-	list-style: none;
-	padding: 0;
-}
+.home-specialties {
+	/* spacing comes from .block */
+	background-color: var(--color-surface);
 
-.specialty__card {
-	@include flex-center;
-	background: var(--color-surface);
-	border-radius: var(--radius-md);
-	padding: var(--space-4) var(--space-6);
-	box-shadow: var(--shadow-1);
-	transition: background-color 0.15s ease, box-shadow 0.15s ease;
-
-	a {
-		display: block;
-		text-decoration: none;
-		color: var(--color-text);
+	.block__content {
+		/* container padding handled globally */
 	}
 
-	&:hover,
-	&:focus-within {
-		background: rgba(249, 216, 205, 0.1);
-		box-shadow: var(--shadow-2);
+	.home-specialties__header {
+		@include flex-column;
+		gap: var(--space-2);
+
+		h2 {
+			margin: 0;
+		}
+
+		.home-specialties__sub {
+			margin: 0;
+			// max-width: 70ch;
+			color: var(--color-muted);
+		}
+	}
+
+	.home-specialties__grid {
+		margin: 0;
+		padding: 0;
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-4);
+		margin-top: var(--space-6);
+
+		> * {
+			height: 100%; /* ensure each grid item (CustomLink) stretches */
+		}
+
+		@include respond(md) {
+			grid-template-columns: repeat(3, 1fr);
+			gap: var(--space-6);
+			margin-top: var(--space-10);
+		}
+	}
+
+	.spec-card {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		text-decoration: none; /* CustomLink base will style focus/hover; we add visuals below */
+
+		.spec-card__inner {
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			gap: var(--space-3);
+			padding: var(--space-5);
+			border: 1px solid var(--brand-8);
+			border-radius: 16px;
+			background: var(--brand-8);
+			transition: transform 160ms ease, box-shadow 160ms ease,
+				border-color 160ms ease;
+			align-items: flex-start; /* keep left alignment */
+			min-height: 100%; /* ensure inner can fill */
+
+			@include respond(md) {
+				padding: var(--space-6);
+			}
+		}
+
+		.spec-card__title {
+			margin: 0;
+			line-height: 1.25;
+			color: var(--color-text);
+		}
+
+		.spec-card__blurb {
+			margin: 0;
+			color: var(--color-text);
+		}
+
+		.spec-card__cta {
+			margin-top: var(--space-1);
+			font-weight: 600;
+			margin-top: auto; /* pins CTA to bottom of card */
+			align-self: flex-start; /* keeps CTA aligned to left edge */
+		}
+
+		&:hover .spec-card__inner,
+		&:focus-visible .spec-card__inner {
+			transform: translateY(-2px);
+			box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+			// border-color: var(--brand-5);
+		}
+	}
+
+	.home-specialties__footer {
+		margin-top: var(--space-6);
+
+		@include respond(md) {
+			margin-top: var(--space-8);
+		}
+
+		.home-specialties__all {
+			display: inline-block;
+			font-weight: 600;
+		}
 	}
 }

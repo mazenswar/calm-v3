@@ -5,15 +5,42 @@
 		@include flex-column;
 		justify-content: center;
 		align-items: center;
+		gap: var(--space-8);
+
+		.btnPrimary {
+			margin-top: var(--space-6);
+		}
 		.lead {
 			max-width: 60ch;
 		}
 		@include respond(md) {
 			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
 		}
 	}
 }
 .heroCopy {
 	@include flex-column;
+	align-items: center;
+	max-width: 58ch;
+	text-align: center;
 	gap: var(--space-4);
+	@include respond(md) {
+		text-align: left;
+	}
+}
+.heroImg {
+	width: min(420px, 90vw);
+	margin-top: var(--space-6);
+	img {
+		width: 100%;
+		height: auto;
+		display: block;
+		border-radius: 12px;
+	}
+	@include respond(md) {
+		margin-top: 0;
+		width: 420px; // fixed figure on md+; image stays crisp and consistent
+	}
 }

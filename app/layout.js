@@ -2,6 +2,7 @@ import { Lexend, DM_Serif_Display } from "next/font/google";
 import "./styles/index.scss";
 import Footer from "./Components/Footer/Component";
 import MainNav from "./Components/MainNav/Component";
+import NewFooter from "./Components/NewFooter/Component";
 
 const lexend = Lexend({
 	subsets: ["latin"],
@@ -28,7 +29,8 @@ export default function RootLayout({ children }) {
 			<body className={`${dmSerif.variable} ${lexend.variable}`}>
 				<MainNav />
 				{children}
-				<Footer />
+
+				<NewFooter />
 			</body>
 		</html>
 	);

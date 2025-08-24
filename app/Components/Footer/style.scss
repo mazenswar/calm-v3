@@ -9,6 +9,7 @@ footer {
 	.block__content {
 		width: 100%;
 		@include flex-column;
+		align-items: center;
 		gap: var(--space-12);
 		h2 {
 			margin: 0;
@@ -182,6 +183,7 @@ footer {
 .copyright {
 	.block__content {
 		@include flex-column;
+		align-items: center;
 
 		small {
 			margin-top: var(--space-10);

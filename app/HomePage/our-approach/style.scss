@@ -1,0 +1,138 @@
+@use "../../styles/mixins" as *;
+
+.approach {
+	/* .block provides vertical spacing; keep edges clean */
+
+	.block__content {
+		/* container spacing comes from the system */
+	}
+
+	.approach__layout {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-8);
+
+		@include respond(md) {
+			/* Two-column grid; two rows so bullets can sit under copy */
+			display: grid;
+			grid-template-columns: 1.3fr 1fr; /* slightly widens the visual weight of the right column */
+			grid-template-rows: auto auto;
+			align-items: start;
+			column-gap: var(--space-10);
+			row-gap: var(--space-8);
+		}
+	}
+
+	.approach__copy {
+		@include flex-column;
+		gap: var(--space-4);
+		max-width: 72ch;
+
+		h2 {
+			margin: 0;
+		}
+		p {
+			margin: 0;
+		}
+
+		.approach__link {
+			margin-top: var(--space-2);
+			display: inline-block;
+			/* CustomLink styles handle interaction */
+		}
+
+		@include respond(md) {
+			max-width: 68ch;
+			/* Place copy in the top-left cell */
+			grid-column: 1;
+			grid-row: 1;
+		}
+	}
+
+	/* Right column wrapper; becomes 'contents' so its children can be placed */
+	.approach__side {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-6);
+
+		@include respond(md) {
+			/* Let children participate directly in the grid */
+			display: contents;
+			gap: unset; /* children will control their own spacing via grid row-gap */
+		}
+	}
+	.approach__actions {
+		// margin-top: var(--space-6);
+		// align-self: center;
+		// justify-self: center;
+	}
+
+	.approach__media {
+		margin: 0; /* reset figure defaults */
+		display: block;
+
+		img {
+			display: block;
+			width: 100%;
+			height: auto;
+			// border-radius: 14px;
+			// border: 1px solid var(--brand-8); /* subtle tint you've been using */
+		}
+
+		@include respond(md) {
+			/* Image spans both rows and is vertically centered while staying right-aligned */
+			grid-column: 2;
+			grid-row: 1 / 3; /* span both rows for vertical centering against left content */
+			align-self: center; /* center vertically within the combined two rows */
+			max-width: 440px; /* slight bump; adjust as desired (420–480px works) */
+			justify-self: end; /* keep anchored to the right edge */
+		}
+	}
+
+	.approach__list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-3);
+
+		li {
+			position: relative;
+			line-height: 1.6;
+			padding-left: 1.5rem;
+
+			/* Neutral hollow bullets (consistent with earlier choice) */
+			&::before {
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 0.55em;
+				width: 0.6rem;
+				height: 0.6rem;
+				border-radius: 999px;
+				border: 2px solid var(--brand-3);
+			}
+		}
+
+		@include respond(md) {
+			gap: var(--space-4);
+
+			/* Place bullets below the copy, left column, second row */
+			grid-column: 1;
+			grid-row: 2;
+
+			li {
+				padding-left: 1.25rem;
+
+				&::before {
+					top: 0.55em;
+					width: 0.5rem;
+					height: 0.5rem;
+					border-width: 2px;
+				}
+			}
+		}
+	}
+}

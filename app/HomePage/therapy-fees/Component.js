@@ -7,12 +7,26 @@ function TherapyFees() {
 	return (
 		<section className="block blockTint" id="home-therapy-fees">
 			<div className="block__content container">
-				<h2 className="h2">Therapy Fees</h2>
-				<p className="text">
-					CALM Therapy is a private-pay, out-of-network provider. We offer
-					superbills you can submit for potential reimbursement through your
-					insurance, depending on your plan.
-				</p>
+				<h2 className="h2">Investing in Therapy</h2>
+				<div className="text">
+					<p>
+						Therapy is a meaningful commitment of time, energy, and care. Our
+						fees reflect the depth of training and presence we bring to every
+						session.
+					</p>
+					<p>
+						Real change also asks for consistency. Therapy is most effective
+						when clients invest not only financially, but in showing up
+						regularly and engaging fully in the process.
+					</p>
+					<p>
+						CALM Therapy is a private-pay practice. We do not accept insurance
+						directly, but many clients use out-of-network benefits for partial
+						reimbursement. Learn more about how that works on our Fees &amp;
+						Insurance page.
+					</p>
+				</div>
+
 				<table className="feeTable">
 					<thead>
 						<tr>

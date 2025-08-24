@@ -1,5 +1,5 @@
 import React from "react";
-import CustomLink from "../ui/CustomLink";
+
 import "./style.scss";
 import DiversityBanner from "./DiversityBanner";
 import ContactInfoBanner from "./ContactInfoBanner";

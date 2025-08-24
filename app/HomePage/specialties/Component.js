@@ -1,23 +1,88 @@
-import Link from "next/link";
 import React from "react";
-import { specialties } from "./data";
 import "./style.scss";
+import CustomLink from "@/app/Components/ui/CustomLink";
+import Button from "@/app/Components/ui/Button";
 
-function Specialties() {
+function HomeSpecialties() {
 	return (
-		<section className="block">
+		<section
+			className="block home-specialties"
+			aria-labelledby="home-spec-heading"
+		>
 			<div className="block__content container">
-				<h2 className="h2">Specialties</h2>
-				<ul className={"specialty__grid"}>
-					{specialties.map((sp) => (
-						<li key={sp.id} className={"specialty__card"}>
-							<Link href={sp.slug}>{sp.title}</Link>
-						</li>
-					))}
-				</ul>
+				<div className="home-specialties__header">
+					<h2 id="home-spec-heading">What We Can Help With</h2>
+					<p className="home-specialties__sub">
+						We’re here to offer care and perspective as you navigate your
+						journey.
+					</p>
+				</div>
+
+				<div className="home-specialties__grid" role="list">
+					{/* OCD */}
+					<CustomLink
+						url="/specialties#ocd"
+						classN="spec-card"
+						ariaLabel="Read about Obsessive‑Compulsive Disorder"
+					>
+						<div role="listitem" className="spec-card__inner">
+							<h3 className="spec-card__title">
+								Obsessive‑Compulsive Disorder (OCD)
+							</h3>
+							<p className="spec-card__blurb">
+								Evidence‑based therapy for intrusive thoughts and compulsions,
+								with approaches like ERP, i‑CBT, and ACT.
+							</p>
+							<span className="spec-card__cta">Learn more →</span>
+						</div>
+					</CustomLink>
+
+					{/* KAP */}
+					<CustomLink
+						url="/specialties#kap-spec"
+						classN="spec-card"
+						ariaLabel="Read about Ketamine‑Assisted Psychotherapy"
+					>
+						<div role="listitem" className="spec-card__inner">
+							<h3 className="spec-card__title">
+								Ketamine‑Assisted Psychotherapy (KAP)
+							</h3>
+							<p className="spec-card__blurb">
+								For treatment‑resistant anxiety, OCD, or depression in
+								partnership with Journey Clinical, with an emphasis on safety
+								and integration.
+							</p>
+							<span className="spec-card__cta">Learn more →</span>
+						</div>
+					</CustomLink>
+
+					{/* Self‑Esteem */}
+					<CustomLink
+						url="/specialties#self-esteem"
+						classN="spec-card"
+						ariaLabel="Read about Self‑Esteem and Self‑Worth"
+					>
+						<div role="listitem" className="spec-card__inner">
+							<h3 className="spec-card__title">Self‑Esteem & Self‑Worth</h3>
+							<p className="spec-card__blurb">
+								Reconnecting with a stable sense of worth that isn’t tied to
+								performance or appearance.
+							</p>
+							<span className="spec-card__cta">Learn more →</span>
+						</div>
+					</CustomLink>
+				</div>
+
+				<div className="home-specialties__footer">
+					<Button
+						url="/specialties"
+						text="See all specialties"
+						primary={false}
+					/>
+				</div>
 			</div>
 		</section>
 	);
 }
 
-export default Specialties;
+export default HomeSpecialties;

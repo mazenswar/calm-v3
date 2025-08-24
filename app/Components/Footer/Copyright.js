@@ -9,9 +9,9 @@ function Copyright() {
 					Privacy Policy
 				</CustomLink>
 				<small>
-					© 2025 CALM Therapy · Site by
+					© 2025 CALM Therapy ·
 					<CustomLink url="https://mazenswar.dev" className="designer-link">
-						Mazen Alswar
+						site credit
 					</CustomLink>
 				</small>
 			</div>

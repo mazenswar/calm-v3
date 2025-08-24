@@ -37,7 +37,7 @@ export default function KapIntro() {
 					<p>
 						Ketamine-Assisted Psychotherapy (KAP) can be a powerful catalyst for
 						emotional healing, especially when approached with intention and
-						support. At CALM, we see KAP as one part of a larger journey — a
+						support. At CALM, we see KAP as one part of a larger journey; a
 						practice that deepens and complements the work you’re already doing
 						to understand yourself and heal.
 					</p>
