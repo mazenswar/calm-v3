@@ -21,6 +21,15 @@ const dmSerif = DM_Serif_Display({
 export const metadata = {
 	title: "CALM Therapy",
 	description: "Online therapy designed for depth and growth.",
+	openGraph: {
+		images: ["/social/ss.webp"],
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "CALM Therapy",
+		description: "Online therapy designed for depth and growth.",
+		images: ["/social/ss.webp"],
+	},
 };
 
 export default function RootLayout({ children }) {
