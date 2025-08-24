@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import CustomLink from "../Components/ui/CustomLink";
-import heroImg from "./assets/investment.webp";
+import heroImg from "./assets/waves-2.jpg";
 import "./style.scss";
 
 /**
