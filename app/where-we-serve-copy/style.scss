@@ -1,0 +1,230 @@
+@use "../styles/tokens" as *;
+@use "../styles/mixins" as *;
+
+/* Root wrapper */
+#where-we-serve {
+	background: var(--color-bg);
+	color: var(--color-text);
+	overflow: visible;
+}
+
+/* ---------------- Subheader (sticky tabs) ---------------- */
+.wws__subnav {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	background: var(--color-surface);
+	backdrop-filter: saturate(160%) blur(8px);
+	border-bottom: 1px solid var(--brand-8);
+	box-shadow: 0 6px 12px -10px rgba(0, 0, 0, 0.25);
+	--subnav-h: 56px;
+
+	.block__content {
+		padding-top: var(--space-3);
+		padding-bottom: var(--space-3);
+		min-height: var(--subnav-h);
+		display: flex;
+		align-items: center;
+	}
+
+	ul {
+		display: flex;
+		gap: var(--space-6);
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	a {
+		text-decoration: none;
+		color: var(--brand-1);
+		padding: var(--space-2) var(--space-3);
+		border-radius: var(--radius-sm);
+		font-weight: 500;
+
+		&:hover {
+			background: var(--brand-8);
+		}
+	}
+}
+
+/* ---------------- Hero ---------------- */
+.wws__hero {
+	background: var(--brand-8);
+	padding: var(--space-16) 0;
+	.block__content {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-8);
+		align-items: start;
+
+		@include respond(md) {
+			grid-template-columns: 1.1fr 1fr;
+			align-items: center;
+		}
+	}
+
+	.hero__text {
+		h1 {
+			margin: 0 0 var(--space-4);
+			line-height: 1.25;
+		}
+		.lead {
+			color: var(--color-muted);
+			margin-bottom: var(--space-6);
+		}
+
+		.legend {
+			display: inline-flex;
+			align-items: center;
+			gap: var(--space-5);
+			color: var(--color-muted);
+			font-size: 0.95rem;
+
+			.chip {
+				display: inline-block;
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				margin-right: var(--space-2);
+				vertical-align: middle;
+			}
+			.chip--licensed {
+				background: var(--brand-1);
+			}
+			.chip--psypact {
+				background: var(--brand-6);
+			}
+		}
+	}
+
+	.hero__map {
+		background: var(--color-surface);
+		border: 1px solid var(--brand-8);
+		border-radius: var(--radius-lg);
+		box-shadow: var(--shadow-1);
+		padding: var(--space-4);
+
+		.map__hint {
+			text-align: center;
+			color: var(--color-muted);
+			font-size: 0.9rem;
+			margin-top: var(--space-3);
+		}
+	}
+}
+
+/* ---------------- State directory ---------------- */
+.wws__states {
+	h2 {
+		margin-bottom: var(--space-2);
+	}
+	.muted {
+		color: var(--color-muted);
+	}
+
+	.search {
+		margin-top: var(--space-4);
+		margin-bottom: var(--space-5);
+
+		input {
+			width: 100%;
+			font: inherit;
+			padding: var(--space-3) var(--space-4);
+			background: var(--color-surface);
+			border: 1px solid var(--brand-8);
+			border-radius: var(--radius-md);
+
+			&:focus {
+				outline: 2px solid var(--brand-6);
+				outline-offset: 2px;
+			}
+		}
+	}
+
+	.empty {
+		margin: var(--space-4) 0 0;
+		color: var(--color-muted);
+	}
+
+	.pillGrid {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: grid;
+		gap: var(--space-3);
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	.pillItem {
+		min-width: 0;
+	}
+
+	.statePill {
+		width: 100%;
+		display: inline-flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: var(--space-3);
+
+		/* Make pills wide enough so “Washington, DC” and “Northern Mariana Is.” don’t wrap */
+		min-height: 48px;
+		padding: var(--space-3) var(--space-4);
+
+		background: var(--color-surface);
+		border: 1px solid var(--brand-8);
+		border-radius: var(--radius-md);
+		box-shadow: var(--shadow-1);
+
+		font: inherit;
+		color: inherit;
+		cursor: default;
+
+		.stateName {
+			white-space: normal;
+			font-weight: 500;
+		}
+
+		.badge {
+			flex: 0 0 auto;
+			font-size: 0.72rem;
+			font-weight: 700;
+			padding: 2px 8px;
+			border-radius: 999px;
+			border: 1px solid var(--brand-8);
+			color: var(--brand-1);
+			background: #fff;
+		}
+
+		&.licensed .badge {
+			background: var(--brand-1);
+			border-color: var(--brand-1);
+			color: var(--color-surface);
+		}
+
+		&:focus-visible {
+			outline: 2px solid var(--brand-6);
+			outline-offset: 2px;
+		}
+	}
+}
+
+/* ---------------- How it works ---------------- */
+.wws__how {
+	background: var(--brand-8);
+
+	.how__copy {
+		margin: var(--space-2) 0 var(--space-2);
+	}
+	.muted {
+		color: var(--color-muted);
+	}
+}
+
+/* Offset in-page anchors so content isn't hidden under sticky subnav */
+.wws__hero,
+.wws__states,
+.wws__how {
+	scroll-margin-top: calc(var(--subnav-h, 56px) + var(--space-4));
+}
