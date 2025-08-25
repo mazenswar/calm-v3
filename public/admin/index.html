@@ -2,17 +2,29 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width,initial-scale=1" />
-		<title>Content Manager</title>
+		<meta
+			name="viewport"
+			content="width=device-width,initial-scale=1,shrink-to-fit=no"
+		/>
+		<title>CMS</title>
+		<!-- Decap CMS -->
+		<script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+		<!-- If you’re using Decap widgets or previews, you can load them after this -->
+		<script>
+			// Let Decap load /config.yml automatically from the site root.
+			// (We’re putting config.yml at /public/config.yml so it’s available at /config.yml.)
+			// No manual init needed.
+		</script>
+		<style>
+			/* Optional: give the page a safe background to make “blank screen” obvious if anything breaks */
+			html,
+			body {
+				height: 100%;
+				background: #fff;
+			}
+		</style>
 	</head>
 	<body>
-		<!-- Load Decap CMS -->
-		<script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-
-		<!-- Manual init with absolute config path -->
-		<script>
-			window.CMS_MANUAL_INIT = true;
-			CMS.init({ configPath: "/admin/config.yml" });
-		</script>
+		<!-- Decap will render into the body -->
 	</body>
 </html>
