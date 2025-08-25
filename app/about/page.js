@@ -1,79 +1,106 @@
-// app/about/AboutSection.jsx
+// app/about/page.js
 "use client";
+
 import "./style.scss";
 import Image from "next/image";
-// If you have a headshot, import it here. Replace the path/name as needed.
 import tanyaHeadshot from "./assets/tanya-headshot.jpg";
+import calmImg from "./assets/calm.png";
 
-// If you decide to link internally, use your CustomLink component:
-// import CustomLink from "Components/ui/CustomLink";
-
-export default function AboutSection() {
+export default function AboutPage() {
 	return (
-		<section className="block about">
-			<div className="block__content container">
-				{/* Intro */}
-				<header className="about__intro">
-					<h1 className="about__title">About CALM Therapy</h1>
-					<p className="about__lede">
-						CALM Therapy was founded to provide thoughtful, integrative care for
-						adults navigating anxiety, OCD, trauma, and life transitions. Our
-						work is designed for people who feel stuck, searching, or ready for
-						change and who want therapy that is both accessible and deeply
-						personal.
-					</p>
-				</header>
+		<main className="about">
+			{/* Section 1: About CALM Therapy */}
+			<section className="block about__section about__intro">
+				<div className="block__content container">
+					<div className="about__introWrap">
+						<div className="about__introText">
+							<h1>About CALM Therapy</h1>
+							<p>
+								CALM Therapy was founded to create a space for healing that is
+								both grounded and expansive. Evidence-based psychology offers
+								proven tools for change, while Eastern wisdom and contemplative
+								practices bring perspective, balance, and a deeper sense of
+								meaning.
+							</p>
+							<p>
+								This blend is important because many people want more than
+								short-term strategies. They want care that addresses immediate
+								struggles while also speaking to deeper questions of self,
+								purpose, and transformation.
+							</p>
+							<p>
+								Our care is designed for people navigating anxiety,
+								obsessive–compulsive and related disorders, complex trauma, and
+								major life transitions who want therapy that is both practical
+								and deeply personal.
+							</p>
+							<p>
+								At CALM, clients find more than symptom management. They find a
+								place where authenticity, compassion, and integrity are central,
+								and where therapy is understood as both a science and a path of
+								growth.
+							</p>
+						</div>
+						<div className="about__introImage">
+							<Image
+								src={calmImg}
+								alt="Calm Therapy visual representation"
+								priority
+								sizes="(max-width: 768px) 100vw, 400px"
+							/>
+						</div>
+					</div>
+				</div>
+			</section>
 
-				{/* Philosophy */}
-				<section
-					className="about__philosophy"
-					aria-labelledby="about-philosophy"
-				>
-					<h2 id="about-philosophy" className="about__sectionTitle">
-						Our Philosophy
-					</h2>
-
+			{/* Section 2: Our Philosophy */}
+			<section className="block about__section about__philosophy">
+				<div className="block__content container">
+					<h2>Our Philosophy</h2>
 					<div className="about__grid">
 						<article className="aboutCard">
-							<h3 className="aboutCard__title">An Integrative Approach</h3>
+							<h3>Integration in Practice</h3>
 							<p>
-								We practice a grounded, holistic approach that brings together
-								the rigor of evidence based psychology with contemplative and
-								embodied traditions. Therapy here isn’t about quick fixes; it’s
-								about cultivating presence, curiosity, and lasting change.
+								We draw from gold-standard approaches such as Exposure and
+								Response Prevention (ERP), Acceptance and Commitment Therapy
+								(ACT), Inference-Based CBT (I-CBT), and Internal Family Systems
+								(IFS). These methods provide evidence-based tools, while Eastern
+								frameworks invite perspective and balance. Together, they allow
+								room for both skills and meaning, short-term relief and
+								long-term healing.
 							</p>
 						</article>
-
 						<article className="aboutCard">
-							<h3 className="aboutCard__title">
-								Rooted in Science and Experience
-							</h3>
+							<h3>Depth and Breadth</h3>
 							<p>
-								CALM Therapy is led by Tanya Singh, PhD, a licensed clinical
-								psychologist with training at institutions including Rutgers
-								University Behavioral Health Care, Massachusetts General
-								Hospital/Harvard, Columbia University, Bellevue Hospital Center,
-								and Montclair State University. Clinical research experience and
-								ongoing integrative training shape care that is both
-								scientifically grounded and deeply human.
+								Some sessions are practical, focused on building skills for
+								daily life. Others make space for reflection, exploration, and
+								healing at the root, especially in the context of complex
+								trauma. This balance creates conditions for both immediate
+								relief and lasting transformation.
 							</p>
 						</article>
-
 						<article className="aboutCard">
-							<h3 className="aboutCard__title">Grounded and Expansive</h3>
+							<h3>A Values-Driven Practice</h3>
 							<p>
-								Some sessions are practical and skills focused; others invite
-								reflection and exploration. This balance creates a container
-								where meaningful transformation can unfold moving toward
-								clarity, resilience, and a renewed sense of self.
+								CALM is guided by values of authenticity, compassion, and
+								integrity. This is a space where people are encouraged to show
+								up as they are, while also being supported in the work of
+								change. We believe therapy is not only about reducing distress,
+								but about remembering who you are at your core and building a
+								life that reflects that truth.
 							</p>
 						</article>
 					</div>
-				</section>
+				</div>
+			</section>
 
-				{/* Meet Tanya */}
-				<section className="about__tanya" aria-labelledby="about-tanya">
-					<div className="about__tanyaWrap">
+			{/* Section 3: Meet the Founder */}
+			{/* Meet the Founder */}
+			<section className="block about__tanya" aria-labelledby="about-tanya">
+				<div className="block__content about__tanyaWrap">
+					{/* Row 1: image + header/meta */}
+					<div className="about__tanyaTop">
 						<div className="about__tanyaImg">
 							<Image
 								src={tanyaHeadshot}
@@ -84,40 +111,77 @@ export default function AboutSection() {
 							/>
 						</div>
 
-						<div className="about__tanyaText">
+						<div className="about__tanyaHead">
 							<h2 id="about-tanya" className="about__sectionTitle">
-								Meet Tanya
+								Meet the Founder
 							</h2>
 							<p className="about__tanyaName">
 								<strong>Tanya Singh, PhD</strong>
 								<span className="about__tanyaMeta">
-									Licensed Clinical Psychologist • Director & Co Founder
+									Licensed Clinical Psychologist • Director &amp; Co-Founder
 								</span>
 							</p>
-							<p>
-								Tanya specializes in anxiety, OCD, trauma, life transitions, and
-								integrative therapy approaches. She serves clients across New
-								York, New Jersey, Pennsylvania, and 40+ PSYPACT states. Her
-								style blends evidence based tools with intuitive insight, always
-								tailored to the individual.
-							</p>
-							<p>
-								Tanya is also provides Ketamine Assisted Psychotherapy (KAP) for
-								treatment resistant conditions, with an emphasis on
-								psychological safety, therapeutic depth, and long term
-								transformation.
-							</p>
-
-							{/* If you want a light CTA later, uncomment and wire up your CustomLink component */}
-							{/* <div className="about__cta">
-                <CustomLink href="/contact" classN="btn btn--secondary">
-                  Book a free 15‑minute call
-                </CustomLink>
-              </div> */}
 						</div>
 					</div>
-				</section>
-			</div>
-		</section>
+
+					{/* Row 2: full-width training */}
+					<div className="about__tanyaTraining">
+						<h3 className="about__subheading">Training &amp; Experience</h3>
+						<p>
+							Tanya Singh, PhD, is a licensed clinical psychologist specializing
+							in anxiety disorders, obsessive–compulsive and related disorders,
+							and major life transitions. In working with these concerns, she
+							also saw how many people carry the lingering impact of earlier
+							hardships, which led her to develop expertise in complex trauma.
+						</p>
+						<p>
+							Her training includes Rutgers University Behavioral Health Care,
+							Massachusetts General Hospital/Harvard University, Columbia
+							University, and Montclair State University. She has also pursued
+							training in ketamine-assisted psychotherapy (KAP), offering care
+							for individuals with treatment-resistant conditions.
+						</p>
+					</div>
+
+					{/* Row 3: two columns on md+, stacked on mobile */}
+					<div className="about__tanyaCols">
+						<article className="about__tanyaCol">
+							<h3 className="about__subheading">An Integrative Presence</h3>
+							<p>
+								What distinguishes her work is the way she integrates
+								evidence-based methods with an authentic and deeply human
+								presence. Having grown up in the East and trained as a
+								psychologist in the West, she carries both perspectives within
+								her. This integration is not something she applies from the
+								outside, but part of who she is and how she understands the
+								human experience. Clients often say they feel understood without
+								needing to over-explain. They recognize her persistence and
+								care, and that she is willing to sit with complexity, keep
+								puzzling through, and walk alongside them in the work.
+							</p>
+						</article>
+
+						<article className="about__tanyaCol">
+							<h3 className="about__subheading">Beyond the Therapy Room</h3>
+							<p>
+								For Tanya, therapy is more than a profession. It is a calling
+								and a craft, a place where psychological science and spiritual
+								wisdom meet, and where growth is possible for both client and
+								therapist. Her own ongoing reflection and growth shape the way
+								she shows up authentically with those she works with.
+							</p>
+							<p>
+								Outside of her clinical work, she values time in nature, long
+								walks, and quiet moments of contemplation. She enjoys cooking
+								and exploring new foods, playing video games, writing, and
+								spending time with the children in her life. These practices
+								keep her connected to curiosity, reverence, and the simple joys
+								of living, qualities she brings into her work as a psychologist.
+							</p>
+						</article>
+					</div>
+				</div>
+			</section>
+		</main>
 	);
 }

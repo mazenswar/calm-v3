@@ -1,146 +1,225 @@
 // app/about/style.scss
 @use "../styles/mixins" as *;
 
-/* Section shell */
+// Page section wrappers for About (aligns with global .block/.block__content)
+.about__intro .block__content,
+.about__philosophy .block__content,
+.about__tanya .block__content {
+	padding-top: var(--space-16);
+	padding-bottom: var(--space-16);
+	@include respond(md) {
+		padding-top: var(--space-24);
+		padding-bottom: var(--space-24);
+	}
+}
+
 .about {
-	background: var(--brand-8);
+	// Shared section spacing
+	&__section {
+		padding: 4rem 1rem;
+
+		@include respond(md) {
+			padding: 6rem 0;
+		}
+	}
+
+	// Alternating backgrounds
+	&__intro {
+		background: var(--brand-8);
+	}
+
+	&__philosophy {
+		background: var(--color-surface);
+	}
+
+	// Intro
+	&__introWrap {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		align-items: center;
+		text-align: left;
+
+		@include respond(md) {
+			flex-direction: row;
+			align-items: flex-start;
+			gap: 3rem;
+		}
+	}
+
+	&__introText,
+	&__introCopy {
+		flex: 2;
+
+		h1 {
+			margin-bottom: 1.5rem;
+		}
+
+		p {
+			margin-bottom: 1rem;
+			line-height: 1.6;
+			color: var(--color-text);
+		}
+	}
+
+	&__introImage {
+		flex: 1;
+		max-width: 400px;
+		align-self: center;
+		// justify-self: center;
+		img {
+			border-radius: 100%;
+			box-shadow: var(--shadow-1);
+		}
+	}
+
+	// Philosophy
+	&__philosophy {
+		text-align: center;
+
+		h2 {
+			margin-bottom: 2rem;
+		}
+	}
+
+	&__grid {
+		display: grid;
+		gap: 2rem;
+
+		@include respond(md) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	.aboutCard {
+		background: var(--brand-8);
+		padding: 1.5rem;
+		border-radius: 0.75rem;
+		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+		text-align: left;
+
+		h3 {
+			margin-bottom: 1rem;
+		}
+
+		p {
+			line-height: 1.6;
+			color: var(--color-text);
+		}
+	}
 }
 
-/* Intro */
-.about__intro {
-	display: grid;
-	gap: 0.75rem;
+/* ...keep your existing .about rules above... */
 
-	.about__title {
-		margin: 0 0 0.25rem 0;
-		line-height: 1.15;
+/* Tanya section – Option E layout */
+.about {
+	&__tanya {
+		background: var(--brand-8);
+		/* section spacing handled by your block wrappers */
 	}
 
-	.about__lede {
-		color: var(--color-text);
-		line-height: 1.6;
-		// max-width: 60ch;
+	&__tanyaWrap {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+
+		@include respond(md) {
+			gap: 2.5rem;
+		}
 	}
 
-	@include respond(md) {
-		gap: 0.9rem;
-	}
-}
-
-/* Shared section title */
-.about__sectionTitle {
-	margin: 1.25rem 0 0.75rem 0;
-	@include respond(md) {
-		margin: 1.5rem 0 1rem 0;
-	}
-}
-
-/* Philosophy grid */
-.about__philosophy {
-	margin-top: 1rem;
-
-	@include respond(md) {
-		margin-top: 1.25rem;
-	}
-}
-
-.about__grid {
-	display: grid;
-	gap: 0.9rem;
-
-	@include respond(md) {
-		grid-template-columns: repeat(3, 1fr);
-		gap: 1rem;
-	}
-}
-
-.aboutCard {
-	background: var(--color-surface);
-	border: 1px solid var(--brand-8);
-	border-radius: 14px;
-	padding: 1rem;
-	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
-
-	.aboutCard__title {
-		margin: 0 0 0.5rem 0;
-	}
-
-	p {
-		color: var(--color-text);
-		line-height: 1.6;
-	}
-}
-
-/* Meet Tanya */
-.about__tanya {
-	margin-top: 1.25rem;
-
-	@include respond(md) {
-		margin-top: 1.5rem;
-	}
-}
-
-.about__tanyaWrap {
-	display: grid;
-	gap: 1rem;
-
-	@include respond(md) {
-		grid-template-columns: 360px 1fr; /* image / copy */
-		align-items: start;
+	/* Row 1: image + header/meta */
+	&__tanyaTop {
+		display: flex;
+		flex-direction: column;
 		gap: 1.25rem;
-	}
-}
+		align-items: center;
 
-.about__tanyaImg {
-	border-radius: 16px;
-	overflow: hidden;
-	border: 1px solid var(--brand-8);
-	box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
-
-	img {
-		display: block;
-	}
-}
-
-.about__tanyaText {
-	display: flex;
-	flex-direction: column;
-	gap: 0.75rem;
-
-	@include respond(md) {
-		gap: 0.9rem;
+		@include respond(md) {
+			flex-direction: row;
+			align-items: center;
+			gap: 2rem;
+		}
 	}
 
-	p {
-		color: var(--color-text);
-		line-height: 1.6;
-		// max-width: 65ch;
+	&__tanyaImg {
+		width: 220px;
+		max-width: 60vw;
+
+		img {
+			border-radius: 0.75rem;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+
+		@include respond(md) {
+			width: 280px;
+			max-width: none;
+			flex: 0 0 auto;
+		}
 	}
-}
 
-.about__tanyaName {
-	margin: 0;
+	&__tanyaHead {
+		text-align: center;
 
-	strong {
-		font-weight: 700;
+		@include respond(md) {
+			text-align: left;
+			flex: 1 1 auto;
+		}
+
+		.about__sectionTitle {
+			margin-bottom: 0.5rem;
+		}
+
+		.about__tanyaName {
+			margin-top: 0.25rem;
+
+			.about__tanyaMeta {
+				display: block;
+				margin-top: 0.25rem;
+			}
+		}
 	}
 
-	.about__tanyaMeta {
-		display: block;
-		color: var(--color-muted);
-		margin-top: 0.25rem;
+	/* Row 2: full-width training */
+	&__tanyaTraining {
+		p {
+			margin-top: 0.75rem;
+			line-height: 1.6;
+			color: var(--color-text);
+		}
+
+		.about__subheading {
+			margin-top: 0.5rem;
+			margin-bottom: 0.25rem;
+		}
 	}
-}
 
-/* Optional CTA block if you enable it later */
-.about__cta {
-	margin-top: 0.25rem;
-}
+	/* Row 3: two columns on md+, stacked on mobile */
+	&__tanyaCols {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
 
-/* Spacing rhythm: avoid fighting the block paddings */
-.about .block__content > :first-child {
-	margin-top: 0;
-}
-.about .block__content > :last-child {
-	margin-bottom: 0;
+		@include respond(md) {
+			grid-template-columns: 1fr 1fr;
+			gap: 2rem;
+			align-items: start;
+		}
+	}
+
+	&__tanyaCol {
+		p {
+			margin-top: 0.75rem;
+			line-height: 1.6;
+			color: var(--color-text);
+		}
+
+		.about__subheading {
+			margin-top: 0;
+			margin-bottom: 0.25rem;
+		}
+	}
 }
