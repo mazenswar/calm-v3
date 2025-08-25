@@ -19,6 +19,17 @@
 		margin-bottom: 0;
 	}
 
+	.block__content {
+		@include flex-column;
+		.fees-hero {
+			margin-bottom: var(--space-16);
+		}
+		.fees-cards {
+			justify-self: center;
+			align-self: center;
+		}
+	}
+
 	/* Shared helpers */
 	.section-title {
 		margin-bottom: var(--space-4);
@@ -87,8 +98,14 @@
 			display: block;
 			width: 100%;
 			height: auto;
+			max-width: 200px;
+			margin-top: var(--space-8);
 			border-radius: 100%;
 			transform: rotate(180deg);
+			@include respond(md) {
+				margin-top: 0;
+				max-width: 300px;
+			}
 		}
 	}
 

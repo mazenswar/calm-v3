@@ -107,29 +107,21 @@ function AccordionItem({ idBase, title, children, defaultOpen = false }) {
 			return;
 
 		const opening = !open;
-
-		// If reduced motion, update visuals and hidden state immediately
 		if (reduce.current) {
-			setOpen(opening); // flip aria-expanded and icon immediately
-			if (!opening) containerRef.current?.setAttribute("data-hidden", "");
-			else containerRef.current?.removeAttribute("data-hidden");
+			commitState(opening);
 			return;
 		}
 
 		animatingRef.current = true;
-		// Flip aria-expanded and icon immediately for responsiveness
-		setOpen(opening);
-
 		try {
 			await animateHeight({
 				container: containerRef.current,
 				inner: innerRef.current,
 				opening,
 			});
-			// After animation completes, sync the actual hidden state
-			if (!opening) containerRef.current?.setAttribute("data-hidden", "");
-			else containerRef.current?.removeAttribute("data-hidden");
+			commitState(opening);
 		} finally {
+			// Clear inline styles set by WAAPI (height is applied virtually; WAAPI already set final visuals)
 			containerRef.current.getAnimations().forEach((a) => a.cancel());
 			innerRef.current.getAnimations().forEach((a) => a.cancel());
 			containerRef.current.style.height = "";

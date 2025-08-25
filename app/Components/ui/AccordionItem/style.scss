@@ -1,0 +1,124 @@
+/* Keep mixins local to this file; respond(md) is “breakpoint and up”. */
+@use "../../../styles/mixins" as *;
+
+/* Base tokens only; rely on your global type scale */
+:root {
+	/* fallbacks if needed; most colors should come from your global vars */
+	--acc-border: var(--brand-8, #7f5a830d);
+	--acc-text: var(--color-text, #4d4d4d);
+	--acc-muted: var(--color-muted, #6b7280);
+	--acc-focus: var(--brand-3, #4c2f6f);
+}
+
+/* ---------- Block ---------- */
+.accordion-item {
+	border-top: 1px solid var(--acc-border);
+
+	/* last child border for tidy stacks */
+	&:last-child {
+		border-bottom: 1px solid var(--acc-border);
+	}
+
+	/* state hook if needed elsewhere */
+	&.is-open {
+	}
+
+	/* ---------- Summary (button) ---------- */
+	&__summary {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		justify-content: space-between;
+		background: transparent;
+		border: 0;
+		padding: 1rem 0;
+		text-align: left;
+		color: var(--acc-text);
+		cursor: pointer;
+
+		@include respond(md) {
+			padding: var(--space-6);
+		}
+
+		&:focus-visible {
+			outline: 2px solid var(--acc-focus);
+			outline-offset: 2px;
+			border-radius: 6px;
+		}
+	}
+
+	&__title {
+		/* inherit typography from global scale */
+		line-height: 1.35;
+	}
+
+	/* plus/minus sign */
+	&__sign {
+		position: relative;
+		flex: 0 0 auto;
+		width: 1rem;
+		height: 1rem;
+
+		/* horizontal bar */
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			width: 100%;
+			height: 2px;
+			background: var(--acc-muted);
+			transform: translate(-50%, -50%);
+			transition: transform 200ms ease, opacity 200ms ease;
+		}
+
+		/* vertical bar (shows when closed -> plus) */
+		&::after {
+			transform: translate(-50%, -50%) rotate(90deg);
+			opacity: 1;
+		}
+	}
+
+	/* when open, morph to minus (hide vertical bar) */
+	&.is-open &__sign::after {
+		opacity: 0;
+		transform: translate(-50%, -50%) rotate(90deg) scaleY(0);
+	}
+
+	/* ---------- Content wrapper (animated height) ---------- */
+	&__content {
+		/* JS toggles data-hidden to 0 height during measure/animation */
+		&[data-hidden] {
+			height: 0;
+			overflow: hidden;
+		}
+	}
+
+	/* inner holds the actual answer text; opacity is animated */
+	&__inner {
+		// padding: 0 0 1rem 0;
+		padding: var(--space-4) var(--space-6);
+		@include respond(md) {
+			padding-bottom: 1.125rem;
+		}
+
+		p + p {
+			margin-top: 0.75rem;
+		}
+
+		/* optional muted support elements inside answers */
+		.muted {
+			color: var(--acc-muted);
+		}
+	}
+}
+
+/* Reduced motion users: skip fancy transitions if you add any CSS transitions later */
+@media (prefers-reduced-motion: reduce) {
+	.accordion-item__sign::before,
+	.accordion-item__sign::after {
+		transition: none;
+	}
+}
