@@ -1,230 +1,295 @@
-@use "../styles/tokens" as *;
 @use "../styles/mixins" as *;
+/* app/where-we-serve-copy/wws__hero.scss */
 
-/* Root wrapper */
-#where-we-serve {
-	background: var(--color-bg);
-	color: var(--color-text);
-	overflow: visible;
+/* Utilities */
+.sr-only {
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
 }
 
-/* ---------------- Subheader (sticky tabs) ---------------- */
-.wws__subnav {
-	position: -webkit-sticky;
-	position: sticky;
-	top: 0;
-	z-index: 10;
+.center-title {
+	text-align: center;
+	margin-bottom: 0.75rem;
+}
+
+/* Section */
+.wwsHero__section {
+	background: var(--brand-8);
+}
+
+.wwsHero__section .block__content {
+	display: grid;
+	gap: 1.25rem;
+	align-items: start;
+	/* mobile: stacked */
+	@include respond(md) {
+		/* md and up: two columns */
+		grid-template-columns: 1fr 1fr;
+		gap: 2rem;
+	}
+}
+
+/* Left column */
+.wwsHero__section .text {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	max-width: 42rem;
+	margin-inline: auto;
+
+	@include respond(md) {
+		margin-inline: 0;
+		gap: 1.25rem;
+	}
+
+	p {
+		color: var(--color-text);
+		line-height: 1.6;
+	}
+}
+
+/* Search */
+.wws__search {
+	position: relative;
+}
+
+.state-search {
+	width: 100%;
+	border: 1px solid var(--brand-8);
 	background: var(--color-surface);
-	backdrop-filter: saturate(160%) blur(8px);
-	border-bottom: 1px solid var(--brand-8);
-	box-shadow: 0 6px 12px -10px rgba(0, 0, 0, 0.25);
-	--subnav-h: 56px;
+	border-radius: 10px;
+	padding: 0.75rem 0.9rem;
+	font: inherit;
+	color: var(--color-text);
+	outline: none;
+	transition: border-color 120ms ease, box-shadow 120ms ease;
 
-	.block__content {
-		padding-top: var(--space-3);
-		padding-bottom: var(--space-3);
-		min-height: var(--subnav-h);
+	&:focus {
+		border-color: var(--brand-3);
+		box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-3) 18%, transparent);
+	}
+}
+
+/* Typeahead */
+.typeahead {
+	position: absolute;
+	inset-inline: 0;
+	top: calc(100% + 6px);
+	z-index: 20;
+	background: var(--color-surface);
+	border: 1px solid var(--brand-8);
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+	max-height: 18rem;
+	overflow-y: auto;
+	list-style: none;
+	padding-left: 0;
+
+	li + li {
+		border-top: 1px solid var(--brand-8);
+	}
+
+	button {
+		width: 100%;
+		text-align: left;
+		padding: 0.7rem 0.9rem;
+		background: transparent;
+		border: 0;
 		display: flex;
+		justify-content: space-between;
 		align-items: center;
-	}
+		gap: 0.6rem;
+		cursor: pointer;
+		font: inherit;
+		color: var(--color-text);
 
-	ul {
-		display: flex;
-		gap: var(--space-6);
-		list-style: none;
-		padding: 0;
-		margin: 0;
-	}
-
-	a {
-		text-decoration: none;
-		color: var(--brand-1);
-		padding: var(--space-2) var(--space-3);
-		border-radius: var(--radius-sm);
-		font-weight: 500;
-
-		&:hover {
+		&:hover,
+		&:focus-visible {
 			background: var(--brand-8);
 		}
-	}
-}
 
-/* ---------------- Hero ---------------- */
-.wws__hero {
-	background: var(--brand-8);
-	padding: var(--space-16) 0;
-	.block__content {
-		display: grid;
-		grid-template-columns: 1fr;
-		gap: var(--space-8);
-		align-items: start;
-
-		@include respond(md) {
-			grid-template-columns: 1.1fr 1fr;
-			align-items: center;
-		}
-	}
-
-	.hero__text {
-		h1 {
-			margin: 0 0 var(--space-4);
-			line-height: 1.25;
-		}
-		.lead {
-			color: var(--color-muted);
-			margin-bottom: var(--space-6);
-		}
-
-		.legend {
-			display: inline-flex;
-			align-items: center;
-			gap: var(--space-5);
-			color: var(--color-muted);
-			font-size: 0.95rem;
-
-			.chip {
-				display: inline-block;
-				width: 10px;
-				height: 10px;
-				border-radius: 50%;
-				margin-right: var(--space-2);
-				vertical-align: middle;
-			}
-			.chip--licensed {
-				background: var(--brand-1);
-			}
-			.chip--psypact {
-				background: var(--brand-6);
-			}
-		}
-	}
-
-	.hero__map {
-		background: var(--color-surface);
-		border: 1px solid var(--brand-8);
-		border-radius: var(--radius-lg);
-		box-shadow: var(--shadow-1);
-		padding: var(--space-4);
-
-		.map__hint {
-			text-align: center;
-			color: var(--color-muted);
-			font-size: 0.9rem;
-			margin-top: var(--space-3);
-		}
-	}
-}
-
-/* ---------------- State directory ---------------- */
-.wws__states {
-	h2 {
-		margin-bottom: var(--space-2);
-	}
-	.muted {
-		color: var(--color-muted);
-	}
-
-	.search {
-		margin-top: var(--space-4);
-		margin-bottom: var(--space-5);
-
-		input {
-			width: 100%;
-			font: inherit;
-			padding: var(--space-3) var(--space-4);
-			background: var(--color-surface);
-			border: 1px solid var(--brand-8);
-			border-radius: var(--radius-md);
-
-			&:focus {
-				outline: 2px solid var(--brand-6);
-				outline-offset: 2px;
-			}
-		}
-	}
-
-	.empty {
-		margin: var(--space-4) 0 0;
-		color: var(--color-muted);
-	}
-
-	.pillGrid {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-		display: grid;
-		gap: var(--space-3);
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-	}
-
-	.pillItem {
-		min-width: 0;
-	}
-
-	.statePill {
-		width: 100%;
-		display: inline-flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: var(--space-3);
-
-		/* Make pills wide enough so “Washington, DC” and “Northern Mariana Is.” don’t wrap */
-		min-height: 48px;
-		padding: var(--space-3) var(--space-4);
-
-		background: var(--color-surface);
-		border: 1px solid var(--brand-8);
-		border-radius: var(--radius-md);
-		box-shadow: var(--shadow-1);
-
-		font: inherit;
-		color: inherit;
-		cursor: default;
-
-		.stateName {
-			white-space: normal;
+		.name {
 			font-weight: 500;
 		}
-
-		.badge {
-			flex: 0 0 auto;
-			font-size: 0.72rem;
-			font-weight: 700;
-			padding: 2px 8px;
-			border-radius: 999px;
-			border: 1px solid var(--brand-8);
-			color: var(--brand-1);
-			background: #fff;
-		}
-
-		&.licensed .badge {
-			background: var(--brand-1);
-			border-color: var(--brand-1);
-			color: var(--color-surface);
-		}
-
-		&:focus-visible {
-			outline: 2px solid var(--brand-6);
-			outline-offset: 2px;
+		.code {
+			color: var(--color-muted);
 		}
 	}
 }
 
-/* ---------------- How it works ---------------- */
-.wws__how {
-	background: var(--brand-8);
+/* Legend chips */
+.wws__legend {
+	display: flex;
+	gap: 1rem;
+	flex-wrap: wrap;
+	align-items: center;
 
-	.how__copy {
-		margin: var(--space-2) 0 var(--space-2);
-	}
-	.muted {
+	span {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
 		color: var(--color-muted);
+		font-size: 0.95rem;
 	}
 }
 
-/* Offset in-page anchors so content isn't hidden under sticky subnav */
-.wws__hero,
-.wws__states,
-.wws__how {
-	scroll-margin-top: calc(var(--subnav-h, 56px) + var(--space-4));
+.wws__legendBar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.legendReset {
+	border: 1px solid var(--brand-8);
+	background: var(--color-surface);
+	border-radius: 999px;
+	padding: 0.35rem 0.75rem;
+	font: inherit;
+	color: var(--brand-3);
+	cursor: pointer;
+	transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
+
+	&:hover,
+	&:focus-visible {
+		background: var(--brand-8);
+		border-color: var(--brand-3);
+	}
+}
+
+.chip {
+	inline-size: 14px;
+	block-size: 14px;
+	border-radius: 999px;
+	display: inline-block;
+	border: 2px solid transparent;
+}
+
+.chip--licensed {
+	background: color-mix(in srgb, var(--brand-4) 70%, white);
+	border-color: var(--brand-4);
+}
+
+.chip--psypact {
+	background: color-mix(in srgb, var(--brand-5) 70%, white);
+	border-color: var(--brand-5);
+}
+
+.chip--none {
+	background: color-mix(in srgb, var(--color-muted) 30%, white);
+	border-color: var(--color-muted);
+}
+
+/* Active card */
+.wws__active .activeCard {
+	border: 1px solid var(--brand-8);
+	border-radius: 12px;
+	padding: 0.9rem 1rem;
+	background: var(--color-surface);
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+}
+
+.activeCard__title {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.75rem;
+	margin-bottom: 0.25rem;
+
+	strong {
+		font-weight: 600;
+		color: var(--color-text);
+	}
+}
+
+.muted {
+	color: var(--color-muted);
+}
+
+/* Right column (map) */
+.wws__map {
+	background: var(--brand-8);
+	box-shadow: var(--shadow-1);
+	border-radius: 14px;
+	padding: 0.75rem;
+
+	@include respond(md) {
+		padding: 1rem;
+	}
+}
+
+.mapWrap {
+	/* ensure the SVG scales nicely */
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	display: grid;
+	place-items: center;
+	overflow: hidden;
+
+	svg {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+
+	/* hover + keyboard focus styles the library paths can inherit */
+	[data-code],
+	[data-abbr],
+	[data-state],
+	path,
+	g[role="region"] {
+		transition: fill 140ms ease, stroke 140ms ease, transform 140ms ease;
+		outline: none;
+	}
+
+	/* highlight when selected via JS */
+	.is-focused {
+		filter: drop-shadow(
+			0 0 0.35rem color-mix(in srgb, var(--brand-3) 35%, transparent)
+		);
+		transform: translateZ(0); /* avoid blur on some browsers */
+		/* Tolerant stroke; only applies where supported */
+		stroke: var(--brand-3);
+		stroke-width: 1.5;
+	}
+
+	/* optional hover sentinel, harmless if map ignores it */
+	[data-code]:hover,
+	[data-abbr]:hover,
+	[data-state]:hover {
+		cursor: pointer;
+		filter: brightness(0.98);
+	}
+}
+
+/* Layout tune-ups at md+ */
+@include respond(md) {
+	.wwsHero__section .text {
+		max-width: 48rem;
+	}
+	.center-title {
+		text-align: left;
+		margin-bottom: 0.5rem;
+	}
+}
+
+/* Spacing rhythm inside left column */
+.wwsHero__section .text > *:not(:last-child) {
+	margin-bottom: 0.25rem;
+}
+
+/* Avoid outer collisions: rely on .block paddings; no extra margins on first/last */
+.wwsHero__section .text > :first-child {
+	margin-top: 0;
+}
+.wwsHero__section .text > :last-child {
+	margin-bottom: 0;
 }

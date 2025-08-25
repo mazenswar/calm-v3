@@ -119,8 +119,8 @@ const stateLabels = [
 	{ name: "North Carolina", abbr: "NC", coordinates: [-79.0193, 35.7596] },
 	{ name: "North Dakota", abbr: "ND", coordinates: [-101.002, 47.5515] },
 	{ name: "Ohio", abbr: "OH", coordinates: [-82.9071, 40.4173] },
-	{ name: "Oklahoma", abbr: "OK", coordinates: [-97.0929, 35.0078] },
 	{ name: "Oregon", abbr: "OR", coordinates: [-120.5542, 43.8041] },
+	{ name: "Oklahoma", abbr: "OK", coordinates: [-97.0929, 35.0078] },
 	{ name: "Pennsylvania", abbr: "PA", coordinates: [-77.1945, 41.2033] },
 	{ name: "Rhode Island", abbr: "RI", coordinates: [-71.4774, 41.5801] },
 	{ name: "South Carolina", abbr: "SC", coordinates: [-81.1637, 33.8361] },
@@ -294,9 +294,6 @@ export default function USMap() {
 									alignmentBaseline="central"
 									fontSize={fontSize}
 									fill={LABEL_FILL}
-									stroke={LABEL_STROKE}
-									strokeWidth={2}
-									paintOrder="stroke"
 									style={{ pointerEvents: "none" }} // labels don’t steal clicks
 									data-tooltip-id="us-map-tooltip"
 									data-tooltip-content={`${name} (${status(name)})`}

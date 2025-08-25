@@ -3,7 +3,7 @@ import { useMemo, useRef, useState } from "react";
 
 import { STATES } from "./states-data";
 import USMap from "./USMap";
-import "./wws__hero.scss";
+import "./style.scss";
 
 /**
  * Fallback coverage sets (names match the map’s logic).
@@ -116,8 +116,9 @@ export default function WwsHero() {
 						Where We Serve
 					</h2>
 					<p>
-						We provide virtual therapy in licensed states and participating
-						PSYPACT states. Search below to quickly check availability.
+						We provide virtual therapy in New York, New Jersey, and Pennsylvania
+						(licensed), and in 41 other states and territories through PSYPACT.
+						Search below to quickly check availability.
 					</p>
 
 					{/* Search */}
@@ -203,6 +204,14 @@ export default function WwsHero() {
 							<i className="chip chip--none" aria-hidden="true" /> Unavailable
 						</span>
 					</div>
+
+					{/* { PSYPACT } */}
+					<p className="muted wws__note">
+						<strong>What is PSYPACT?</strong> It is an interstate agreement that
+						allows licensed psychologists to offer telepsychology across
+						participating states. If your state participates in PSYPACT, care is
+						available even if we are not individually licensed there.
+					</p>
 
 					{/* Active selection card */}
 					{activeState && (
