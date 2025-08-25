@@ -1,4 +1,4 @@
-// /app/where-we-serve/USMap.js
+// /app/where-we-serve-copy/USMap.js
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -66,6 +66,20 @@ const psypact = [
 	"Wyoming",
 ];
 
+function getFill(name) {
+	if (licensed.includes(name)) return "#9e7bb5"; // purple (licensed)
+	if (psypact.includes(name)) return "#dfc4e2"; // pink (psypact)
+	return "#dcd3e2"; // neutral
+}
+function status(name) {
+	return licensed.includes(name)
+		? "Licensed"
+		: psypact.includes(name)
+		? "PSYPACT"
+		: "Unavailable";
+}
+
+// Label anchors
 const stateLabels = [
 	{ name: "Alabama", abbr: "AL", coordinates: [-86.9023, 32.3182] },
 	{ name: "Arizona", abbr: "AZ", coordinates: [-111.0937, 34.0489] },
@@ -122,39 +136,19 @@ const stateLabels = [
 	{ name: "Wyoming", abbr: "WY", coordinates: [-107.2903, 43.0759] },
 ];
 
-// Dense northeast set to hide at base zoom
-const denseNE = new Set(["CT", "DC", "DE", "MD", "MA", "NH", "NJ", "RI", "VT"]);
+// A tiny outline to keep text readable on light fills
+const LABEL_STROKE = "#ffffff";
+const LABEL_FILL = "#4d4d4d";
 
-// Callouts: tuned to avoid DC–MD overlap; DC moved down-right, MD nudged up-left
-const callouts = {
-	DC: { dx: 28, dy: 16 },
-	DE: { dx: 16, dy: 4 },
-	RI: { dx: 18, dy: -2 },
-	CT: { dx: 16, dy: -6 },
-	MA: { dx: 18, dy: -10 },
-	MD: { dx: 10, dy: -2 },
-	NJ: { dx: 14, dy: 12 },
-};
-
-function getFill(name) {
-	if (licensed.includes(name)) return "#9e7bb5";
-	if (psypact.includes(name)) return "#dfc4e2";
-	return "#dcd3e2";
-}
-
-function status(name) {
-	return licensed.includes(name)
-		? "Licensed"
-		: psypact.includes(name)
-		? "PSYPACT"
-		: "Unavailable";
-}
+const TRANSLATE_HINT = [
+	[-1000, -500],
+	[1000, 500],
+];
 
 const easeInOutCubic = (t) =>
 	t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
 export default function USMap() {
-	const containerRef = useRef(null);
 	const [position, setPosition] = useState({ coordinates: [-97, 38], zoom: 1 });
 	const [isZoomed, setIsZoomed] = useState(false);
 	const [isMobile, setIsMobile] = useState(false);
@@ -195,10 +189,6 @@ export default function USMap() {
 		animationRef.current = requestAnimationFrame(step);
 	};
 
-	const handleReset = () => {
-		animateTo([-97, 38], 1, 350);
-	};
-
 	if (!mounted) return null;
 
 	const hint = isMobile
@@ -209,40 +199,20 @@ export default function USMap() {
 	return (
 		<div
 			className="us__map"
-			ref={containerRef}
 			style={{ width: "100%", maxWidth: 900, margin: "0 auto" }}
 		>
 			<div
 				aria-live="polite"
-				style={{
-					display: "flex",
-					gap: "1rem",
-					alignItems: "center",
-					justifyContent: "space-between",
-					marginBottom: ".5rem",
-					flexWrap: "wrap",
-				}}
+				style={{ marginBottom: ".5rem", fontSize: ".9rem", opacity: 0.8 }}
 			>
-				<div
-					style={{
-						display: "flex",
-						alignItems: "center",
-						gap: ".75rem",
-						flexWrap: "wrap",
-					}}
-				>
-					<LegendItem color="#9e7bb5" label="Licensed" />
-					<LegendItem color="#dfc4e2" label="PSYPACT" />
-					<LegendItem color="#dcd3e2" label="Unavailable" />
-				</div>
-				<div style={{ fontSize: ".9rem", opacity: 0.8 }}>{hint}</div>
+				{hint}
 			</div>
 
 			<ComposableMap projection="geoAlbersUsa">
 				<ZoomableGroup
 					zoom={position.zoom}
 					center={position.coordinates}
-					translateExtent={TRANSLATE_EXTENT}
+					translateExtent={TRANSLATE_HINT}
 					onMoveEnd={({ zoom, coordinates }) =>
 						setPosition({ zoom, coordinates })
 					}
@@ -307,20 +277,14 @@ export default function USMap() {
 						}
 					</Geographies>
 
+					{/* Always render labels (no NE-hiding) with an outline for legibility */}
 					{stateLabels.map(({ name, abbr, coordinates }) => {
-						const isDense = denseNE.has(abbr);
-						const show = position.zoom >= 1.1 || !isDense;
-						if (!show) return null;
-						const c = callouts[abbr];
-						const dx = c?.dx ?? 0;
-						const dy = c?.dy ?? 0;
 						return (
 							<Annotation
 								key={abbr}
 								subject={coordinates}
-								dx={dx}
-								dy={dy}
-								// hide connector line
+								dx={0}
+								dy={0}
 								connectorProps={{ stroke: "none" }}
 							>
 								<text
@@ -329,11 +293,13 @@ export default function USMap() {
 									textAnchor="middle"
 									alignmentBaseline="central"
 									fontSize={fontSize}
-									fill="#4d4d4d"
+									fill={LABEL_FILL}
+									stroke={LABEL_STROKE}
+									strokeWidth={2}
+									paintOrder="stroke"
+									style={{ pointerEvents: "none" }} // labels don’t steal clicks
 									data-tooltip-id="us-map-tooltip"
 									data-tooltip-content={`${name} (${status(name)})`}
-									style={{ cursor: "default" }}
-									onClick={(e) => e.stopPropagation()}
 								>
 									{abbr}
 								</text>
@@ -344,55 +310,6 @@ export default function USMap() {
 			</ComposableMap>
 
 			<Tooltip id="us-map-tooltip" />
-
-			<div
-				style={{
-					display: "flex",
-					gap: ".5rem",
-					marginTop: "1rem",
-					alignItems: "center",
-				}}
-			>
-				<button
-					onClick={() => animateTo([-97, 38], 1, 350)}
-					style={{
-						padding: "0.5rem 1rem",
-						borderRadius: "6px",
-						border: "none",
-						cursor: "pointer",
-						backgroundColor: "#b79fc7",
-						color: "#fff",
-						fontSize: "0.9rem",
-					}}
-				>
-					Reset Map
-				</button>
-				{!isMobile && (
-					<span style={{ fontSize: ".85rem", opacity: 0.75 }}>
-						Tip: Press <kbd>Enter</kbd> on a focused state to zoom.
-					</span>
-				)}
-			</div>
 		</div>
-	);
-}
-
-function LegendItem({ color, label }) {
-	return (
-		<span
-			style={{ display: "inline-flex", alignItems: "center", gap: ".4rem" }}
-		>
-			<span
-				aria-hidden
-				style={{
-					width: 14,
-					height: 14,
-					borderRadius: 3,
-					background: color,
-					border: "1px solid rgba(0,0,0,.1)",
-				}}
-			/>
-			<span style={{ fontSize: ".9rem" }}>{label}</span>
-		</span>
 	);
 }
