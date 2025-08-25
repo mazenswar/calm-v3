@@ -1,0 +1,33 @@
+backend:
+  name: github
+  repo: <your-github-username>/<your-repo>
+  branch: main
+  base_url: https://calm-v3.vercel.app # your live site (no trailing slash)
+  auth_endpoint: /api/auth # the route you just added
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - {
+          label: "Author",
+          name: "author",
+          widget: "string",
+          default: "Tanya Singh, PhD",
+        }
+      - { label: "Tags", name: "tags", widget: "list", default: ["therapy"] }
+      - {
+          label: "Featured Image",
+          name: "image",
+          widget: "image",
+          required: false,
+        }
+      - { label: "Body", name: "body", widget: "markdown" }

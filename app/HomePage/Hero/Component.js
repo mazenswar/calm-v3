@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import ts from "./assets/tanya_headshot.png";
+import ts from "./assets/tts.png";
 import "./style.scss";
 import Button from "@/app/Components/ui/Button";
 import CustomLink from "@/app/Components/ui/CustomLink";
@@ -29,8 +29,9 @@ function Hero() {
 						src={ts.src}
 						alt="Tanya Singh, PhD — therapist offering integrative care"
 						width={480}
-						height={640}
+						height={480}
 						priority
+						unoptimized
 						sizes="(max-width: 768px) 90vw, 480px"
 						style={{ width: "100%", height: "auto" }}
 					/>

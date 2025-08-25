@@ -23,6 +23,9 @@
 		@include flex-column;
 		.fees-hero {
 			margin-bottom: var(--space-16);
+			&__text {
+				align-self: flex-start;
+			}
 		}
 		.fees-cards {
 			justify-self: center;

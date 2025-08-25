@@ -13,6 +13,11 @@
 /* ---------- Block ---------- */
 .accordion-item {
 	border-top: 1px solid var(--acc-border);
+	padding: var(--space-3);
+
+	@include respond(md) {
+		padding: var(--space-6);
+	}
 
 	/* last child border for tidy stacks */
 	&:last-child {
@@ -36,10 +41,6 @@
 		text-align: left;
 		color: var(--acc-text);
 		cursor: pointer;
-
-		@include respond(md) {
-			padding: var(--space-6);
-		}
 
 		&:focus-visible {
 			outline: 2px solid var(--acc-focus);
