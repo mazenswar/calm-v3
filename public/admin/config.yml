@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: <your-github-username>/<your-repo>
+  repo: mazenswar/calm-v3
   branch: main
   base_url: https://calm-v3.vercel.app # your live site (no trailing slash)
   auth_endpoint: /api/auth # the route you just added
