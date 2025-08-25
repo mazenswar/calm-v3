@@ -2,6 +2,8 @@
 
 /* Mobile-first; md = and up */
 .kap-safety {
+	background: var(--color-surface);
+
 	.block__content {
 		/* Intro rhythm consistent with page */
 		.intro {
@@ -24,11 +26,11 @@
 
 		/* Cards: lighter than Investment (border + surface, minimal elevation) */
 		.kap-safety__panel {
-			background: var(--color-surface);
+			background: var(--brand-8);
 			border: 1px solid rgba(0, 0, 0, 0.06);
 			border-radius: var(--radius-lg);
 			/* No strong shadow here to keep the section light */
-			box-shadow: none;
+			box-shadow: var(--shadow-2);
 			padding: var(--space-6);
 			display: grid;
 			row-gap: var(--space-4);

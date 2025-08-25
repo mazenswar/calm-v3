@@ -10,7 +10,10 @@ function Hero() {
 		<section className="block blockHero">
 			<div className="block__content container">
 				<div className="heroCopy">
-					<h1 className="h1">You’re Not Broken. You’re Becoming.</h1>
+					<h1>
+						You’re Not Broken. <br />
+						You’re Becoming.
+					</h1>
 					<p className="lead">
 						Virtual therapy for thoughtful adults navigating anxiety,
 						perfectionism, spiritual uncertainty and burnout, available in{" "}

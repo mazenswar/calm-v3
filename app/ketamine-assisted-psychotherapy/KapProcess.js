@@ -88,7 +88,7 @@ export default function KapProcess() {
 								role="list"
 								aria-label="Key points"
 							>
-								<li>Virtual prescriber review</li>
+								<li>Virtual prescriber</li>
 							</ul>
 
 							<div className="kap-step__content">

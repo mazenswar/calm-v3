@@ -1,197 +1,43 @@
-// File: /app/specialties/page.jsx
+// app/specialties/page.jsx
 "use client";
-import React, { useEffect, useId, useRef, useState } from "react";
-import Link from "next/link";
+
+import { useEffect } from "react";
+import AccordionItem from "../Components/ui/AccordionItem/Component";
 import "./style.scss";
-
-/* ---------- Helpers ---------- */
-
-function usePrefersReducedMotion() {
-	const reduce = useRef(false);
-	useEffect(() => {
-		const m = window.matchMedia?.("(prefers-reduced-motion: reduce)");
-		reduce.current = !!m?.matches;
-		const onChange = (e) => (reduce.current = e.matches);
-		m?.addEventListener?.("change", onChange);
-		return () => m?.removeEventListener?.("change", onChange);
-	}, []);
-	return reduce;
-}
-
-function animateHeight({
-	container,
-	inner,
-	opening,
-	openDur = 780,
-	closeDur = 640,
-}) {
-	// cancel any in-flight animations
-	container.getAnimations().forEach((a) => a.cancel());
-	inner.getAnimations().forEach((a) => a.cancel());
-
-	const from = container.offsetHeight; // current rendered height
-	// Virtually compute target height
-	const wasHidden = container.hasAttribute("data-hidden");
-	if (opening) {
-		container.removeAttribute("data-hidden");
-	} else {
-		container.setAttribute("data-hidden", "");
-	}
-	const to = opening ? inner.getBoundingClientRect().height : 0;
-
-	// Revert so we can animate from current visuals
-	if (opening !== wasHidden) {
-		// flip back temporarily
-		if (opening) container.setAttribute("data-hidden", "");
-		else container.removeAttribute("data-hidden");
-	}
-
-	const dur = opening ? openDur : closeDur;
-	const easing = opening
-		? "cubic-bezier(0.22, 0.65, 0.2, 1)"
-		: "cubic-bezier(0.33, 1, 0.68, 1)";
-
-	container.style.overflow = "hidden";
-
-	const heightAnim = container.animate(
-		[{ height: `${from}px` }, { height: `${to}px` }],
-		{
-			duration: dur,
-			easing,
-			fill: "forwards",
-		}
-	);
-
-	const fadeAnim = inner.animate(
-		opening
-			? [{ opacity: 0 }, { opacity: 1 }]
-			: [{ opacity: 1 }, { opacity: 0 }],
-		{
-			duration: Math.min(dur * 0.5, opening ? 420 : 360),
-			easing: opening ? "ease-out" : "ease-in",
-			fill: "forwards",
-		}
-	);
-
-	return Promise.all([heightAnim.finished, fadeAnim.finished]).finally(() => {
-		container.style.overflow = "";
-	});
-}
-
-/* ---------- AccordionItem ---------- */
-
-function AccordionItem({ idBase, title, children, defaultOpen = false }) {
-	const btnId = `${idBase}-btn`;
-	const panelId = `${idBase}-panel`;
-	const [open, setOpen] = useState(!!defaultOpen);
-
-	const containerRef = useRef(null); // height animated element
-	const innerRef = useRef(null); // opacity animated wrapper
-	const reduce = usePrefersReducedMotion();
-	const animatingRef = useRef(false);
-
-	useEffect(() => {
-		// Initialize hidden state attribute so measurements work
-		if (!open) containerRef.current?.setAttribute("data-hidden", "");
-	}, []);
-
-	const commitState = (nextOpen) => {
-		setOpen(nextOpen);
-		// reflect hidden for non-JS/assistive styling (no visual changes required)
-		if (!nextOpen) containerRef.current?.setAttribute("data-hidden", "");
-		else containerRef.current?.removeAttribute("data-hidden");
-	};
-
-	const toggle = async () => {
-		if (!containerRef.current || !innerRef.current || animatingRef.current)
-			return;
-
-		const opening = !open;
-		if (reduce.current) {
-			commitState(opening);
-			return;
-		}
-
-		animatingRef.current = true;
-		try {
-			await animateHeight({
-				container: containerRef.current,
-				inner: innerRef.current,
-				opening,
-			});
-			commitState(opening);
-		} finally {
-			// Clear inline styles set by WAAPI (height is applied virtually; WAAPI already set final visuals)
-			containerRef.current.getAnimations().forEach((a) => a.cancel());
-			innerRef.current.getAnimations().forEach((a) => a.cancel());
-			containerRef.current.style.height = "";
-			innerRef.current.style.opacity = "";
-			animatingRef.current = false;
-		}
-	};
-
-	const onKeyDown = (e) => {
-		if (e.key === "Enter" || e.key === " ") {
-			e.preventDefault();
-			toggle();
-		}
-	};
-
-	return (
-		<div className={`spec-item ${open ? "is-open" : ""}`}>
-			<button
-				id={btnId}
-				className="spec-item__summary"
-				aria-controls={panelId}
-				aria-expanded={open}
-				onClick={toggle}
-				onKeyDown={onKeyDown}
-				type="button"
-			>
-				{title}
-				<span aria-hidden className="spec-item__sign" />
-			</button>
-
-			<div
-				id={panelId}
-				role="region"
-				aria-labelledby={btnId}
-				className="spec-item__content"
-				ref={containerRef}
-				data-hidden={open ? undefined : ""}
-			>
-				<div ref={innerRef} className="spec-item__inner">
-					{children}
-				</div>
-			</div>
-		</div>
-	);
-}
-
-/* ---------- Page ---------- */
+import flowerImg from "./assets/flower.jpg";
+import Image from "next/image";
 
 export default function SpecialtiesPage() {
-	// Smooth in-page TOC scroll
+	// Smooth in‑page scroll for the TOC chips
 	useEffect(() => {
 		const toc = document.querySelector(".spec-toc");
 		if (!toc) return;
+
+		const getHeaderOffset = () => {
+			const sticky = document.querySelector(".site-header");
+			return sticky ? sticky.getBoundingClientRect().height + 12 : 88; // small breathing room
+		};
+
 		const onClick = (e) => {
 			const a = e.target.closest("a[href^='#']");
 			if (!a) return;
+
 			const id = a.getAttribute("href").slice(1);
 			const el = document.getElementById(id);
 			if (!el) return;
+
 			e.preventDefault();
-			el.scrollIntoView({
-				behavior: "smooth",
-				block: "start",
-				inline: "nearest",
-			});
+			const top =
+				window.pageYOffset + el.getBoundingClientRect().top - getHeaderOffset();
+
+			window.scrollTo({ top, behavior: "smooth" });
 		};
+
 		toc.addEventListener("click", onClick);
 		return () => toc.removeEventListener("click", onClick);
 	}, []);
 
+	// —— Content (your exact copy kept) ——
 	const groups = [
 		{
 			id: "anxiety",
@@ -363,18 +209,32 @@ export default function SpecialtiesPage() {
 	];
 
 	return (
-		<section className="block specialties is-collapsible" id="specialties">
+		<section className="block specialties" id="specialties">
 			<div className="block__content container">
-				<div className="spec-intro" id="how-i-can-support-you">
-					<h2>How I can support you</h2>
-					<p className="muted">
-						Seeking therapy is a courageous step. This work blends
-						evidence‑based care with deeper emotional work and, when useful,
-						spiritual insight.
-					</p>
-				</div>
+				{/* HERO */}
+				<header className="spec-hero">
+					<div className="spec-hero__copy">
+						<h1 className="spec-hero__title">How I can support you</h1>
+						<p className="spec-hero__lede">
+							Seeking therapy is a courageous step. This work blends
+							evidence‑based care with deeper emotional work and, when useful,
+							spiritual insight.
+						</p>
+					</div>
+					{/* Placeholder visual; swap to <Image/> when you have an asset */}
+					<figure className="spec-hero__visual" aria-hidden="true">
+						<Image
+							src={flowerImg}
+							alt="Flower blooming"
+							priority
+							sizes="(max-width: 768px) 100vw, 360px"
+							style={{ width: "100%", height: "auto", borderRadius: "100%" }}
+						/>
+					</figure>
+				</header>
 
-				<nav className="spec-toc" aria-label="On this page">
+				{/* LOCAL NAV / CHIPS */}
+				<nav className="spec-toc" aria-label="Browse specialties">
 					<ul className="spec-toc__list" role="list">
 						{groups.map((g) => (
 							<li key={g.id}>
@@ -384,23 +244,18 @@ export default function SpecialtiesPage() {
 					</ul>
 				</nav>
 
+				{/* GROUPS */}
 				<div className="spec-groups">
 					{groups.map((group) => (
 						<article className="spec-group" id={group.id} key={group.id}>
 							<header className="spec-group__header">
-								<h3>{group.title}</h3>
-								{group.lead && (
-									<p className="spec-group__lead muted">{group.lead}</p>
-								)}
+								<h2>{group.title}</h2>
+								{group.lead && <p className="muted">{group.lead}</p>}
 							</header>
 
 							<div className="spec-accordion">
-								{group.items.map((item, i) => (
-									<AccordionItem
-										key={item.title}
-										idBase={`${group.id}-${i}`}
-										title={item.title}
-									>
+								{group.items.map((item, idx) => (
+									<AccordionItem key={`${group.id}-${idx}`} title={item.title}>
 										{item.body}
 									</AccordionItem>
 								))}

@@ -18,9 +18,7 @@ function HeroPricing() {
 			<div className="block__content container">
 				<header className="fees-hero">
 					<div className="fees-hero__text">
-						<h1 className="fees-hero__title">
-							Therapy is an Investment in You
-						</h1>
+						<h1 className="fees-hero__title">Therapy is an Investment</h1>
 						<p className="fees-hero__lead">
 							We understand that therapy is a financial commitment. It can feel
 							like a lot, and that feeling is valid. But therapy is more than
@@ -237,11 +235,7 @@ function HowReimbursementWorks() {
 
 				<div className="fees-contact">
 					<p>
-						<strong>More questions</strong>
-					</p>
-					<p>
-						If you have any questions about out‑of‑network reimbursement, feel
-						free to{" "}
+						<strong>More questions?</strong> Feel free to{" "}
 						<CustomLink url="mailto:info@calmtherapy.center">
 							email us
 						</CustomLink>

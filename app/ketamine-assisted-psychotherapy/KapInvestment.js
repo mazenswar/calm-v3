@@ -1,5 +1,6 @@
 import "./style/kap-investment.scss";
 import CustomLink from "../Components/ui/CustomLink";
+import Button from "../Components/ui/Button";
 
 export function KapInvestment() {
 	return (
@@ -175,9 +176,11 @@ export function KapInvestment() {
 						we provide superbills to support that process.
 					</p>
 
-					<CustomLink url="/fees-and-insurance#verify-benefits">
-						See our coverage guide →
-					</CustomLink>
+					<Button
+						url="/fees-and-insurance#verify-coverage"
+						text="Learn More"
+						primary={false}
+					/>
 				</div>
 			</div>
 		</section>

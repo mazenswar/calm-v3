@@ -130,6 +130,7 @@
 		&__label {
 			font-weight: 600;
 			margin: 0 0 var(--space-2);
+			font-size: 2rem;
 		}
 		&__value {
 			font-size: clamp(1.75rem, 6vw, 2.25rem);
@@ -247,6 +248,7 @@
 			display: inline-flex;
 			align-items: center;
 			gap: var(--space-2);
+			font-size: 1.3rem;
 		}
 
 		/* Icon directly left of title with breathing room */
@@ -321,17 +323,15 @@
 	}
 
 	.fees-contact {
-		margin-top: var(--space-8);
+		margin-top: var(--space-16);
 		// background: var(--color-surface);
 		// border: 1px solid rgba(0, 0, 0, 0.06);
 		// border-radius: var(--radius-lg);
 		// box-shadow: var(--shadow-1);
 		padding-top: var(--space-6);
-		@include flex-column;
-
-		a {
-			text-decoration: underline;
-			text-underline-offset: 2px;
+		width: 100%;
+		p {
+			text-align: center;
 		}
 	}
 }

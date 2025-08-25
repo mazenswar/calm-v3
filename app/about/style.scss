@@ -2,6 +2,7 @@
 @use "../styles/mixins" as *;
 
 // Page section wrappers for About (aligns with global .block/.block__content)
+
 .about__intro .block__content,
 .about__philosophy .block__content,
 .about__tanya .block__content {
@@ -11,6 +12,10 @@
 		padding-top: var(--space-24);
 		padding-bottom: var(--space-24);
 	}
+}
+
+.about__intro .block__content {
+	padding-top: 0;
 }
 
 .about {

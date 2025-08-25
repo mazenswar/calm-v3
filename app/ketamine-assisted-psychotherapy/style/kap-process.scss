@@ -1,6 +1,7 @@
 @use "../../styles/mixins" as *;
 
 .kap-process {
+	background: var(--color-surface);
 	.block__content {
 		/* ...your existing rules remain... */
 		.kap-step__keys {
@@ -45,7 +46,7 @@
 			margin: var(--space-10) 0;
 			padding: var(--space-6);
 			background: var(
-				--color-surface
+				--brand-8
 			); /* same surface color to avoid a different tone */
 			border-radius: var(--radius-lg);
 			box-shadow: var(--shadow-1);

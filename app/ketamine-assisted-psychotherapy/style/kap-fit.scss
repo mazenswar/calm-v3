@@ -4,7 +4,7 @@
 	// li {
 	// 	margin: var(--space-6) 0;
 	// }
-
+	background: var(--color-surface);
 	.block__content {
 		@include flex-center;
 		flex-direction: column;

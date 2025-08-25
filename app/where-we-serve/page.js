@@ -117,7 +117,7 @@ export default function WwsHero() {
 					</h2>
 					<p>
 						We provide virtual therapy in New York, New Jersey, and Pennsylvania
-						(licensed), and in 41 other states and territories through PSYPACT.
+						(licensed), and in 40 other states and territories through PSYPACT.
 						Search below to quickly check availability.
 					</p>
 

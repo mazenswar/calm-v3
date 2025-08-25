@@ -1,168 +1,123 @@
-/* File: /app/specialties/style.scss */
+// app/specialties/style.scss
 @use "../styles/mixins" as *;
 
-/* Mobile-first; md = and up */
-.specialties.is-collapsible {
-	.block__content.container {
-		padding-inline: var(--space-6);
-	}
+.specialties {
+	// Section spacing is driven by the global .block / .block__content containers
 
-	/* Intro */
-	.spec-intro {
-		margin-top: 0;
-		.muted {
+	/* HERO */
+	.spec-hero {
+		display: grid;
+		gap: var(--space-6);
+		align-items: center;
+
+		.spec-hero__visual {
+			max-width: 250px;
+		}
+
+		@include respond(md) {
+			grid-template-columns: 1.25fr 1fr;
+			gap: var(--space-8);
+		}
+
+		&__copy {
+			.spec-hero__title {
+				margin-bottom: var(--space-3);
+			}
+			.spec-hero__lede {
+				margin: 0;
+			}
+		}
+
+		&__visual {
+			justify-self: center;
+			width: 100%;
+			max-width: 420px;
+
+			@include respond(md) {
+				justify-self: end;
+			}
+		}
+
+		&__placeholder {
+			border-radius: var(--radius-xl);
+			aspect-ratio: 4 / 3;
+			background: var(--brand-8);
+			box-shadow: var(--shadow-1);
+			display: grid;
+			place-items: center;
 			color: var(--color-muted);
 		}
-		p {
-			margin: 0;
-		}
 	}
 
-	/* Mini TOC */
+	/* TOC CHIPS */
 	.spec-toc {
-		margin-top: var(--space-8);
-		padding: var(--space-4);
-		background: var(--brand-8);
-		border: 1px solid rgba(0, 0, 0, 0.06);
-		border-radius: var(--radius-lg);
+		margin-top: var(--space-6);
 
-		.spec-toc__list {
-			margin: 0;
+		&__list {
+			display: flex;
+			flex-wrap: wrap;
+			gap: var(--space-3);
 			padding: 0;
 			list-style: none;
-			display: flex;
-			gap: var(--space-3);
-			flex-wrap: wrap;
+		}
 
-			a {
-				display: inline-block;
-				padding: var(--space-2) var(--space-3);
-				border: 1px solid rgba(0, 0, 0, 0.06);
-				border-radius: var(--radius-md);
-				background: var(--color-surface);
-				text-decoration: none;
+		a {
+			display: inline-block;
+			padding: 0.5rem 0.75rem;
+			background: var(--brand-8);
+			border-radius: var(--radius-lg);
+			text-decoration: none;
+			box-shadow: var(--shadow-1);
+			transition: transform 120ms ease;
+
+			&:hover {
+				transform: translateY(-1px);
+			}
+			&:focus-visible {
+				outline: 2px solid var(--accent-1);
+				outline-offset: 2px;
 			}
 		}
 	}
 
-	/* Groups */
+	/* GROUPS */
 	.spec-groups {
+		margin-top: var(--space-8);
 		display: grid;
 		gap: var(--space-8);
-		margin-top: var(--space-8);
 	}
+
 	.spec-group {
 		background: var(--color-surface);
-		border: 1px solid rgba(0, 0, 0, 0.06);
 		border-radius: var(--radius-lg);
 		box-shadow: var(--shadow-1);
 		padding: var(--space-6);
-		scroll-margin-top: var(--space-16);
-	}
-	.spec-group__header {
-		display: grid;
-		row-gap: var(--space-2);
-		h3 {
-			margin: 0;
-			font-weight: 600;
-		}
-		.spec-group__lead {
-			margin: 0;
-		}
-	}
-	.spec-accordion {
-		margin-top: var(--space-6);
-		display: grid;
-		gap: var(--space-4);
-	}
 
-	/* Accordion item */
-	.spec-item {
-		border: 1px solid rgba(0, 0, 0, 0.08);
-		border-radius: var(--radius-md);
-		background: var(--brand-8);
-		box-shadow: var(--shadow-0);
-		transition: border-color 140ms ease;
-	}
-	.spec-item:hover {
-		border-color: rgba(0, 0, 0, 0.12);
-	}
-
-	/* Summary button */
-	.spec-item__summary {
-		width: 100%;
-		cursor: pointer;
-		margin: 0;
-		padding: var(--space-3) var(--space-4);
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: var(--space-3);
-		font-weight: 600;
-		background: transparent;
-		border: 0;
-		color: inherit;
-		text-align: left;
-		min-height: 44px; /* tap target */
-		border-radius: var(--radius-md) var(--radius-md) 0 0;
-	}
-	.spec-item__summary:focus-visible {
-		outline: 2px solid var(--brand-6);
-		outline-offset: 2px;
-	}
-
-	/* Plus/minus indicator (pure CSS, JS toggles aria-expanded) */
-	.spec-item__summary .spec-item__sign::before {
-		content: "+";
-		margin-left: auto;
-		font-weight: 700;
-		line-height: 1;
-		display: inline-block;
-		transform: translateY(-1px);
-	}
-	.spec-item.is-open .spec-item__summary .spec-item__sign::before {
-		content: "−";
-	}
-
-	/* Panel container (height animated by WAAPI; keep it visually neutral) */
-	.spec-item__content {
-		/* No height/max-height transitions here — WAAPI drives it */
-		overflow: hidden;
-		padding: 0 var(--space-4);
-		margin-top: 0;
-		border-top: 1px solid rgba(0, 0, 0, 0.06);
-	}
-	.spec-item__content[data-hidden] {
-		display: block;
-		height: 0;
-	} /* assist measuring state */
-
-	/* Inner wrapper (opacity animated by WAAPI) */
-	.spec-item__inner {
-		opacity: 1;
-		padding: var(--space-3) 0 var(--space-4);
-		max-width: 72ch;
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.spec-item__inner,
-		.spec-toc a {
-			transition: none !important;
-		}
-	}
-
-	/* md+ */
-	@include respond(md) {
-		.block__content.container {
-			padding-inline: var(--space-8);
-		}
-		.spec-groups {
-			gap: var(--space-8);
-			margin-top: var(--space-8);
-		}
-		.spec-group {
+		@include respond(md) {
 			padding: var(--space-8);
-			scroll-margin-top: var(--space-16);
 		}
+
+		&__header {
+			margin-bottom: var(--space-4);
+
+			h2 {
+				margin-bottom: var(--space-2);
+			}
+			.muted {
+				margin: 0;
+			}
+		}
+
+		.spec-accordion {
+			display: grid;
+			gap: var(--space-3);
+		}
+	}
+
+	/* Optional: thin divider between sections if you add more later */
+	.spec-divider {
+		height: 1px;
+		background: color-mix(in oklab, var(--color-text) 12%, transparent);
+		margin: var(--space-8) 0;
 	}
 }
