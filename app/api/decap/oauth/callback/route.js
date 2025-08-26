@@ -1,51 +1,37 @@
-// File: /app/api/decap/oauth/callback/route.js
 export const runtime = "nodejs";
-
 import { NextResponse } from "next/server";
 
 function successHTML(token) {
-	// Decap listens for this exact postMessage signature
-	// 'authorization:github:success:{"token":"..."}'
-	return `<!doctype html><html><body><script>
+	return `<!doctype html><meta charset="utf-8"><script>
     (function(){
-      function send(){
-        try {
-          const msg = 'authorization:github:success:' + JSON.stringify({token: ${JSON.stringify(
-						token
-					)}});
-          window.opener && window.opener.postMessage(msg, '*');
-          window.close();
-        } catch(e) {
-          console.error(e);
-          document.body.innerText = 'Authorized, you can close this window.';
-        }
-      }
-      send();
+      var msg = 'authorization:github:success:' + JSON.stringify({token: ${JSON.stringify(
+				token
+			)}});
+      try { window.opener && window.opener.postMessage(msg, '*'); } catch(e){}
+      window.close();
     })();
-  </script></body></html>`;
+  </script>`;
 }
 
 function errorHTML(message) {
-	return `<!doctype html><html><body><script>
+	return `<!doctype html><meta charset="utf-8"><script>
     (function(){
       var msg = 'authorization:github:error:' + JSON.stringify({message: ${JSON.stringify(
 				message
 			)}});
       try { window.opener && window.opener.postMessage(msg, '*'); } catch(e){}
-      document.body.innerText = 'Authorization error: ' + ${JSON.stringify(
-				message
-			)};
+      document.write('Authorization error: ' + ${JSON.stringify(message)});
     })();
-  </script></body></html>`;
+  </script>`;
 }
 
 export async function GET(req) {
 	const url = new URL(req.url);
 	const code = url.searchParams.get("code");
 	const state = url.searchParams.get("state");
-	const cookieState = req.headers
-		.get("cookie")
-		?.match(/(?:^|; )decap_oauth_state=([^;]+)/)?.[1];
+	const cookie = req.headers.get("cookie") || "";
+	const cookieState = (cookie.match(/(?:^|; )decap_oauth_state=([^;]+)/) ||
+		[])[1];
 
 	if (!code) {
 		return new NextResponse(errorHTML("Missing code"), {
@@ -62,16 +48,14 @@ export async function GET(req) {
 
 	const clientId = process.env.GITHUB_CLIENT_ID;
 	const clientSecret = process.env.GITHUB_CLIENT_SECRET;
-	const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
-
-	if (!clientId || !clientSecret || !siteUrl) {
-		return new NextResponse(errorHTML("Server misconfigured"), {
+	const origin = new URL(req.url).origin; // must match what you used in authorize
+	if (!clientId || !clientSecret) {
+		return new NextResponse(errorHTML("Missing server env"), {
 			status: 500,
 			headers: { "Content-Type": "text/html" },
 		});
 	}
 
-	// Exchange code for access token
 	const tokenRes = await fetch("https://github.com/login/oauth/access_token", {
 		method: "POST",
 		headers: { "Content-Type": "application/json", Accept: "application/json" },
@@ -79,9 +63,8 @@ export async function GET(req) {
 			client_id: clientId,
 			client_secret: clientSecret,
 			code,
-			redirect_uri: `${siteUrl}/api/decap/oauth/callback`,
+			redirect_uri: `${origin}/api/decap/oauth/callback`,
 		}),
-		// IMPORTANT on Vercel: do not cache
 		cache: "no-store",
 	});
 
@@ -93,7 +76,7 @@ export async function GET(req) {
 		});
 	}
 
-	const data = await tokenRes.json(); // { access_token, token_type, scope, ... }
+	const data = await tokenRes.json();
 	const token = data.access_token;
 	if (!token) {
 		return new NextResponse(errorHTML("No access_token in response"), {
@@ -102,10 +85,10 @@ export async function GET(req) {
 		});
 	}
 
-	// Clear the state cookie
 	const res = new NextResponse(successHTML(token), {
 		headers: { "Content-Type": "text/html" },
 	});
+	// clear state cookie
 	res.cookies.set("decap_oauth_state", "", {
 		httpOnly: true,
 		sameSite: "lax",
