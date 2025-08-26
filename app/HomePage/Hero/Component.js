@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import ts from "./assets/tts.png";
+import ts from "./assets/ts-home.jpg";
 import "./style.scss";
 import Button from "@/app/Components/ui/Button";
 import CustomLink from "@/app/Components/ui/CustomLink";
@@ -35,6 +35,12 @@ function Hero() {
 						sizes="(max-width: 768px) 90vw, 480px"
 						style={{ width: "100%", height: "auto" }}
 					/>
+					<div className="caption">
+						<p className="heroImg__caption">Tanya Singh, PhD</p>
+						<p className="heroImg__subcaption">
+							Co‑Founder &amp; Licensed Clinical Psychologist
+						</p>
+					</div>
 				</div>
 			</div>
 		</section>

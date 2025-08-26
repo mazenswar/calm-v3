@@ -37,7 +37,25 @@
 		width: 100%;
 		height: auto;
 		display: block;
-		border-radius: 12px;
+		border-radius: 100%;
+	}
+	.caption {
+		@include flex-column;
+		justify-content: center;
+		align-items: center;
+		padding-top: var(--space-6);
+	}
+	.heroImg__caption {
+		font-family: var(--font-serif);
+		color: var(--brand-1);
+		font-size: 1.7rem;
+		font-weight: 900;
+	}
+	.heroImg__subcaption {
+		font-family: var(--font-serif);
+		color: var(--color-text);
+		font-size: 1.2rem;
+		font-weight: 900;
 	}
 	@include respond(md) {
 		margin-top: 0;

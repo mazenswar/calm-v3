@@ -5,6 +5,7 @@ import "./style.scss";
 import Image from "next/image";
 import tanyaHeadshot from "./assets/tanya-headshot.jpg";
 import calmImg from "./assets/calm.png";
+import tsNature from "./assets/ts-nature.png";
 
 export default function AboutPage() {
 	return (
@@ -126,25 +127,24 @@ export default function AboutPage() {
 
 					{/* Row 2: full-width training */}
 					<div className="about__tanyaTraining">
-						<h3 className="about__subheading">Training &amp; Experience</h3>
-						<p>
-							Tanya Singh, PhD, is a licensed clinical psychologist specializing
-							in anxiety disorders, obsessive–compulsive and related disorders,
-							and major life transitions. In working with these concerns, she
-							also saw how many people carry the lingering impact of earlier
-							hardships, which led her to develop expertise in complex trauma.
-						</p>
-						<p>
-							Her training includes Rutgers University Behavioral Health Care,
-							Massachusetts General Hospital/Harvard University, Columbia
-							University, and Montclair State University. She has also pursued
-							training in ketamine-assisted psychotherapy (KAP), offering care
-							for individuals with treatment-resistant conditions.
-						</p>
-					</div>
-
-					{/* Row 3: two columns on md+, stacked on mobile */}
-					<div className="about__tanyaCols">
+						<article className="about__tanyaCol">
+							<h3 className="about__subheading">Training &amp; Experience</h3>
+							<p>
+								Tanya Singh, PhD, is a licensed clinical psychologist
+								specializing in anxiety disorders, obsessive–compulsive and
+								related disorders, and major life transitions. In working with
+								these concerns, she also saw how many people carry the lingering
+								impact of earlier hardships, which led her to develop expertise
+								in complex trauma.
+							</p>
+							<p>
+								Her training includes Rutgers University Behavioral Health Care,
+								Massachusetts General Hospital/Harvard University, Columbia
+								University, and Montclair State University. She has also pursued
+								training in ketamine-assisted psychotherapy (KAP), offering care
+								for individuals with treatment-resistant conditions.
+							</p>
+						</article>
 						<article className="about__tanyaCol">
 							<h3 className="about__subheading">An Integrative Presence</h3>
 							<p>
@@ -160,7 +160,10 @@ export default function AboutPage() {
 								puzzling through, and walk alongside them in the work.
 							</p>
 						</article>
+					</div>
 
+					{/* Row 3: two columns on md+, stacked on mobile */}
+					<div className="about__tanyaCols">
 						<article className="about__tanyaCol">
 							<h3 className="about__subheading">Beyond the Therapy Room</h3>
 							<p>
@@ -179,6 +182,14 @@ export default function AboutPage() {
 								of living, qualities she brings into her work as a psychologist.
 							</p>
 						</article>
+						<div className="about__supportingImage">
+							<Image
+								src={tsNature}
+								alt="Tanya Singh in Nature"
+								sizes="(max-width: 768px) 100vw, 400px"
+								unoptimized
+							/>
+						</div>
 					</div>
 				</div>
 			</section>
