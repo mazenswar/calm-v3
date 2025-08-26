@@ -2,8 +2,8 @@ backend:
   name: github
   repo: mazenswar/calm-v3
   branch: main
-  base_url: https://calm-v3.vercel.app
-  auth_endpoint: /api/dcap/oauth/authorize
+  base_url: https://calm-v3.vercel.app/api/decap
+  auth_endpoint: oauth/authorize # IMPORTANT: no leading slash
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
