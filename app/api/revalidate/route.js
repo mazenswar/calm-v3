@@ -1,71 +1,75 @@
 // /app/api/revalidate/route.js
 import { NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
-import crypto from "crypto";
 
-// Verify header signature from Sanity (if secret provided in UI)
-function isValidSignature(req, body) {
-	const webhookSecret = process.env.SANITY_WEBHOOK_SECRET;
-	if (!webhookSecret) return false;
-	const sigHeader =
-		req.headers.get("X-Sanity-Signature") ||
-		req.headers.get("x-sanity-signature");
-	if (!sigHeader) return false;
-	// Format: 'sha256=HEX'
-	const [algo, sigHex] = sigHeader.split("=");
-	if (algo !== "sha256" || !sigHex) return false;
-	const hmac = crypto.createHmac("sha256", webhookSecret);
-	hmac.update(body, "utf8");
-	const expected = hmac.digest("hex");
+// OPTIONAL: If you tag caches you can also use revalidateTag from "next/cache".
+// import { revalidateTag } from "next/cache";
+
+const SECRET = process.env.REVALIDATE_SECRET;
+
+// Sanity can send JSON POST. Configure your webhook to:
+// - Method: POST
+// - Content type: application/json
+// - Secret: (same value as REVALIDATE_SECRET)
+// - Filter: _type == "post"   (or your type)
+// - Events: create, update, delete
+export async function POST(req) {
 	try {
-		return crypto.timingSafeEqual(
-			Buffer.from(sigHex, "hex"),
-			Buffer.from(expected, "hex")
-		);
-	} catch {
-		return false;
-	}
-}
+		// 1) Auth check
+		const sentSecret =
+			req.headers.get("x-sanity-secret") ||
+			req.headers.get("x-vercel-signature") || // (not used by default, just in case)
+			new URL(req.url).searchParams.get("secret"); // fallback if you kept it in URL
 
-export async function POST(request) {
-	const url = new URL(request.url);
-	const urlSecret = url.searchParams.get("secret");
+		if (!SECRET || sentSecret !== SECRET) {
+			return NextResponse.json(
+				{ ok: false, error: "Unauthorized" },
+				{ status: 401 }
+			);
+		}
 
-	// Read raw body for signature check
-	const raw = await request.text();
-	let payload = {};
-	try {
-		payload = JSON.parse(raw || "{}");
-	} catch {}
+		// 2) Read body (Sanity JSON webhook)
+		const body = await req.json().catch(() => ({}));
 
-	// Accept either URL-secret OR header-signature
-	const urlSecretOk = urlSecret && urlSecret === process.env.REVALIDATE_SECRET;
-	const headerSigOk = isValidSignature(request, raw);
+		// Body formats vary; these are common fields:
+		// - body._type (document type)
+		// - body.slug.current  OR  body.slug  OR  body.ids / body.document.slug.current
+		// Normalize as best as possible:
+		const docType =
+			body._type ||
+			body.type ||
+			body.document?._type ||
+			body.transition?._type ||
+			body.payload?._type;
 
-	if (!urlSecretOk && !headerSigOk) {
-		return NextResponse.json(
-			{ ok: false, error: "Unauthorized" },
-			{ status: 401 }
-		);
-	}
+		// Try several locations for the slug
+		const slug =
+			body.slug?.current ||
+			body.document?.slug?.current ||
+			body.payload?.slug?.current ||
+			body.slug ||
+			body.document?.slug ||
+			body.payload?.slug ||
+			null;
 
-	// Support both simple and enriched payloads
-	const slug = payload?.slug || payload?.document?.slug?.current || null;
-
-	const prevSlug =
-		payload?.prevSlug || payload?.previous?.slug?.current || null;
-
-	try {
-		// Always revalidate the list
+		// 3) Revalidate paths (adjust these to your site structure)
+		// Always refresh the blog index
 		revalidatePath("/blog");
-		// Revalidate current and (if changed) previous slug
-		if (slug) revalidatePath(`/blog/${slug}`);
-		if (prevSlug && prevSlug !== slug) revalidatePath(`/blog/${prevSlug}`);
+
+		// If we can determine a slug, refresh that post page too
+		if (docType === "post" && slug) {
+			revalidatePath(`/blog/${slug}`);
+		}
+
+		// OPTIONAL: If you’re using tags on fetches, also revalidate them.
+		// revalidateTag("post");
+		// revalidateTag(`post:${slug}`);
+
+		return NextResponse.json({
+			ok: true,
+			revalidated: { index: "/blog", slug: slug ? `/blog/${slug}` : null },
+		});
 	} catch (e) {
-		return NextResponse.json(
-			{ ok: false, error: e?.message || "revalidate failed" },
-			{ status: 500 }
-		);
+		return NextResponse.json({ ok: false, error: String(e) }, { status: 500 });
 	}
-	return NextResponse.json({ ok: true, slug, prevSlug });
 }
