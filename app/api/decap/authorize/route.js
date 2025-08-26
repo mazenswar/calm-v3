@@ -1,11 +1,23 @@
-// app/api/decap/authorize/route.js
-export async function GET() {
+import { NextResponse } from "next/server";
+
+export async function GET(request) {
 	const clientId = process.env.GITHUB_CLIENT_ID;
-	const redirectUri = `${process.env.NEXT_PUBLIC_SITE_URL}/api/decap/callback`;
+	if (!clientId)
+		return NextResponse.json(
+			{ error: "Missing GITHUB_CLIENT_ID" },
+			{ status: 500 }
+		);
 
-	const url = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(
-		redirectUri
-	)}&scope=repo,user`;
+	// Build redirect_uri to our callback
+	const url = new URL(request.url);
+	const origin = `${url.protocol}//${url.host}`;
+	const redirectUri = `${origin}/api/decap/oauth/callback`;
 
-	return Response.redirect(url, 302);
+	const gh = new URL("https://github.com/login/oauth/authorize");
+	gh.searchParams.set("client_id", clientId);
+	gh.searchParams.set("redirect_uri", redirectUri);
+	gh.searchParams.set("scope", "repo,user:email");
+	gh.searchParams.set("allow_signup", "false");
+
+	return NextResponse.redirect(gh.toString(), { status: 302 });
 }
