@@ -1,10 +1,11 @@
 // File: /app/blog/[slug]/page.js
+import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import imageUrlBuilder from "@sanity/image-url";
 import { postBySlugQuery } from "@/lib/sanity.queries";
 import "./style.scss";
 
-// Build-safe base URL for server fetches
+// Base URL for server fetches
 function getBaseUrl() {
 	return (
 		process.env.NEXT_PUBLIC_SITE_URL ||
@@ -14,48 +15,7 @@ function getBaseUrl() {
 	);
 }
 
-// In /app/blog/[slug]/page.js (keep your existing code, add components)
-const ptComponents = {
-	block: {
-		// Normal paragraphs, with a promotion heuristic:
-		normal: ({ children, value }) => {
-			const kids = Array.isArray(value?.children) ? value.children : [];
-			const isStandaloneStrong =
-				kids.length === 1 &&
-				kids[0]?.marks?.includes?.("strong") &&
-				typeof kids[0]?.text === "string" &&
-				kids[0].text.trim().length > 0;
-
-			if (isStandaloneStrong) {
-				return <h3 className="h3">{children}</h3>;
-			}
-			return <p>{children}</p>;
-		},
-		h2: ({ children }) => <h2 className="h2">{children}</h2>,
-		h3: ({ children }) => <h3 className="h3">{children}</h3>,
-	},
-	// you can add list, marks, types, etc., later
-};
-
-// Build a Sanity CDN image URL (no direct data fetch; just URL math)
-const builder = imageUrlBuilder({
-	projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-	dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
-});
-
-// Defensive: if image is missing/invalid, return null
-function urlForImage(source, { w = 1600, h, q = 80, fit = "max" } = {}) {
-	try {
-		if (!source) return null;
-		let url = builder.image(source).width(w).quality(q).fit(fit);
-		if (h) url = url.height(h);
-		return url.url();
-	} catch {
-		return null;
-	}
-}
-
-// Server helper to call our GROQ proxy (no direct Sanity calls)
+// GROQ proxy helper
 async function groqFetch(query, params) {
 	const res = await fetch(`${getBaseUrl()}/api/groq`, {
 		method: "POST",
@@ -63,7 +23,6 @@ async function groqFetch(query, params) {
 		body: JSON.stringify({ query, params }),
 		next: { revalidate: 60 },
 	});
-
 	if (!res.ok) throw new Error(`GROQ proxy error: ${res.status}`);
 	const json = await res.json();
 	if (!json.ok) throw new Error(json.error || "Unknown GROQ proxy error");
@@ -72,16 +31,144 @@ async function groqFetch(query, params) {
 
 export const revalidate = 60;
 
+// -------- Sanity image helpers (no data fetch; URL + dimensions from ref) --------
+const builder = imageUrlBuilder({
+	projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+	dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
+});
+
+function urlFor(source) {
+	return builder.image(source).auto("format");
+}
+
+// Parse `image-<hash>-<w>x<h>-<format>` from asset ref to get natural dimensions
+function getRefDimensions(ref) {
+	if (typeof ref !== "string") return null;
+	const m = ref.match(/-(\d+)x(\d+)-/);
+	if (!m) return null;
+	const w = parseInt(m[1], 10);
+	const h = parseInt(m[2], 10);
+	if (!Number.isFinite(w) || !Number.isFinite(h) || w === 0 || h === 0)
+		return null;
+	return { width: w, height: h, aspectRatio: w / h };
+}
+
+// -------- Portable Text renderers --------
+const ptComponents = {
+	block: {
+		// Promote <p><strong>Heading</strong></p> to <h3>
+		normal: ({ children, value }) => {
+			const kids = Array.isArray(value?.children) ? value.children : [];
+			const isStandaloneStrong =
+				kids.length === 1 &&
+				kids[0]?.marks?.includes?.("strong") &&
+				typeof kids[0]?.text === "string" &&
+				kids[0].text.trim().length > 0;
+
+			if (isStandaloneStrong) return <h3 className="h3">{children}</h3>;
+			return <p>{children}</p>;
+		},
+		h2: ({ children }) => <h2 className="h2">{children}</h2>,
+		h3: ({ children }) => <h3 className="h3">{children}</h3>,
+		blockquote: ({ children }) => (
+			<blockquote className="pt-blockquote">{children}</blockquote>
+		),
+	},
+	list: {
+		bullet: ({ children }) => <ul className="pt-ul">{children}</ul>,
+		number: ({ children }) => <ol className="pt-ol">{children}</ol>,
+	},
+	listItem: {
+		bullet: ({ children }) => <li className="pt-li">{children}</li>,
+		number: ({ children }) => <li className="pt-li">{children}</li>,
+	},
+	marks: {
+		em: ({ children }) => <em className="pt-em">{children}</em>,
+		strong: ({ children }) => <strong className="pt-strong">{children}</strong>,
+		code: ({ children }) => <code className="pt-code">{children}</code>,
+		link: ({ children, value }) => {
+			const href = value?.href || "#";
+			const isExt = /^https?:\/\//i.test(href);
+			return (
+				<a
+					href={href}
+					target={isExt ? "_blank" : undefined}
+					rel={isExt ? "noopener noreferrer" : undefined}
+					className="pt-link"
+				>
+					{children}
+				</a>
+			);
+		},
+	},
+	types: {
+		// Block images inside Portable Text
+		image: ({ value }) => {
+			const ref = value?.asset?._ref;
+			if (!ref) return null;
+
+			const dims = getRefDimensions(ref) || {
+				width: 1600,
+				height: 900,
+				aspectRatio: 16 / 9,
+			};
+			const src = urlFor(value)
+				.width(Math.min(1600, dims.width))
+				.quality(80)
+				.url();
+
+			// Use a responsive wrapper with aspect-ratio + next/image fill
+			return (
+				<figure className="pt-figure">
+					<div
+						className="pt-figure__media"
+						style={{
+							aspectRatio: `${dims.width} / ${dims.height}`,
+							position: "relative",
+							width: "100%",
+						}}
+					>
+						<Image
+							src={src}
+							alt={value.alt || ""}
+							fill
+							sizes="(min-width: 1024px) 900px, 100vw"
+							priority={false}
+							style={{ objectFit: "cover" }}
+						/>
+					</div>
+					{value.caption && (
+						<figcaption className="pt-figcaption">{value.caption}</figcaption>
+					)}
+				</figure>
+			);
+		},
+		// Optional: code blocks (if your schema includes {type: 'code'})
+		code: ({ value }) => {
+			if (!value?.code) return null;
+			return (
+				<pre className="pt-pre">
+					<code>{value.code}</code>
+				</pre>
+			);
+		},
+	},
+};
+
 export async function generateMetadata({ params }) {
-	const post = await groqFetch(postBySlugQuery, { slug: params.slug });
+	const { slug } = await params; // <-- await it
+	const post = await groqFetch(postBySlugQuery, { slug });
 	const title = post?.seoTitle || post?.title || "Post";
 	const description = post?.seoDescription || post?.excerpt || "";
-	const url = `${getBaseUrl()}/blog/${params.slug}`;
-
-	// Prefer explicit SEO image if you add one later; otherwise use mainImage
+	const url = `${getBaseUrl()}/blog/${slug}`;
 	const ogImage =
-		urlForImage(post?.mainImage, { w: 1200, h: 630, fit: "crop", q: 80 }) ||
-		undefined;
+		post?.mainImage &&
+		urlFor(post.mainImage)
+			.width(1200)
+			.height(630)
+			.fit("crop")
+			.quality(80)
+			.url();
 
 	return {
 		title,
@@ -100,8 +187,8 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function BlogPostPage({ params }) {
-	const post = await groqFetch(postBySlugQuery, { slug: params.slug });
-
+	const { slug } = await params;
+	const post = await groqFetch(postBySlugQuery, { slug: slug });
 	if (!post) {
 		return (
 			<main>
@@ -114,7 +201,11 @@ export default async function BlogPostPage({ params }) {
 		);
 	}
 
-	const heroUrl = urlForImage(post.mainImage, { w: 1600, q: 80 }); // wide, responsive-friendly
+	// Hero image (optional)
+	const heroRef = post.mainImage?.asset?._ref;
+	const heroDims = heroRef ? getRefDimensions(heroRef) : null;
+	const heroSrc =
+		post.mainImage && urlFor(post.mainImage).width(1600).quality(80).url();
 
 	return (
 		<main id="blog__page">
@@ -124,24 +215,31 @@ export default async function BlogPostPage({ params }) {
 						<header className="stack">
 							<h1>{post.title}</h1>
 							{post.excerpt && <p className="muted">{post.excerpt}</p>}
-							{heroUrl && (
+							{heroSrc && heroDims && (
 								<figure className="post-hero">
-									{/* Keep <img> for simplicity; swap to next/image if your next.config allows sanity CDN */}
-									<img
-										src={heroUrl}
-										alt={post.title || ""}
-										loading="eager"
-										decoding="async"
-										width={1600}
-										height={900}
-										style={{ width: "100%", height: "auto", display: "block" }}
-									/>
+									<div
+										className="post-hero__media"
+										style={{
+											aspectRatio: `${heroDims.width} / ${heroDims.height}`,
+											position: "relative",
+											width: "100%",
+										}}
+									>
+										<Image
+											src={heroSrc}
+											alt={post.title || ""}
+											fill
+											sizes="(min-width: 1024px) 1100px, 100vw"
+											priority
+											style={{ objectFit: "cover" }}
+										/>
+									</div>
 								</figure>
 							)}
 						</header>
 
 						{post.body && (
-							<div className="text">
+							<div className="prose">
 								<PortableText value={post.body} components={ptComponents} />
 							</div>
 						)}
