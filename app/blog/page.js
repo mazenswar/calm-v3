@@ -2,8 +2,18 @@
 import Link from "next/link";
 import { POSTS_PAGE_SIZE, postsListQuery } from "@/lib/sanity.queries";
 
+// Build-safe absolute base URL for server fetches during SSG/ISR.
+// WHY: Relative fetches can fail at build; fallback covers local + Vercel.
 function getBaseUrl() {
-	return process.env.NEXT_PUBLIC_SITE_URL;
+	const fromPublic = process.env.NEXT_PUBLIC_SITE_URL; // prefer explicit
+	if (fromPublic) return fromPublic.replace(/\/$/, "");
+
+	// Vercel provides VERCEL_URL without protocol (e.g. my-app.vercel.app)
+	const vercelUrl = process.env.VERCEL_URL;
+	if (vercelUrl) return `https://${vercelUrl.replace(/\/$/, "")}`;
+
+	// Local dev fallback
+	return "http://localhost:3000";
 }
 
 async function groqFetch(query, params) {
@@ -13,7 +23,17 @@ async function groqFetch(query, params) {
 		body: JSON.stringify({ query, params }),
 		next: { revalidate: 60 },
 	});
-	if (!res.ok) throw new Error(`GROQ proxy error: ${res.status}`);
+
+	if (!res.ok) {
+		// Minimal but useful error surfacing during build/runtime
+		let detail = "";
+		try {
+			const j = await res.json();
+			detail = j?.error ? ` - ${j.error}` : "";
+		} catch (_) {}
+		throw new Error(`GROQ proxy error: ${res.status}${detail}`);
+	}
+
 	const json = await res.json();
 	if (!json.ok) throw new Error(json.error || "Unknown GROQ proxy error");
 	return json.data;
@@ -27,9 +47,15 @@ export const metadata = {
 };
 
 export default async function BlogIndexPage() {
+	// Guard against undefined/0 page size from the query module
+	const size =
+		typeof POSTS_PAGE_SIZE === "number" && POSTS_PAGE_SIZE > 0
+			? POSTS_PAGE_SIZE
+			: 20;
+
 	const posts = await groqFetch(postsListQuery, {
 		page: 0,
-		size: POSTS_PAGE_SIZE,
+		size,
 	});
 
 	return (
