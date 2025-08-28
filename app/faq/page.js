@@ -5,8 +5,10 @@ import { faqGroups } from "./faq-data";
 import CustomLink from "../Components/ui/CustomLink";
 import Button from "../Components/ui/Button";
 import AccordionItem from "../Components/ui/AccordionItem/Component";
+import lightBulbSvg from "./assets/the-light-bulb.svg";
 
 import "./style.scss";
+import Image from "next/image";
 
 // simple slugifier for anchors
 const slugify = (s) =>
@@ -144,7 +146,12 @@ const FaqPage = () => {
 
 						{/* optional visual placeholder (kept minimal; swap or remove freely) */}
 						<figure className="faq__visual" aria-hidden="true">
-							<div className="faq__placeholder">Image</div>
+							<Image
+								src={lightBulbSvg}
+								alt=""
+								className="faq__bulb"
+								loading="lazy"
+							/>
 						</figure>
 					</div>
 

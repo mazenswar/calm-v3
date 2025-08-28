@@ -11,6 +11,15 @@
 	background: var(--color-bg);
 }
 
+figure {
+	align-self: center;
+	justify-self: center;
+}
+.faq__bulb {
+	// width: 220px; /* or whatever fits */
+	color: var(--brand-1); /* brand-purple */
+}
+
 // ssss
 
 .faq {
@@ -149,7 +158,9 @@
 			border-radius: var(--radius-sm);
 			color: var(--color-text);
 			text-decoration: none;
-			transition: background-color 0.15s ease, color 0.15s ease;
+			transition:
+				background-color 0.15s ease,
+				color 0.15s ease;
 
 			&:hover,
 			&.active {
