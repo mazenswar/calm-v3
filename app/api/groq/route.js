@@ -2,11 +2,21 @@
 import { NextResponse } from "next/server";
 import { client } from "@/lib/sanity.client";
 
+export async function GET() {
+	return NextResponse.json({ ok: true, health: "groq-ready" });
+}
+
 export async function POST(req) {
 	try {
 		const { query, params } = await req.json();
 		if (!query)
 			return NextResponse.json({ error: "Missing query" }, { status: 400 });
+		if (typeof query !== "string") {
+			return NextResponse.json({ error: "Invalid query" }, { status: 400 });
+		}
+		if (params != null && typeof params !== "object") {
+			return NextResponse.json({ error: "Invalid params" }, { status: 400 });
+		}
 		const data = await client.fetch(query, params || {});
 		return NextResponse.json({ ok: true, data });
 	} catch (e) {
