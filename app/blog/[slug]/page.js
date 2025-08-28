@@ -1,5 +1,6 @@
 // File: /app/blog/[slug]/page.js
 import Image from "next/image";
+import Script from "next/script";
 import { PortableText } from "@portabletext/react";
 import imageUrlBuilder from "@sanity/image-url";
 import { postBySlugQuery } from "@/lib/sanity.queries";
@@ -51,6 +52,30 @@ function getRefDimensions(ref) {
 	if (!Number.isFinite(w) || !Number.isFinite(h) || w === 0 || h === 0)
 		return null;
 	return { width: w, height: h, aspectRatio: w / h };
+}
+
+// -------- helpers: date formatting + share URL builders --------
+function formatDate(iso) {
+	try {
+		const d = new Date(iso || Date.now());
+		return new Intl.DateTimeFormat("en-US", {
+			year: "numeric",
+			month: "long",
+			day: "numeric",
+		}).format(d);
+	} catch {
+		return "";
+	}
+}
+
+function buildShareTargets({ url, title, excerpt }) {
+	const u = encodeURIComponent(url);
+	const t = encodeURIComponent(title || "");
+	const d = encodeURIComponent(excerpt || "");
+	return {
+		linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${u}`,
+		facebook: `https://www.facebook.com/sharer/sharer.php?u=${u}`,
+	};
 }
 
 // -------- Portable Text renderers --------
@@ -189,6 +214,8 @@ export async function generateMetadata({ params }) {
 export default async function BlogPostPage({ params }) {
 	const { slug } = await params;
 	const post = await groqFetch(postBySlugQuery, { slug: slug });
+	// make slug available inside header IIFE for share URLs
+	const pageUrl = `${getBaseUrl()}/blog/${slug}`;
 	if (!post) {
 		return (
 			<main>
@@ -215,6 +242,136 @@ export default async function BlogPostPage({ params }) {
 						<header className="stack">
 							<h1>{post.title}</h1>
 							{post.excerpt && <p className="muted">{post.excerpt}</p>}
+							<div className="post-meta">
+								<div className="post-meta__author">
+									{post?.author?.image?.asset?._ref ? (
+										<div
+											className="post-meta__avatar"
+											style={{ position: "relative", width: 48, height: 48 }}
+										>
+											<Image
+												src={urlFor(post.author.image)
+													.width(96)
+													.height(96)
+													.fit("crop")
+													.quality(80)
+													.url()}
+												alt={
+													post?.author?.name
+														? String(post.author.name)
+														: "Author"
+												}
+												fill
+												sizes="48px"
+												style={{ objectFit: "cover", borderRadius: "50%" }}
+												priority={false}
+											/>
+										</div>
+									) : null}
+									<div className="post-meta__byline">
+										{post?.author?.name ? (
+											<div className="post-meta__by">By {post.author.name}</div>
+										) : null}
+										{post?.publishedAt || post?._createdAt ? (
+											<time
+												className="post-meta__date muted"
+												dateTime={post.publishedAt || post._createdAt}
+											>
+												{formatDate(post.publishedAt || post._createdAt)}
+											</time>
+										) : null}
+									</div>
+								</div>
+
+								{/* simple share anchors (no client JS required) */}
+								{(() => {
+									const currentUrl = `${getBaseUrl()}/blog/${slug}`;
+									const targets = buildShareTargets({
+										url: currentUrl,
+										title: post?.title,
+										excerpt: post?.excerpt,
+									});
+									return (
+										<>
+											<ul className="post-share" role="list">
+												<li>
+													<a
+														className="post-share__link"
+														href={targets.linkedin}
+														target="_blank"
+														rel="noopener noreferrer"
+													>
+														LinkedIn
+													</a>
+												</li>
+												<li>
+													<a
+														className="post-share__link"
+														href={targets.facebook}
+														target="_blank"
+														rel="noopener noreferrer"
+													>
+														Facebook
+													</a>
+												</li>
+												<li>
+													<button
+														type="button"
+														id="copyShareBtn"
+														className="post-share__link"
+													>
+														Copy link
+													</button>
+												</li>
+											</ul>
+											<Script id="share-handler" strategy="afterInteractive">
+												{`
+      (function () {
+        function copyOrShare() {
+          var url = '${getBaseUrl()}/blog/${slug}';
+          var title = ${JSON.stringify(
+						"${post?.title ?? ''}"
+					)}.replace(/^"|"$/g, '');
+          var text = ${JSON.stringify(
+						"${post?.excerpt ?? ''}"
+					)}.replace(/^"|"$/g, '');
+
+          if (typeof navigator !== 'undefined' && navigator.share) {
+            navigator.share({ title: title || document.title, text: text || '', url })
+              .catch(function () { /* user canceled; ignore */ });
+            return;
+          }
+
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(url).then(function () {
+              var btn = document.getElementById('copyShareBtn');
+              if (!btn) return;
+              var prev = btn.textContent;
+              btn.textContent = 'Copied!';
+              setTimeout(function(){ btn.textContent = prev; }, 1500);
+            }).catch(function(){ /* ignore */ });
+            return;
+          }
+
+          // Fallback prompt
+          var ok = false;
+          try { ok = document.execCommand('copy'); } catch(e) {}
+          if (!ok) window.prompt('Copy this link:', url);
+        }
+
+        if (typeof window !== 'undefined') {
+          window.addEventListener('DOMContentLoaded', function(){
+            var btn = document.getElementById('copyShareBtn');
+            if (btn) btn.addEventListener('click', copyOrShare, false);
+          });
+        }
+      })();
+    `}
+											</Script>
+										</>
+									);
+								})()}
+							</div>
 							{heroSrc && heroDims && (
 								<figure className="post-hero">
 									<div
