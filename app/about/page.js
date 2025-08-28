@@ -6,6 +6,7 @@ import Image from "next/image";
 import tanyaHeadshot from "./assets/tanya-headshot.jpg";
 import calmImg from "./assets/calm.png";
 import tsNature from "./assets/ts-nature.png";
+import tsNatureOne from "./assets/aboutOne.png";
 
 export default function AboutPage() {
 	return (
@@ -104,7 +105,7 @@ export default function AboutPage() {
 					<div className="about__tanyaTop">
 						<div className="about__tanyaImg">
 							<Image
-								src={tanyaHeadshot}
+								src={tsNatureOne}
 								alt="Tanya Singh, PhD Licensed Clinical Psychologist"
 								priority
 								sizes="(max-width: 768px) 100vw, 360px"

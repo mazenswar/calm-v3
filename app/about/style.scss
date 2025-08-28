@@ -149,11 +149,13 @@
 	}
 
 	&__tanyaImg {
-		width: 220px;
-		max-width: 60vw;
+		width: 100%;
+
+		// width: 220px;
+		max-width: 500px;
 
 		img {
-			border-radius: 100%;
+			border-radius: 12px;
 			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 			display: block;
 			width: 100%;
@@ -161,9 +163,10 @@
 		}
 
 		@include respond(md) {
-			width: 280px;
-			max-width: none;
-			flex: 0 0 auto;
+			// width: 280px;
+			width: 30vw;
+			// max-width: none;
+			// flex: 0 0 auto;
 		}
 	}
 
@@ -226,7 +229,11 @@
 			img {
 				border-radius: 12px;
 			}
-			max-width: 300px;
+			width: 75%;
+			max-width: 500px;
+			@include respond(md) {
+				width: 30vw;
+			}
 		}
 		@include respond(md) {
 			display: flex;
