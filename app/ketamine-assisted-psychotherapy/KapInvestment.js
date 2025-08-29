@@ -4,7 +4,10 @@ import Button from "../Components/ui/Button";
 
 export function KapInvestment() {
 	return (
-		<section className="block keta-box alt kap-investment kap-investment--v3">
+		<section
+			className="block keta-box alt kap-investment kap-investment--v3"
+			id="kap__investment"
+		>
 			<div className="block__content">
 				{/* Intro */}
 				<div className="intro">

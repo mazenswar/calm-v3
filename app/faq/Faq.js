@@ -1,16 +1,18 @@
+// =============================================================
+// File: /app/faq/Faq.js (updated to use the new components)
+// Changes: remove in-file TOC click handler; render <PageToc> with the same items
+// =============================================================
 "use client";
-
 import React, { useEffect, useMemo, useState } from "react";
 import { faqGroups } from "./faq-data";
 import CustomLink from "../Components/ui/CustomLink";
 import Button from "../Components/ui/Button";
 import AccordionItem from "../Components/ui/AccordionItem/Component";
+import PageToc from "@/app/Components/ui/PageToc/Component";
 import lightBulbSvg from "./assets/the-light-bulb.svg";
-
-import "./style.scss";
 import Image from "next/image";
+import "./style.scss";
 
-// simple slugifier for anchors
 const slugify = (s) =>
 	s
 		.toLowerCase()
@@ -28,20 +30,18 @@ function useDebounced(value, ms = 200) {
 	return v;
 }
 
-const Faq = () => {
+export default function Faq() {
 	const [query, setQuery] = useState("");
 	const debounced = useDebounced(query, 200);
 
-	// keep full set for TOC; filter for content render
 	const filteredGroups = useMemo(() => {
 		const q = debounced.trim().toLowerCase();
 		if (!q) return faqGroups;
 		return faqGroups
 			.map((g) => {
 				const items = g.items.filter((it) => {
-					const hay = `${it.q} ${it.a} ${(it.tags || []).join(
-						" "
-					)}`.toLowerCase();
+					const hay =
+						`${it.q} ${it.a} ${(it.tags || []).join(" ")}`.toLowerCase();
 					return hay.includes(q);
 				});
 				return items.length ? { ...g, items } : null;
@@ -49,37 +49,7 @@ const Faq = () => {
 			.filter(Boolean);
 	}, [debounced]);
 
-	// left mini‑nav smooth scroll with header offset
-	useEffect(() => {
-		const nav = document.querySelector(".faq__toc");
-		if (!nav) return;
-
-		const headerOffset = (() => {
-			const sticky = document.querySelector(".site-header");
-			return sticky ? sticky.getBoundingClientRect().height : 88;
-		})();
-
-		const onClick = (e) => {
-			const a = e.target.closest('a[href^="#"]');
-			if (!a) return;
-			const id = a.getAttribute("href").slice(1);
-			const target = document.getElementById(id);
-			if (!target) return;
-			e.preventDefault();
-
-			const top =
-				window.pageYOffset +
-				target.getBoundingClientRect().top -
-				headerOffset -
-				12;
-
-			window.scrollTo({ top, behavior: "smooth" });
-		};
-
-		nav.addEventListener("click", onClick);
-		return () => nav.removeEventListener("click", onClick);
-	}, []);
-
+	// Open the item if page loads with a #hash
 	useEffect(() => {
 		if (typeof window === "undefined") return;
 		const hash = window.location.hash.replace("#", "");
@@ -90,17 +60,6 @@ const Faq = () => {
 		if (trigger) {
 			setTimeout(() => {
 				trigger.click();
-				const header = document.querySelector(".site-header");
-				const offset = header ? header.getBoundingClientRect().height : 88;
-				const target = document.getElementById(hash);
-				if (target) {
-					const top =
-						window.pageYOffset +
-						target.getBoundingClientRect().top -
-						offset -
-						12;
-					window.scrollTo({ top, behavior: "smooth" });
-				}
 			}, 60);
 		}
 	}, []);
@@ -112,10 +71,8 @@ const Faq = () => {
 
 	return (
 		<main id="faq" className="faq">
-			{/* ONE unified section */}
 			<section className="block">
 				<div className="block__content container">
-					{/* Header + search */}
 					<div className="faq__intro">
 						<div className="faq__intro-copy">
 							<p className="eyebrow">FAQs</p>
@@ -123,7 +80,7 @@ const Faq = () => {
 							<p className="lead">
 								Clear, concise answers about our approach, availability, fees,
 								and ketamine‑assisted psychotherapy. If you don’t see your
-								question here,{" "}
+								question here, {""}
 								<CustomLink url="/contact" classN="link" ariaLabel="Contact us">
 									reach out
 								</CustomLink>
@@ -144,7 +101,6 @@ const Faq = () => {
 							</div>
 						</div>
 
-						{/* optional visual placeholder (kept minimal; swap or remove freely) */}
 						<figure className="faq__visual" aria-hidden="true">
 							<Image
 								src={lightBulbSvg}
@@ -155,20 +111,9 @@ const Faq = () => {
 						</figure>
 					</div>
 
-					{/* Layout: sticky toc + content */}
 					<div className="faq__layout">
-						<aside className="faq__toc" aria-label="FAQ sections">
-							<nav>
-								<h2 className="toc__title">On this page</h2>
-								<ul>
-									{toc.map((t) => (
-										<li key={t.id}>
-											<a href={`#${t.id}`}>{t.title}</a>
-										</li>
-									))}
-								</ul>
-							</nav>
-						</aside>
+						{/* Reusable TOC; keep page class for existing styles */}
+						<PageToc title="On this page" items={toc} className="faq__toc" />
 
 						<div className="faq__content">
 							{filteredGroups.length === 0 ? (
@@ -198,7 +143,7 @@ const Faq = () => {
 														key={anchor}
 														idBase={anchor}
 														title={item.q}
-														summaryClassName="faq-item__summary" // optional: keep your current class hooks
+														summaryClassName="faq-item__summary"
 													>
 														<p
 															dangerouslySetInnerHTML={{ __html: item.a }}
@@ -217,6 +162,4 @@ const Faq = () => {
 			</section>
 		</main>
 	);
-};
-
-export default Faq;
+}

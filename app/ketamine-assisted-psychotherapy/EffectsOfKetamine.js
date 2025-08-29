@@ -2,7 +2,11 @@ import "./style/effects-of-ketamine.scss";
 
 export default function EffectsOfKetamine() {
 	return (
-		<section className="block effects-slim" aria-labelledby="effects-title">
+		<section
+			className="block effects-slim"
+			aria-labelledby="effects-title"
+			id="kap__effects"
+		>
 			<div className="block__content container">
 				<h2 id="effects-title" className="effects-slim__title">
 					Effects of Ketamine

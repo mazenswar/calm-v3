@@ -4,7 +4,7 @@ import "./style/resources.scss";
 
 export default function ResourcesSection() {
 	return (
-		<section className="block resources keta-box alt">
+		<section className="block resources keta-box alt" id="kap__resources">
 			<div className="block__content">
 				<div className="resources__intro">
 					<h2>Further Reading & Resources</h2>

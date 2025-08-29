@@ -19,13 +19,14 @@
 		gap: 3rem;
 		min-height: 80vh; /* taller hero for breathing space */
 		// padding: var(--space-12) 0;
-		@include respond(mds) {
-			flex-direction: column;
-			// background: red;
-		}
+		// @include respond(mdx) {
+		// 	flex-direction: column;
+		// 	// background: red;
+		// }
 
-		@include respond(mdx) {
+		@include respond(lg) {
 			flex-direction: row-reverse; /* keep waves on right for larger screens */
+
 			// align-items: center;
 			justify-content: space-between;
 			gap: 6rem; /* more space between text & image */
@@ -50,6 +51,10 @@
 		h1 {
 			font-size: clamp(2rem, 5vw, 3rem);
 			margin-bottom: var(--space-6);
+			text-align: center;
+			@include respond(1024) {
+				text-align: left;
+			}
 		}
 
 		.hero__subtitle {

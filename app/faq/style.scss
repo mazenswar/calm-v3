@@ -1,3 +1,4 @@
+// style.scss
 @use "../styles/tokens" as *;
 @use "../styles/mixins" as *;
 
@@ -116,58 +117,6 @@ figure {
 		grid-template-columns: 260px 1fr;
 		gap: var(--space-12);
 		align-items: start;
-	}
-}
-
-/* Sticky TOC */
-.faq .faq__toc {
-	position: static;
-
-	@include respond(md) {
-		position: sticky;
-		top: var(--space-12); /* leaves room under sticky site header */
-	}
-
-	nav {
-		background: var(--color-surface);
-		border: 1px solid var(--brand-8);
-		border-radius: var(--radius-md);
-		padding: var(--space-4);
-	}
-
-	.toc__title {
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-		color: var(--color-muted);
-		margin-bottom: var(--space-2);
-		font-size: inherit;
-	}
-
-	ul {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-
-		li + li {
-			margin-top: var(--space-1);
-		}
-
-		a {
-			display: block;
-			padding: var(--space-2);
-			border-radius: var(--radius-sm);
-			color: var(--color-text);
-			text-decoration: none;
-			transition:
-				background-color 0.15s ease,
-				color 0.15s ease;
-
-			&:hover,
-			&.active {
-				background: var(--brand-8);
-				color: var(--brand-1);
-			}
-		}
 	}
 }
 

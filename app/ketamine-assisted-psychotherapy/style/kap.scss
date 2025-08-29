@@ -1,3 +1,54 @@
+@use "../../styles/mixins" as *;
+
 #keta {
-	// background: var(--gradient);
+	display: grid;
+	// padding-top: var(--space-10);
+	.toc__container {
+		background: var(--brand-1);
+		width: 100%;
+		height: 100%;
+	}
+	// align-items: start;
+
+	// grid-template-columns: 260px 1fr;
+	// gap: var(--space-12);
+
+	.keta__toc {
+		align-self: center;
+		justify-self: center;
+		nav {
+			background: inherit;
+			h2 {
+				color: var(--brand-2);
+			}
+			a {
+				color: var(--color-surface);
+				font-weight: 300;
+				&:hover {
+					color: var(--brand-2);
+				}
+			}
+		}
+	}
+
+	@include respond(md) {
+		// padding: var(--space-6);
+
+		grid-template-columns: 260px 1fr;
+		// gap: var(--space-12);
+		align-items: start;
+		// justify-items: start;
+		.keta__toc {
+			// background: red;
+			// justify-self: end;
+			// margin: 0;
+			align-self: flex-start;
+			justify-self: center;
+			// margin: var(--space-12);
+			width: 100%;
+		}
+		.kap__content {
+			grid-column: 2;
+		}
+	}
 }

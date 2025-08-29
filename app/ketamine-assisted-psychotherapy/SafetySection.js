@@ -2,7 +2,7 @@ import "./style/kap-safety-ethics.scss";
 
 export default function SafetySection() {
 	return (
-		<section className="block kap-safety" id="kap-safety">
+		<section className="block kap-safety" id="kap__safety">
 			<div className="block__content">
 				{/* Intro */}
 				<div className="intro">

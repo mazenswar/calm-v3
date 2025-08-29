@@ -1,4 +1,5 @@
 import React from "react";
+import PageToc from "@/app/Components/ui/PageToc/Component";
 
 import KapProcess from "./KapProcess";
 import KapIntro from "./KapIntro";
@@ -8,6 +9,7 @@ import SafetySection from "./SafetySection";
 import ResourcesSection from "./ResourcesSection";
 import "./style/kap.scss";
 import EffectsOfKetamine from "./EffectsOfKetamine";
+import BackToTop from "../Components/ui/BackToTop/Component";
 
 export const metadata = {
 	title: "Ketamine-Assisted Psychotherapy (KAP) | CALM Therapy",
@@ -43,16 +45,35 @@ export const metadata = {
 function Keta() {
 	return (
 		<main id="keta">
-			<KapIntro />
+			<div className="toc__container">
+				<PageToc
+					title="On this page"
+					items={[
+						{ id: "kap__intro", title: "Intro" },
+						{ id: "kap__eligibility", title: "Is KAP Right for You?" },
+						{ id: "kap__effects", title: "Effects of Ketamine" },
+						{ id: "kap__process", title: "Our KAP Process" },
+						{ id: "kap__investment", title: "Investment" },
+						{ id: "kap__safety", title: "Safety & Ethical Considerations" },
+						{ id: "kap__resources", title: "Further Reading & Resources" },
+					]}
+					className="keta__toc"
+					id="keta__toc"
+				/>
+			</div>
+			<div className="kap__content">
+				<KapIntro />
 
-			<KapEligibility />
-			<EffectsOfKetamine />
-			<KapProcess />
+				<KapEligibility />
+				<EffectsOfKetamine />
+				<KapProcess />
 
-			<KapInvestment />
+				<KapInvestment />
 
-			<SafetySection />
-			<ResourcesSection />
+				<SafetySection />
+				<ResourcesSection />
+			</div>
+			<BackToTop targetId="keta__toc" />
 		</main>
 	);
 }

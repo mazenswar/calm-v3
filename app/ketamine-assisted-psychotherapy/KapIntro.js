@@ -6,7 +6,7 @@ import "./style/kap-intro.scss";
 
 export default function KapIntro() {
 	return (
-		<section className="block kap-intro keta-header">
+		<section className="block kap-intro keta-header" id="kap__intro">
 			<div className="block__content container">
 				{/* 
           HERO IMAGE 

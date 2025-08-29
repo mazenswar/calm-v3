@@ -4,7 +4,7 @@ import "./style/kap-fit.scss";
 
 const KapEligibility = () => {
 	return (
-		<section className="block keta-box kap-eligibility">
+		<section className="block keta-box kap-eligibility" id="kap__eligibility">
 			<div className="block__content">
 				<div className="fit__copy">
 					<h2>Is KAP Right for You?</h2>

@@ -3,7 +3,7 @@ import "./style/kap-process.scss";
 
 export default function KapProcess() {
 	return (
-		<section className="block kap-process keta-box alt" id="kap-process">
+		<section className="block kap-process keta-box alt" id="kap__process">
 			<div className="block__content">
 				{/* Intro (copy unchanged) */}
 				<div className="intro">
