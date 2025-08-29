@@ -154,14 +154,19 @@ export async function generateMetadata({ params }) {
 	const title = post?.seoTitle || post?.title || "Post";
 	const description = post?.seoDescription || post?.excerpt || "";
 	const url = `${getBaseUrl()}/blog/${slug}`;
-	const ogImage =
-		post?.mainImage &&
-		urlFor(post.mainImage)
+	let ogImage;
+	const ogRef = post?.mainImage?.asset?._ref || post?.mainImage?.ref;
+
+	if (ogRef) {
+		ogImage = urlFor({ _type: "image", asset: { _ref: ogRef } })
 			.width(1200)
 			.height(630)
 			.fit("crop")
 			.quality(80)
 			.url();
+	} else if (post?.mainImage?.url) {
+		ogImage = post.mainImage.url;
+	}
 
 	return {
 		title,
@@ -197,12 +202,22 @@ export default async function BlogPostPage({ params }) {
 		);
 	}
 
-	/* ---- Hero image (optional) ---- */
-	const heroRef = post.mainImage?.asset?._ref || post.mainImage?.ref; // tolerate either shape
-	const heroDims = heroRef ? getRefDimensions(heroRef) : null;
-	const heroSrc = post.mainImage
-		? urlFor(post.mainImage).width(1600).quality(80).url()
-		: null;
+	// ---- Hero image (optional) ----
+	const heroRef = post.mainImage?.asset?._ref || post.mainImage?.ref;
+	const heroDims = heroRef
+		? getRefDimensions(heroRef)
+		: post.mainImage?.dims || null;
+
+	let heroSrc = null;
+	if (heroRef) {
+		heroSrc = urlFor({ _type: "image", asset: { _ref: heroRef } })
+			.width(1600)
+			.quality(80)
+			.url();
+	} else if (post.mainImage?.url) {
+		// already a usable CDN URL from your projection
+		heroSrc = post.mainImage.url;
+	}
 
 	return (
 		<main id="blog__page">
