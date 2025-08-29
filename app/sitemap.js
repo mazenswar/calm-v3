@@ -4,7 +4,7 @@
 // ------------------------------
 // /app/sitemap.js
 // ------------------------------
-import { postsSlugsQuery } from "@/lib/sanity.queries";
+import { postsListQuery } from "@/lib/sanity.queries";
 
 function getBaseUrl() {
 	// Prefer explicit public URL; fallback to Vercel env during build
@@ -54,7 +54,7 @@ export default async function sitemap() {
 	// Dynamic blog routes (from Sanity via GROQ proxy)
 	let blogRoutes = [];
 	try {
-		const slugs = await groqFetch(postsSlugsQuery);
+		const slugs = await groqFetch(postsListQuery);
 		blogRoutes = (slugs || []).map((slug) => ({
 			url: `${base}/blog/${slug}`,
 			lastModified: new Date().toISOString(),

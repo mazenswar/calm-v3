@@ -59,6 +59,9 @@
 		inline-size: 20px;
 		block-size: 20px;
 
+		/* Snap the icon box to device pixels to reduce AA blur on large monitors */
+		image-rendering: optimizeQuality;
+		transform: translateZ(0); /* promote for crisper rasterization */
 		@include respond(md) {
 			inline-size: 24px;
 			block-size: 24px;
@@ -74,10 +77,6 @@
 		svg * {
 			vector-effect: non-scaling-stroke;
 		}
-
-		/* Snap the icon box to device pixels to reduce AA blur on large monitors */
-		image-rendering: optimizeQuality;
-		transform: translateZ(0); /* promote for crisper rasterization */
 	}
 
 	.effects-slim__text {

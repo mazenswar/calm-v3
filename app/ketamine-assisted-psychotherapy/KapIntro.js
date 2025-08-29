@@ -1,6 +1,7 @@
+import Image from "next/image";
 import Button from "../Components/ui/Button";
 
-import waves from "./assets/images/waves.jpg";
+import waves from "./assets/images/waves.webp";
 import "./style/kap-intro.scss";
 
 export default function KapIntro() {
@@ -12,13 +13,17 @@ export default function KapIntro() {
           - Added overlay div inside for gradient/duotone treatment in CSS
           - Increased size control via CSS, so here we just set the background
         */}
-				<div
-					className="hero__img"
-					role="img"
-					aria-label="Soft water ripple symbolising expanding insight"
-					style={{ backgroundImage: `url(${waves.src})` }}
-				>
-					<div className="hero__overlay" aria-hidden="true" />
+
+				<div className="hero__image">
+					<Image
+						src={waves}
+						alt="waves"
+						aria-label="waves"
+						priority
+						sizes="(max-width: 768px) 100vw, 400px"
+						width={400}
+						height={400}
+					/>
 				</div>
 
 				{/* 

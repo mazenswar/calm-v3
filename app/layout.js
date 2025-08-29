@@ -19,6 +19,9 @@ const dmSerif = DM_Serif_Display({
 });
 
 export const metadata = {
+	metadataBase: new URL(
+		process.env.NEXT_PUBLIC_SITE_URL || "https://calmtherapy.center"
+	),
 	title: "CALM Therapy | Modern Psychology, Timeless Wisdom",
 	description:
 		"Private-pay therapy for adults seeking growth and transformation. East Coast based, licensed in NY, NJ, PA, and available in 43 U.S. states and jurisdictions.",

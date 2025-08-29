@@ -19,8 +19,12 @@
 		gap: 3rem;
 		min-height: 80vh; /* taller hero for breathing space */
 		// padding: var(--space-12) 0;
+		@include respond(mds) {
+			flex-direction: column;
+			// background: red;
+		}
 
-		@include respond(md) {
+		@include respond(mdx) {
 			flex-direction: row-reverse; /* keep waves on right for larger screens */
 			// align-items: center;
 			justify-content: space-between;
@@ -68,19 +72,17 @@
 	}
 
 	/* visual column */
-	.hero__img {
-		width: 14rem;
-		height: 14rem;
-		background-position: center;
-		background-size: cover;
-		background-repeat: no-repeat;
-		border-radius: 50%; /* circular crop for symbolic motif */
-		position: relative;
-		overflow: hidden; /* ensure overlay is clipped inside circle */
+	.hero__image {
+		max-width: 400px;
+		align-self: center;
+		// justify-self: center;
+		img {
+			border-radius: 100%;
+			box-shadow: var(--shadow-1);
+		}
 
 		@include respond(md) {
-			width: 20rem;
-			height: 20rem;
+			width: clamp(800px, 25vw, 400px);
 		}
 
 		.hero__overlay {
