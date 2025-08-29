@@ -3,6 +3,7 @@ import "./styles/index.scss";
 
 import MainNav from "./Components/MainNav/Component";
 import Footer from "./Components/Footer/Component";
+import GTM from "./Components/GTM";
 
 const lexend = Lexend({
 	subsets: ["latin"],
@@ -36,9 +37,8 @@ export const metadata = {
 			{ url: "/social/ss.webp", width: 1200, height: 630, alt: "CALM Therapy" },
 		],
 	},
-	// PWA manifest
-	manifest: "/site.webmanifest",
 
+	manifest: "/manifest.json",
 	// Icons for all contexts
 	icons: {
 		icon: [
@@ -63,6 +63,7 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
 			<body className={`${dmSerif.variable} ${lexend.variable}`}>
+				<GTM />
 				<MainNav />
 				{children}
 

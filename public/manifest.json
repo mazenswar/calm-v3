@@ -1,0 +1,26 @@
+{
+	"name": "CALM Therapy",
+	"short_name": "CALM",
+	"description": "CALM Therapy offers integrative, private-pay therapy across 43 U.S. states and jurisdictions. Modern psychology, timeless wisdom.",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#ffffff",
+	"theme_color": "#7f5a83",
+	"icons": [
+		{
+			"src": "/favicon-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "/favicon-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		},
+		{
+			"src": "/favicon.ico",
+			"sizes": "48x48",
+			"type": "image/x-icon"
+		}
+	]
+}
