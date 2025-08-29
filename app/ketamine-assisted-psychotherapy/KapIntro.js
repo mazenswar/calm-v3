@@ -43,28 +43,21 @@ export default function KapIntro() {
 						Ketamine-Assisted Psychotherapy (KAP) can be a powerful catalyst for
 						emotional healing, especially when approached with intention and
 						support. At CALM, we see KAP as one part of a larger journey; a
-						practice that deepens and complements the work you’re already doing
-						to understand yourself and heal.
+						practice that deepens and complements the work you{"'"}re already
+						doing to understand yourself and heal.
 					</p>
 					<p>
 						We strongly recommend a consistent baseline of care before, during,
-						and after the KAP journey. KAP can be done on its own, but it’s most
-						effective when embedded in a larger healing framework.
+						and after the KAP journey. KAP can be done on its own, but it{"'"}s
+						most effective when embedded in a larger healing framework.
 					</p>
 					<p>
-						Ketamine’s effects can include enhanced emotional openness, reduced
-						reactivity, and temporary relief from symptoms of anxiety,
+						Ketamine{"'"}s effects can include enhanced emotional openness,
+						reduced reactivity, and temporary relief from symptoms of anxiety,
 						depression, and obsessive thought patterns. In a therapeutic
 						setting, this creates space for new perspectives, deeper insight,
 						and meaningful breakthroughs.
 					</p>
-
-					{/* Scroll cue / CTA */}
-					<Button
-						primary={false}
-						text="Explore the KAP Process"
-						url="/ketamine-assisted-psychotherapy#kap-process"
-					/>
 				</div>
 			</div>
 		</section>
