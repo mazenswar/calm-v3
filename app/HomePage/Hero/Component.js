@@ -28,10 +28,9 @@ function Hero() {
 					<Image
 						src={ts.src}
 						alt="Tanya Singh, PhD — therapist offering integrative care"
-						width={480}
-						height={480}
+						width={400}
+						height={400}
 						priority
-						unoptimized
 						sizes="(max-width: 768px) 90vw, 480px"
 						style={{ width: "100%", height: "auto" }}
 					/>

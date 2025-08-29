@@ -1,5 +1,5 @@
 import Button from "../Components/ui/Button";
-import CustomLink from "../Components/ui/CustomLink";
+
 import waves from "./assets/images/waves.jpg";
 import "./style/kap-intro.scss";
 

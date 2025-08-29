@@ -107,9 +107,28 @@ export default function SpecialtiesPage() {
 		},
 		{
 			id: "mood",
-			title: "Mood & Self‑Perception",
+			title: "Mood & Self-Perception",
 			lead: "Clear steps to understand mood patterns and relate to yourself with care.",
 			items: [
+				{
+					title: "Complex Trauma",
+					body: (
+						<p>
+							Complex trauma can make the past feel like it is still alive in
+							the present. Old experiences of fear, shame, or worthlessness
+							surface as if they are happening now, shaping how you see yourself
+							and how safe you feel in the world. This can leave you feeling
+							trapped in patterns that are hard to name but deeply felt. Our
+							work together involves both grounding skills for safety in the
+							moment and deeper exploration of how these patterns took root. We
+							may use body-focused approaches, Internal Family Systems (IFS),
+							and mindfulness to help you rebuild trust in yourself and shift
+							entrenched beliefs. Healing from complex trauma is not about
+							erasing the past, but about creating the conditions for safety,
+							clarity, and self-compassion in the present.
+						</p>
+					),
+				},
 				{
 					title: "Depression",
 					body: (

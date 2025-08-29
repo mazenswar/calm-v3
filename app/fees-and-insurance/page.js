@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import CustomLink from "../Components/ui/CustomLink";
-import heroImg from "./assets/waves-2.jpg";
+import heroImg from "./assets/waves.webp";
 import "./style.scss";
 
 /**
@@ -33,9 +33,9 @@ function HeroPricing() {
 					<figure className="fees-hero__media" aria-hidden="true">
 						<Image
 							src={heroImg.src}
-							alt="Friendly brain character holding a kintsugi-style pot"
-							width={560}
-							height={560}
+							alt="waves reaching shore"
+							width={400}
+							height={400}
 							priority
 							style={{ width: "100%", height: "auto" }}
 						/>
@@ -71,21 +71,21 @@ function VerifyCoverage() {
 				<h2 className="section-title">Insurance & How to Verify Coverage</h2>
 				<div className="prose">
 					<p>
-						We are an out‑of‑network provider for all insurance companies, which
+						We are an out-of-network provider for all insurance companies, which
 						means we do not accept insurance directly. However, many insurance
-						plans offer excellent out‑of‑network reimbursement for therapy.
+						plans offer excellent out-of-network reimbursement for therapy.
 						After each session, we will provide a superbill (a detailed receipt)
 						that you can submit to your insurance company for potential
 						reimbursement.
 					</p>
 					<p>
-						Because coverage varies widely, it’s helpful to verify your benefits
-						with your insurance provider before beginning therapy.
+						Because coverage varies widely, it{"'"}s helpful to verify your
+						benefits with your insurance provider before beginning therapy.
 					</p>
 					<p className="lead">
 						Call the member services number on your insurance card and ask
 						whether your plan includes{" "}
-						<b>out‑of‑network outpatient mental health</b> benefits. When you
+						<b>out-of-network outpatient mental health</b> benefits. When you
 						speak with them, these questions are useful:
 					</p>
 				</div>
@@ -94,7 +94,7 @@ function VerifyCoverage() {
 					<ul className="bullets">
 						<li>
 							What percentage of the session fee is reimbursed for
-							out‑of‑network therapy?
+							out-of-network therapy?
 						</li>
 						<li>Is there a deductible I need to meet first?</li>
 						<li>How do I submit a superbill for reimbursement?</li>
@@ -134,13 +134,13 @@ function WhyOutOfNetwork() {
 		<section className="fees__why block" id="why-oon">
 			<div className="block__content container">
 				<h2 className="section-title">
-					Why Choose an Out‑of‑Network Therapist?
+					Why Choose an Out-of-Network Therapist?
 				</h2>
 				<p className="why-intro">
 					Therapy is most effective when you work with someone who truly
-					understands your needs. In‑network options can be limited, and you may
+					understands your needs. In-network options can be limited, and you may
 					not find a therapist who specializes in your concerns. Choosing an
-					out‑of‑network provider allows you to prioritize fit, expertise, and
+					out-of-network provider allows you to prioritize fit, expertise, and
 					the quality of care.
 				</p>
 
@@ -153,12 +153,12 @@ function WhyOutOfNetwork() {
 							More Specialized Care
 						</h3>
 						<p>
-							While some in‑network providers treat anxiety and OCD, these
+							While some in-network providers treat anxiety and OCD, these
 							conditions often require specialized training to be addressed
-							effectively. Our practice focuses on anxiety‑related disorders,
-							OCD, and perfectionism, utilizing evidence‑based approaches that
+							effectively. Our practice focuses on anxiety-related disorders,
+							OCD, and perfectionism, utilizing evidence-based approaches that
 							require advanced expertise. Additionally, we offer
-							ketamine‑assisted therapy for treatment‑resistant conditions, a
+							ketamine-assisted therapy for treatment-resistant conditions, a
 							service not commonly available in insurance networks.
 						</p>
 					</article>
@@ -172,9 +172,9 @@ function WhyOutOfNetwork() {
 						</h3>
 						<p>
 							Insurance companies often impose restrictions on session length,
-							frequency, and treatment modalities. As an out‑of‑network
+							frequency, and treatment modalities. As an out-of-network
 							provider, we have the flexibility to tailor therapy to what works
-							best for you, rather than following insurance‑mandated guidelines.
+							best for you, rather than following insurance-mandated guidelines.
 						</p>
 					</article>
 
@@ -186,12 +186,12 @@ function WhyOutOfNetwork() {
 							High Reimbursement
 						</h3>
 						<p>
-							Many people assume out‑of‑network therapy is unaffordable, but
+							Many people assume out-of-network therapy is unaffordable, but
 							some plans reimburse a substantial portion of session fees once a
-							deductible is met. If you have a high‑deductible plan, you may be
-							paying out‑of‑pocket for therapy either way, so it{"'"}s worth
+							deductible is met. If you have a high-deductible plan, you may be
+							paying out-of-pocket for therapy either way, so it{"'"}s worth
 							choosing a therapist who truly fits your needs and can support
-							your long‑term growth.
+							your long-term growth.
 						</p>
 					</article>
 				</div>
@@ -239,7 +239,7 @@ function HowReimbursementWorks() {
 						<CustomLink url="mailto:info@calmtherapy.center">
 							email us
 						</CustomLink>
-						. We’re happy to help you understand the process.
+						. We{"'"}re happy to help you understand the process.
 					</p>
 				</div>
 			</div>

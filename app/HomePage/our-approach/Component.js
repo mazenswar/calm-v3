@@ -35,8 +35,8 @@ function ApproachSection() {
 							<Image
 								src={brainMeditation.src}
 								alt="An integrative view: psychology in one hand, contemplative practice in the other"
-								width={480}
-								height={480}
+								width={400}
+								height={400}
 								priority={false}
 								sizes="(max-width: 768px) 92vw, 420px"
 								style={{ width: "100%", height: "auto" }}

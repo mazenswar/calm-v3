@@ -1,7 +1,6 @@
 import React from "react";
-import fitImg from "./assets/images/fit.jpg";
+
 import "./style/kap-fit.scss";
-import Image from "next/image";
 
 const KapEligibility = () => {
 	return (

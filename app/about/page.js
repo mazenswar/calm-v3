@@ -4,9 +4,9 @@
 import "./style.scss";
 import Image from "next/image";
 
-import calmImg from "./assets/calm.png";
-import tsNature from "./assets/ts-park.png";
-import tsNatureOne from "./assets/tsn.png";
+import calmImg from "./assets/calm.webp";
+import tsNature from "./assets/ts-park.webp";
+import tsNatureOne from "./assets/tsn.webp";
 
 export default function AboutPage() {
 	return (
@@ -49,6 +49,8 @@ export default function AboutPage() {
 								alt="Calm Therapy visual representation"
 								priority
 								sizes="(max-width: 768px) 100vw, 400px"
+								width={400}
+								height={400}
 							/>
 						</div>
 					</div>
@@ -108,7 +110,8 @@ export default function AboutPage() {
 								src={tsNature}
 								alt="Tanya Singh in Nature"
 								sizes="(max-width: 768px) 100vw, 400px"
-								unoptimized
+								width={400}
+								height={400}
 							/>
 						</div>
 
@@ -131,18 +134,21 @@ export default function AboutPage() {
 							<h3 className="about__subheading">Training &amp; Experience</h3>
 							<p>
 								Tanya Singh, PhD, is a licensed clinical psychologist
-								specializing in anxiety disorders, obsessive–compulsive and
+								specializing in anxiety disorders, obsessive-compulsive and
 								related disorders, and major life transitions. In working with
 								these concerns, she also saw how many people carry the lingering
 								impact of earlier hardships, which led her to develop expertise
 								in complex trauma.
 							</p>
 							<p>
-								Her training includes Rutgers University Behavioral Health Care,
-								Massachusetts General Hospital/Harvard University, Columbia
-								University, and Montclair State University. She has also pursued
-								training in ketamine-assisted psychotherapy (KAP), offering care
-								for individuals with treatment-resistant conditions.
+								Her clinical training includes work at institutions such as
+								Rutgers University Behavioral Health Care, Massachusetts General
+								Hospital/Harvard University, Columbia University, SUNY Downstate
+								Medical Center, and the New York State Psychiatric Institute, as
+								well as specialized private practice settings focused on anxiety
+								and OCD. She has also pursued training in ketamine-assisted
+								psychotherapy (KAP), offering care for individuals with
+								treatment-resistant conditions.
 							</p>
 						</article>
 						<article className="about__tanyaCol">
@@ -186,9 +192,10 @@ export default function AboutPage() {
 							<Image
 								src={tsNatureOne}
 								alt="Tanya Singh, PhD Licensed Clinical Psychologist"
-								priority
 								sizes="(max-width: 768px) 100vw, 360px"
 								style={{ width: "100%", height: "auto" }}
+								width={400}
+								height={400}
 							/>
 						</div>
 					</div>
