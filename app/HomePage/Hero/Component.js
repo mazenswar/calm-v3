@@ -11,8 +11,8 @@ function Hero() {
 			<div className="block__content container">
 				<div className="heroCopy">
 					<h1>
-						You’re Not Broken. <br />
-						You’re Becoming.
+						Modern Psychology, <br />
+						Timeless Wisdom
 					</h1>
 					<p className="lead">
 						Virtual therapy for thoughtful adults navigating anxiety,
