@@ -1,3 +1,4 @@
+// /blog/[slug]/style.scss
 @use "../../styles/mixins" as *;
 #blog__page {
 	.prose {
@@ -43,9 +44,14 @@ pre,
 .pt-figure {
 	margin: 1.25rem 0;
 	&__media {
+		width: 100%;
 		border-radius: var(--radius-lg, 16px);
 		overflow: hidden;
 		outline: 1px solid var(--border-subtle, rgba(0, 0, 0, 0.06));
+		img {
+			width: 100%;
+			height: auto;
+		}
 	}
 	.pt-figcaption {
 		color: var(--prose-muted);
@@ -68,9 +74,9 @@ pre,
 		margin: 1.5rem 0 0;
 
 		&__media {
-			border-radius: var(--radius-lg, 16px);
-			overflow: hidden;
-			outline: 1px solid var(--border-subtle, rgba(0, 0, 0, 0.06));
+			// border-radius: var(--radius-lg, 16px);
+			// overflow: hidden;
+			// outline: 1px solid var(--border-subtle, rgba(0, 0, 0, 0.06));
 		}
 	}
 
@@ -274,6 +280,10 @@ pre,
 				border-radius: var(--radius-lg, 16px);
 				overflow: hidden;
 				outline: 1px solid var(--border-subtle, rgba(0, 0, 0, 0.06));
+				img {
+					width: 100%;
+					height: auto;
+				}
 			}
 			.pt-figcaption {
 				color: var(--prose-muted);

@@ -1,5 +1,5 @@
 import React from "react";
-import Faq from "./faq";
+import Faq from "./Faq";
 
 export const metadata = {
 	title: "FAQ | CALM Therapy",

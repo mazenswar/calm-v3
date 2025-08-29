@@ -4,6 +4,7 @@ import Script from "next/script";
 import { PortableText } from "@portabletext/react";
 import imageUrlBuilder from "@sanity/image-url";
 import { postBySlugQuery } from "@/lib/sanity.queries";
+import { urlFor } from "@/lib/sanity.image";
 import "./style.scss";
 
 // Base URL for server fetches
@@ -37,10 +38,6 @@ const builder = imageUrlBuilder({
 	projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
 	dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
 });
-
-function urlFor(source) {
-	return builder.image(source).auto("format");
-}
 
 // Parse `image-<hash>-<w>x<h>-<format>` from asset ref to get natural dimensions
 function getRefDimensions(ref) {
@@ -145,21 +142,13 @@ const ptComponents = {
 			// Use a responsive wrapper with aspect-ratio + next/image fill
 			return (
 				<figure className="pt-figure">
-					<div
-						className="pt-figure__media"
-						style={{
-							aspectRatio: `${dims.width} / ${dims.height}`,
-							position: "relative",
-							width: "100%",
-						}}
-					>
+					<div className="pt-figure__media">
 						<Image
 							src={src}
 							alt={value.alt || ""}
 							fill
-							sizes="(min-width: 1024px) 900px, 100vw"
+							// sizes="(min-width: 1024px) 900px, 100vw"
 							priority={false}
-							style={{ objectFit: "cover" }}
 						/>
 					</div>
 					{value.caption && (
@@ -229,11 +218,17 @@ export default async function BlogPostPage({ params }) {
 		);
 	}
 
-	// Hero image (optional)
-	const heroRef = post.mainImage?.asset?._ref;
-	const heroDims = heroRef ? getRefDimensions(heroRef) : null;
-	const heroSrc =
-		post.mainImage && urlFor(post.mainImage).width(1600).quality(80).url();
+	// use the projected ref/dims/url
+	const heroRef = post.mainImage?.ref;
+	const heroDims =
+		post.mainImage?.dims || (heroRef ? getRefDimensions(heroRef) : null);
+
+	const heroSrc = heroRef
+		? urlFor({ _type: "image", asset: { _ref: heroRef } })
+				.width(1600)
+				.quality(80)
+				.url()
+		: post.mainImage?.url; // fallback
 
 	return (
 		<main id="blog__page">
@@ -246,28 +241,20 @@ export default async function BlogPostPage({ params }) {
 							<div className="post-meta">
 								<div className="post-meta__author">
 									{post?.author?.image?.asset?._ref ? (
-										<div
-											className="post-meta__avatar"
-											style={{ position: "relative", width: 48, height: 48 }}
-										>
-											<Image
-												src={urlFor(post.author.image)
-													.width(96)
-													.height(96)
-													.fit("crop")
-													.quality(80)
-													.url()}
-												alt={
-													post?.author?.name
-														? String(post.author.name)
-														: "Author"
-												}
-												fill
-												sizes="48px"
-												style={{ objectFit: "cover", borderRadius: "50%" }}
-												priority={false}
-											/>
-										</div>
+										<Image
+											src={urlFor({
+												_type: "image",
+												asset: { _ref: post.author.image.asset._ref },
+											})
+												.width(96)
+												.height(96)
+												.fit("crop")
+												.quality(80)
+												.url()}
+											alt={post?.author?.name || "Author"}
+											fill
+											sizes="48px"
+										/>
 									) : null}
 									<div className="post-meta__byline">
 										{post?.author?.name ? (
@@ -373,23 +360,15 @@ export default async function BlogPostPage({ params }) {
 									);
 								})()}
 							</div>
-							{heroSrc && heroDims && (
+							{heroSrc && (
 								<figure className="post-hero">
-									<div
-										className="post-hero__media"
-										style={{
-											aspectRatio: `${heroDims.width} / ${heroDims.height}`,
-											position: "relative",
-											width: "100%",
-										}}
-									>
+									<div className="post-hero__media">
 										<Image
 											src={heroSrc}
 											alt={post.title || ""}
 											fill
-											sizes="(min-width: 1024px) 1100px, 100vw"
+											// sizes="(min-width: 1024px) 1100px, 100vw"
 											priority
-											style={{ objectFit: "cover" }}
 										/>
 									</div>
 								</figure>
