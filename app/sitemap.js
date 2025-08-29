@@ -6,7 +6,7 @@
 // ------------------------------
 import { postsListQuery } from "@/lib/sanity.queries";
 
-function getBaseUrl() {
+export function getBaseUrl() {
 	// Prefer explicit public URL; fallback to Vercel env during build
 	const envUrl =
 		process.env.NEXT_PUBLIC_SITE_URL ||

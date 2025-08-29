@@ -1,5 +1,8 @@
 // ------------------------------
 // /app/robots.js
+
+import { getBaseUrl } from "./sitemap";
+
 // ------------------------------
 export default function robots() {
 	const base = getBaseUrl();
