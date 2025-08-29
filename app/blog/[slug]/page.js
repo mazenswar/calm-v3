@@ -5,6 +5,7 @@ import { PortableText } from "@portabletext/react";
 import { postBySlugQuery } from "@/lib/sanity.queries";
 import { urlFor } from "@/lib/sanity.image"; // your builder wrapper
 import "./style.scss";
+import ShareButton from "./ShareButton";
 
 /* ---------------- Base URL + GROQ proxy ---------------- */
 function getBaseUrl() {
@@ -253,37 +254,11 @@ export default async function BlogPostPage({ params }) {
 									});
 									return (
 										<>
-											<ul className="post-share" role="list">
-												<li>
-													<a
-														className="post-share__link"
-														href={targets.linkedin}
-														target="_blank"
-														rel="noopener noreferrer"
-													>
-														LinkedIn
-													</a>
-												</li>
-												<li>
-													<a
-														className="post-share__link"
-														href={targets.facebook}
-														target="_blank"
-														rel="noopener noreferrer"
-													>
-														Facebook
-													</a>
-												</li>
-												<li>
-													<button
-														type="button"
-														id="copyShareBtn"
-														className="post-share__link"
-													>
-														Copy link
-													</button>
-												</li>
-											</ul>
+											<ShareButton
+												url={`${getBaseUrl()}/blog/${slug}`}
+												title={post.title}
+												text={post.excerpt}
+											/>
 
 											<Script id="share-handler" strategy="afterInteractive">
 												{`
