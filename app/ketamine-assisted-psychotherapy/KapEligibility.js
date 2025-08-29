@@ -10,9 +10,10 @@ const KapEligibility = () => {
 				<div className="fit__copy">
 					<h2>Is KAP Right for You?</h2>
 					<p>
-						Ketamine-Assisted Psychotherapy (KAP) may offer a helpful option
-						when you{"'"}re feeling stuck or haven{"'"}t found relief through
-						traditional methods. It{"'"}s most useful for individuals who are:
+						Ketamine-Assisted Psychotherapy (KAP) can offer a meaningful path
+						forward if you feel stuck or have not found relief through
+						traditional treatments.. It{"'"}s most useful for individuals who
+						are:
 					</p>
 					<div className="fit__steps" role="list">
 						<div className="fit__step" role="listitem">
@@ -80,8 +81,8 @@ const KapEligibility = () => {
 						</div>
 					</div>
 					<p>
-						We{"'"}ll work together to carefully assess whether KAP offers
-						meaningful support for you. Our priority is making sure you{"'"}re
+						We{"'"}ll work together to carefully assess whether KAP is the right
+						fit for your needs and goals. Our priority is making sure you{"'"}re
 						ready, supported, and positioned to benefit safely within a
 						therapeutic framework.
 					</p>

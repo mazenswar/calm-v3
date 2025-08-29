@@ -8,10 +8,11 @@ export default function KapProcess() {
 				{/* Intro (copy unchanged) */}
 				<div className="intro">
 					<h2>Our KAP Process</h2>
-					<p className="subhead">What to expect from start to finish</p>
+					<p className="subhead">What to expect from start to finish:</p>
 					<p>
-						The full KAP process typically takes place over the course of
-						approximately six months, depending on your pace and schedule.
+						The full KAP process typically takes place over the course of{" "}
+						<strong>approximately 6 months</strong>, depending on your pace and
+						schedule.
 					</p>
 					<p>
 						If you{"'"}re considering Ketamine-Assisted Psychotherapy (KAP) with
@@ -128,9 +129,9 @@ export default function KapProcess() {
 								role="list"
 								aria-label="Key points"
 							>
-								<li>2‑hour session</li>
+								<li>~2-hour session</li>
 								<li>Therapist online</li>
-								<li>~8 sessions total</li>
+								<li>8 sessions total</li>
 							</ul>
 
 							<div className="kap-step__content">

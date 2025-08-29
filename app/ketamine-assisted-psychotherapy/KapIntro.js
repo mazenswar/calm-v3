@@ -6,7 +6,7 @@ import "./style/kap-intro.scss";
 export default function KapIntro() {
 	return (
 		<section className="block kap-intro keta-header">
-			<div className="block__content">
+			<div className="block__content container">
 				{/* 
           HERO IMAGE 
           - Added overlay div inside for gradient/duotone treatment in CSS

@@ -5,7 +5,7 @@
 
 .kap-intro {
 	margin: 0;
-	padding: 0;
+	// padding: var(--space-6);
 	width: 100%;
 	// background: var(--color-bg);
 
@@ -18,11 +18,11 @@
 
 		gap: 3rem;
 		min-height: 80vh; /* taller hero for breathing space */
-		padding: var(--space-12) 0;
+		// padding: var(--space-12) 0;
 
 		@include respond(md) {
 			flex-direction: row-reverse; /* keep waves on right for larger screens */
-			align-items: center;
+			// align-items: center;
 			justify-content: space-between;
 			gap: 6rem; /* more space between text & image */
 		}
