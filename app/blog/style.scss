@@ -1,0 +1,130 @@
+// File: /app/blog/style.scss
+@use "../styles/mixins" as *;
+
+/* Small utility for multi-line truncation (no global font tweaks) */
+.line-clamp-2 {
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+.line-clamp-3 {
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+/* ---------------- PAGE ---------------- */
+.blog {
+}
+
+/* ---------------- HERO ---------------- */
+.blog-hero {
+	background: var(--brand-8);
+}
+
+.blog-hero__wrap {
+	display: grid;
+	gap: 1.25rem;
+
+	@include respond(md) {
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+	}
+}
+
+.blog-hero__copy {
+	max-width: 68ch;
+
+	.eyebrow {
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+	}
+
+	.lead {
+		margin-top: 0.5rem;
+	}
+}
+
+/* ---------------- LIST ---------------- */
+.blog-list {
+}
+
+.posts {
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: 1fr;
+
+	@include respond(md) {
+		gap: 1.25rem;
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+.post {
+	list-style: none;
+}
+
+.postCard {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	background: var(--color-surface);
+	border: 1px solid var(--brand-8);
+	box-shadow: var(--shadow-1);
+	border-radius: 14px;
+	overflow: hidden;
+
+	@include respond(md) {
+		border-radius: 16px;
+	}
+}
+
+.postCard__media {
+	position: relative; /* for next/image fill */
+	aspect-ratio: 3 / 2;
+	background: var(--brand-8);
+
+	img {
+		display: block;
+	}
+}
+
+.postCard__body {
+	padding: 1rem;
+	display: grid;
+	gap: 0.5rem;
+
+	@include respond(md) {
+		padding: 1rem 1rem 0.5rem 1rem;
+	}
+
+	.postCard__title {
+		line-height: 1.2;
+		a {
+			color: var(--color-text);
+			text-decoration: none;
+		}
+	}
+
+	.postCard__excerpt {
+		line-height: 1.5;
+	}
+}
+
+.postCard__footer {
+	margin-top: auto;
+	padding: 0.75rem 1rem 1rem 1rem;
+	display: flex;
+	justify-content: flex-start;
+
+	.postCard__link {
+		text-decoration: none;
+		border-bottom: 1px solid transparent;
+	}
+
+	.postCard__link:hover {
+		border-bottom-color: currentColor;
+	}
+}

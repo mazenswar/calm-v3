@@ -19,16 +19,18 @@ const dmSerif = DM_Serif_Display({
 });
 
 export const metadata = {
-	title: "CALM Therapy",
-	description: "Online therapy designed for depth and growth.",
+	title: "CALM Therapy | Modern Psychology, Timeless Wisdom",
+	description:
+		"Private-pay therapy for adults seeking growth and transformation. East Coast based, licensed in NY, NJ, PA, and available in 43 U.S. states and jurisdictions.",
+	alternates: { canonical: "https://calmtherapy.center/" },
 	openGraph: {
-		images: ["/social/ss.webp"],
-	},
-	twitter: {
-		card: "summary_large_image",
-		title: "CALM Therapy",
-		description: "Online therapy designed for depth and growth.",
-		images: ["/social/ss.webp"],
+		title: "CALM Therapy | Modern Psychology, Timeless Wisdom",
+		description:
+			"Therapy that integrates evidence-based care with holistic growth. Licensed in NY, NJ, PA, and available in 43 states.",
+		url: "https://calmtherapy.center/",
+		images: [
+			{ url: "/social/ss.webp", width: 1200, height: 630, alt: "CALM Therapy" },
+		],
 	},
 };
 

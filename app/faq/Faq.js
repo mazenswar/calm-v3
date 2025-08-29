@@ -1,11 +1,14 @@
 "use client";
 
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { faqGroups } from "./faq-data";
 import CustomLink from "../Components/ui/CustomLink";
 import Button from "../Components/ui/Button";
+import AccordionItem from "../Components/ui/AccordionItem/Component";
+import lightBulbSvg from "./assets/the-light-bulb.svg";
 
 import "./style.scss";
+import Image from "next/image";
 
 // simple slugifier for anchors
 const slugify = (s) =>
@@ -25,7 +28,7 @@ function useDebounced(value, ms = 200) {
 	return v;
 }
 
-const FaqPage = () => {
+const Faq = () => {
 	const [query, setQuery] = useState("");
 	const debounced = useDebounced(query, 200);
 
@@ -45,22 +48,6 @@ const FaqPage = () => {
 			})
 			.filter(Boolean);
 	}, [debounced]);
-
-	// map of anchors to <details> to support deep-links
-	const detailsRefs = useRef({});
-	useEffect(() => {
-		if (typeof window === "undefined") return;
-		const anchor = window.location.hash.replace("#", "");
-		if (!anchor) return;
-		const ref = detailsRefs.current[anchor];
-		if (ref && !ref.open) {
-			ref.open = true;
-			setTimeout(
-				() => ref.scrollIntoView({ behavior: "smooth", block: "start" }),
-				60
-			);
-		}
-	}, []);
 
 	// left mini‑nav smooth scroll with header offset
 	useEffect(() => {
@@ -91,6 +78,31 @@ const FaqPage = () => {
 
 		nav.addEventListener("click", onClick);
 		return () => nav.removeEventListener("click", onClick);
+	}, []);
+
+	useEffect(() => {
+		if (typeof window === "undefined") return;
+		const hash = window.location.hash.replace("#", "");
+		if (!hash) return;
+		const trigger = document.querySelector(
+			`[data-acc-id="${hash}"] button, [data-acc-id="${hash}"] [role="button"]`
+		);
+		if (trigger) {
+			setTimeout(() => {
+				trigger.click();
+				const header = document.querySelector(".site-header");
+				const offset = header ? header.getBoundingClientRect().height : 88;
+				const target = document.getElementById(hash);
+				if (target) {
+					const top =
+						window.pageYOffset +
+						target.getBoundingClientRect().top -
+						offset -
+						12;
+					window.scrollTo({ top, behavior: "smooth" });
+				}
+			}, 60);
+		}
 	}, []);
 
 	const toc = useMemo(
@@ -134,7 +146,12 @@ const FaqPage = () => {
 
 						{/* optional visual placeholder (kept minimal; swap or remove freely) */}
 						<figure className="faq__visual" aria-hidden="true">
-							<div className="faq__placeholder">Image</div>
+							<Image
+								src={lightBulbSvg}
+								alt=""
+								className="faq__bulb"
+								loading="lazy"
+							/>
 						</figure>
 					</div>
 
@@ -173,39 +190,21 @@ const FaqPage = () => {
 										<div className="faq-group__header">
 											<h2 id={`${group.id}-title`}>{group.title}</h2>
 										</div>
-
 										<div className="faq-accordion">
 											{group.items.map((item) => {
 												const anchor = item.id || slugify(item.q);
 												return (
-													<details
+													<AccordionItem
 														key={anchor}
-														id={anchor}
-														ref={(el) => {
-															detailsRefs.current[anchor] = el;
-														}}
-														className="faq-item"
+														idBase={anchor}
+														title={item.q}
+														summaryClassName="faq-item__summary" // optional: keep your current class hooks
 													>
-														<summary>
-															<span className="faq-item__q">{item.q}</span>
-															<span
-																className="faq-item__icon"
-																aria-hidden="true"
-															/>
-														</summary>
-														<div className="faq-item__a">
-															<p dangerouslySetInnerHTML={{ __html: item.a }} />
-															<div className="faq-item__permalink">
-																<CustomLink
-																	url={`#${anchor}`}
-																	classN="link"
-																	ariaLabel="Copy link to this question"
-																>
-																	Copy link
-																</CustomLink>
-															</div>
-														</div>
-													</details>
+														<p
+															dangerouslySetInnerHTML={{ __html: item.a }}
+															className="answer"
+														/>
+													</AccordionItem>
 												);
 											})}
 										</div>
@@ -220,4 +219,4 @@ const FaqPage = () => {
 	);
 };
 
-export default FaqPage;
+export default Faq;

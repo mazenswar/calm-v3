@@ -10,16 +10,14 @@ import "./style/kap.scss";
 import EffectsOfKetamine from "./EffectsOfKetamine";
 
 export const metadata = {
-	title:
-		"Ketamine-Assisted Psychotherapy (KAP) | Virtual Therapy in 43 States | CALM Therapy",
+	title: "Ketamine-Assisted Psychotherapy (KAP) | CALM Therapy",
 	description:
-		"Explore virtual ketamine-assisted psychotherapy (KAP) at CALM Therapy — a trauma-informed, spiritually grounded path to healing anxiety, OCD, and emotional stuckness. Available to adults in 43 PSYPACT-participating states and licensed in NY, NJ, and PA.",
+		"Explore virtual ketamine-assisted psychotherapy (KAP) at CALM Therapy, a trauma-informed, spiritually grounded path to healing anxiety, OCD, and emotional stuckness. Available to adults in 43 PSYPACT-participating states and licensed in NY, NJ, and PA.",
 	openGraph: {
-		title:
-			"Ketamine-Assisted Psychotherapy (KAP) | Virtual Therapy in 43 States | CALM Therapy",
+		title: "Ketamine-Assisted Psychotherapy (KAP) | CALM Therapy",
 		description:
 			"Explore virtual KAP at CALM Therapy: evidence-based and spiritually grounded care for anxiety, OCD, and emotional stuckness. Available in 43 PSYPACT states and licensed in NY, NJ, PA.",
-		url: "https://calmtherapy.center/kap",
+		url: "https://calmtherapy.center/ketamine-assisted-psychotherapy",
 		type: "website",
 		images: [
 			{
@@ -38,7 +36,7 @@ export const metadata = {
 		images: ["https://calmtherapy.center/social/ss.webp"],
 	},
 	alternates: {
-		canonical: "https://calmtherapy.center/kap",
+		canonical: "https://calmtherapy.center/ketamine-assisted-psychotherapy",
 	},
 };
 

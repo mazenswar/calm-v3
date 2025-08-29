@@ -183,6 +183,7 @@ const ptComponents = {
 export async function generateMetadata({ params }) {
 	const { slug } = await params; // <-- await it
 	const post = await groqFetch(postBySlugQuery, { slug });
+	console.log(post);
 	const title = post?.seoTitle || post?.title || "Post";
 	const description = post?.seoDescription || post?.excerpt || "";
 	const url = `${getBaseUrl()}/blog/${slug}`;
