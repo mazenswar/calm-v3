@@ -55,6 +55,7 @@
 	display: grid;
 	gap: 1rem;
 	grid-template-columns: 1fr;
+	padding: 0;
 
 	@include respond(md) {
 		gap: 1.25rem;
