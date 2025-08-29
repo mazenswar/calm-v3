@@ -1,85 +1,18 @@
-// /blog/[slug]/style.scss
-@use "../../styles/mixins" as *;
-#blog__page {
-	.prose {
-		@include flex-column;
-	}
-}
-
-// 	/* Inline marks */
-em,
-.pt-em {
-	font-style: italic;
-}
-strong,
-.pt-strong {
-	/* no font-weight override */
-}
-
-/* Inline code */
-code,
-.pt-code {
-	background: color-mix(in oklab, var(--prose-code-bg) 86%, white);
-	color: var(--prose-code-fg);
-	padding: 0.125rem 0.375rem;
-	border-radius: 6px;
-}
-
-/* Code blocks */
-pre,
-.pt-pre {
-	margin: 1rem 0;
-	padding: 0.875rem 1rem;
-	background: var(--prose-code-bg);
-	color: var(--prose-code-fg);
-	border-radius: var(--radius-lg, 16px);
-	overflow: auto;
-	code {
-		background: transparent;
-		padding: 0;
-	}
-}
-
-/* PT figure */
-.pt-figure {
-	margin: 1.25rem 0;
-	&__media {
-		width: 100%;
-		border-radius: var(--radius-lg, 16px);
-		overflow: hidden;
-		outline: 1px solid var(--border-subtle, rgba(0, 0, 0, 0.06));
-		img {
-			width: 100%;
-			height: auto;
-		}
-	}
-	.pt-figcaption {
-		color: var(--prose-muted);
-		font: 400 0.875rem/1.4 var(--font-sans, ui-sans-serif, system-ui);
-		margin-top: 0.5rem;
-		text-align: center;
-	}
-}
-
-/* Hero image wrapper */
-/* Removed redundant duplicate block */
-
-/* ===== Blog Post (slug) ===== */
-
+/* Minimal, layout-only. No font sizes/weights/colors adjusted. */
 #blog__page {
 	.block__content {
 		max-width: 80ch;
 	}
-	.post-hero {
-		margin: 1.5rem 0 0;
 
-		&__media {
-			// border-radius: var(--radius-lg, 16px);
-			// overflow: hidden;
-			// outline: 1px solid var(--border-subtle, rgba(0, 0, 0, 0.06));
-		}
+	h3 {
+		margin-top: var(--space-16);
 	}
 
+	.stack > * + * {
+		margin-top: var(--space-2, 0.5rem);
+	}
+
+	/* Meta row */
 	.post-meta {
 		display: flex;
 		align-items: center;
@@ -95,7 +28,6 @@ pre,
 			gap: 0.75rem;
 			min-height: 48px;
 		}
-
 		&__avatar {
 			width: 48px;
 			height: 48px;
@@ -103,26 +35,17 @@ pre,
 			overflow: hidden;
 			outline: 1px solid var(--border-subtle, rgba(0, 0, 0, 0.06));
 			flex: 0 0 auto;
+			position: relative;
 		}
-
 		&__byline {
 			display: grid;
 			gap: 0.125rem;
 		}
-
-		&__by {
-			// font: 600 0.9375rem/1.2 var(--font-sans, ui-sans-serif, system-ui);
-			// color: var(--text, #111);
-		}
-
-		&__date {
-			// font: 400 0.875rem/1.2 var(--font-sans, ui-sans-serif, system-ui);
-			// color: var(--text-muted, #6b7280);
-		}
 	}
 
-	/* Share row */
+	/* Share links */
 	.post-share {
+		padding: 0;
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
@@ -130,12 +53,9 @@ pre,
 
 		&__link {
 			appearance: none;
-			-webkit-appearance: none;
 			border: 1px solid var(--border, rgba(0, 0, 0, 0.12));
 			background: var(--brand-8);
 			color: var(--brand-1);
-			// color: var(--link, #1d4ed8);
-			// font: 500 0.875rem/1 var(--font-sans, ui-sans-serif, system-ui);
 			padding: 0.5rem 0.75rem;
 			border-radius: var(--radius-md, 10px);
 			text-decoration: none;
@@ -149,16 +69,14 @@ pre,
 				border-color 160ms ease,
 				color 160ms ease,
 				transform 120ms ease;
-			transition: 0.3s ease-in;
+
 			&:hover {
 				background: var(--brand-2);
 				border-color: var(--border-strong, rgba(0, 0, 0, 0.18));
 			}
-
 			&:active {
 				transform: translateY(1px);
 			}
-
 			&:focus-visible {
 				outline: 2px solid var(--focus, #2563eb);
 				outline-offset: 2px;
@@ -166,28 +84,22 @@ pre,
 		}
 	}
 
-	/* PortableText body */
+	/* Hero image */
+	.post-hero {
+		margin: 1.5rem 0 0;
+
+		&__media {
+			border-radius: var(--radius-lg, 16px);
+			overflow: hidden;
+			outline: 1px solid var(--border-subtle, rgba(0, 0, 0, 0.06));
+			/* The <Image> inside uses fill; no further styles required. */
+		}
+	}
+
+	/* Portable Text body */
 	.prose {
 		p {
-			max-width: 100%;
-		}
-		p {
-			max-width: 100%;
 			margin: 1rem 0;
-		}
-
-		/* Headings promoted from PT or native PT headings */
-		h2,
-		.h2 {
-			margin: 1.5rem 0 0.5rem;
-		}
-		h3,
-		.h3 {
-			margin: 1.25rem 0 0.375rem;
-		}
-		h3,
-		.h3 {
-			margin-top: var(--space-12);
 		}
 
 		/* Links */
@@ -197,9 +109,6 @@ pre,
 			text-underline-offset: 2px;
 			text-decoration-thickness: 1.5px;
 			transition: color 160ms ease;
-			&:hover {
-				color: color-mix(in oklab, var(--prose-link) 86%, black);
-			}
 			&:focus-visible {
 				outline: 2px solid var(--focus, #2563eb);
 				outline-offset: 2px;
@@ -232,21 +141,7 @@ pre,
 			padding: 0.75rem 1rem;
 			border-left: 4px solid var(--prose-quote);
 			background: color-mix(in oklab, var(--prose-quote) 8%, white);
-			color: var(--prose-color);
 			border-radius: var(--radius-md, 10px);
-			p {
-				margin: 0.5rem 0;
-			}
-		}
-
-		/* Inline marks */
-		em,
-		.pt-em {
-			font-style: italic;
-		}
-		strong,
-		.pt-strong {
-			/* no font-weight override */
 		}
 
 		/* Inline code */
@@ -273,30 +168,25 @@ pre,
 			}
 		}
 
-		/* PT figure */
+		/* PT images */
 		.pt-figure {
 			margin: 1.25rem 0;
+
 			&__media {
+				position: relative;
+				width: 100%;
 				border-radius: var(--radius-lg, 16px);
 				overflow: hidden;
 				outline: 1px solid var(--border-subtle, rgba(0, 0, 0, 0.06));
-				img {
-					width: 100%;
-					height: auto;
-				}
+				/* aspect-ratio is set inline from JS for accuracy */
 			}
+
 			.pt-figcaption {
-				color: var(--prose-muted);
-				font: 400 0.875rem/1.4 var(--font-sans, ui-sans-serif, system-ui);
 				margin-top: 0.5rem;
 				text-align: center;
+				color: var(--prose-muted);
 			}
 		}
-	}
-
-	/* Stack spacing used in header */
-	.stack > * + * {
-		margin-top: var(--space-2, 0.5rem);
 	}
 }
 
@@ -316,10 +206,8 @@ pre,
 		.post-share {
 			flex-wrap: wrap;
 			gap: 0.375rem;
-
 			&__link {
 				padding: 0.45rem 0.65rem;
-				font-size: 0.875rem;
 			}
 		}
 	}

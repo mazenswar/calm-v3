@@ -2,12 +2,11 @@
 import Image from "next/image";
 import Script from "next/script";
 import { PortableText } from "@portabletext/react";
-import imageUrlBuilder from "@sanity/image-url";
 import { postBySlugQuery } from "@/lib/sanity.queries";
-import { urlFor } from "@/lib/sanity.image";
+import { urlFor } from "@/lib/sanity.image"; // your builder wrapper
 import "./style.scss";
 
-// Base URL for server fetches
+/* ---------------- Base URL + GROQ proxy ---------------- */
 function getBaseUrl() {
 	return (
 		process.env.NEXT_PUBLIC_SITE_URL ||
@@ -17,7 +16,6 @@ function getBaseUrl() {
 	);
 }
 
-// GROQ proxy helper
 async function groqFetch(query, params) {
 	const res = await fetch(`${getBaseUrl()}/api/groq`, {
 		method: "POST",
@@ -33,13 +31,7 @@ async function groqFetch(query, params) {
 
 export const revalidate = 60;
 
-// -------- Sanity image helpers (no data fetch; URL + dimensions from ref) --------
-const builder = imageUrlBuilder({
-	projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-	dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
-});
-
-// Parse `image-<hash>-<w>x<h>-<format>` from asset ref to get natural dimensions
+/* ---------------- Small helpers ---------------- */
 function getRefDimensions(ref) {
 	if (typeof ref !== "string") return null;
 	const m = ref.match(/-(\d+)x(\d+)-/);
@@ -51,7 +43,6 @@ function getRefDimensions(ref) {
 	return { width: w, height: h, aspectRatio: w / h };
 }
 
-// -------- helpers: date formatting + share URL builders --------
 function formatDate(iso) {
 	try {
 		const d = new Date(iso || Date.now());
@@ -75,21 +66,10 @@ function buildShareTargets({ url, title, excerpt }) {
 	};
 }
 
-// -------- Portable Text renderers --------
+/* ---------------- PortableText components ---------------- */
 const ptComponents = {
 	block: {
-		// Promote <p><strong>Heading</strong></p> to <h3>
-		normal: ({ children, value }) => {
-			const kids = Array.isArray(value?.children) ? value.children : [];
-			const isStandaloneStrong =
-				kids.length === 1 &&
-				kids[0]?.marks?.includes?.("strong") &&
-				typeof kids[0]?.text === "string" &&
-				kids[0].text.trim().length > 0;
-
-			if (isStandaloneStrong) return <h3 className="h3">{children}</h3>;
-			return <p>{children}</p>;
-		},
+		normal: ({ children }) => <p>{children}</p>,
 		h2: ({ children }) => <h2 className="h2">{children}</h2>,
 		h3: ({ children }) => <h3 className="h3">{children}</h3>,
 		blockquote: ({ children }) => (
@@ -124,11 +104,11 @@ const ptComponents = {
 		},
 	},
 	types: {
-		// Block images inside Portable Text
 		image: ({ value }) => {
 			const ref = value?.asset?._ref;
 			if (!ref) return null;
 
+			// Dimensions from ref; fallback to 16:9
 			const dims = getRefDimensions(ref) || {
 				width: 1600,
 				height: 900,
@@ -139,40 +119,37 @@ const ptComponents = {
 				.quality(80)
 				.url();
 
-			// Use a responsive wrapper with aspect-ratio + next/image fill
 			return (
 				<figure className="pt-figure">
-					<div className="pt-figure__media">
+					<div
+						className="pt-figure__media"
+						style={{
+							position: "relative",
+							width: "100%",
+							aspectRatio: `${dims.width} / ${dims.height}`,
+						}}
+					>
 						<Image
 							src={src}
-							alt={value.alt || ""}
+							alt={value?.alt || ""}
 							fill
-							// sizes="(min-width: 1024px) 900px, 100vw"
-							priority={false}
+							sizes="(min-width: 1024px) 900px, 100vw"
 						/>
 					</div>
-					{value.caption && (
+					{value?.caption ? (
 						<figcaption className="pt-figcaption">{value.caption}</figcaption>
-					)}
+					) : null}
 				</figure>
-			);
-		},
-		// Optional: code blocks (if your schema includes {type: 'code'})
-		code: ({ value }) => {
-			if (!value?.code) return null;
-			return (
-				<pre className="pt-pre">
-					<code>{value.code}</code>
-				</pre>
 			);
 		},
 	},
 };
 
+/* ---------------- Metadata ---------------- */
 export async function generateMetadata({ params }) {
-	const { slug } = await params; // <-- await it
+	const { slug } = await params;
 	const post = await groqFetch(postBySlugQuery, { slug });
-	console.log(post);
+
 	const title = post?.seoTitle || post?.title || "Post";
 	const description = post?.seoDescription || post?.excerpt || "";
 	const url = `${getBaseUrl()}/blog/${slug}`;
@@ -201,11 +178,12 @@ export async function generateMetadata({ params }) {
 	};
 }
 
+/* ---------------- Page ---------------- */
 export default async function BlogPostPage({ params }) {
 	const { slug } = await params;
-	const post = await groqFetch(postBySlugQuery, { slug: slug });
-	// make slug available inside header IIFE for share URLs
+	const post = await groqFetch(postBySlugQuery, { slug });
 	const pageUrl = `${getBaseUrl()}/blog/${slug}`;
+
 	if (!post) {
 		return (
 			<main>
@@ -218,17 +196,12 @@ export default async function BlogPostPage({ params }) {
 		);
 	}
 
-	// use the projected ref/dims/url
-	const heroRef = post.mainImage?.ref;
-	const heroDims =
-		post.mainImage?.dims || (heroRef ? getRefDimensions(heroRef) : null);
-
-	const heroSrc = heroRef
-		? urlFor({ _type: "image", asset: { _ref: heroRef } })
-				.width(1600)
-				.quality(80)
-				.url()
-		: post.mainImage?.url; // fallback
+	/* ---- Hero image (optional) ---- */
+	const heroRef = post.mainImage?.asset?._ref || post.mainImage?.ref; // tolerate either shape
+	const heroDims = heroRef ? getRefDimensions(heroRef) : null;
+	const heroSrc = post.mainImage
+		? urlFor(post.mainImage).width(1600).quality(80).url()
+		: null;
 
 	return (
 		<main id="blog__page">
@@ -237,25 +210,26 @@ export default async function BlogPostPage({ params }) {
 					<article>
 						<header className="stack">
 							<h1>{post.title}</h1>
-							{post.excerpt && <p className="muted">{post.excerpt}</p>}
+							{post.excerpt ? <p className="muted">{post.excerpt}</p> : null}
+
 							<div className="post-meta">
 								<div className="post-meta__author">
 									{post?.author?.image?.asset?._ref ? (
-										<Image
-											src={urlFor({
-												_type: "image",
-												asset: { _ref: post.author.image.asset._ref },
-											})
-												.width(96)
-												.height(96)
-												.fit("crop")
-												.quality(80)
-												.url()}
-											alt={post?.author?.name || "Author"}
-											fill
-											sizes="48px"
-										/>
+										<div className="post-meta__avatar">
+											<Image
+												src={urlFor(post.author.image)
+													.width(96)
+													.height(96)
+													.fit("crop")
+													.quality(80)
+													.url()}
+												alt={post?.author?.name || "Author"}
+												width={48}
+												height={48}
+											/>
+										</div>
 									) : null}
+
 									<div className="post-meta__byline">
 										{post?.author?.name ? (
 											<div className="post-meta__by">By {post.author.name}</div>
@@ -271,11 +245,9 @@ export default async function BlogPostPage({ params }) {
 									</div>
 								</div>
 
-								{/* simple share anchors (no client JS required) */}
 								{(() => {
-									const currentUrl = `${getBaseUrl()}/blog/${slug}`;
 									const targets = buildShareTargets({
-										url: currentUrl,
+										url: pageUrl,
 										title: post?.title,
 										excerpt: post?.excerpt,
 									});
@@ -312,62 +284,66 @@ export default async function BlogPostPage({ params }) {
 													</button>
 												</li>
 											</ul>
+
 											<Script id="share-handler" strategy="afterInteractive">
 												{`
-      (function () {
-        function copyOrShare() {
-          var url = '${getBaseUrl()}/blog/${slug}';
-          var title = ${JSON.stringify(
-						"${post?.title ?? ''}"
-					)}.replace(/^"|"$/g, '');
-          var text = ${JSON.stringify(
-						"${post?.excerpt ?? ''}"
-					)}.replace(/^"|"$/g, '');
+                          (function () {
+                            function copyOrShare() {
+                              var url = ${JSON.stringify(pageUrl)};
+                              var title = ${JSON.stringify(post?.title || "")};
+                              var text = ${JSON.stringify(post?.excerpt || "")};
 
-          if (typeof navigator !== 'undefined' && navigator.share) {
-            navigator.share({ title: title || document.title, text: text || '', url })
-              .catch(function () { /* user canceled; ignore */ });
-            return;
-          }
+                              if (typeof navigator !== 'undefined' && navigator.share) {
+                                navigator.share({ title: title || document.title, text: text || '', url })
+                                  .catch(function () {});
+                                return;
+                              }
 
-          if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(url).then(function () {
-              var btn = document.getElementById('copyShareBtn');
-              if (!btn) return;
-              var prev = btn.textContent;
-              btn.textContent = 'Copied!';
-              setTimeout(function(){ btn.textContent = prev; }, 1500);
-            }).catch(function(){ /* ignore */ });
-            return;
-          }
+                              if (navigator.clipboard && navigator.clipboard.writeText) {
+                                navigator.clipboard.writeText(url).then(function () {
+                                  var btn = document.getElementById('copyShareBtn');
+                                  if (!btn) return;
+                                  var prev = btn.textContent;
+                                  btn.textContent = 'Copied!';
+                                  setTimeout(function(){ btn.textContent = prev; }, 1500);
+                                }).catch(function(){});
+                                return;
+                              }
 
-          // Fallback prompt
-          var ok = false;
-          try { ok = document.execCommand('copy'); } catch(e) {}
-          if (!ok) window.prompt('Copy this link:', url);
-        }
+                              var ok = false;
+                              try { ok = document.execCommand('copy'); } catch(e) {}
+                              if (!ok) window.prompt('Copy this link:', url);
+                            }
 
-        if (typeof window !== 'undefined') {
-          window.addEventListener('DOMContentLoaded', function(){
-            var btn = document.getElementById('copyShareBtn');
-            if (btn) btn.addEventListener('click', copyOrShare, false);
-          });
-        }
-      })();
-    `}
+                            if (typeof window !== 'undefined') {
+                              window.addEventListener('DOMContentLoaded', function(){
+                                var btn = document.getElementById('copyShareBtn');
+                                if (btn) btn.addEventListener('click', copyOrShare, false);
+                              });
+                            }
+                          })();
+                        `}
 											</Script>
 										</>
 									);
 								})()}
 							</div>
-							{heroSrc && (
+
+							{heroSrc && heroDims && (
 								<figure className="post-hero">
-									<div className="post-hero__media">
+									<div
+										className="post-hero__media"
+										style={{
+											position: "relative",
+											width: "100%",
+											aspectRatio: `${heroDims.width} / ${heroDims.height}`,
+										}}
+									>
 										<Image
 											src={heroSrc}
 											alt={post.title || ""}
 											fill
-											// sizes="(min-width: 1024px) 1100px, 100vw"
+											sizes="(min-width: 1024px) 1100px, 100vw"
 											priority
 										/>
 									</div>
@@ -375,11 +351,11 @@ export default async function BlogPostPage({ params }) {
 							)}
 						</header>
 
-						{post.body && (
+						{post.body ? (
 							<div className="prose">
 								<PortableText value={post.body} components={ptComponents} />
 							</div>
-						)}
+						) : null}
 					</article>
 				</div>
 			</section>
