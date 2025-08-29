@@ -3,10 +3,10 @@
 
 import "./style.scss";
 import Image from "next/image";
-import tanyaHeadshot from "./assets/tanya-headshot.jpg";
+
 import calmImg from "./assets/calm.png";
-import tsNature from "./assets/ts-nature.png";
-import tsNatureOne from "./assets/aboutOne.png";
+import tsNature from "./assets/ts-park.png";
+import tsNatureOne from "./assets/tsn.png";
 
 export default function AboutPage() {
 	return (
@@ -76,10 +76,10 @@ export default function AboutPage() {
 							<h3>Depth and Breadth</h3>
 							<p>
 								Some sessions are practical, focused on building skills for
-								daily life. Others make space for reflection, exploration, and
-								healing at the root, especially in the context of complex
-								trauma. This balance creates conditions for both immediate
-								relief and lasting transformation.
+								daily life. Others create space for reflection and healing at
+								the root, including the effects of earlier wounds that still
+								shape the present. This balance creates conditions for both
+								immediate relief and lasting transformation.
 							</p>
 						</article>
 						<article className="aboutCard">
@@ -103,13 +103,12 @@ export default function AboutPage() {
 				<div className="block__content about__tanyaWrap">
 					{/* Row 1: image + header/meta */}
 					<div className="about__tanyaTop">
-						<div className="about__tanyaImg">
+						<div className="about__tanyaImg img-container">
 							<Image
-								src={tsNatureOne}
-								alt="Tanya Singh, PhD Licensed Clinical Psychologist"
-								priority
-								sizes="(max-width: 768px) 100vw, 360px"
-								style={{ width: "100%", height: "auto" }}
+								src={tsNature}
+								alt="Tanya Singh in Nature"
+								sizes="(max-width: 768px) 100vw, 400px"
+								unoptimized
 							/>
 						</div>
 
@@ -183,12 +182,13 @@ export default function AboutPage() {
 								of living, qualities she brings into her work as a psychologist.
 							</p>
 						</article>
-						<div className="about__supportingImage">
+						<div className="about__supportingImage img-container">
 							<Image
-								src={tsNature}
-								alt="Tanya Singh in Nature"
-								sizes="(max-width: 768px) 100vw, 400px"
-								unoptimized
+								src={tsNatureOne}
+								alt="Tanya Singh, PhD Licensed Clinical Psychologist"
+								priority
+								sizes="(max-width: 768px) 100vw, 360px"
+								style={{ width: "100%", height: "auto" }}
 							/>
 						</div>
 					</div>

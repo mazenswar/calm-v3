@@ -31,7 +31,8 @@
 	}
 }
 .heroImg {
-	width: min(420px, 90vw);
+	// width: min(420px, 90vw);
+
 	margin-top: var(--space-6);
 	img {
 		width: 100%;
@@ -60,6 +61,6 @@
 	}
 	@include respond(md) {
 		margin-top: 0;
-		width: 420px; // fixed figure on md+; image stays crisp and consistent
+		width: 400px; // fixed figure on md+; image stays crisp and consistent
 	}
 }
