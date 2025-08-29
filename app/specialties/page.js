@@ -4,7 +4,7 @@
 import { useEffect } from "react";
 import AccordionItem from "../Components/ui/AccordionItem/Component";
 import "./style.scss";
-import flowerImg from "./assets/flower.jpg";
+import flowerImg from "./assets/lotus.jpg";
 import Image from "next/image";
 
 export default function SpecialtiesPage() {
@@ -196,7 +196,7 @@ export default function SpecialtiesPage() {
 					title: "Spiritual Exploration & Existential Inquiry",
 					body: (
 						<p>
-							Many of my clients do not follow a specific spiritual path, but
+							Many of our clients do not follow a specific spiritual path, but
 							they feel called toward something deeper. Therapy can be a space
 							to explore those longings without judgment. We do not impose any
 							framework, but we hold space for inquiry, awe, and the mystery of
@@ -214,11 +214,11 @@ export default function SpecialtiesPage() {
 				{/* HERO */}
 				<header className="spec-hero">
 					<div className="spec-hero__copy">
-						<h1 className="spec-hero__title">How I can support you</h1>
+						<h1 className="spec-hero__title">How we can support you</h1>
 						<p className="spec-hero__lede">
-							Seeking therapy is a courageous step. This work blends
-							evidence‑based care with deeper emotional work and, when useful,
-							spiritual insight.
+							Seeking therapy is a meaningful step toward change. Below are some
+							of the areas where we can work together to bring relief, clarity,
+							and growth.
 						</p>
 					</div>
 					{/* Placeholder visual; swap to <Image/> when you have an asset */}

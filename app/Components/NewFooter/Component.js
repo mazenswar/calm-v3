@@ -92,7 +92,7 @@ function NewFooter() {
 							<ul className="footer-links">
 								<li>
 									<CustomLink
-										url="/privacy"
+										url="/privacy-policy"
 										classN="footer-link"
 										ariaLabel="Privacy policy"
 									>

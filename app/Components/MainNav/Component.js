@@ -4,6 +4,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import "./style.scss";
+import Button from "../ui/Button";
 
 /**
  * Keep desktop visuals. Fix mobile:
@@ -91,7 +92,12 @@ export default function MainNav() {
 	return (
 		<header className={`mainnav ${openMobile ? "is-open" : ""}`}>
 			<div className="container mainnav__inner">
-				<Link href="/" className="mainnav__logo" aria-label="CALM Therapy home">
+				<Link
+					href="/"
+					className="mainnav__logo"
+					aria-label="CALM Therapy home"
+					onClick={handleLinkClick}
+				>
 					<Image
 						src="/logo-hr.webp"
 						alt="CALM Therapy"
@@ -183,13 +189,11 @@ export default function MainNav() {
 					</ul>
 
 					<div className="mainnav__cta">
-						<Link
-							href="/contact"
-							className="btnPrimary"
-							onClick={handleLinkClick}
-						>
-							Contact
-						</Link>
+						<Button
+							classN="btnPrimary"
+							handleClick={handleLinkClick}
+							text="Book"
+						/>
 					</div>
 				</nav>
 			</div>
