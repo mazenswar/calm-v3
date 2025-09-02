@@ -79,10 +79,14 @@ export default function Faq() {
 							<h1>Questions people often ask</h1>
 							<p className="lead">
 								Clear, concise answers about our approach, availability, fees,
-								and ketamine‑assisted psychotherapy. If you don’t see your
-								question here, {""}
-								<CustomLink url="/contact" classN="link" ariaLabel="Contact us">
-									reach out
+								and ketamine-assisted psychotherapy. If you don{"'"}t see your
+								question here, email us at{" "}
+								<CustomLink
+									url="mailto:info@calmtherapy.center"
+									classN="link"
+									ariaLabel="Contact us"
+								>
+									info@calmtherapy.center
 								</CustomLink>
 								.
 							</p>

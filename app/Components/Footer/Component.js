@@ -108,15 +108,6 @@ function Footer() {
 										info@calmtherapy.center
 									</CustomLink>
 								</li>
-								<li>
-									<CustomLink
-										url="tel:9145704196"
-										classN="footer-link"
-										ariaLabel="Call CALM Therapy"
-									>
-										(914) 570‑4196
-									</CustomLink>
-								</li>
 							</ul>
 						</div>
 					</div>
