@@ -151,22 +151,32 @@ export async function generateMetadata({ params }) {
 	const { slug } = await params;
 	const post = await groqFetch(postBySlugQuery, { slug });
 
-	const title = post?.seoTitle || post?.title || "Post";
-	const description = post?.seoDescription || post?.excerpt || "";
-	const url = `${getBaseUrl()}/blog/${slug}`;
-	let ogImage;
-	const ogRef = post?.mainImage?.asset?._ref || post?.mainImage?.ref;
+	const base = getBaseUrl();
+	const url = `${base}/blog/${slug}`;
 
-	if (ogRef) {
-		ogImage = urlFor({ _type: "image", asset: { _ref: ogRef } })
-			.width(1200)
-			.height(630)
-			.fit("crop")
-			.quality(80)
-			.url();
-	} else if (post?.mainImage?.url) {
-		ogImage = post.mainImage.url;
-	}
+	const title = post?.seoTitle || post?.title || "CALM Therapy Blog";
+
+	const description =
+		post?.seoDescription ||
+		post?.excerpt ||
+		"Thoughtful notes on care, clarity, and growth from CALM Therapy.";
+
+	// Prefer the projected Sanity ref if present; otherwise accept a direct URL.
+	const ogRef = post?.mainImage?.asset?._ref || post?.mainImage?.ref;
+	let ogUrl = ogRef
+		? urlFor({ _type: "image", asset: { _ref: ogRef } })
+				.width(1200)
+				.height(630)
+				.fit("crop")
+				.quality(80)
+				.url()
+		: post?.mainImage?.url || null;
+
+	// Site-wide fallback if the post has no image
+	if (!ogUrl) ogUrl = `${base}/social-share.jpg`; // adjust path/name if different
+
+	const published = post?.publishedAt || post?._createdAt || null;
+	const authorName = post?.author?.name;
 
 	return {
 		title,
@@ -177,9 +187,15 @@ export async function generateMetadata({ params }) {
 			description,
 			url,
 			type: "article",
-			images: ogImage
-				? [{ url: ogImage, width: 1200, height: 630, alt: title }]
-				: undefined,
+			publishedTime: published || undefined,
+			authors: authorName ? [authorName] : undefined,
+			images: [{ url: ogUrl, width: 1200, height: 630, alt: title }],
+		},
+		twitter: {
+			card: "summary_large_image",
+			title,
+			description,
+			images: [ogUrl],
 		},
 	};
 }
