@@ -9,7 +9,7 @@ function PrimaryButton({ text = "Book a free 15-min call" }) {
 		if (typeof window !== "undefined") {
 			window.dataLayer = window.dataLayer || [];
 			window.dataLayer.push({
-				event: "consult_click",
+				event: "sp_consult_click",
 				button_text: text,
 				button_url: url,
 			});

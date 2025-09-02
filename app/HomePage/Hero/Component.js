@@ -4,6 +4,7 @@ import ts from "./assets/ts-home.jpg";
 import "./style.scss";
 import Button from "@/app/Components/ui/Button";
 import CustomLink from "@/app/Components/ui/CustomLink";
+import PrimaryButton from "@/app/Components/ui/PrimaryButton";
 
 function Hero() {
 	return (
@@ -22,7 +23,7 @@ function Hero() {
 						</CustomLink>{" "}
 						from our East Coast base.
 					</p>
-					<Button />
+					<PrimaryButton />
 				</div>
 				<div className="heroImg">
 					<Image

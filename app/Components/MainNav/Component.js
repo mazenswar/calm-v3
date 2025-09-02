@@ -190,7 +190,7 @@ export default function MainNav() {
 					</ul>
 
 					<div className="mainnav__cta">
-						<PrimaryButton text="book" />
+						<PrimaryButton text="Book" />
 					</div>
 				</nav>
 			</div>
