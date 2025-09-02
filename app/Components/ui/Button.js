@@ -14,12 +14,17 @@ function Button({
 			<Link
 				href={url}
 				className={primary ? "btnPrimary" : "btnSecondary"}
+				id={primary ? "booking-button" : null}
 				onClick={handleClick}
 			>
 				{text}
 			</Link>
 		) : (
-			<Link href={url} className={primary ? "btnPrimary" : "btnSecondary"}>
+			<Link
+				href={url}
+				className={primary ? "btnPrimary" : "btnSecondary"}
+				id={primary ? "booking-button" : null}
+			>
 				{text}
 			</Link>
 		);
