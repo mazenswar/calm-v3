@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import "./style.scss";
 import Button from "../ui/Button";
+import PrimaryButton from "../ui/PrimaryButton";
 
 /**
  * Keep desktop visuals. Fix mobile:
@@ -189,11 +190,7 @@ export default function MainNav() {
 					</ul>
 
 					<div className="mainnav__cta">
-						<Button
-							classN="btnPrimary"
-							handleClick={handleLinkClick}
-							text="Book"
-						/>
+						<PrimaryButton text="book" />
 					</div>
 				</nav>
 			</div>
