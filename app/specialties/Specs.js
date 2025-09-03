@@ -154,6 +154,7 @@ export default function Specs() {
 					),
 				},
 				{
+					id: "self-esteem",
 					title: "Self-Esteem & Self-Worth",
 					body: (
 						<p>
