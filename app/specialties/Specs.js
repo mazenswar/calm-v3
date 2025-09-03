@@ -81,6 +81,7 @@ export default function Specs() {
 					),
 				},
 				{
+					id: "ocd",
 					title: "Obsessive-Compulsive Disorder (OCD)",
 					body: (
 						<p>
@@ -111,6 +112,7 @@ export default function Specs() {
 			lead: "Clear steps to understand mood patterns and relate to yourself with care.",
 			items: [
 				{
+					id: "complex-trauma",
 					title: "Complex Trauma",
 					body: (
 						<p>
@@ -274,7 +276,11 @@ export default function Specs() {
 
 							<div className="spec-accordion">
 								{group.items.map((item, idx) => (
-									<AccordionItem key={`${group.id}-${idx}`} title={item.title}>
+									<AccordionItem
+										key={`${group.id}-${idx}`}
+										title={item.title}
+										id={item.id}
+									>
 										{item.body}
 									</AccordionItem>
 								))}

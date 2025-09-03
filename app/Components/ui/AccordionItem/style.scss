@@ -14,8 +14,10 @@
 .accordion-item {
 	border-top: 1px solid var(--acc-border);
 	padding: var(--space-3);
+	scroll-margin-top: var(--space-12);
 
 	@include respond(md) {
+		scroll-margin-top: var(--space-16);
 		padding: var(--space-6);
 	}
 
@@ -72,7 +74,9 @@
 			height: 2px;
 			background: var(--acc-muted);
 			transform: translate(-50%, -50%);
-			transition: transform 200ms ease, opacity 200ms ease;
+			transition:
+				transform 200ms ease,
+				opacity 200ms ease;
 		}
 
 		/* vertical bar (shows when closed -> plus) */

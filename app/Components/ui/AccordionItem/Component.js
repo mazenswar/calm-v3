@@ -78,6 +78,7 @@ export default function AccordionItem({
 	defaultOpen = false,
 	onToggle, // optional callback(nextOpen: boolean)
 	summaryClassName = "", // allow minor per-page styling
+	id = "",
 }) {
 	const btnId = `${idBase}-btn`;
 	const panelId = `${idBase}-panel`;
@@ -143,7 +144,10 @@ export default function AccordionItem({
 	};
 
 	return (
-		<div className={`accordion-item ${open ? "is-open" : ""}`}>
+		<div
+			className={`accordion-item ${open ? "is-open" : ""}`}
+			id={id ? id : null}
+		>
 			<button
 				id={btnId}
 				className={`accordion-item__summary ${summaryClassName}`}

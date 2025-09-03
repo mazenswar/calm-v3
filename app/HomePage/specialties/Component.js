@@ -37,20 +37,18 @@ function HomeSpecialties() {
 						</div>
 					</CustomLink>
 
-					{/* KAP */}
+					{/* Complex Trauma */}
 					<CustomLink
-						url="/specialties#kap-spec"
+						url="/specialties#complex-trauma"
 						classN="spec-card"
-						ariaLabel="Read about Ketamine‑Assisted Psychotherapy"
+						ariaLabel="Read about Complex Trauma"
 					>
 						<div role="listitem" className="spec-card__inner">
-							<h3 className="spec-card__title">
-								Ketamine‑Assisted Psychotherapy (KAP)
-							</h3>
+							<h3 className="spec-card__title">Complex Trauma</h3>
 							<p className="spec-card__blurb">
-								For treatment‑resistant anxiety, OCD, or depression in
-								partnership with Journey Clinical, with an emphasis on safety
-								and integration.
+								When the past feels present, old fear or shame can shape today.
+								We pair grounding skills with deeper work (IFS, mindfulness) to
+								rebuild safety, clarity, and self‑compassion.
 							</p>
 							<span className="spec-card__cta">Learn more →</span>
 						</div>
