@@ -8,7 +8,7 @@ function PrivacyPolicy() {
 			<section className="pp-container block">
 				<div className="block__content container">
 					<h1 className="center-title">Privacy Policy</h1>
-					<p>Last updated: August 20th, 2025</p>
+					<p className="last__updated">Last updated: August 20th, 2025</p>
 					<p>
 						{
 							"Center for Anxiety and Life Management PLLC ('CALM Therapy', 'we', 'us', or 'our') respects your privacy. This Privacy Policy describes how we handle information collected through our website, "
