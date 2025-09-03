@@ -37,7 +37,7 @@ export default async function sitemap() {
 	const staticRoutes = [
 		"",
 		"/specialties",
-		"/ketamine-assisted-psychotherapy",
+		"/kap",
 		"/fees-and-insurance",
 		"/about",
 		"/blog",

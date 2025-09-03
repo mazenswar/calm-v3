@@ -72,8 +72,8 @@ export default function MainNav() {
 			items: [
 				{ label: "Specialties", href: "/specialties" },
 				{
-					label: "Ketamine-Assisted Psychotherapy (KAP)",
-					href: "/ketamine-assisted-psychotherapy",
+					label: "(KAP)",
+					href: "/kap",
 				},
 			],
 		},
