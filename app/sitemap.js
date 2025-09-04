@@ -4,7 +4,7 @@
 // ------------------------------
 // /app/sitemap.js
 // ------------------------------
-import { postsListQuery } from "@/lib/sanity.queries";
+import { postSlugsQuery } from "@/lib/sanity.queries";
 
 export function getBaseUrl() {
 	// Prefer explicit public URL; fallback to Vercel env during build
