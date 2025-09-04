@@ -26,7 +26,7 @@ export const metadata = {
 
 	title: "CALM Therapy | Modern Psychology, Timeless Wisdom",
 	description:
-		"Private-pay therapy for adults seeking growth and transformation. East Coast based, licensed in NY, NJ, PA, and available in 43 U.S. states and jurisdictions.",
+		"Private-pay therapy for adults seeking growth and transformation. East Coast based, licensed in NY, NJ, PA, and available in 40 other U.S. states and jurisdictions.",
 	alternates: { canonical: "https://calmtherapy.center/" },
 	openGraph: {
 		title: "CALM Therapy | Modern Psychology, Timeless Wisdom",
