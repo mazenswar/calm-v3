@@ -19,7 +19,7 @@ export const metadata = {
 		title: "Ketamine-Assisted Psychotherapy (KAP) | CALM Therapy",
 		description:
 			"Explore virtual KAP at CALM Therapy: evidence-based and spiritually grounded care for anxiety, OCD, and emotional stuckness. Available in 43 PSYPACT states and licensed in NY, NJ, PA.",
-		url: "https://calmtherapy.center/ketamine-assisted-psychotherapy",
+		url: "https://calmtherapy.center/kap",
 		type: "website",
 		images: [
 			{
@@ -38,7 +38,7 @@ export const metadata = {
 		images: ["https://calmtherapy.center/social/ss.webp"],
 	},
 	alternates: {
-		canonical: "https://calmtherapy.center/ketamine-assisted-psychotherapy",
+		canonical: "https://calmtherapy.center/kap",
 	},
 };
 
