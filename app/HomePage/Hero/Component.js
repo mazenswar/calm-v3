@@ -16,8 +16,9 @@ function Hero() {
 						Timeless Wisdom
 					</h1>
 					<p className="lead">
-						Virtual therapy for thoughtful adults navigating anxiety,
-						perfectionism, spiritual uncertainty and burnout, available in{" "}
+						Virtual therapy for thoughtful adults navigating anxiety, OCD &
+						intrusive thoughts, complex trauma, perfectionism, spiritual
+						uncertainty, and burnout, available in{" "}
 						<CustomLink url="/where-we-serve">
 							43 U.S. states and jurisdictions
 						</CustomLink>{" "}

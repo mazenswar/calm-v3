@@ -12,6 +12,7 @@
 		}
 		.lead {
 			max-width: 60ch;
+			text-align: center;
 		}
 		@include respond(md) {
 			flex-direction: row;
