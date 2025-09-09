@@ -72,7 +72,7 @@ export default function MainNav() {
 			items: [
 				{ label: "Specialties", href: "/specialties" },
 				{
-					label: "(KAP)",
+					label: "KAP",
 					href: "/kap",
 				},
 			],
