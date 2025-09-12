@@ -14,7 +14,7 @@ export default function HomePage() {
 			<Hero />
 			<Specialties />
 			<ApproachSection />
-			<TherapyFees />
+			{/* <TherapyFees /> */}
 		</main>
 	);
 }
