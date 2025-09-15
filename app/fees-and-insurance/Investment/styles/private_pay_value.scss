@@ -1,0 +1,45 @@
+@use "../../../styles/mixins" as *;
+.value {
+	background: #fff;
+	&__heading {
+		text-align: center;
+		margin-bottom: 2rem;
+	}
+
+	.value-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 2rem;
+
+		@include respond(md) {
+			grid-template-columns: repeat(3, 1fr); // now 3 equal columns
+		}
+	}
+
+	.value-card {
+		background-color: var(--beige-light, #f9f6f4);
+		border-radius: 1rem;
+		padding: 2rem;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+		transition:
+			transform 0.2s ease,
+			box-shadow 0.2s ease;
+
+		&:hover {
+			transform: translateY(-4px);
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+		}
+
+		&__title {
+			font-size: 1.25rem;
+			margin-bottom: 0.75rem;
+			color: var(--brand-1, #7f5a83);
+		}
+
+		&__text {
+			font-size: 1rem;
+			line-height: 1.6;
+			color: var(--gray-dark, #333);
+		}
+	}
+}

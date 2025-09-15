@@ -1,0 +1,65 @@
+/* session_investment.scss */
+@use "../../../styles/mixins" as *;
+.sessions {
+	margin: 3rem 0;
+
+	h2 {
+		margin-bottom: 1rem;
+		font-size: 1.75rem;
+		font-weight: 600;
+	}
+
+	.sessions__intro {
+		margin-bottom: 2rem;
+		font-size: 1rem;
+		line-height: 1.6;
+		// max-width: 700px;
+	}
+
+	.sessions__list {
+		display: grid;
+		gap: 1.5rem;
+	}
+
+	.sessions__item {
+		padding: 1.25rem;
+		border: 1px solid #ddd;
+		border-radius: 8px;
+	}
+
+	.sessions__label {
+		margin-bottom: 0.75rem;
+		font-size: 1.1rem;
+		font-weight: 600;
+	}
+
+	.sessions__row {
+		display: flex;
+		justify-content: space-between;
+		font-size: 0.95rem;
+		margin: 0.25rem 0;
+	}
+
+	.sessions__title {
+		font-weight: 500;
+		margin-right: 1rem;
+	}
+
+	.sessions__disclaimer {
+		font-size: 0.85rem;
+		line-height: 1.4;
+		margin-top: 1.5rem;
+		max-width: 700px;
+	}
+
+	.muted {
+		opacity: 0.7;
+	}
+
+	/* Breakpoints: medium and up */
+	@include respond(md) {
+		.sessions__list {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+}

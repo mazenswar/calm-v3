@@ -1,5 +1,6 @@
 import React from "react";
 import FeesAndInsurance from "./feesAndInsurance";
+import InvestmentInsurancePage from "./Investment";
 
 export const metadata = {
 	title: "Fees & Insurance | CALM Therapy",
@@ -23,7 +24,8 @@ export const metadata = {
 };
 
 function FeesAndInsurancePage() {
-	return <FeesAndInsurance />;
+	// return <FeesAndInsurance />;
+	return <InvestmentInsurancePage />;
 }
 
 export default FeesAndInsurancePage;

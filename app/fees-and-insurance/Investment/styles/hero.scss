@@ -1,0 +1,33 @@
+@use "../../../styles/mixins" as *;
+.hero {
+	.hero__content {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 2rem;
+		flex-wrap: wrap;
+		h1 {
+			font-size: 1.8rem;
+			@include respond(md) {
+				font-size: 3rem;
+			}
+		}
+	}
+
+	.hero__text {
+		flex: 1 1 480px;
+	}
+
+	.hero__media {
+		flex: 1 1 320px;
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		img {
+			max-width: 100%;
+			height: auto;
+			border-radius: 100%;
+		}
+	}
+}
