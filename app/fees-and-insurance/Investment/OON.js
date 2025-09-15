@@ -12,7 +12,7 @@ function OON() {
 					Many PPO insurance plans include {"out-of-network"} (OON) mental
 					health benefits. If you have these benefits, your insurance can
 					reimburse you for a significant share of your session fee, often
-					between 40% and 80%. This can make your actual cost similar to, or
+					between 50% and 80%. This can make your actual cost similar to, or
 					even less than, high in-network copays, while still giving you access
 					to specialized, integrative care.
 				</p>
