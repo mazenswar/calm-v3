@@ -37,6 +37,7 @@ export default async function sitemap() {
 	const staticRoutes = [
 		"",
 		"/specialties",
+		"/specialties/ocd",
 		"/kap",
 		"/fees-and-insurance",
 		"/about",
