@@ -110,9 +110,70 @@
 			}
 		}
 
-		.spec-accordion {
-			display: grid;
-			gap: var(--space-3);
+		.spec__items {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 2rem;
+			// .link {
+			// 	display: flex;
+			// 	justify-content: center;
+			// 	align-items: center;
+			// 	text-decoration: none;
+			// 	background: var(--brand-8);
+			// 	height: 100px;
+			// 	width: 300px;
+			// 	text-align: center;
+			// 	padding: 1rem;
+			// 	border-radius: 25px;
+			// 	&:hover {
+			// 		background: var(--brand-7);
+			// 	}
+			// }
+
+			.link {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+
+				height: 80px; // consistent height
+				width: 500px; // consistent width
+				padding: 0 1.25rem; // equal horizontal padding
+
+				text-decoration: none;
+				background: var(--brand-8);
+				border-radius: 25px;
+				flex-shrink: 0; // stops them from collapsing
+
+				.text {
+					font-weight: 600;
+					font-size: 1rem;
+					white-space: nowrap; // prevent wrapping
+					overflow: hidden;
+					text-overflow: ellipsis; // ellipsis if too long
+				}
+
+				.icon {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					flex-shrink: 0;
+
+					width: 20px;
+					height: 20px;
+
+					svg {
+						width: 100%;
+						height: 100%;
+					}
+				}
+
+				&:hover {
+					background: var(--brand-7);
+					.icon {
+						transform: translateX(4px); // arrow nudges right
+					}
+				}
+			}
 		}
 	}
 

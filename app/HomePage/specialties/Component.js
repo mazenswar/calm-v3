@@ -21,7 +21,7 @@ function HomeSpecialties() {
 				<div className="home-specialties__grid" role="list">
 					{/* OCD */}
 					<CustomLink
-						url="/specialties#ocd"
+						url="/specialties/ocd"
 						classN="spec-card"
 						ariaLabel="Read about Obsessive‑Compulsive Disorder"
 					>
@@ -39,7 +39,7 @@ function HomeSpecialties() {
 
 					{/* Complex Trauma */}
 					<CustomLink
-						url="/specialties#complex-trauma"
+						url="/specialties/complex-trauma"
 						classN="spec-card"
 						ariaLabel="Read about Complex Trauma"
 					>
@@ -56,7 +56,7 @@ function HomeSpecialties() {
 
 					{/* Self‑Esteem */}
 					<CustomLink
-						url="/specialties#self-esteem"
+						url="/specialties/self-worth"
 						classN="spec-card"
 						ariaLabel="Read about Self‑Esteem and Self‑Worth"
 					>

@@ -2,10 +2,12 @@
 "use client";
 
 import { useEffect } from "react";
-import AccordionItem from "../Components/ui/AccordionItem/Component";
+
 import "./style.scss";
 import flowerImg from "./assets/lotus.jpg";
 import Image from "next/image";
+
+import CustomLink from "../Components/ui/CustomLink";
 
 export default function Specs() {
 	// Smooth in‑page scroll for the TOC chips
@@ -46,6 +48,7 @@ export default function Specs() {
 			items: [
 				{
 					title: "Generalized Anxiety Disorder (GAD)",
+					url: "/specialties/gad",
 					body: (
 						<p>
 							When worry feels constant and overwhelming, we help clients
@@ -58,7 +61,9 @@ export default function Specs() {
 					),
 				},
 				{
+					id: "pd",
 					title: "Panic Disorder (PD)",
+					url: "/specialties/pd",
 					body: (
 						<p>
 							We work with clients to change their relationship to the
@@ -71,6 +76,8 @@ export default function Specs() {
 				},
 				{
 					title: "Social Anxiety Disorder (SAD)",
+					id: "sad",
+					url: "/specialties/sad",
 					body: (
 						<p>
 							Social anxiety often masks a deeper fear of being seen or
@@ -82,6 +89,7 @@ export default function Specs() {
 				},
 				{
 					id: "ocd",
+					url: "/specialties/ocd",
 					title: "Obsessive-Compulsive Disorder (OCD)",
 					body: (
 						<p>
@@ -96,6 +104,8 @@ export default function Specs() {
 				},
 				{
 					title: "Body Dysmorphic Disorder (BDD)",
+					url: "/specialties/bdd",
+					id: "bdd",
 					body: (
 						<p>
 							We explore the critical inner narratives and shame-based beliefs
@@ -114,6 +124,7 @@ export default function Specs() {
 				{
 					id: "complex-trauma",
 					title: "Complex Trauma",
+					url: "/specialties/complex-trauma",
 					body: (
 						<p>
 							Complex trauma can make the past feel like it is still alive in
@@ -133,6 +144,8 @@ export default function Specs() {
 				},
 				{
 					title: "Depression",
+					id: "depression",
+					url: "/specialties/depression",
 					body: (
 						<p>
 							Depression often shows up as a disconnection from the body, from
@@ -144,6 +157,8 @@ export default function Specs() {
 				},
 				{
 					title: "Perfectionism",
+					id: "perfectionism",
+					url: "/specialties/perfectionism",
 					body: (
 						<p>
 							Perfectionism can be both protective and imprisoning. In our work
@@ -155,6 +170,7 @@ export default function Specs() {
 				},
 				{
 					id: "self-esteem",
+					url: "/specialties/self-worth",
 					title: "Self-Esteem & Self-Worth",
 					body: (
 						<p>
@@ -174,6 +190,8 @@ export default function Specs() {
 			items: [
 				{
 					title: "Life Transitions",
+					url: "/specialties/life-transitions",
+					id: "life-transitions",
 					body: (
 						<p>
 							Whether the transition is related to career, family, life
@@ -185,6 +203,8 @@ export default function Specs() {
 				},
 				{
 					title: "Stress Management & Work-Life Balance",
+					url: "/specialties/stress-management",
+					id: "stress-management",
 					body: (
 						<p>
 							Sometimes healing means setting boundaries, taking rest, or asking
@@ -203,6 +223,8 @@ export default function Specs() {
 			items: [
 				{
 					title: "Ketamine-Assisted Psychotherapy (KAP)",
+					url: "/kap",
+					id: "kap",
 					body: (
 						<p>
 							For clients experiencing treatment-resistant anxiety, OCD, or
@@ -216,6 +238,8 @@ export default function Specs() {
 				},
 				{
 					title: "Spiritual Exploration & Existential Inquiry",
+					url: "/specialties/spiritual-inquiry",
+					id: "spiritual-inquiry",
 					body: (
 						<p>
 							Many of our clients do not follow a specific spiritual path, but
@@ -275,15 +299,27 @@ export default function Specs() {
 								{group.lead && <p className="muted">{group.lead}</p>}
 							</header>
 
-							<div className="spec-accordion">
+							<div className="spec__items">
 								{group.items.map((item, idx) => (
-									<AccordionItem
-										key={`${group.id}-${idx}`}
-										title={item.title}
-										id={item.id}
-									>
-										{item.body}
-									</AccordionItem>
+									<CustomLink url={item.url} key={item.id + idx}>
+										<span className="text">{item.title}</span>
+										<span className="icon" aria-hidden="true">
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												viewBox="0 0 24 24"
+												width="18"
+												height="18"
+												fill="none"
+												stroke="currentColor"
+												strokeWidth="2"
+												strokeLinecap="round"
+												strokeLinejoin="round"
+											>
+												<circle cx="12" cy="12" r="10" />
+												<path d="M10 8l4 4-4 4" />
+											</svg>
+										</span>
+									</CustomLink>
 								))}
 							</div>
 						</article>
@@ -292,4 +328,14 @@ export default function Specs() {
 			</div>
 		</section>
 	);
+}
+
+{
+	/* <AccordionItem
+	key={`${group.id}-${idx}`}
+	title={item.title}
+	id={item.id}
+>
+	{item.body}
+</AccordionItem> */
 }
