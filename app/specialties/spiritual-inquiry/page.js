@@ -4,6 +4,8 @@ import React from "react";
 import PrimaryButton from "@/app/Components/ui/PrimaryButton";
 import CustomLink from "@/app/Components/ui/CustomLink";
 import Template from "@/app/special/template/Template";
+import heroImg from "./foreshore.png";
+import Image from "next/image";
 
 export default function SpiritualExplorationPage() {
 	const spiritualExplorationData = {
@@ -13,17 +15,7 @@ export default function SpiritualExplorationPage() {
 				"Therapy can be a safe space to explore deeper longings, awe, or the mystery of being human—without imposed frameworks.",
 			heroImage: (
 				<div className="specialty-hero-illustration">
-					{/* Add your preferred image component here */}
-					<div
-						style={{
-							width: "360px",
-							height: "360px",
-							borderRadius: "50%",
-							background: "var(--brand-8)",
-						}}
-					>
-						{/* Placeholder - replace with actual image */}
-					</div>
+					<Image src={heroImg} height={360} width={360} alt="shore" />
 				</div>
 			),
 		},

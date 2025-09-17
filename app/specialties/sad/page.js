@@ -5,6 +5,8 @@ import React from "react";
 import PrimaryButton from "@/app/Components/ui/PrimaryButton";
 import CustomLink from "@/app/Components/ui/CustomLink";
 import Template from "@/app/special/template/Template";
+import heroImg from "./foreshore.png";
+import Image from "next/image";
 
 export default function SocialAnxietyPage() {
 	const socialAnxietyData = {
@@ -14,17 +16,7 @@ export default function SocialAnxietyPage() {
 				"Social anxiety often hides a deeper fear of being judged or rejected. Therapy creates space to reclaim confidence and self-worth.",
 			heroImage: (
 				<div className="specialty-hero-illustration">
-					{/* Add your preferred image component here */}
-					<div
-						style={{
-							width: "360px",
-							height: "360px",
-							borderRadius: "50%",
-							background: "var(--brand-8)",
-						}}
-					>
-						{/* Placeholder - replace with actual image */}
-					</div>
+					<Image src={heroImg} height={360} width={360} alt="shore" />;
 				</div>
 			),
 		},

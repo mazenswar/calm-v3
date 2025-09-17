@@ -4,6 +4,8 @@ import React from "react";
 import PrimaryButton from "@/app/Components/ui/PrimaryButton";
 import CustomLink from "@/app/Components/ui/CustomLink";
 import Template from "@/app/special/template/Template";
+import heroImg from "./foreshore.png";
+import Image from "next/image";
 
 export default function LifeTransitionsPage() {
 	const lifeTransitionsData = {
@@ -13,17 +15,7 @@ export default function LifeTransitionsPage() {
 				"Life transitions—whether external or internal—can bring uncertainty and grief. Therapy offers space for clarity and steadiness.",
 			heroImage: (
 				<div className="specialty-hero-illustration">
-					{/* Add your preferred image component here */}
-					<div
-						style={{
-							width: "360px",
-							height: "360px",
-							borderRadius: "50%",
-							background: "var(--brand-8)",
-						}}
-					>
-						{/* Placeholder - replace with actual image */}
-					</div>
+					<Image src={heroImg} height={360} width={360} alt="shore" />;
 				</div>
 			),
 		},
