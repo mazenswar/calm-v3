@@ -1,11 +1,42 @@
 // DepressionPage.js
-"use client";
+
 import React from "react";
 import PrimaryButton from "@/app/Components/ui/PrimaryButton";
 import CustomLink from "@/app/Components/ui/CustomLink";
 import Template from "@/app/special/template/Template";
 import Image from "next/image";
 import depImg from "./depression.png";
+
+export const depressionMetadata = {
+	title: "Depression Therapy | CALM Therapy",
+	description:
+		"Therapy for depression and major depressive disorder. Reconnect with joy, meaning, and vitality through integrative approaches that honor your whole experience.",
+	keywords:
+		"depression therapy, major depression treatment, depression counseling, therapy for depression, depressive disorder treatment, mood therapy",
+	openGraph: {
+		title: "Depression Therapy | CALM Therapy",
+		description:
+			"Therapy for depression and major depressive disorder. Reconnect with joy, meaning, and vitality through integrative approaches.",
+		url: "https://www.calmtherapy.center/specialties/depression",
+		siteName: "CALM Therapy",
+		images: [
+			{
+				url: "/social/ss.webp",
+				width: 1200,
+				height: 630,
+				alt: "CALM Therapy - Depression Therapy",
+			},
+		],
+		type: "website",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Depression Therapy | CALM Therapy",
+		description:
+			"Therapy for depression and major depressive disorder. Reconnect with joy, meaning, and vitality through integrative approaches.",
+		images: ["/social/ss.webp"],
+	},
+};
 
 export default function DepressionPage() {
 	const depressionData = {

@@ -1,11 +1,41 @@
 // StressManagementPage.js
-"use client";
 import React from "react";
 import PrimaryButton from "@/app/Components/ui/PrimaryButton";
 import CustomLink from "@/app/Components/ui/CustomLink";
 import Template from "@/app/special/template/Template";
 import heroImg from "./foreshore.png";
 import Image from "next/image";
+
+export const stressManagementMetadata = {
+	title: "Stress Management Therapy | Work-Life Balance | CALM Therapy",
+	description:
+		"Therapy for stress management and work-life balance. Recalibrate your life patterns, set boundaries, and create sustainable balance through integrative approaches.",
+	keywords:
+		"stress management therapy, work-life balance therapy, stress counseling, chronic stress treatment, burnout therapy, stress and anxiety",
+	openGraph: {
+		title: "Stress Management & Work-Life Balance Therapy | CALM Therapy",
+		description:
+			"Therapy for stress management and work-life balance. Recalibrate your life patterns, set boundaries, and create sustainable balance.",
+		url: "https://www.calmtherapy.center/specialties/stress-management",
+		siteName: "CALM Therapy",
+		images: [
+			{
+				url: "/social/ss.webp",
+				width: 1200,
+				height: 630,
+				alt: "CALM Therapy - Stress Management & Work-Life Balance Services",
+			},
+		],
+		type: "website",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Stress Management & Work-Life Balance Therapy | CALM Therapy",
+		description:
+			"Therapy for stress management and work-life balance. Recalibrate your life patterns, set boundaries, and create sustainable balance.",
+		images: ["/social/ss.webp"],
+	},
+};
 
 export default function StressManagementPage() {
 	const stressManagementData = {

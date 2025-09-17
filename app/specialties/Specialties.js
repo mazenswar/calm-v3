@@ -1,5 +1,4 @@
 // app/specialties/page.jsx
-"use client";
 
 import "./style.scss";
 import Image from "next/image";

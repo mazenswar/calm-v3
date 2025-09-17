@@ -1,5 +1,5 @@
 // OCDPage.js
-"use client";
+
 import React from "react";
 
 import PrimaryButton from "@/app/Components/ui/PrimaryButton";
@@ -7,6 +7,38 @@ import CustomLink from "@/app/Components/ui/CustomLink";
 import Template from "@/app/special/template/Template";
 import Image from "next/image";
 import sandstoneImg from "./assets/sandstone.jpg";
+
+export const ocdMetadata = {
+	title:
+		"OCD Therapy & Treatment | Obsessive-Compulsive Disorder | CALM Therapy",
+	description:
+		"Specialized therapy for OCD using ERP, CBT, and acceptance-based approaches. Break cycles of compulsions and rebuild self-trust. Serving 43 U.S. states via telehealth.",
+	keywords:
+		"OCD therapy, obsessive compulsive disorder treatment, ERP therapy, OCD counseling, intrusive thoughts therapy, compulsions treatment",
+	openGraph: {
+		title: "Expert OCD Therapy & Treatment | CALM Therapy",
+		description:
+			"Specialized therapy for OCD using ERP, CBT, and acceptance-based approaches. Break cycles of compulsions and rebuild self-trust.",
+		url: "https://www.calmtherapy.center/specialties/ocd",
+		siteName: "CALM Therapy",
+		images: [
+			{
+				url: "/social/ss.webp",
+				width: 1200,
+				height: 630,
+				alt: "CALM Therapy - OCD Treatment & Therapy Services",
+			},
+		],
+		type: "website",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Expert OCD Therapy & Treatment | CALM Therapy",
+		description:
+			"Specialized therapy for OCD using ERP, CBT, and acceptance-based approaches. Break cycles of compulsions and rebuild self-trust.",
+		images: ["/social/ss.webp"],
+	},
+};
 
 export default function OCDPage() {
 	const ocdData = {

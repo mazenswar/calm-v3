@@ -1,6 +1,5 @@
 // app/specialties/page.jsx
 "use client";
-
 import { useEffect } from "react";
 
 import "./style.scss";

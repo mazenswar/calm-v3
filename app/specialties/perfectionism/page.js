@@ -1,5 +1,5 @@
 // PerfectionismPage.js
-"use client";
+
 import React from "react";
 import PrimaryButton from "@/app/Components/ui/PrimaryButton";
 import CustomLink from "@/app/Components/ui/CustomLink";

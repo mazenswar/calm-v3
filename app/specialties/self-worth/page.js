@@ -1,5 +1,5 @@
 // SelfEsteemPage.js
-"use client";
+
 import React from "react";
 
 import PrimaryButton from "@/app/Components/ui/PrimaryButton";
@@ -7,6 +7,103 @@ import CustomLink from "@/app/Components/ui/CustomLink";
 import Template from "@/app/special/template/Template";
 import heroImg from "./foreshore.png";
 import Image from "next/image";
+
+// OCD Page Metadata
+export const ocdMetadata = {
+	title:
+		"OCD Therapy & Treatment | Obsessive-Compulsive Disorder | CALM Therapy",
+	description:
+		"Specialized therapy for OCD using ERP, CBT, and acceptance-based approaches. Break cycles of compulsions and rebuild self-trust. Serving 43 U.S. states via telehealth.",
+	keywords:
+		"OCD therapy, obsessive compulsive disorder treatment, ERP therapy, OCD counseling, intrusive thoughts therapy, compulsions treatment",
+	openGraph: {
+		title: "Expert OCD Therapy & Treatment | CALM Therapy",
+		description:
+			"Specialized therapy for OCD using ERP, CBT, and acceptance-based approaches. Break cycles of compulsions and rebuild self-trust.",
+		url: "https://www.calmtherapy.center/specialties/ocd",
+		siteName: "CALM Therapy",
+		images: [
+			{
+				url: "/social/ss.webp",
+				width: 1200,
+				height: 630,
+				alt: "CALM Therapy - OCD Treatment & Therapy Services",
+			},
+		],
+		type: "website",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Expert OCD Therapy & Treatment | CALM Therapy",
+		description:
+			"Specialized therapy for OCD using ERP, CBT, and acceptance-based approaches. Break cycles of compulsions and rebuild self-trust.",
+		images: ["/social/ss.webp"],
+	},
+};
+
+// Complex Trauma Page Metadata
+export const complexTraumaMetadata = {
+	title: "Complex Trauma Therapy | C-PTSD Treatment | CALM Therapy",
+	description:
+		"Specialized therapy for complex trauma and C-PTSD. Create safety, clarity, and self-compassion through trauma-informed care. Telehealth available nationwide.",
+	keywords:
+		"complex trauma therapy, C-PTSD treatment, complex PTSD therapy, trauma counseling, childhood trauma therapy, developmental trauma",
+	openGraph: {
+		title: "Complex Trauma & C-PTSD Therapy | CALM Therapy",
+		description:
+			"Specialized therapy for complex trauma and C-PTSD. Create safety, clarity, and self-compassion through trauma-informed care.",
+		url: "https://www.calmtherapy.center/specialties/complex-trauma",
+		siteName: "CALM Therapy",
+		images: [
+			{
+				url: "/social/ss.webp",
+				width: 1200,
+				height: 630,
+				alt: "CALM Therapy - Complex Trauma & C-PTSD Treatment Services",
+			},
+		],
+		type: "website",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Complex Trauma & C-PTSD Therapy | CALM Therapy",
+		description:
+			"Specialized therapy for complex trauma and C-PTSD. Create safety, clarity, and self-compassion through trauma-informed care.",
+		images: ["/social/ss.webp"],
+	},
+};
+
+// Self-Esteem Page Metadata
+export const selfEsteemMetadata = {
+	title: "Self-Esteem & Self-Worth Therapy | Build Confidence | CALM Therapy",
+	description:
+		"Therapy for self-esteem and self-worth issues. Reconnect with internal worth independent of performance or approval. Compassionate, individualized care.",
+	keywords:
+		"self-esteem therapy, self-worth counseling, confidence building, low self-esteem treatment, self-acceptance therapy, worth and value therapy",
+	openGraph: {
+		title: "Self-Esteem & Self-Worth Therapy | CALM Therapy",
+		description:
+			"Therapy for self-esteem and self-worth issues. Reconnect with internal worth independent of performance or approval.",
+		url: "https://www.calmtherapy.center/specialties/self-esteem",
+		siteName: "CALM Therapy",
+		images: [
+			{
+				url: "/social/ss.webp",
+				width: 1200,
+				height: 630,
+				alt: "CALM Therapy - Self-Esteem & Self-Worth Therapy Services",
+			},
+		],
+		type: "website",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Self-Esteem & Self-Worth Therapy | CALM Therapy",
+		description:
+			"Therapy for self-esteem and self-worth issues. Reconnect with internal worth independent of performance or approval.",
+		images: ["/social/ss.webp"],
+	},
+};
 
 export default function SelfEsteemPage() {
 	const selfEsteemData = {
