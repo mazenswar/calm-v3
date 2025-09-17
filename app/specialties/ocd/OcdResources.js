@@ -73,17 +73,6 @@ function OnlineResources() {
 					</CustomLink>
 					- Expert-developed worksheets for self-reflection and support
 				</li>
-				<li>
-					<CustomLink
-						url={
-							"https://www.psychologytools.com/professional/problems/obsessive-compulsive-disorder-ocd"
-						}
-						newWindow={true}
-					>
-						Psychology Tools - OCD Resources
-					</CustomLink>{" "}
-					- Professional treatment resources and information handouts
-				</li>
 			</ul>
 		</div>
 	);
