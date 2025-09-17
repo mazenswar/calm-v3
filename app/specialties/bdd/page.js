@@ -4,6 +4,7 @@ import React from "react";
 import PrimaryButton from "@/app/Components/ui/PrimaryButton";
 import CustomLink from "@/app/Components/ui/CustomLink";
 import Template from "@/app/special/template/Template";
+import Image from "next/image";
 
 export const bddMetadata = {
 	title: "BDD Therapy | Body Dysmorphic Disorder Treatment | CALM Therapy",
@@ -44,17 +45,7 @@ export default function BDDPage() {
 				"BDD often involves harsh self-criticism and distorted self-image. Therapy helps you develop a more compassionate relationship with yourself.",
 			heroImage: (
 				<div className="specialty-hero-illustration">
-					{/* Add your preferred image component here */}
-					<div
-						style={{
-							width: "360px",
-							height: "360px",
-							borderRadius: "50%",
-							background: "var(--brand-8)",
-						}}
-					>
-						{/* Placeholder - replace with actual image */}
-					</div>
+					<Image src={heroImg} height={360} width={360} alt="shore" />;
 				</div>
 			),
 		},
