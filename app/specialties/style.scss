@@ -87,6 +87,7 @@
 		margin-top: var(--space-8);
 		display: grid;
 		gap: var(--space-8);
+		// max-width: 100vw;
 	}
 
 	.spec-group {
@@ -136,7 +137,11 @@
 				align-items: center;
 
 				height: 80px; // consistent height
-				width: 500px; // consistent width
+				width: 300px; // consistent width
+
+				@include respond(md) {
+					width: 500px; // consistent width
+				}
 				padding: 0 1.25rem; // equal horizontal padding
 
 				text-decoration: none;

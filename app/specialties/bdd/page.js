@@ -5,6 +5,7 @@ import PrimaryButton from "@/app/Components/ui/PrimaryButton";
 import CustomLink from "@/app/Components/ui/CustomLink";
 import Template from "@/app/special/template/Template";
 import Image from "next/image";
+import heroImg from "./foreshore.png";
 
 export const bddMetadata = {
 	title: "BDD Therapy | Body Dysmorphic Disorder Treatment | CALM Therapy",
