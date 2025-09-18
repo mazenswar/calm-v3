@@ -170,83 +170,83 @@ export default function PerfectionismPage() {
 			PrimaryButton: PrimaryButton,
 		},
 
-		resources: {
-			title: "Additional Perfectionism Resources",
-			resourceSections: [
-				{
-					title: "Organizations & Information:",
-					links: [
-						{
-							component: (
-								<CustomLink
-									url="https://www.apa.org/science/about/psa/2017/11/perfectionism"
-									newWindow={true}
-								>
-									American Psychological Association - Perfectionism
-								</CustomLink>
-							),
-							description:
-								"Research-based information about perfectionism and its psychological impacts",
-						},
-						{
-							component: (
-								<CustomLink
-									url="https://www.nami.org/About-Mental-Illness/Mental-Health-Conditions/Anxiety-Disorders"
-									newWindow={true}
-								>
-									National Alliance on Mental Illness (NAMI) - Anxiety Disorders
-								</CustomLink>
-							),
-							description:
-								"Information on anxiety disorders that often co-occur with perfectionism",
-						},
-						{
-							component: (
-								<CustomLink
-									url="https://www.mhanational.org/conditions/anxiety"
-									newWindow={true}
-								>
-									Mental Health America - Anxiety
-								</CustomLink>
-							),
-							description:
-								"Resources on anxiety and related mental health concerns",
-						},
-					],
-				},
-				{
-					title: "Online Resources:",
-					links: [
-						{
-							component: (
-								<CustomLink
-									url="https://www.cci.health.wa.gov.au/Resources/Looking-After-Yourself/Perfectionism"
-									newWindow={true}
-								>
-									Centre for Clinical Interventions - Perfectionism Resources
-								</CustomLink>
-							),
-							description:
-								"Government-developed self-help resources and worksheets for perfectionism",
-						},
-						{
-							component: (
-								<CustomLink
-									url="https://www.psychologytools.com/self-help/perfectionism/"
-									newWindow={true}
-								>
-									Psychology Tools - Perfectionism Resources
-								</CustomLink>
-							),
-							description:
-								"Professional treatment resources and information handouts",
-						},
-					],
-				},
-			],
-			disclaimer:
-				"These resources are for educational purposes and are not substitutes for professional treatment. If perfectionism is significantly impacting your life, consulting with a qualified mental health professional is recommended.",
-		},
+		// resources: {
+		// 	title: "Additional Perfectionism Resources",
+		// 	resourceSections: [
+		// 		{
+		// 			title: "Organizations & Information:",
+		// 			links: [
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.apa.org/science/about/psa/2017/11/perfectionism"
+		// 							newWindow={true}
+		// 						>
+		// 							American Psychological Association - Perfectionism
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Research-based information about perfectionism and its psychological impacts",
+		// 				},
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.nami.org/About-Mental-Illness/Mental-Health-Conditions/Anxiety-Disorders"
+		// 							newWindow={true}
+		// 						>
+		// 							National Alliance on Mental Illness (NAMI) - Anxiety Disorders
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Information on anxiety disorders that often co-occur with perfectionism",
+		// 				},
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.mhanational.org/conditions/anxiety"
+		// 							newWindow={true}
+		// 						>
+		// 							Mental Health America - Anxiety
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Resources on anxiety and related mental health concerns",
+		// 				},
+		// 			],
+		// 		},
+		// 		{
+		// 			title: "Online Resources:",
+		// 			links: [
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.cci.health.wa.gov.au/Resources/Looking-After-Yourself/Perfectionism"
+		// 							newWindow={true}
+		// 						>
+		// 							Centre for Clinical Interventions - Perfectionism Resources
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Government-developed self-help resources and worksheets for perfectionism",
+		// 				},
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.psychologytools.com/self-help/perfectionism/"
+		// 							newWindow={true}
+		// 						>
+		// 							Psychology Tools - Perfectionism Resources
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Professional treatment resources and information handouts",
+		// 				},
+		// 			],
+		// 		},
+		// 	],
+		// 	disclaimer:
+		// 		"These resources are for educational purposes and are not substitutes for professional treatment. If perfectionism is significantly impacting your life, consulting with a qualified mental health professional is recommended.",
+		// },
 	};
 
 	return <Template {...perfectionismData} />;

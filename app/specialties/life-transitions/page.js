@@ -197,84 +197,84 @@ export default function LifeTransitionsPage() {
 			PrimaryButton: PrimaryButton,
 		},
 
-		resources: {
-			title: "Additional Life Transitions Resources",
-			resourceSections: [
-				{
-					title: "Organizations & Information:",
-					links: [
-						{
-							component: (
-								<CustomLink
-									url="https://www.apa.org/topics/stress/life-changes"
-									newWindow={true}
-								>
-									American Psychological Association - Life Changes
-								</CustomLink>
-							),
-							description:
-								"Research-based information about managing life changes and stress",
-						},
-						{
-							component: (
-								<CustomLink
-									url="https://www.mhanational.org/life-transitions"
-									newWindow={true}
-								>
-									Mental Health America - Life Transitions
-								</CustomLink>
-							),
-							description:
-								"Resources on navigating major life changes and maintaining mental health",
-						},
-						{
-							component: (
-								<CustomLink
-									url="https://www.nami.org/Support-Education"
-									newWindow={true}
-								>
-									National Alliance on Mental Illness (NAMI) - Mental Health
-									Support
-								</CustomLink>
-							),
-							description:
-								"General mental health support and education resources",
-						},
-					],
-				},
-				{
-					title: "Online Resources:",
-					links: [
-						{
-							component: (
-								<CustomLink
-									url="https://www.cci.health.wa.gov.au/Resources/Looking-After-Yourself"
-									newWindow={true}
-								>
-									Centre for Clinical Interventions - Life Changes Resources
-								</CustomLink>
-							),
-							description:
-								"Government-developed self-help resources for managing life changes",
-						},
-						{
-							component: (
-								<CustomLink
-									url="https://www.psychologytools.com/self-help/stress/"
-									newWindow={true}
-								>
-									Psychology Tools - Life Changes
-								</CustomLink>
-							),
-							description:
-								"Professional treatment resources and information handouts for managing change",
-						},
-					],
-				},
-			],
-			disclaimer:
-				"These resources are for educational purposes and are not substitutes for professional treatment. If you're struggling with a life transition, consulting with a qualified mental health professional is recommended.",
-		},
+		// resources: {
+		// 	title: "Additional Life Transitions Resources",
+		// 	resourceSections: [
+		// 		{
+		// 			title: "Organizations & Information:",
+		// 			links: [
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.apa.org/topics/stress/life-changes"
+		// 							newWindow={true}
+		// 						>
+		// 							American Psychological Association - Life Changes
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Research-based information about managing life changes and stress",
+		// 				},
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.mhanational.org/life-transitions"
+		// 							newWindow={true}
+		// 						>
+		// 							Mental Health America - Life Transitions
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Resources on navigating major life changes and maintaining mental health",
+		// 				},
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.nami.org/Support-Education"
+		// 							newWindow={true}
+		// 						>
+		// 							National Alliance on Mental Illness (NAMI) - Mental Health
+		// 							Support
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"General mental health support and education resources",
+		// 				},
+		// 			],
+		// 		},
+		// 		{
+		// 			title: "Online Resources:",
+		// 			links: [
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.cci.health.wa.gov.au/Resources/Looking-After-Yourself"
+		// 							newWindow={true}
+		// 						>
+		// 							Centre for Clinical Interventions - Life Changes Resources
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Government-developed self-help resources for managing life changes",
+		// 				},
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.psychologytools.com/self-help/stress/"
+		// 							newWindow={true}
+		// 						>
+		// 							Psychology Tools - Life Changes
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Professional treatment resources and information handouts for managing change",
+		// 				},
+		// 			],
+		// 		},
+		// 	],
+		// 	disclaimer:
+		// 		"These resources are for educational purposes and are not substitutes for professional treatment. If you're struggling with a life transition, consulting with a qualified mental health professional is recommended.",
+		// },
 	};
 
 	return <Template {...lifeTransitionsData} />;

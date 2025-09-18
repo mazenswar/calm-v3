@@ -262,81 +262,81 @@ export default function SelfEsteemPage() {
 			PrimaryButton: PrimaryButton,
 		},
 
-		resources: {
-			title: "Additional Self-Esteem Resources",
-			resourceSections: [
-				{
-					title: "Organizations & Information:",
-					links: [
-						{
-							component: (
-								<CustomLink
-									url="https://www.nami.org/About-Mental-Illness/Mental-Health-Conditions/Depression"
-									newWindow={true}
-								>
-									National Alliance on Mental Illness (NAMI)
-								</CustomLink>
-							),
-							description:
-								"Information on mental health conditions that often co-occur with self-esteem issues",
-						},
-						{
-							component: (
-								<CustomLink
-									url="https://www.apa.org/topics/self-esteem"
-									newWindow={true}
-								>
-									American Psychological Association - Self-Esteem
-								</CustomLink>
-							),
-							description:
-								"Research-based information about self-esteem and psychological wellbeing",
-						},
-						{
-							component: (
-								<CustomLink
-									url="https://www.mhanational.org/conditions/depression"
-									newWindow={true}
-								>
-									Mental Health America
-								</CustomLink>
-							),
-							description: "Resources on mental health and self-care",
-						},
-					],
-				},
-				{
-					title: "Online Resources:",
-					links: [
-						{
-							component: (
-								<CustomLink
-									url="https://www.cci.health.wa.gov.au/Resources/Looking-After-Yourself/Self-Esteem"
-									newWindow={true}
-								>
-									Centre for Clinical Interventions - Self-Esteem Resources
-								</CustomLink>
-							),
-							description:
-								"Government-developed self-help resources and worksheets",
-						},
-						{
-							component: (
-								<CustomLink
-									url="https://www.psychologytools.com/self-help/self-esteem/"
-									newWindow={true}
-								>
-									Psychology Tools - Self-Esteem Resources
-								</CustomLink>
-							),
-							description: "Professional treatment resources and information",
-						},
-					],
-				},
-			],
-			disclaimer:
-				"These resources are for educational purposes and are not substitutes for professional treatment. If you're struggling with self-esteem, consulting with a qualified mental health professional is recommended.",
-		},
+		// resources: {
+		// 	title: "Additional Self-Esteem Resources",
+		// 	resourceSections: [
+		// 		{
+		// 			title: "Organizations & Information:",
+		// 			links: [
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.nami.org/About-Mental-Illness/Mental-Health-Conditions/Depression"
+		// 							newWindow={true}
+		// 						>
+		// 							National Alliance on Mental Illness (NAMI)
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Information on mental health conditions that often co-occur with self-esteem issues",
+		// 				},
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.apa.org/topics/self-esteem"
+		// 							newWindow={true}
+		// 						>
+		// 							American Psychological Association - Self-Esteem
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Research-based information about self-esteem and psychological wellbeing",
+		// 				},
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.mhanational.org/conditions/depression"
+		// 							newWindow={true}
+		// 						>
+		// 							Mental Health America
+		// 						</CustomLink>
+		// 					),
+		// 					description: "Resources on mental health and self-care",
+		// 				},
+		// 			],
+		// 		},
+		// 		{
+		// 			title: "Online Resources:",
+		// 			links: [
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.cci.health.wa.gov.au/Resources/Looking-After-Yourself/Self-Esteem"
+		// 							newWindow={true}
+		// 						>
+		// 							Centre for Clinical Interventions - Self-Esteem Resources
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Government-developed self-help resources and worksheets",
+		// 				},
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.psychologytools.com/self-help/self-esteem/"
+		// 							newWindow={true}
+		// 						>
+		// 							Psychology Tools - Self-Esteem Resources
+		// 						</CustomLink>
+		// 					),
+		// 					description: "Professional treatment resources and information",
+		// 				},
+		// 			],
+		// 		},
+		// 	],
+		// 	disclaimer:
+		// 		"These resources are for educational purposes and are not substitutes for professional treatment. If you're struggling with self-esteem, consulting with a qualified mental health professional is recommended.",
+		// },
 	};
 
 	return <Template {...selfEsteemData} />;

@@ -199,85 +199,85 @@ export default function SocialAnxietyPage() {
 			PrimaryButton: PrimaryButton,
 		},
 
-		resources: {
-			title: "Additional Social Anxiety Resources",
-			resourceSections: [
-				{
-					title: "Organizations & Information:",
-					links: [
-						{
-							component: (
-								<CustomLink
-									url="https://www.nimh.nih.gov/health/topics/social-anxiety-disorder"
-									newWindow={true}
-								>
-									National Institute of Mental Health (NIMH) - Social Anxiety
-									Disorder
-								</CustomLink>
-							),
-							description:
-								"Government resource with research-based information about social anxiety disorder",
-						},
-						{
-							component: (
-								<CustomLink
-									url="https://adaa.org/understanding-anxiety/social-anxiety-disorder"
-									newWindow={true}
-								>
-									Anxiety and Depression Association of America (ADAA) - Social
-									Anxiety
-								</CustomLink>
-							),
-							description:
-								"Professional organization with evidence-based social anxiety treatment information",
-						},
-						{
-							component: (
-								<CustomLink
-									url="https://www.psychiatry.org/patients-families/anxiety-disorders/what-are-anxiety-disorders"
-									newWindow={true}
-								>
-									American Psychiatric Association - Social Anxiety Disorder
-								</CustomLink>
-							),
-							description:
-								"Clinical overview of social anxiety disorder and treatment approaches",
-						},
-					],
-				},
-				{
-					title: "Online Resources:",
-					links: [
-						{
-							component: (
-								<CustomLink
-									url="https://www.cci.health.wa.gov.au/Resources/Looking-After-Yourself/Social-Anxiety"
-									newWindow={true}
-								>
-									Centre for Clinical Interventions - Social Anxiety Resources
-								</CustomLink>
-							),
-							description:
-								"Government-developed self-help resources and worksheets for social anxiety",
-						},
-						{
-							component: (
-								<CustomLink
-									url="https://www.psychologytools.com/self-help/social-anxiety/"
-									newWindow={true}
-								>
-									Psychology Tools - Social Anxiety Resources
-								</CustomLink>
-							),
-							description:
-								"Professional treatment resources and information handouts",
-						},
-					],
-				},
-			],
-			disclaimer:
-				"These resources are for educational purposes and are not substitutes for professional treatment. If you're experiencing social anxiety, consulting with a qualified mental health professional is recommended.",
-		},
+		// resources: {
+		// 	title: "Additional Social Anxiety Resources",
+		// 	resourceSections: [
+		// 		{
+		// 			title: "Organizations & Information:",
+		// 			links: [
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.nimh.nih.gov/health/topics/social-anxiety-disorder"
+		// 							newWindow={true}
+		// 						>
+		// 							National Institute of Mental Health (NIMH) - Social Anxiety
+		// 							Disorder
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Government resource with research-based information about social anxiety disorder",
+		// 				},
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://adaa.org/understanding-anxiety/social-anxiety-disorder"
+		// 							newWindow={true}
+		// 						>
+		// 							Anxiety and Depression Association of America (ADAA) - Social
+		// 							Anxiety
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Professional organization with evidence-based social anxiety treatment information",
+		// 				},
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.psychiatry.org/patients-families/anxiety-disorders/what-are-anxiety-disorders"
+		// 							newWindow={true}
+		// 						>
+		// 							American Psychiatric Association - Social Anxiety Disorder
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Clinical overview of social anxiety disorder and treatment approaches",
+		// 				},
+		// 			],
+		// 		},
+		// 		{
+		// 			title: "Online Resources:",
+		// 			links: [
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.cci.health.wa.gov.au/Resources/Looking-After-Yourself/Social-Anxiety"
+		// 							newWindow={true}
+		// 						>
+		// 							Centre for Clinical Interventions - Social Anxiety Resources
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Government-developed self-help resources and worksheets for social anxiety",
+		// 				},
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.psychologytools.com/self-help/social-anxiety/"
+		// 							newWindow={true}
+		// 						>
+		// 							Psychology Tools - Social Anxiety Resources
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Professional treatment resources and information handouts",
+		// 				},
+		// 			],
+		// 		},
+		// 	],
+		// 	disclaimer:
+		// 		"These resources are for educational purposes and are not substitutes for professional treatment. If you're experiencing social anxiety, consulting with a qualified mental health professional is recommended.",
+		// },
 	};
 
 	return <Template {...socialAnxietyData} />;

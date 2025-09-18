@@ -198,83 +198,83 @@ export default function DepressionPage() {
 			PrimaryButton: PrimaryButton,
 		},
 
-		resources: {
-			title: "Additional Depression Resources",
-			resourceSections: [
-				{
-					title: "Organizations & Information:",
-					links: [
-						{
-							component: (
-								<CustomLink
-									url="https://www.nimh.nih.gov/health/topics/depression"
-									newWindow={true}
-								>
-									National Institute of Mental Health (NIMH) - Depression
-								</CustomLink>
-							),
-							description:
-								"Government resource with research-based information about depression",
-						},
-						{
-							component: (
-								<CustomLink
-									url="https://www.nami.org/About-Mental-Illness/Mental-Health-Conditions/Depression"
-									newWindow={true}
-								>
-									National Alliance on Mental Illness (NAMI) - Depression
-								</CustomLink>
-							),
-							description:
-								"Comprehensive information and support resources for depression",
-						},
-						{
-							component: (
-								<CustomLink
-									url="https://www.psychiatry.org/patients-families/depression/what-is-depression"
-									newWindow={true}
-								>
-									American Psychiatric Association - Depression
-								</CustomLink>
-							),
-							description:
-								"Clinical overview of depression and treatment approaches",
-						},
-					],
-				},
-				{
-					title: "Online Resources:",
-					links: [
-						{
-							component: (
-								<CustomLink
-									url="https://www.cci.health.wa.gov.au/Resources/Looking-After-Yourself/Depression"
-									newWindow={true}
-								>
-									Centre for Clinical Interventions - Depression Resources
-								</CustomLink>
-							),
-							description:
-								"Government-developed self-help resources and worksheets for depression",
-						},
-						{
-							component: (
-								<CustomLink
-									url="https://www.psychologytools.com/self-help/depression/"
-									newWindow={true}
-								>
-									Psychology Tools - Depression Resources
-								</CustomLink>
-							),
-							description:
-								"Professional treatment resources and information handouts",
-						},
-					],
-				},
-			],
-			disclaimer:
-				"These resources are for educational purposes and are not substitutes for professional treatment. If you're experiencing depression, consulting with a qualified mental health professional is recommended.",
-		},
+		// resources: {
+		// 	title: "Additional Depression Resources",
+		// 	resourceSections: [
+		// 		{
+		// 			title: "Organizations & Information:",
+		// 			links: [
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.nimh.nih.gov/health/topics/depression"
+		// 							newWindow={true}
+		// 						>
+		// 							National Institute of Mental Health (NIMH) - Depression
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Government resource with research-based information about depression",
+		// 				},
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.nami.org/About-Mental-Illness/Mental-Health-Conditions/Depression"
+		// 							newWindow={true}
+		// 						>
+		// 							National Alliance on Mental Illness (NAMI) - Depression
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Comprehensive information and support resources for depression",
+		// 				},
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.psychiatry.org/patients-families/depression/what-is-depression"
+		// 							newWindow={true}
+		// 						>
+		// 							American Psychiatric Association - Depression
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Clinical overview of depression and treatment approaches",
+		// 				},
+		// 			],
+		// 		},
+		// 		{
+		// 			title: "Online Resources:",
+		// 			links: [
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.cci.health.wa.gov.au/Resources/Looking-After-Yourself/Depression"
+		// 							newWindow={true}
+		// 						>
+		// 							Centre for Clinical Interventions - Depression Resources
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Government-developed self-help resources and worksheets for depression",
+		// 				},
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.psychologytools.com/self-help/depression/"
+		// 							newWindow={true}
+		// 						>
+		// 							Psychology Tools - Depression Resources
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Professional treatment resources and information handouts",
+		// 				},
+		// 			],
+		// 		},
+		// 	],
+		// 	disclaimer:
+		// 		"These resources are for educational purposes and are not substitutes for professional treatment. If you're experiencing depression, consulting with a qualified mental health professional is recommended.",
+		// },
 	};
 
 	return <Template {...depressionData} />;

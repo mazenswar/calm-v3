@@ -198,84 +198,84 @@ export default function PanicDisorderPage() {
 			PrimaryButton: PrimaryButton,
 		},
 
-		resources: {
-			title: "Additional Panic Disorder Resources",
-			resourceSections: [
-				{
-					title: "Organizations & Information:",
-					links: [
-						{
-							component: (
-								<CustomLink
-									url="https://www.nimh.nih.gov/health/topics/panic-disorder"
-									newWindow={true}
-								>
-									National Institute of Mental Health (NIMH) - Panic Disorder
-								</CustomLink>
-							),
-							description:
-								"Government resource with research-based information about panic disorder",
-						},
-						{
-							component: (
-								<CustomLink
-									url="https://adaa.org/understanding-anxiety/panic-disorder"
-									newWindow={true}
-								>
-									Anxiety and Depression Association of America (ADAA) - Panic
-									Disorder
-								</CustomLink>
-							),
-							description:
-								"Professional organization with evidence-based panic disorder treatment information",
-						},
-						{
-							component: (
-								<CustomLink
-									url="https://www.psychiatry.org/patients-families/anxiety-disorders/what-are-anxiety-disorders"
-									newWindow={true}
-								>
-									American Psychiatric Association - Panic Disorder
-								</CustomLink>
-							),
-							description:
-								"Clinical overview of panic disorder and treatment approaches",
-						},
-					],
-				},
-				{
-					title: "Online Resources:",
-					links: [
-						{
-							component: (
-								<CustomLink
-									url="https://www.cci.health.wa.gov.au/Resources/Looking-After-Yourself/Panic"
-									newWindow={true}
-								>
-									Centre for Clinical Interventions - Panic Resources
-								</CustomLink>
-							),
-							description:
-								"Government-developed self-help resources and worksheets for panic",
-						},
-						{
-							component: (
-								<CustomLink
-									url="https://www.psychologytools.com/self-help/panic/"
-									newWindow={true}
-								>
-									Psychology Tools - Panic Resources
-								</CustomLink>
-							),
-							description:
-								"Professional treatment resources and information handouts",
-						},
-					],
-				},
-			],
-			disclaimer:
-				"These resources are for educational purposes and are not substitutes for professional treatment. If you're experiencing panic attacks, consulting with a qualified mental health professional is recommended.",
-		},
+		// resources: {
+		// 	title: "Additional Panic Disorder Resources",
+		// 	resourceSections: [
+		// 		{
+		// 			title: "Organizations & Information:",
+		// 			links: [
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.nimh.nih.gov/health/topics/panic-disorder"
+		// 							newWindow={true}
+		// 						>
+		// 							National Institute of Mental Health (NIMH) - Panic Disorder
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Government resource with research-based information about panic disorder",
+		// 				},
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://adaa.org/understanding-anxiety/panic-disorder"
+		// 							newWindow={true}
+		// 						>
+		// 							Anxiety and Depression Association of America (ADAA) - Panic
+		// 							Disorder
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Professional organization with evidence-based panic disorder treatment information",
+		// 				},
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.psychiatry.org/patients-families/anxiety-disorders/what-are-anxiety-disorders"
+		// 							newWindow={true}
+		// 						>
+		// 							American Psychiatric Association - Panic Disorder
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Clinical overview of panic disorder and treatment approaches",
+		// 				},
+		// 			],
+		// 		},
+		// 		{
+		// 			title: "Online Resources:",
+		// 			links: [
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.cci.health.wa.gov.au/Resources/Looking-After-Yourself/Panic"
+		// 							newWindow={true}
+		// 						>
+		// 							Centre for Clinical Interventions - Panic Resources
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Government-developed self-help resources and worksheets for panic",
+		// 				},
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.psychologytools.com/self-help/panic/"
+		// 							newWindow={true}
+		// 						>
+		// 							Psychology Tools - Panic Resources
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Professional treatment resources and information handouts",
+		// 				},
+		// 			],
+		// 		},
+		// 	],
+		// 	disclaimer:
+		// 		"These resources are for educational purposes and are not substitutes for professional treatment. If you're experiencing panic attacks, consulting with a qualified mental health professional is recommended.",
+		// },
 	};
 
 	return <Template {...panicDisorderData} />;

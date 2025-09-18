@@ -197,83 +197,83 @@ export default function StressManagementPage() {
 			PrimaryButton: PrimaryButton,
 		},
 
-		resources: {
-			title: "Additional Stress Management Resources",
-			resourceSections: [
-				{
-					title: "Organizations & Information:",
-					links: [
-						{
-							component: (
-								<CustomLink
-									url="https://www.apa.org/topics/stress"
-									newWindow={true}
-								>
-									American Psychological Association - Stress Management
-								</CustomLink>
-							),
-							description:
-								"Research-based information about stress, its effects, and management strategies",
-						},
-						{
-							component: (
-								<CustomLink
-									url="https://www.cdc.gov/niosh/topics/stress/"
-									newWindow={true}
-								>
-									National Institute for Occupational Safety and Health (NIOSH)
-									- Workplace Stress
-								</CustomLink>
-							),
-							description:
-								"Government resource on workplace stress and prevention",
-						},
-						{
-							component: (
-								<CustomLink
-									url="https://www.mhanational.org/conditions/stress"
-									newWindow={true}
-								>
-									Mental Health America - Stress
-								</CustomLink>
-							),
-							description: "Resources on stress management and mental health",
-						},
-					],
-				},
-				{
-					title: "Online Resources:",
-					links: [
-						{
-							component: (
-								<CustomLink
-									url="https://www.cci.health.wa.gov.au/Resources/Looking-After-Yourself/Stress"
-									newWindow={true}
-								>
-									Centre for Clinical Interventions - Stress Management
-								</CustomLink>
-							),
-							description:
-								"Government-developed self-help resources and worksheets for stress management",
-						},
-						{
-							component: (
-								<CustomLink
-									url="https://www.psychologytools.com/self-help/stress/"
-									newWindow={true}
-								>
-									Psychology Tools - Stress Management
-								</CustomLink>
-							),
-							description:
-								"Professional treatment resources and information handouts",
-						},
-					],
-				},
-			],
-			disclaimer:
-				"These resources are for educational purposes and are not substitutes for professional treatment. If stress is significantly impacting your life, consulting with a qualified mental health professional is recommended.",
-		},
+		// resources: {
+		// 	title: "Additional Stress Management Resources",
+		// 	resourceSections: [
+		// 		{
+		// 			title: "Organizations & Information:",
+		// 			links: [
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.apa.org/topics/stress"
+		// 							newWindow={true}
+		// 						>
+		// 							American Psychological Association - Stress Management
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Research-based information about stress, its effects, and management strategies",
+		// 				},
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.cdc.gov/niosh/topics/stress/"
+		// 							newWindow={true}
+		// 						>
+		// 							National Institute for Occupational Safety and Health (NIOSH)
+		// 							- Workplace Stress
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Government resource on workplace stress and prevention",
+		// 				},
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.mhanational.org/conditions/stress"
+		// 							newWindow={true}
+		// 						>
+		// 							Mental Health America - Stress
+		// 						</CustomLink>
+		// 					),
+		// 					description: "Resources on stress management and mental health",
+		// 				},
+		// 			],
+		// 		},
+		// 		{
+		// 			title: "Online Resources:",
+		// 			links: [
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.cci.health.wa.gov.au/Resources/Looking-After-Yourself/Stress"
+		// 							newWindow={true}
+		// 						>
+		// 							Centre for Clinical Interventions - Stress Management
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Government-developed self-help resources and worksheets for stress management",
+		// 				},
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.psychologytools.com/self-help/stress/"
+		// 							newWindow={true}
+		// 						>
+		// 							Psychology Tools - Stress Management
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Professional treatment resources and information handouts",
+		// 				},
+		// 			],
+		// 		},
+		// 	],
+		// 	disclaimer:
+		// 		"These resources are for educational purposes and are not substitutes for professional treatment. If stress is significantly impacting your life, consulting with a qualified mental health professional is recommended.",
+		// },
 	};
 
 	return <Template {...stressManagementData} />;

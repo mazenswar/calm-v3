@@ -198,83 +198,83 @@ export default function GADPage() {
 			PrimaryButton: PrimaryButton,
 		},
 
-		resources: {
-			title: "Additional GAD Resources",
-			resourceSections: [
-				{
-					title: "Organizations & Information:",
-					links: [
-						{
-							component: (
-								<CustomLink
-									url="https://www.nimh.nih.gov/health/topics/anxiety-disorders"
-									newWindow={true}
-								>
-									National Institute of Mental Health (NIMH) - Anxiety Disorders
-								</CustomLink>
-							),
-							description:
-								"Government resource with research-based information about anxiety disorders",
-						},
-						{
-							component: (
-								<CustomLink
-									url="https://adaa.org/understanding-anxiety/generalized-anxiety-disorder-gad"
-									newWindow={true}
-								>
-									Anxiety and Depression Association of America (ADAA)
-								</CustomLink>
-							),
-							description:
-								"Professional organization with evidence-based anxiety treatment information",
-						},
-						{
-							component: (
-								<CustomLink
-									url="https://www.psychiatry.org/patients-families/anxiety-disorders/what-are-anxiety-disorders"
-									newWindow={true}
-								>
-									American Psychiatric Association - Anxiety Disorders
-								</CustomLink>
-							),
-							description:
-								"Clinical overview of anxiety disorders and treatment approaches",
-						},
-					],
-				},
-				{
-					title: "Online Resources:",
-					links: [
-						{
-							component: (
-								<CustomLink
-									url="https://www.cci.health.wa.gov.au/Resources/Looking-After-Yourself/Anxiety"
-									newWindow={true}
-								>
-									Centre for Clinical Interventions - Anxiety Resources
-								</CustomLink>
-							),
-							description:
-								"Government-developed self-help resources and worksheets for anxiety",
-						},
-						{
-							component: (
-								<CustomLink
-									url="https://www.psychologytools.com/self-help/anxiety/"
-									newWindow={true}
-								>
-									Psychology Tools - Anxiety Resources
-								</CustomLink>
-							),
-							description:
-								"Professional treatment resources and information handouts",
-						},
-					],
-				},
-			],
-			disclaimer:
-				"These resources are for educational purposes and are not substitutes for professional treatment. If you're experiencing anxiety symptoms, consulting with a qualified mental health professional is recommended.",
-		},
+		// resources: {
+		// 	title: "Additional GAD Resources",
+		// 	resourceSections: [
+		// 		{
+		// 			title: "Organizations & Information:",
+		// 			links: [
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.nimh.nih.gov/health/topics/anxiety-disorders"
+		// 							newWindow={true}
+		// 						>
+		// 							National Institute of Mental Health (NIMH) - Anxiety Disorders
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Government resource with research-based information about anxiety disorders",
+		// 				},
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://adaa.org/understanding-anxiety/generalized-anxiety-disorder-gad"
+		// 							newWindow={true}
+		// 						>
+		// 							Anxiety and Depression Association of America (ADAA)
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Professional organization with evidence-based anxiety treatment information",
+		// 				},
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.psychiatry.org/patients-families/anxiety-disorders/what-are-anxiety-disorders"
+		// 							newWindow={true}
+		// 						>
+		// 							American Psychiatric Association - Anxiety Disorders
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Clinical overview of anxiety disorders and treatment approaches",
+		// 				},
+		// 			],
+		// 		},
+		// 		{
+		// 			title: "Online Resources:",
+		// 			links: [
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.cci.health.wa.gov.au/Resources/Looking-After-Yourself/Anxiety"
+		// 							newWindow={true}
+		// 						>
+		// 							Centre for Clinical Interventions - Anxiety Resources
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Government-developed self-help resources and worksheets for anxiety",
+		// 				},
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.psychologytools.com/self-help/anxiety/"
+		// 							newWindow={true}
+		// 						>
+		// 							Psychology Tools - Anxiety Resources
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Professional treatment resources and information handouts",
+		// 				},
+		// 			],
+		// 		},
+		// 	],
+		// 	disclaimer:
+		// 		"These resources are for educational purposes and are not substitutes for professional treatment. If you're experiencing anxiety symptoms, consulting with a qualified mental health professional is recommended.",
+		// },
 	};
 
 	return <Template {...gadData} />;

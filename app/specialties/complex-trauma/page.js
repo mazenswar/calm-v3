@@ -197,51 +197,39 @@ export default function ComplexTraumaPage() {
 			PrimaryButton: PrimaryButton,
 		},
 
-		resources: {
-			title: "Additional Complex Trauma Resources",
-			resourceSections: [
-				{
-					title: "Organizations & Information:",
-					links: [
-						{
-							component: (
-								<CustomLink
-									url="https://www.ptsd.va.gov/understand/types/complex_ptsd.asp"
-									newWindow={true}
-								>
-									National Center for PTSD
-								</CustomLink>
-							),
-							description:
-								"Government resource on complex PTSD and treatment approaches",
-						},
-						{
-							component: (
-								<CustomLink url="https://istss.org/" newWindow={true}>
-									International Society for Traumatic Stress Studies (ISTSS)
-								</CustomLink>
-							),
-							description:
-								"Professional organization with evidence-based trauma treatment information",
-						},
-						{
-							component: (
-								<CustomLink
-									url="https://www.samhsa.gov/trauma-informed-care"
-									newWindow={true}
-								>
-									SAMHSA Trauma-Informed Care Resources
-								</CustomLink>
-							),
-							description:
-								"Government resources on trauma-informed approaches to healing",
-						},
-					],
-				},
-			],
-			disclaimer:
-				"These resources are for educational purposes and are not substitutes for professional treatment. If you're experiencing trauma symptoms, consulting with a qualified mental health professional is recommended.",
-		},
+		// resources: {
+		// 	title: "Additional Complex Trauma Resources",
+		// 	resourceSections: [
+		// 		{
+		// 			title: "Organizations & Information:",
+		// 			links: [
+		// 				{
+		// 					component: (
+		// 						<CustomLink url="https://istss.org/" newWindow={true}>
+		// 							International Society for Traumatic Stress Studies (ISTSS)
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Professional organization with evidence-based trauma treatment information",
+		// 				},
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.samhsa.gov/trauma-informed-care"
+		// 							newWindow={true}
+		// 						>
+		// 							SAMHSA Trauma-Informed Care Resources
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Government resources on trauma-informed approaches to healing",
+		// 				},
+		// 			],
+		// 		},
+		// 	],
+		// 	disclaimer:
+		// 		"These resources are for educational purposes and are not substitutes for professional treatment. If you're experiencing trauma symptoms, consulting with a qualified mental health professional is recommended.",
+		// },
 	};
 
 	return <Template {...complexTraumaData} />;

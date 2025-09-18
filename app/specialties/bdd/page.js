@@ -198,81 +198,81 @@ export default function BDDPage() {
 			PrimaryButton: PrimaryButton,
 		},
 
-		resources: {
-			title: "Additional BDD Resources",
-			resourceSections: [
-				{
-					title: "Organizations & Information:",
-					links: [
-						{
-							component: (
-								<CustomLink url="https://iocdf.org/bdd/" newWindow={true}>
-									International OCD Foundation - Body Dysmorphic Disorder
-								</CustomLink>
-							),
-							description:
-								"Comprehensive resource on BDD from the leading OCD and related disorders organization",
-						},
-						{
-							component: (
-								<CustomLink
-									url="https://www.nimh.nih.gov/health/topics"
-									newWindow={true}
-								>
-									National Institute of Mental Health (NIMH) - Mental Health
-									Information
-								</CustomLink>
-							),
-							description:
-								"Government resource with research-based information about mental health conditions",
-						},
-						{
-							component: (
-								<CustomLink
-									url="https://www.psychiatry.org/patients-families"
-									newWindow={true}
-								>
-									American Psychiatric Association - Mental Health Conditions
-								</CustomLink>
-							),
-							description:
-								"Clinical overview of mental health conditions and treatment approaches",
-						},
-					],
-				},
-				{
-					title: "Online Resources:",
-					links: [
-						{
-							component: (
-								<CustomLink
-									url="https://www.cci.health.wa.gov.au/Resources/Looking-After-Yourself/Body-Image"
-									newWindow={true}
-								>
-									Centre for Clinical Interventions - Body Image Resources
-								</CustomLink>
-							),
-							description:
-								"Government-developed self-help resources and worksheets for body image concerns",
-						},
-						{
-							component: (
-								<CustomLink
-									url="https://www.psychologytools.com/professional/problems/body-dysmorphic-disorder/"
-									newWindow={true}
-								>
-									Psychology Tools - Body Dysmorphic Disorder Resources
-								</CustomLink>
-							),
-							description:
-								"Professional treatment resources and information handouts",
-						},
-					],
-				},
-			],
-			disclaimer:
-				"These resources are for educational purposes and are not substitutes for professional treatment. If you're experiencing body dysmorphic concerns, consulting with a qualified mental health professional is recommended.",
-		},
+		// resources: {
+		// 	title: "Additional BDD Resources",
+		// 	resourceSections: [
+		// 		{
+		// 			title: "Organizations & Information:",
+		// 			links: [
+		// 				{
+		// 					component: (
+		// 						<CustomLink url="https://iocdf.org/bdd/" newWindow={true}>
+		// 							International OCD Foundation - Body Dysmorphic Disorder
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Comprehensive resource on BDD from the leading OCD and related disorders organization",
+		// 				},
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.nimh.nih.gov/health/topics"
+		// 							newWindow={true}
+		// 						>
+		// 							National Institute of Mental Health (NIMH) - Mental Health
+		// 							Information
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Government resource with research-based information about mental health conditions",
+		// 				},
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.psychiatry.org/patients-families"
+		// 							newWindow={true}
+		// 						>
+		// 							American Psychiatric Association - Mental Health Conditions
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Clinical overview of mental health conditions and treatment approaches",
+		// 				},
+		// 			],
+		// 		},
+		// 		{
+		// 			title: "Online Resources:",
+		// 			links: [
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.cci.health.wa.gov.au/Resources/Looking-After-Yourself/Body-Image"
+		// 							newWindow={true}
+		// 						>
+		// 							Centre for Clinical Interventions - Body Image Resources
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Government-developed self-help resources and worksheets for body image concerns",
+		// 				},
+		// 				{
+		// 					component: (
+		// 						<CustomLink
+		// 							url="https://www.psychologytools.com/professional/problems/body-dysmorphic-disorder/"
+		// 							newWindow={true}
+		// 						>
+		// 							Psychology Tools - Body Dysmorphic Disorder Resources
+		// 						</CustomLink>
+		// 					),
+		// 					description:
+		// 						"Professional treatment resources and information handouts",
+		// 				},
+		// 			],
+		// 		},
+		// 	],
+		// 	disclaimer:
+		// 		"These resources are for educational purposes and are not substitutes for professional treatment. If you're experiencing body dysmorphic concerns, consulting with a qualified mental health professional is recommended.",
+		// },
 	};
 
 	return <Template {...bddData} />;
