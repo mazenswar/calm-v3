@@ -1,8 +1,8 @@
-import Link from "next/link";
+import Button from "@/app/Components/ui/Button";
+import "./tanya-singh.scss";
 import Image from "next/image";
 import tanyaHeadshot from "../../HomePage/Hero/assets/ts-home.jpg";
-import "./credentials.scss";
-import Button from "@/app/Components/ui/Button";
+import Link from "next/link";
 
 export const metadata = {
 	title: "Dr. Tanya Singh - Credentials | CALM Therapy",
@@ -42,7 +42,7 @@ export default function CredentialsPage() {
 				<div className="block__content container">
 					<div className="credentials-header">
 						<div className="credentials-intro">
-							<h1>Dr. Tanya Singh, Ph.D.</h1>
+							<h1>Tanya Singh, Ph.D.</h1>
 							<p>Director and Co-Founder, CALM Therapy</p>
 						</div>
 						<div className="credentials-image">
@@ -70,35 +70,22 @@ export default function CredentialsPage() {
 									Center for Anxiety & Life Management (CALM Therapy)
 								</p>
 								<div className="role-description">
+									<p>Serving NY, NJ, PA, and 40+ states through PSYPACT</p>
 									<ul>
 										<li>
-											Integrative psychotherapy for adults navigating anxiety
-											disorders, obsessive-compulsive concerns, complex trauma,
-											and major life transitions
+											Integrative psychotherapy for anxiety, OCD, complex
+											trauma, and life transitions
 										</li>
 										<li>
 											Integration of evidence-based approaches (ERP, ACT, I-CBT,
-											DBT, IFS) with contemplative and mindfulness-based
-											frameworks
+											DBT, IFS) with contemplative frameworks
 										</li>
 										<li>
-											Specialized provision of ketamine-assisted psychotherapy
-											(KAP), including comprehensive preparation, dosing
-											support, and therapeutic integration sessions
+											Ketamine-assisted psychotherapy (KAP) including
+											preparation, dosing, and integration
 										</li>
 										<li>
-											Design and oversight of practice services, including
-											development of new therapy offerings and innovative
-											treatment modalities
-										</li>
-										<li>
-											Active collaboration with psychiatrists, physicians, and
-											wellness providers to support comprehensive client care
-										</li>
-										<li>
-											Contribution to public understanding of mental health
-											through psychoeducational content and integrative essays
-											bridging psychology with contemplative wisdom
+											Collaboration with psychiatrists and wellness providers
 										</li>
 									</ul>
 								</div>
@@ -107,62 +94,21 @@ export default function CredentialsPage() {
 							<div className="credential-item">
 								<div className="date-range">2022 — 2025</div>
 								<h3>Licensed Clinical Psychologist</h3>
-								<p className="institution">
-									CBT Center for Anxiety and OCD, Lower Gwynedd, PA
-								</p>
+								<p className="institution">CBT Center for Anxiety and OCD</p>
 								<div className="role-description">
 									<ul>
 										<li>
-											Comprehensive psychotherapy for adults and adolescents
-											with anxiety disorders, obsessive-compulsive concerns, and
-											related conditions
+											Psychotherapy for adults and adolescents with anxiety and
+											OCD
 										</li>
 										<li>
-											Specialized delivery of evidence-based treatments
-											including ERP, I-CBT, ACT, DBT, ComB, HRT, BA, and MI
+											Evidence-based treatments: ERP, I-CBT, ACT, DBT, ComB, HRT
 										</li>
 										<li>
-											Clinical supervision of doctoral externs in evidence-based
-											practice and comprehensive case formulation
+											Supervision of doctoral externs in clinical practice
 										</li>
 										<li>
-											Active participation in case consultation teams and
-											ongoing professional training in OCD and anxiety disorder
-											specializations
-										</li>
-										<li>
-											Emphasis on integrative care approaches that honor both
-											clinical efficacy and individual client needs
-										</li>
-									</ul>
-								</div>
-							</div>
-
-							<div className="credential-item">
-								<div className="date-range">2018 — 2019</div>
-								<h3>Psychiatric Intern</h3>
-								<p className="institution">
-									Hoboken University Medical Center - Partial Hospital Program,
-									Hoboken, NJ
-								</p>
-								<div className="role-description">
-									<ul>
-										<li>
-											Assessment and therapy services in partial hospitalization
-											program serving diverse adult population
-										</li>
-										<li>
-											Conducted comprehensive intake interviews, diagnostic
-											assessments, and individual therapy using evidence-based
-											interventions
-										</li>
-										<li>
-											Facilitated group therapy for clients with complex
-											presentations and co-occurring mental health conditions
-										</li>
-										<li>
-											Participated in weekly case presentations,
-											multidisciplinary staff meetings, and clinical supervision
+											Ongoing professional training in OCD and anxiety disorders
 										</li>
 									</ul>
 								</div>
@@ -372,6 +318,28 @@ export default function CredentialsPage() {
 									</ul>
 								</div>
 							</div>
+
+							<div className="credential-item">
+								<div className="date-range">2017 — 2021</div>
+								<h3>Teaching Experience</h3>
+								<p className="institution">Montclair State University</p>
+								<div className="role-description">
+									<ul>
+										<li>
+											Adjunct Faculty (2018-2021): Designed and taught
+											introductory psychology courses
+										</li>
+										<li>
+											Guest Lecturer (2017-2018): Abnormal Psychology lectures
+											on mood, anxiety, and personality disorders
+										</li>
+										<li>
+											Mentored undergraduate students in psychology principles
+											and research methods
+										</li>
+									</ul>
+								</div>
+							</div>
 						</div>
 
 						<div className="credential-card">
@@ -410,7 +378,7 @@ export default function CredentialsPage() {
 
 								<div className="publication-item">
 									<Link
-										href="https://www.sciencedirect.com/science/article/abs/pii/S0165032717320700"
+										href="https://psychiatryonline.org/doi/full/10.1176/appi.ps.201900186"
 										className="publication-link link"
 										target="_blank"
 										rel="noopener noreferrer"
@@ -444,7 +412,7 @@ export default function CredentialsPage() {
 										target="_blank"
 										rel="noopener noreferrer"
 										className="publication-link link"
-										href="https://global.oup.com/academic/product/borderline-personality-disorder-9780199997510?cc=us&lang=en&"
+										href="https://global.oup.com/academic/product/borderline-personality-disorder-9780199997510?cc=us&lang=en&#"
 									>
 										<strong>Book Chapter:</strong> Stanley, B. &{" "}
 										<strong>Singh, T.</strong> (2017). Differential diagnosis of
@@ -464,6 +432,7 @@ export default function CredentialsPage() {
 							publications, conference presentations, and complete professional
 							history, please review her full academic curriculum vitae.
 						</p>
+
 						<Button
 							url={"/cv/tanya-singh_cv.pdf"}
 							text="View Full Resume (PDF)"

@@ -7,6 +7,7 @@ import flowerImg from "./assets/lotus.jpg";
 import Image from "next/image";
 
 import CustomLink from "../Components/ui/CustomLink";
+import Link from "next/link";
 
 export default function Specs() {
 	// Smooth in‑page scroll for the TOC chips
@@ -283,7 +284,7 @@ export default function Specs() {
 					<ul className="spec-toc__list" role="list">
 						{groups.map((g) => (
 							<li key={g.id}>
-								<a href={`#${g.id}`}>{g.title}</a>
+								<Link href={`#${g.id}`}>{g.title}</Link>
 							</li>
 						))}
 					</ul>

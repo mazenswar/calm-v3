@@ -3,6 +3,7 @@
 import "./style.scss";
 import Image from "next/image";
 import flowerImg from "./assets/lotus.jpg";
+import Link from "next/link";
 
 const specialties = [
 	{
@@ -64,9 +65,9 @@ export default function SpecialtiesHub() {
 							<li key={spec.id} className="spec-card">
 								<h2>{spec.title}</h2>
 								<p>{spec.lede}</p>
-								<a href={spec.link} className="spec-card__link">
+								<Link href={spec.link} className="spec-card__link">
 									Learn more
-								</a>
+								</Link>
 							</li>
 						))}
 					</ul>
