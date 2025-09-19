@@ -6,6 +6,8 @@ import Image from "next/image";
 import calmImg from "./assets/calm.webp";
 import tsNature from "./assets/ts-park.webp";
 import tsNatureOne from "./assets/tsn.webp";
+import Link from "next/link";
+import Button from "../Components/ui/Button";
 
 export default function About() {
 	return (
@@ -31,7 +33,7 @@ export default function About() {
 							</p>
 							<p>
 								Our care is designed for people navigating anxiety,
-								obsessive–compulsive and related disorders, complex trauma, and
+								obsessive-compulsive and related disorders, complex trauma, and
 								major life transitions who want therapy that is both practical
 								and deeply personal.
 							</p>
@@ -123,6 +125,12 @@ export default function About() {
 								<span className="about__tanyaMeta">
 									Licensed Clinical Psychologist • Director &amp; Co-Founder
 								</span>
+								<Button
+									url="/people/tanya-singh"
+									className="link"
+									primary={false}
+									text="Resume"
+								/>
 							</p>
 						</div>
 					</div>

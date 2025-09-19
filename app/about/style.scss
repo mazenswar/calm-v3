@@ -198,6 +198,9 @@
 
 		.about__tanyaName {
 			margin-top: 0.25rem;
+			.btnSecondary {
+				margin-top: var(--space-6);
+			}
 
 			.about__tanyaMeta {
 				display: block;
