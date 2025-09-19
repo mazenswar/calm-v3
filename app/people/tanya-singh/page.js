@@ -137,36 +137,6 @@ export default function CredentialsPage() {
 									</ul>
 								</div>
 							</div>
-
-							<div className="credential-item">
-								<div className="date-range">2018 — 2019</div>
-								<h3>Psychiatric Intern</h3>
-								<p className="institution">
-									Hoboken University Medical Center - Partial Hospital Program,
-									Hoboken, NJ
-								</p>
-								<div className="role-description">
-									<ul>
-										<li>
-											Assessment and therapy services in partial hospitalization
-											program serving diverse adult population
-										</li>
-										<li>
-											Conducted comprehensive intake interviews, diagnostic
-											assessments, and individual therapy using evidence-based
-											interventions
-										</li>
-										<li>
-											Facilitated group therapy for clients with complex
-											presentations and co-occurring mental health conditions
-										</li>
-										<li>
-											Participated in weekly case presentations,
-											multidisciplinary staff meetings, and clinical supervision
-										</li>
-									</ul>
-								</div>
-							</div>
 						</div>
 
 						<div className="credential-card">
@@ -227,13 +197,11 @@ export default function CredentialsPage() {
 											adolescents with neurofibromatosis
 										</li>
 										<li>
-											Developed live-video program for patients with mild
-											traumatic brain injury and comorbid anxiety
+											Contributed to the development of a live-video program for
+											patients with mild traumatic brain injury and comorbid
+											anxiety
 										</li>
-										<li>
-											Psychological assessments with adolescents and integrated
-											reporting
-										</li>
+										<li>Psychological assessments with adolescents</li>
 										<li>
 											Research contributions resulting in three published
 											manuscripts
@@ -245,54 +213,15 @@ export default function CredentialsPage() {
 									</ul>
 								</div>
 							</div>
-
-							<div className="credential-item">
-								<div className="date-range">2020 — 2021</div>
-								<h3>Psychiatric Extern</h3>
-								<p className="institution">
-									Behavioral Associates, New York, NY
-								</p>
-								<div className="role-description">
-									<ul>
-										<li>
-											Individual and group psychotherapy in private practice
-											serving diverse populations
-										</li>
-										<li>
-											Training in biofeedback, neurofeedback, and virtual
-											reality-based exposure procedures
-										</li>
-										<li>
-											Multidisciplinary team collaboration and ongoing case
-											consultation
-										</li>
-									</ul>
-								</div>
-							</div>
-
-							<div className="credential-item">
-								<div className="date-range">2019 — 2020</div>
-								<h3>Psychiatric Extern</h3>
-								<p className="institution">
-									SUNY Downstate Medical Center - Children{"'"}s Mental Health
-									Center, NY
-								</p>
-								<div className="role-description">
-									<ul>
-										<li>
-											Assessment and therapy services for children, adolescents,
-											and families
-										</li>
-										<li>
-											Developmental, neuropsychological, and diagnostic
-											assessments with integrated reports
-										</li>
-										<li>
-											Individual and family therapy with educational advocacy
-											for children and caregivers
-										</li>
-									</ul>
-								</div>
+							<div className="btn-container">
+								<i>
+									For a full list of trainings please check out the full resume
+								</i>
+								<Button
+									newWindow={true}
+									url="/cv/tanya-singh_cv.pdf"
+									text="Full Resume"
+								/>
 							</div>
 						</div>
 					</div>
@@ -314,27 +243,6 @@ export default function CredentialsPage() {
 									Montclair State University, Department of Psychology,
 									Montclair, NJ
 								</p>
-								<div className="role-description">
-									<p>APA- and PCSAS-accredited program</p>
-									<ul>
-										<li>
-											Comprehensive training in evidence-based psychotherapy
-											approaches
-										</li>
-										<li>
-											Specialized focus on anxiety disorders, OCD, and trauma
-											treatment
-										</li>
-										<li>
-											Research in technology-enhanced mental health
-											interventions
-										</li>
-										<li>
-											Clinical supervision and teaching experience throughout
-											doctoral program
-										</li>
-									</ul>
-								</div>
 							</div>
 
 							<div className="credential-item">
@@ -343,11 +251,6 @@ export default function CredentialsPage() {
 								<p className="institution">
 									Montclair State University, Department of Psychology
 								</p>
-								<div className="role-description">
-									<p>
-										Master{"'"}s degree completed as part of doctoral program
-									</p>
-								</div>
 							</div>
 
 							<div className="credential-item">
@@ -356,21 +259,6 @@ export default function CredentialsPage() {
 								<p className="institution">
 									Teachers College, Columbia University, New York, NY
 								</p>
-								<div className="role-description">
-									<ul>
-										<li>
-											Focus on educational psychology and mental health in
-											academic settings
-										</li>
-										<li>
-											Training in cross-cultural psychology and community mental
-											health approaches
-										</li>
-										<li>
-											Research in stigma reduction and mental health literacy
-										</li>
-									</ul>
-								</div>
 							</div>
 						</div>
 
@@ -454,6 +342,19 @@ export default function CredentialsPage() {
 									</Link>
 								</div>
 							</div>
+							<br />
+							<br />
+							<div className="btn-container">
+								<i>
+									For a full list of publications please check out the full
+									resume
+								</i>
+								<Button
+									newWindow={true}
+									url="/cv/tanya-singh_cv.pdf"
+									text="Full Resume"
+								/>
+							</div>
 						</div>
 					</div>
 
@@ -464,6 +365,7 @@ export default function CredentialsPage() {
 							publications, conference presentations, and complete professional
 							history, please review her full academic curriculum vitae.
 						</p>
+
 						<Button
 							url={"/cv/tanya-singh_cv.pdf"}
 							text="View Full Resume (PDF)"
