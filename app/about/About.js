@@ -129,7 +129,7 @@ export default function About() {
 									url="/people/tanya-singh"
 									className="link"
 									primary={false}
-									text="Resume"
+									text="Credentials"
 								/>
 							</p>
 						</div>
