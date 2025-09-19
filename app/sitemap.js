@@ -49,6 +49,7 @@ export default async function sitemap() {
 		"/specialties/life-transitions",
 		"/specialties/stress-management",
 		"/specialties/spiritual-inquiry",
+		"/people/tanya-singh",
 		"/kap",
 		"/fees-and-insurance",
 		"/about",
