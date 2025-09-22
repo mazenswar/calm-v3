@@ -2,11 +2,9 @@
 
 import "./style.scss";
 import Image from "next/image";
-
 import calmImg from "./assets/calm.webp";
 import tsNature from "./assets/ts-park.webp";
 import tsNatureOne from "./assets/tsn.webp";
-import Link from "next/link";
 import Button from "../Components/ui/Button";
 
 export default function About() {

@@ -7,38 +7,10 @@ import Template from "@/app/special/template/Template";
 import heroImg from "./foreshore.png";
 import Image from "next/image";
 
-// Perfectionism Page Metadata
-export const perfectionismMetadata = {
-	title:
-		"Perfectionism Therapy | Overcome Perfectionist Patterns | CALM Therapy",
-	description:
-		"Therapy for perfectionism. Practice enoughness from the inside out and explore the protective parts that drive perfectionist patterns.",
-	keywords:
-		"perfectionism therapy, perfectionist counseling, high standards therapy, perfectionism treatment, self-criticism therapy, perfectionist patterns",
-	openGraph: {
-		title: "Perfectionism Therapy & Treatment | CALM Therapy",
-		description:
-			"Therapy for perfectionism. Practice enoughness from the inside out and explore the protective parts that drive perfectionist patterns.",
-		url: "https://www.calmtherapy.center/specialties/perfectionism",
-		siteName: "CALM Therapy",
-		images: [
-			{
-				url: "/social/ss.webp",
-				width: 1200,
-				height: 630,
-				alt: "CALM Therapy - Perfectionism Treatment & Therapy Services",
-			},
-		],
-		type: "website",
-	},
-	twitter: {
-		card: "summary_large_image",
-		title: "Perfectionism Therapy & Treatment | CALM Therapy",
-		description:
-			"Therapy for perfectionism. Practice enoughness from the inside out and explore the protective parts that drive perfectionist patterns.",
-		images: ["/social/ss.webp"],
-	},
-};
+import { metadata } from "@/app/config/metadata.mjs";
+
+// metadata
+export const generateMetadata = () => metadata.specialties.perfectionism;
 
 export default function PerfectionismPage() {
 	const perfectionismData = {

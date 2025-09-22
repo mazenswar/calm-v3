@@ -8,37 +8,10 @@ import Template from "@/app/special/template/Template";
 import heroImg from "./foreshore.png";
 import Image from "next/image";
 
-// Self-Esteem Page Metadata
-export const selfEsteemMetadata = {
-	title: "Self-Esteem & Self-Worth Therapy | Build Confidence | CALM Therapy",
-	description:
-		"Therapy for self-esteem and self-worth issues. Reconnect with internal worth independent of performance or approval. Compassionate, individualized care.",
-	keywords:
-		"self-esteem therapy, self-worth counseling, confidence building, low self-esteem treatment, self-acceptance therapy, worth and value therapy",
-	openGraph: {
-		title: "Self-Esteem & Self-Worth Therapy | CALM Therapy",
-		description:
-			"Therapy for self-esteem and self-worth issues. Reconnect with internal worth independent of performance or approval.",
-		url: "https://www.calmtherapy.center/specialties/self-esteem",
-		siteName: "CALM Therapy",
-		images: [
-			{
-				url: "/social/ss.webp",
-				width: 1200,
-				height: 630,
-				alt: "CALM Therapy - Self-Esteem & Self-Worth Therapy Services",
-			},
-		],
-		type: "website",
-	},
-	twitter: {
-		card: "summary_large_image",
-		title: "Self-Esteem & Self-Worth Therapy | CALM Therapy",
-		description:
-			"Therapy for self-esteem and self-worth issues. Reconnect with internal worth independent of performance or approval.",
-		images: ["/social/ss.webp"],
-	},
-};
+import { metadata } from "@/app/config/metadata.mjs";
+
+// metadata
+export const generateMetadata = () => metadata.specialties.selfEsteem;
 
 export default function SelfEsteemPage() {
 	const selfEsteemData = {

@@ -3,6 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { POSTS_PAGE_SIZE, postsListQuery } from "@/lib/sanity.queries";
 import "./style.scss";
+import { metadata } from "../config/metadata.mjs";
+
+//metadata
+export const generateMetadata = () => metadata.pages.blog;
 
 // Build-safe base URL for server fetches (no relative fetch during SSG)
 function getBaseUrl() {
@@ -25,11 +29,6 @@ async function groqFetch(query, params) {
 }
 
 export const revalidate = 60;
-
-export const metadata = {
-	title: "Blog",
-	description: "Latest posts from CALM Wellness Counseling",
-};
 
 export default async function BlogIndexPage() {
 	const posts = await groqFetch(postsListQuery, {

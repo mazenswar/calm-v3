@@ -6,37 +6,10 @@ import CustomLink from "@/app/Components/ui/CustomLink";
 import Template from "@/app/special/template/Template";
 import Image from "next/image";
 import heroImg from "./foreshore.png";
+import { metadata } from "@/app/config/metadata.mjs";
 
-export const bddMetadata = {
-	title: "BDD Therapy | Body Dysmorphic Disorder Treatment | CALM Therapy",
-	description:
-		"Therapy for body dysmorphic disorder (BDD). Develop a compassionate relationship with yourself and challenge distorted self-image through specialized care.",
-	keywords:
-		"BDD therapy, body dysmorphic disorder treatment, body image therapy, appearance concerns therapy, self-image counseling, body dysmorphia",
-	openGraph: {
-		title: "BDD & Body Image Therapy | CALM Therapy",
-		description:
-			"Therapy for body dysmorphic disorder (BDD). Develop a compassionate relationship with yourself and challenge distorted self-image.",
-		url: "https://www.calmtherapy.center/specialties/body-dysmorphic-disorder",
-		siteName: "CALM Therapy",
-		images: [
-			{
-				url: "/social/ss.webp",
-				width: 1200,
-				height: 630,
-				alt: "CALM Therapy - BDD & Body Image Treatment Services",
-			},
-		],
-		type: "website",
-	},
-	twitter: {
-		card: "summary_large_image",
-		title: "BDD & Body Image Therapy | CALM Therapy",
-		description:
-			"Therapy for body dysmorphic disorder (BDD). Develop a compassionate relationship with yourself and challenge distorted self-image.",
-		images: ["/social/ss.webp"],
-	},
-};
+// metadata
+export const generateMetadata = () => metadata.specialties.bdd;
 
 export default function BDDPage() {
 	const bddData = {

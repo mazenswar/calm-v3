@@ -3,37 +3,10 @@ import Image from "next/image";
 import tanyaHeadshot from "../../HomePage/Hero/assets/ts-home.jpg";
 import "./credentials.scss";
 import Button from "@/app/Components/ui/Button";
+import { metadata } from "@/app/config/metadata.mjs";
 
-export const metadata = {
-	title: "Dr. Tanya Singh - Credentials | CALM Therapy",
-	description:
-		"Learn about Dr. Tanya Singh's clinical training, education, and experience. Licensed psychologist specializing in anxiety, OCD, trauma, and integrative therapy approaches.",
-	keywords:
-		"Dr. Tanya Singh, clinical psychologist, CALM Therapy founder, anxiety specialist, OCD therapist, trauma therapy",
-	openGraph: {
-		title: "Dr. Tanya Singh - Credentials | CALM Therapy",
-		description:
-			"Learn about Dr. Tanya Singh's clinical training, education, and experience. Licensed psychologist specializing in anxiety, OCD, trauma, and integrative therapy approaches.",
-		url: "https://www.calmtherapy.center/about/credentials",
-		siteName: "CALM Therapy",
-		images: [
-			{
-				url: "/social/ss.webp",
-				width: 1200,
-				height: 630,
-				alt: "CALM Therapy - Dr. Tanya Singh Credentials",
-			},
-		],
-		type: "website",
-	},
-	twitter: {
-		card: "summary_large_image",
-		title: "Dr. Tanya Singh - Credentials | CALM Therapy",
-		description:
-			"Learn about Dr. Tanya Singh's clinical training, education, and experience. Licensed psychologist specializing in anxiety, OCD, trauma, and integrative therapy approaches.",
-		images: ["/social/ss.webp"],
-	},
-};
+// metadata
+export const generateMetadata = () => metadata.pages.credentials;
 
 export default function CredentialsPage() {
 	return (

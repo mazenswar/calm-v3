@@ -7,36 +7,11 @@ import Template from "@/app/special/template/Template";
 import Image from "next/image";
 import gadImg from "./gad.jpg";
 
-export const gadMetadata = {
-	title: "GAD Therapy | Generalized Anxiety Disorder Treatment | CALM Therapy",
-	description:
-		"Therapy for generalized anxiety disorder (GAD). Reduce persistent worry and reconnect with steadiness through mindfulness, CBT, and somatic approaches.",
-	keywords:
-		"GAD therapy, generalized anxiety disorder treatment, anxiety counseling, worry therapy, persistent anxiety treatment, anxiety therapy",
-	openGraph: {
-		title: "GAD & Anxiety Therapy | CALM Therapy",
-		description:
-			"Therapy for generalized anxiety disorder (GAD). Reduce persistent worry and reconnect with steadiness through evidence-based approaches.",
-		url: "https://www.calmtherapy.center/specialties/generalized-anxiety-disorder",
-		siteName: "CALM Therapy",
-		images: [
-			{
-				url: "/social/ss.webp",
-				width: 1200,
-				height: 630,
-				alt: "CALM Therapy - GAD & Anxiety Treatment Services",
-			},
-		],
-		type: "website",
-	},
-	twitter: {
-		card: "summary_large_image",
-		title: "GAD & Anxiety Therapy | CALM Therapy",
-		description:
-			"Therapy for generalized anxiety disorder (GAD). Reduce persistent worry and reconnect with steadiness through evidence-based approaches.",
-		images: ["/social/ss.webp"],
-	},
-};
+import { metadata } from "@/app/config/metadata.mjs";
+
+// metadata
+export const generateMetadata = () => metadata.specialties.gad;
+//
 
 export default function GADPage() {
 	const gadData = {

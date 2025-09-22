@@ -7,37 +7,10 @@ import Template from "@/app/special/template/Template";
 import heroImg from "./foreshore.png";
 import Image from "next/image";
 
-export const lifeTransitionsMetadata = {
-	title:
-		"Life Transitions Therapy | Career & Life Change Support | CALM Therapy",
-	description:
-		"Therapy for life transitions and major life changes. Navigate career, relationship, and personal transitions with clarity, integrity, and support.",
-	keywords:
-		"life transitions therapy, career change therapy, life change counseling, transition support, major life changes therapy, life transitions",
-	openGraph: {
-		title: "Life Transitions Therapy & Support | CALM Therapy",
-		description:
-			"Therapy for life transitions and major life changes. Navigate career, relationship, and personal transitions with clarity and integrity.",
-		url: "https://www.calmtherapy.center/specialties/life-transitions",
-		siteName: "CALM Therapy",
-		images: [
-			{
-				url: "/social/ss.webp",
-				width: 1200,
-				height: 630,
-				alt: "CALM Therapy - Life Transitions & Change Support Services",
-			},
-		],
-		type: "website",
-	},
-	twitter: {
-		card: "summary_large_image",
-		title: "Life Transitions Therapy & Support | CALM Therapy",
-		description:
-			"Therapy for life transitions and major life changes. Navigate career, relationship, and personal transitions with clarity and integrity.",
-		images: ["/social/ss.webp"],
-	},
-};
+import { metadata } from "@/app/config/metadata.mjs";
+
+// metadata
+export const generateMetadata = () => metadata.specialties.lifeTransitions;
 
 export default function LifeTransitionsPage() {
 	const lifeTransitionsData = {

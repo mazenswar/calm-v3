@@ -7,37 +7,10 @@ import Template from "@/app/special/template/Template";
 import heroImg from "./foreshore.png";
 import Image from "next/image";
 
-export const spiritualExplorationMetadata = {
-	title:
-		"Spiritual Exploration Therapy | Existential Counseling | CALM Therapy",
-	description:
-		"Therapy for spiritual exploration and existential inquiry. Explore deeper longings and meaning without imposed frameworks in a supportive, open space.",
-	keywords:
-		"spiritual exploration therapy, existential therapy, meaning-making therapy, spiritual counseling, existential inquiry, spiritual development",
-	openGraph: {
-		title: "Spiritual Exploration & Existential Therapy | CALM Therapy",
-		description:
-			"Therapy for spiritual exploration and existential inquiry. Explore deeper longings and meaning without imposed frameworks.",
-		url: "https://www.calmtherapy.center/specialties/spiritual-exploration",
-		siteName: "CALM Therapy",
-		images: [
-			{
-				url: "/social/ss.webp",
-				width: 1200,
-				height: 630,
-				alt: "CALM Therapy - Spiritual Exploration & Existential Inquiry Services",
-			},
-		],
-		type: "website",
-	},
-	twitter: {
-		card: "summary_large_image",
-		title: "Spiritual Exploration & Existential Therapy | CALM Therapy",
-		description:
-			"Therapy for spiritual exploration and existential inquiry. Explore deeper longings and meaning without imposed frameworks.",
-		images: ["/social/ss.webp"],
-	},
-};
+import { metadata } from "@/app/config/metadata.mjs";
+
+// metadata
+export const generateMetadata = () => metadata.specialties.spiritualExploration;
 
 export default function SpiritualExplorationPage() {
 	const spiritualExplorationData = {
