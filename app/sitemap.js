@@ -35,7 +35,7 @@ export default async function sitemap() {
 
 	// Static routes (add/adjust as your site grows)
 	const staticRoutes = [
-		"",
+		"/",
 		"/specialties",
 		"/specialties/ocd",
 		"/specialties/gad",
