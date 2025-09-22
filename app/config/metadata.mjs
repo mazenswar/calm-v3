@@ -27,12 +27,12 @@ export const metadata = {
 		home: {
 			title: "CALM Therapy | Modern Psychology, Timeless Wisdom",
 			description:
-				"Private-pay therapy for adults seeking growth and transformation. East Coast based, licensed in NY, NJ, PA, and available in 42 other states through PSYPACT (43 total).",
+				"Private-pay therapy for adults seeking growth and transformation. East Coast based, licensed in NY, NJ, PA, and available in 40 other states through PSYPACT.",
 			alternates: { canonical: "https://calmtherapy.center/" },
 			openGraph: {
 				title: "CALM Therapy | Modern Psychology, Timeless Wisdom",
 				description:
-					"Therapy that integrates evidence-based care with holistic growth. Licensed in NY, NJ, PA, and available in 42 other states through PSYPACT (43 total).",
+					"Therapy that integrates evidence-based care with holistic growth. Licensed in NY, NJ, PA, and available in 40 other states through PSYPACT.",
 				url: "https://calmtherapy.center/",
 				images: [
 					{
@@ -69,7 +69,7 @@ export const metadata = {
 		kap: {
 			title: "Ketamine-Assisted Psychotherapy (KAP) | CALM Therapy",
 			description:
-				"Explore virtual ketamine-assisted psychotherapy (KAP) at CALM Therapy, a trauma-informed, spiritually grounded path to healing anxiety, OCD, and feeling stuck. Licensed in NY, NJ, and PA, with telehealth available in 42 other states through PSYPACT (43 total).",
+				"Explore virtual ketamine-assisted psychotherapy (KAP) at CALM Therapy, a trauma-informed, spiritually grounded path to healing anxiety, OCD, and feeling stuck. Licensed in NY, NJ, and PA, with telehealth available in 40 other states through PSYPACT.",
 			alternates: { canonical: "https://calmtherapy.center/kap" },
 			openGraph: {
 				title: "Ketamine-Assisted Psychotherapy (KAP) | CALM Therapy",
@@ -89,7 +89,7 @@ export const metadata = {
 				card: "summary_large_image",
 				title: "Ketamine-Assisted Psychotherapy (KAP) | CALM Therapy",
 				description:
-					"CALM Therapy offers virtual, trauma-informed KAP for adults. Licensed in NY, NJ, and PA, with telehealth available in 42 other states through PSYPACT (43 total).",
+					"CALM Therapy offers virtual, trauma-informed KAP for adults. Licensed in NY, NJ, and PA, with telehealth available in 40 other states through PSYPACT.",
 				images: ["/social/ss.webp"],
 			},
 		},
@@ -193,7 +193,7 @@ export const metadata = {
 		whereWeServe: {
 			title: "Where We Serve | Online Therapy in 43 States | CALM Therapy",
 			description:
-				"See where CALM Therapy provides online care. Licensed in NJ, NY, and PA, with telehealth available in 42 other states through PSYPACT (43 total).",
+				"See where CALM Therapy provides online care. Licensed in NJ, NY, and PA, with telehealth available in 40 other states through PSYPACT.",
 			alternates: { canonical: "https://calmtherapy.center/where-we-serve" },
 			openGraph: {
 				title: "Where We Serve | Online Therapy in 43 States | CALM Therapy",
