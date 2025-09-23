@@ -55,7 +55,7 @@ function HomeSpecialties() {
 					</CustomLink>
 
 					{/* Self‑Esteem */}
-					<CustomLink
+					{/* <CustomLink
 						url="/specialties/self-worth"
 						classN="spec-card"
 						ariaLabel="Read about Self‑Esteem and Self‑Worth"
@@ -65,6 +65,25 @@ function HomeSpecialties() {
 							<p className="spec-card__blurb">
 								Reconnecting with a stable sense of worth that isn’t tied to
 								performance or appearance.
+							</p>
+							<span className="spec-card__cta">Learn more →</span>
+						</div>
+					</CustomLink> */}
+
+					{/* KAP */}
+
+					<CustomLink
+						url="/kap"
+						classN="spec-card"
+						ariaLabel="Read about Ketamine-Assisted Psychotherapy"
+					>
+						<div role="listitem" className="spec-card__inner">
+							<h3 className="spec-card__title">
+								Ketamine-Assisted Psychotherapy (KAP)
+							</h3>
+							<p className="spec-card__blurb">
+								A guided process combining ketamine sessions with therapy to
+								support healing, growth, and relief from emotional stuckness.
 							</p>
 							<span className="spec-card__cta">Learn more →</span>
 						</div>
