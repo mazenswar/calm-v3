@@ -32,9 +32,7 @@ export default function Template({
 			{whatToExpect && <WhatToExpectSection {...whatToExpect} />}
 
 			{/* Insert custom sections at specified positions */}
-			{customSections.map((section, index) => (
-				<div key={index}>{section}</div>
-			))}
+			{customSections.map((section, index) => section)}
 
 			{whyCalm && <WhyCalmSection {...whyCalm} />}
 

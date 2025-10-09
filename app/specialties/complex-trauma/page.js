@@ -2,12 +2,11 @@
 
 import React from "react";
 import PrimaryButton from "@/app/Components/ui/PrimaryButton";
-import CustomLink from "@/app/Components/ui/CustomLink";
-// import "./specialty_page.scss";
 import Template from "@/app/special/template/Template";
 import Image from "next/image";
 import ctImg from "./ct.jpg";
 import { metadata } from "@/app/config/metadata.mjs";
+import "./ct.scss";
 
 // metadata
 export const generateMetadata = () => metadata.specialties.complexTrauma;
@@ -15,9 +14,9 @@ export const generateMetadata = () => metadata.specialties.complexTrauma;
 export default function ComplexTraumaPage() {
 	const complexTraumaData = {
 		hero: {
-			title: "Therapy for Complex Trauma",
+			title: "Therapy for Complex Trauma and Deeply Rooted Anxiety",
 			description:
-				"Complex trauma can make the past feel alive in the present. Therapy creates conditions for safety, clarity, and self-compassion.",
+				"Helping adults address the lasting impact of earlier relational wounds",
 			heroImage: (
 				<div className="specialty-hero-illustration">
 					<Image src={ctImg} alt="flower" width={360} height={360} />
@@ -28,136 +27,87 @@ export default function ComplexTraumaPage() {
 		definition: {
 			title: "Understanding Complex Trauma",
 			children: (
-				<>
-					<p>
-						Complex trauma, also known as Complex Post-Traumatic Stress Disorder
-						(C-PTSD), develops from prolonged, repeated exposure to traumatic
-						events, often during childhood or in relationships where escape
-						feels impossible. Unlike single-incident trauma, complex trauma
-						involves ongoing situations that create deep disruptions to one{"'"}
-						s sense of safety, identity, and ability to trust.
-					</p>
-					<p>
-						This form of trauma often stems from chronic abuse, neglect, or
-						other adverse experiences that occurred during critical
-						developmental periods. The impact extends beyond specific memories
-						to affect how you relate to yourself and others, your capacity to
-						regulate emotions, and your fundamental sense of worth and safety in
-						the world.
-					</p>
-					<p>
-						What makes complex trauma particularly challenging is how it can
-						remain largely invisible while profoundly shaping daily experience.
-						The past doesn{"'"}t feel like memory but like present reality,
-						influencing relationships, self-perception, and the ability to feel
-						grounded in your own life.
-					</p>
-				</>
+				<p>
+					Complex trauma often develops during childhood or in long-term
+					relationships where escape or protection felt impossible. It is less
+					about a single traumatic event and more about repeated experiences of
+					neglect, emotional harm, or violation of trust that shape the nervous
+					system and sense of self over time.
+				</p>
 			),
 		},
 
 		commonExperiences: {
-			title: "What Complex Trauma Might Feel Like",
+			title: "What This Might Feel Like",
 			experiences: [
-				"Memories or feelings that surface as if they are happening now",
-				"Patterns of fear, shame, or worthlessness that feel deeply entrenched",
-				"Difficulty trusting yourself or others, even when you want to",
-				"Emotional overwhelm that feels impossible to contain or understand",
-				"Feeling disconnected from your body or experiencing it as unsafe",
-				"Relationships that feel either too intense or impossibly distant",
+				"Memories or feelings that surface as if they are happening now, or sudden emotional responses that seem out of proportion to the moment",
 				"A persistent sense that something is fundamentally wrong with you",
-				"Hypervigilance or feeling constantly on guard, even in safe situations",
+				"Chronic anxiety or hypervigilance, always scanning for what might go wrong",
+				"A history of emotional neglect, boundary violations, or feeling unseen or unheard by caregivers or partners",
+				"Perfectionism or the need to stay in control to feel safe",
+				"Inner conflict or harsh self-criticism that keeps you feeling tense even when life looks outwardly successful",
+				"Difficulty relaxing into your body or trusting closeness with others",
 			],
 		},
 
 		howTherapyHelps: {
-			title: "How Therapy Helps with Complex Trauma",
+			title: "A Personalized Approach to Healing",
 			helpItems: [
 				{
-					title: "Develop grounding skills to create safety in the moment.",
+					title: "Meeting You Where You Are",
 					description:
-						"Before exploring painful experiences, we establish tools that help you feel anchored in the present. These might include breathing techniques, body awareness practices, or ways to connect with your environment that signal safety to your nervous system.",
+						"We tailor therapy to each person's needs rather than follow a fixed sequence. Our work begins with what you bring into the room and grows at a pace that feels safe.",
 				},
 				{
-					title: "Explore the roots of trauma patterns with care.",
+					title: "Building a Foundation of Stability",
 					description:
-						"Once you have reliable ways to self-regulate, we can begin to understand how past experiences shaped current patterns. This exploration happens slowly and always within your window of tolerance, ensuring you never feel overwhelmed or retraumatized.",
+						"Early sessions often focus on developing tools for managing anxiety and everyday stress. We introduce grounding skills, nervous-system regulation, and mindfulness practices that can be applied right away.",
 				},
 				{
-					title:
-						"Rebuild trust in yourself while reshaping entrenched beliefs.",
+					title: "Exploring Deeper Patterns",
 					description:
-						"Complex trauma often leaves people feeling fundamentally flawed or dangerous. We work together to challenge these core beliefs through both insight and embodied experience, helping you develop a more compassionate and accurate sense of yourself.",
+						"Once a sense of steadiness is in place, we gradually turn toward the roots of distress. Clients often learn new language for inner parts or protective responses and practice staying regulated as they explore these experiences.",
 				},
 				{
-					title: "Integrate fragmented aspects of experience.",
+					title: "Integrating Modalities Thoughtfully",
 					description:
-						"Trauma can create internal splits or disconnections. Using approaches like Internal Family Systems (IFS), we help different parts of yourself communicate and work together rather than against each other.",
+						"We draw on somatic awareness, nervous-system regulation, mindfulness, and parts-informed work to address patterns that interfere with growth. When appropriate, we may also integrate Ketamine-Assisted Psychotherapy (KAP) as an adjunct to support insight and healing.",
+				},
+				{
+					title: "Working Across Levels of Experience",
+					description:
+						"Our approach weaves together cognitive, behavioral, emotional, and somatic processes. Throughout, we emphasize practicing self-regulation and cultivating self-compassion so that changes made in therapy translate into daily life.",
 				},
 			],
 		},
-
-		whatToExpect: {
-			title: "What to Expect in Complex Trauma Therapy",
-			steps: [
-				{
-					title: "Initial sessions focus on safety and stabilization.",
-					description:
-						"We begin by understanding your unique trauma history and developing resources for emotional regulation. This foundation phase ensures you have solid ground before exploring more vulnerable material.",
-				},
-				{
-					title: "Treatment emphasizes building capacity gradually.",
-					description:
-						"Rather than rushing toward painful memories, we work systematically to expand your ability to stay present with difficult experiences. Each session builds on previous ones, always respecting your pace and readiness.",
-				},
-				{
-					title: "Integration happens alongside processing.",
-					description:
-						"As we explore past experiences, we continuously weave new insights into your current life. This helps ensure that healing translates into real changes in how you relate to yourself and others day to day.",
-				},
-			],
-		},
-
-		// Custom section for the therapeutic relationship explanation
-		customSections: [
-			<section
-				key="therapeutic-relationship"
-				className="specialty-therapy block center"
-			>
-				<div className="container block__content">
-					<p>
-						Throughout this process, the therapeutic relationship itself becomes
-						a space for healing. Many people with complex trauma haven{"'"}t
-						experienced consistent, attuned relationships. Our work together
-						offers practice in being known and accepted, which can be profoundly
-						reparative.
-					</p>
-				</div>
-			</section>,
-		],
 
 		whyCalm: {
-			title: "Why Choose CALM Therapy for Complex Trauma Treatment",
+			title: "Why Choose CALM Therapy for Complex Trauma",
 			reasons: [
 				{
-					title: "Trauma-informed and body-aware approach.",
+					title: "Trauma-informed and body-aware approach",
 					description:
-						" We understand that trauma lives in the body as much as the mind. Our work incorporates somatic awareness, nervous system regulation, and mindfulness practices that help you develop a safer relationship with your physical experience.",
+						"Our approach recognizes that unresolved stress often lives in both mind and body. We integrate somatic awareness, nervous-system regulation, mindfulness, and parts-informed exploration to help you develop a safer relationship with your physical and emotional experience.",
 				},
 				{
-					title: "Integration of multiple therapeutic modalities.",
+					title: "Integration of modalities",
 					description:
-						" We draw from approaches like Internal Family Systems (IFS), somatic therapy, and mindfulness-based interventions. This allows us to work with different aspects of trauma's impact while staying responsive to what feels most helpful for you.",
+						"Somatic awareness, nervous-system regulation, mindfulness, and parts-informed exploration are thoughtfully combined to address patterns that interfere with growth. We may include Ketamine-Assisted Psychotherapy (KAP) when appropriate to support insight and healing.",
 				},
 				{
-					title: "Emphasis on building internal resources.",
+					title: "Focus on developing inner safety and self-trust",
 					description:
-						" Rather than focusing primarily on what went wrong, we emphasize developing what's needed for healing. This includes self-compassion practices, boundary skills, and ways of relating to yourself that counter trauma's messages.",
+						"We emphasize building the inner safety, self-trust, and resources that make deeper work possible and sustainable.",
 				},
 				{
-					title: "Private-pay model allows treatment flexibility.",
+					title: "Flexible private-pay model",
 					description:
-						" Our fee-for-service structure enables us to tailor treatment based on what you actually need, rather than what insurance protocols require. This means we can spend the time necessary for your unique situation, use the most effective approaches for complex trauma, and adjust our methods as your needs change.",
+						"Our private-pay model allows treatment flexibility so sessions can be tailored to your needs rather than limited by insurance requirements.",
+				},
+				{
+					title: "Respect for pace and readiness",
+					description:
+						"We respect each person’s pace and readiness, attending to both present-day coping and the deeper roots of anxiety.",
 				},
 			],
 		},
@@ -165,76 +115,51 @@ export default function ComplexTraumaPage() {
 		cta: {
 			title: "Taking the Next Step",
 			description:
-				"Recovery from complex trauma is not about erasing the past, but about creating conditions for safety, clarity, and self-compassion in the present. This work takes time and requires a therapeutic relationship built on trust and understanding. Ready to explore how therapy might support your healing?",
+				"Healing from complex trauma takes time but is possible. Change begins with the safety of a consistent, collaborative relationship. If you feel ready to address the patterns that keep you anxious or self-critical, reach out for a consultation to explore whether this work feels like a good fit for you.",
 			buttonText: "Schedule a Consultation",
 			PrimaryButton: PrimaryButton,
 		},
-
-		// resources: {
-		// 	title: "Additional Complex Trauma Resources",
-		// 	resourceSections: [
-		// 		{
-		// 			title: "Organizations & Information:",
-		// 			links: [
-		// 				{
-		// 					component: (
-		// 						<CustomLink url="https://istss.org/" newWindow={true}>
-		// 							International Society for Traumatic Stress Studies (ISTSS)
-		// 						</CustomLink>
-		// 					),
-		// 					description:
-		// 						"Professional organization with evidence-based trauma treatment information",
-		// 				},
-		// 				{
-		// 					component: (
-		// 						<CustomLink
-		// 							url="https://www.samhsa.gov/trauma-informed-care"
-		// 							newWindow={true}
-		// 						>
-		// 							SAMHSA Trauma-Informed Care Resources
-		// 						</CustomLink>
-		// 					),
-		// 					description:
-		// 						"Government resources on trauma-informed approaches to healing",
-		// 				},
-		// 			],
-		// 		},
-		// 	],
-		// 	disclaimer:
-		// 		"These resources are for educational purposes and are not substitutes for professional treatment. If you're experiencing trauma symptoms, consulting with a qualified mental health professional is recommended.",
-		// },
+		customSections: [
+			<section className="suitability-section block center" key="fit">
+				<div className="container block__content">
+					<h3>Who This Approach Is Best Suited For</h3>
+					<div className="criteria__container">
+						<div className="criteria-group">
+							<strong>A Good Fit</strong>
+							<ul>
+								<li>
+									Adults who are generally emotionally stable and functioning in
+									daily life
+								</li>
+								<li>
+									Those who notice that anxiety, self-criticism, or relational
+									strain may be rooted in earlier experiences
+								</li>
+								<li>
+									People who want to go beyond symptom management to understand
+									and transform deeper patterns
+								</li>
+							</ul>
+						</div>
+						<div className="criteria-group">
+							<strong>Outside our current scope</strong>
+							<ul>
+								<li>Individuals in active suicidal crisis</li>
+								<li>
+									Anyone experiencing untreated psychosis or significant
+									uncontrolled dissociation
+								</li>
+								<li>
+									Clients who require the level of structure and monitoring
+									available in inpatient or intensive programs
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>,
+		],
 	};
 
 	return <Template {...complexTraumaData} />;
 }
-
-/////////////////////////////////////////
-
-// import CustomLink from "@/app/Components/ui/CustomLink";
-// import React from "react";
-// import CTHero from "./CTHero";
-// import WhatIsCT from "./WhatIsCT";
-// import CommonExperiences from "./CommonExperiences";
-// import HowTherapyHelps from "./HowTherapyHelps";
-// import WhatToExpect from "./WhatToExpect";
-// import WhyCalm from "./WhyCalm";
-
-// import CTResources from "./CTResources";
-// import CTCTA from "./CTCTA";
-
-// function ComplexTrauma() {
-// 	return (
-// 		<main>
-// 			<CTHero />
-// 			<WhatIsCT />
-// 			<CommonExperiences />
-// 			<HowTherapyHelps />
-// 			<WhatToExpect />
-// 			<WhyCalm />
-// 			<CTCTA />
-// 			<CTResources />
-// 		</main>
-// 	);
-// }
-
-// export default ComplexTrauma;
