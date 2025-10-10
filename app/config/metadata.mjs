@@ -214,6 +214,7 @@ export const metadata = {
 
 	specialties: {
 		ocd: {
+			alternates: { canonical: "https://calmtherapy.center/specialties/ocd" },
 			title:
 				"OCD Therapy & Treatment | Obsessive-Compulsive Disorder | CALM Therapy",
 			description:
@@ -235,6 +236,7 @@ export const metadata = {
 		},
 
 		gad: {
+			alternates: { canonical: "https://calmtherapy.center/specialties/gad" },
 			title:
 				"GAD Therapy | Generalized Anxiety Disorder Treatment | CALM Therapy",
 			description:
@@ -256,6 +258,9 @@ export const metadata = {
 		},
 
 		depression: {
+			alternates: {
+				canonical: "https://calmtherapy.center/specialties/depression",
+			},
 			title: "Depression Therapy | CALM Therapy",
 			description:
 				"Therapy for depression and major depressive disorder. Reconnect with joy, meaning, and vitality through integrative approaches that honor your whole experience.",
