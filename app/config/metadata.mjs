@@ -2,7 +2,7 @@
 
 export const metadata = {
 	site: {
-		base: new URL(
+		metadataBase: new URL(
 			process.env.NEXT_PUBLIC_SITE_URL || "https://calmtherapy.center"
 		),
 		manifest: "/manifest.json",
@@ -28,12 +28,12 @@ export const metadata = {
 			title: "CALM Therapy | Modern Psychology, Timeless Wisdom",
 			description:
 				"Private-pay therapy for adults seeking growth and transformation. East Coast based, licensed in NY, NJ, PA, and available in 40 other states through PSYPACT.",
-			alternates: { canonical: "https://calmtherapy.center/" },
+			alternates: { canonical: "https://calmtherapy.center" },
 			openGraph: {
 				title: "CALM Therapy | Modern Psychology, Timeless Wisdom",
 				description:
 					"Therapy that integrates evidence-based care with holistic growth. Licensed in NY, NJ, PA, and available in 40 other states through PSYPACT.",
-				url: "https://calmtherapy.center/",
+				url: "https://calmtherapy.center",
 				images: [
 					{
 						url: "/social/ss.webp",

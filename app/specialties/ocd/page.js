@@ -12,6 +12,8 @@ import { metadata } from "@/app/config/metadata.mjs";
 
 // metadata
 export const generateMetadata = () => metadata.specialties.ocd;
+// console.log("ddsdasdasdasdas");
+// console.log(metadata.specialties.ocd);
 export default function OCDPage() {
 	const ocdData = {
 		hero: {
