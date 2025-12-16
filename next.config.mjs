@@ -15,6 +15,16 @@ const nextConfig = {
 			},
 		],
 	},
+	// Redirect old misspelled routes to correct spelling
+	async redirects() {
+		return [
+			{
+				source: "/specialities/:slug*",
+				destination: "/specialties/:slug*",
+				permanent: true,
+			},
+		];
+	},
 
 	// Basic, broadly compatible security headers.
 	// (Deliberately not using a strict CSP here to avoid breaking editor embeds, PT images, etc.)
