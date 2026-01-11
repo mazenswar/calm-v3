@@ -71,7 +71,7 @@ export default function OCDPage() {
 				{
 					title: "Break cycles of compulsions with structured support.",
 					description:
-						"Using evidence-based methods like Exposure and Response Prevention (ERP), we guide you through gradually facing feared situations without engaging in compulsive behaviors. This process happens at your pace with careful attention to your readiness and capacity.",
+						"Using evidence-based methods like Exposure and Response Prevention (ERP) and Inference-Based Cognitive Behavioral Therapy (I-CBT), we guide you through gradually facing feared situations without engaging in compulsive behaviors. This process happens at your pace with careful attention to your readiness and capacity.",
 				},
 				{
 					title: "Learn to face intrusive thoughts without engaging rituals.",
