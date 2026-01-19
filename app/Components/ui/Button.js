@@ -12,7 +12,12 @@ function Button({
 				{text}
 			</Link>
 		) : (
-			<Link href={url} className={"btnSecondary"}>
+			<Link
+				href={url}
+				className={"btnSecondary"}
+				target="_blank"
+				rel="noopener noreferrer"
+			>
 				{text}
 			</Link>
 		);
