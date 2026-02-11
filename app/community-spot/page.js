@@ -14,7 +14,7 @@ export const generateMetadata = () => metadata.pages.communitySpot;
 // ============================================
 // CONFIG
 // ============================================
-const IS_SPOT_OPEN = false; // Change to false when spot is filled
+const IS_SPOT_OPEN = true; // Change to false when spot is filled
 const FORM_URL = "https://forms.gle/E6svnu3LKUuJ9LgA6";
 
 // ============================================
