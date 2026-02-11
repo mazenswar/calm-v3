@@ -1,0 +1,221 @@
+// specialty_page.scss
+@use "../../styles/mixins" as *;
+
+.ocd__therapy {
+	font-family: inherit;
+
+	.block__content {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 2rem;
+
+		@include respond(md) {
+			flex-direction: row-reverse;
+			align-items: center;
+			flex-wrap: wrap;
+		}
+	}
+
+	/// TEXT ////
+	strong {
+		color: var(--brand-1);
+		font-weight: 600;
+	}
+
+	p,
+	li {
+		font-weight: 300;
+	}
+
+	h3,
+	p {
+		text-align: center;
+		@include respond(md) {
+			text-align: left;
+		}
+	}
+	h3 {
+		font-size: clamp(1.8rem, 4vw, 2.5rem);
+	}
+	h4 {
+		font-size: clamp(1.6rem, 2.8vw, 2rem);
+	}
+	/////////////// SECTIONS
+	.hero {
+		.block__content {
+			// IMAGE
+			.ocd__image {
+				width: 50%;
+				img {
+					border-radius: 100%;
+				}
+			}
+
+			@include respond(md) {
+				gap: 6rem;
+				.ocd__image {
+					// background: red;
+					width: 30%;
+					img {
+						border-radius: 100%;
+					}
+				}
+				// TEXT
+				.ocd__text {
+					width: 60%;
+				}
+				//SUBTEXT
+				.ocd__subtext {
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	.alt {
+		background: var(--brand-8);
+	}
+
+	.helps {
+		.block__content {
+			display: flex;
+			flex-direction: column;
+			.specialty-cards {
+				width: 100%;
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 2rem;
+
+				.specialty-card {
+					border-radius: 1.25rem;
+					background: var(--brand-8);
+					padding: 2rem;
+					// Cards now stretch to fill grid cells (equal size)
+
+					// If you want content centered inside:
+					display: flex;
+					flex-direction: column;
+					align-items: center; // Center content horizontally
+					justify-content: flex-start; // Center content vertically
+				}
+			}
+		}
+	}
+
+	.expect {
+		.block__content {
+			.expect-steps {
+				width: 100%;
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 2rem;
+
+				.expect-step {
+					border-radius: 1.25rem;
+					background: var(--brand-8);
+					padding: 2rem;
+					// Cards now stretch to fill grid cells (equal size)
+
+					// If you want content centered inside:
+					display: flex;
+					flex-direction: column;
+					align-items: center; // Center content horizontally
+					justify-content: flex-start; // Center content vertically
+				}
+			}
+		}
+	}
+	.whychoose {
+		.block__content {
+			flex-direction: column;
+		}
+	}
+	/////////////////
+	///
+	///
+	.why__list {
+		width: 100%;
+		list-style: none;
+		padding: 0;
+		margin: 2rem 0 0 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
+		gap: 2rem;
+
+		@include respond(md) {
+			// Grid handles alignment automatically
+		}
+
+		li {
+			background: var(--brand-1);
+			color: var(--color-bg);
+			// Remove max-width: 55ch;
+			border-radius: 1.25rem;
+			box-shadow: 0 2px 10px rgba(127, 90, 131, 0.07);
+			padding: 1.15rem 1.3rem;
+			// Remove margin-bottom (gap handles spacing)
+			display: flex;
+			flex-direction: column;
+
+			strong {
+				margin-bottom: 0.2rem;
+			}
+		}
+	}
+	// ----------- BUBBLE SECTION -----------
+	.specialty-bubble-group {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.5rem;
+		justify-content: center;
+		gap: 2rem;
+		margin-top: 1.3rem;
+		@include respond(md) {
+			justify-content: flex-start;
+		}
+	}
+
+	.specialty-bubble {
+		background: linear-gradient(135deg, #fff6f2 75%, #fdecef 100%);
+		display: flex;
+		align-items: center;
+		border-radius: 2.5rem 2.5rem 2.5rem 0.75rem / 2rem 2.5rem 2.5rem 2rem;
+		box-shadow: var(--shadow-2);
+		padding: 1.2rem 2rem 1.1rem 1.5rem;
+		font-size: 1.13rem;
+		font-weight: 500;
+		color: #835a70;
+		position: relative;
+		max-width: 340px;
+		min-width: 220px;
+
+		p {
+			margin: 0;
+			text-align: center;
+
+			&::before {
+				content: "“";
+				font-family: serif;
+				color: #f2b1c3;
+				font-size: 2.2rem;
+				position: absolute;
+				left: 0.6rem;
+				top: 0.5rem;
+				opacity: 0.7;
+			}
+
+			&::after {
+				content: "”";
+				font-family: serif;
+				color: #f2b1c3;
+				font-size: 2.1rem;
+				position: absolute;
+				right: 0.7rem;
+				bottom: 0.4rem;
+				opacity: 0.7;
+			}
+		}
+	}
+}

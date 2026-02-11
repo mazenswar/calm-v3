@@ -5,9 +5,11 @@ import CommunitySpotOffering from "./CommunitySpotOffering";
 import CommunitySpotFit from "./CommunitySpotFit";
 import CommunitySpotProcess from "./CommunitySpotProcess";
 import CommunitySpotExpectations from "./CommunitySpotExpectations";
-import CommunitySpotCTA from "./CommunitySpotCTA";
 import "./community.scss";
-import MailerLiteForm from "../Components/MailerLiteForm";
+import { metadata } from "../config/metadata.mjs";
+
+// metadata
+export const generateMetadata = () => metadata.pages.communitySpot;
 
 // ============================================
 // CONFIG

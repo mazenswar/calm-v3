@@ -75,6 +75,10 @@ export default function MainNav() {
 					label: "KAP",
 					href: "/kap",
 				},
+				{
+					label: "Community Spot",
+					href: "/community-spot",
+				},
 			],
 		},
 		{ label: "Fees & Insurance", href: "/fees-and-insurance" },
@@ -138,7 +142,7 @@ export default function MainNav() {
 												aria-expanded={isOpen}
 												onClick={() =>
 													setOpenDropdown((cur) =>
-														cur === item.label ? null : item.label
+														cur === item.label ? null : item.label,
 													)
 												}
 											>

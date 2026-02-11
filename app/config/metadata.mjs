@@ -3,7 +3,7 @@
 export const metadata = {
 	site: {
 		metadataBase: new URL(
-			process.env.NEXT_PUBLIC_SITE_URL || "https://calmtherapy.center"
+			process.env.NEXT_PUBLIC_SITE_URL || "https://calmtherapy.center",
 		),
 		manifest: "/manifest.json",
 		icons: {
@@ -106,6 +106,26 @@ export const metadata = {
 				url: "https://calmtherapy.center/faq",
 				images: [
 					{ url: "/social/ss.webp", width: 1200, height: 630, alt: "FAQ" },
+				],
+			},
+		},
+		communitySpot: {
+			title: "Community Spot | CALM Therapy",
+			description:
+				"Reduced-fee therapy placement for individuals experiencing financial hardship. 14 sessions with a PhD-level psychologist at $50 per session.",
+			alternates: { canonical: "https://calmtherapy.center/community-spot" },
+			openGraph: {
+				title: "Community Spot | CALM Therapy",
+				description:
+					"Quality mental health care for those facing financial barriers. Apply for our reduced-fee therapy placement.",
+				url: "https://calmtherapy.center/community-spot",
+				images: [
+					{
+						url: "/social/ss.webp",
+						width: 1200,
+						height: 630,
+						alt: "Community Spot - Accessible Mental Health Care",
+					},
 				],
 			},
 		},

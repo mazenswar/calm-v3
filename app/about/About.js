@@ -100,7 +100,11 @@ export default function About() {
 
 			{/* Section 3: Meet the Founder */}
 			{/* Meet the Founder */}
-			<section className="block about__tanya" aria-labelledby="about-tanya">
+			<section
+				className="block about__tanya"
+				aria-labelledby="about-tanya"
+				id="meet-the-founder"
+			>
 				<div className="block__content about__tanyaWrap">
 					{/* Row 1: image + header/meta */}
 					<div className="about__tanyaTop">

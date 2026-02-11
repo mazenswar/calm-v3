@@ -1,5 +1,8 @@
 // ============================================
 // CommunitySpotFit
+
+import Link from "next/link";
+
 // ============================================
 export default function CommunitySpotFit() {
 	return (
@@ -9,15 +12,17 @@ export default function CommunitySpotFit() {
 				<p>
 					This spot is for individuals who are experiencing financial hardship
 					and cannot currently afford therapy. It{"'"}s designed as a
-					short-term, focused intervention—not ongoing open-ended treatment. You
-					should come with something specific you{"'"}d like to work on, and we
+					short-term, focused work—not ongoing open-ended treatment. You should
+					come with something specific you{"'"}d like to work on, and we
 					{"'"}ll support you in making meaningful progress over our time
 					together.
 				</p>
 				<p>
-					We especially welcome those who align with our practice focus: women
-					navigating life{"'"}s challenges, including stress, anxiety, cultural
-					identity, relationships, and life transitions.
+					This spot is best suited for individuals whose goals align with our{" "}
+					<Link className="link" href="/specialties">
+						areas of focus
+					</Link>
+					. We especially welcome women seeking this support.
 				</p>
 			</div>
 		</section>

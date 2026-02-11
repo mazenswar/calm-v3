@@ -1,5 +1,8 @@
 // ============================================
 // CommunitySpotOffering
+
+import Link from "next/link";
+
 // ============================================
 export default function CommunitySpotOffering() {
 	return (
@@ -10,7 +13,13 @@ export default function CommunitySpotOffering() {
 			<div className="block__content">
 				<h2>What{"'"}s Included</h2>
 				<ul>
-					<li>14 sessions with a PhD-level licensed clinical psychologist</li>
+					<li>
+						14 sessions with,{" "}
+						<Link href="/about#meet-the-founder" className="link">
+							Dr. Tanya Singh
+						</Link>
+						, a PhD-level licensed clinical psychologist
+					</li>
 					<li>Sessions are 45 minutes, typically scheduled weekly</li>
 					<li>
 						The first 12 sessions focus on your goals; the final two help you
