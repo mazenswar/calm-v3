@@ -67,7 +67,7 @@ export default function MainNav() {
 	// Your exact labels/links
 	const nav = [
 		{
-			label: "Therapy Services",
+			label: "Services",
 			href: "/services",
 			items: [
 				{ label: "Specialties", href: "/specialties" },
@@ -75,10 +75,15 @@ export default function MainNav() {
 					label: "KAP",
 					href: "/kap",
 				},
-				{
-					label: "Community Spot",
-					href: "/community-spot",
-				},
+			],
+		},
+		{
+			label: "Community",
+			href: "/community",
+			items: [
+				{ label: "Community Spot", href: "/community-spot" },
+				{ label: "Events", href: "/events" },
+				// { label: "Groups", href: "/groups" },
 			],
 		},
 		{ label: "Fees & Insurance", href: "/fees-and-insurance" },
