@@ -130,6 +130,27 @@ export const metadata = {
 			},
 		},
 
+		events: {
+			title: "Events | CALM Therapy",
+			description:
+				"Community workshops and events hosted by CALM Therapy. Join us for mental health programming designed to educate, support, and connect.",
+			alternates: { canonical: "https://calmtherapy.center/events" },
+			openGraph: {
+				title: "Events | CALM Therapy",
+				description:
+					"Workshops and community events from CALM Therapy. Practical mental health education in accessible, welcoming spaces.",
+				url: "https://calmtherapy.center/events",
+				images: [
+					{
+						url: "/social/ss.webp",
+						width: 1200,
+						height: 630,
+						alt: "CALM Therapy Community Events",
+					},
+				],
+			},
+		},
+
 		specialties: {
 			title: "Therapy Specialties | CALM Therapy",
 			description:
