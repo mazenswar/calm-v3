@@ -8,34 +8,17 @@ import { metadata } from "../config/metadata.mjs";
 //metadata
 export const generateMetadata = () => metadata.pages.blog;
 
-// Build-safe base URL for server fetches (no relative fetch during SSG)
-function getBaseUrl() {
-	return process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-}
-
-// Simple helper to call our GROQ proxy (server-side)
-async function groqFetch(query, params) {
-	const res = await fetch(`${getBaseUrl()}/api/groq`, {
-		method: "POST",
-		headers: { "Content-Type": "application/json" },
-		body: JSON.stringify({ query, params }),
-		next: { revalidate: 60 },
-	});
-
-	if (!res.ok) throw new Error(`GROQ proxy error: ${res.status}`);
-	const json = await res.json();
-	if (!json.ok) throw new Error(json.error || "Unknown GROQ proxy error");
-	return json.data;
-}
-
 export const revalidate = 60;
 
 export default async function BlogIndexPage() {
-	const posts = await groqFetch(postsListQuery, {
-		page: 0,
-		size: POSTS_PAGE_SIZE,
-	});
-
+	const posts = await client.fetch(
+		postsListQuery,
+		{
+			page: 0,
+			size: POSTS_PAGE_SIZE,
+		},
+		{ next: { revalidate: 60 } },
+	);
 	return (
 		<main className="blog">
 			{/* HERO */}
