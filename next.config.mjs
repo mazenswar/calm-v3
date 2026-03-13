@@ -1,5 +1,3 @@
-// next.config.mjs
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	reactStrictMode: true,
@@ -15,9 +13,17 @@ const nextConfig = {
 			},
 		],
 	},
-	// Redirect old misspelled routes to correct spelling
+
 	async redirects() {
 		return [
+			// Redirect www to non-www
+			{
+				source: "/:path*",
+				has: [{ type: "host", value: "www.calmtherapy.center" }],
+				destination: "https://calmtherapy.center/:path*",
+				permanent: true,
+			},
+			// Redirect old misspelled routes to correct spelling
 			{
 				source: "/specialities/:slug*",
 				destination: "/specialties/:slug*",
@@ -27,19 +33,14 @@ const nextConfig = {
 	},
 
 	// Basic, broadly compatible security headers.
-	// (Deliberately not using a strict CSP here to avoid breaking editor embeds, PT images, etc.)
 	async headers() {
 		return [
 			{
 				source: "/:path*",
 				headers: [
-					// Prevent MIME-sniffing
 					{ key: "X-Content-Type-Options", value: "nosniff" },
-					// Clickjacking protection (relaxed if you ever need embedding)
 					{ key: "X-Frame-Options", value: "SAMEORIGIN" },
-					// Minimal Referrer leakage
 					{ key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-					// Basic Permissions Policy (tighten as needed)
 					{
 						key: "Permissions-Policy",
 						value: [
@@ -53,8 +54,6 @@ const nextConfig = {
 							"usb=()",
 						].join(", "),
 					},
-					// HSTS (enable once you’re sure HTTPS is always used in prod)
-					// { key: 'Strict-Transport-Security', value: 'max-age=31536000; includeSubDomains; preload' },
 				],
 			},
 		];
