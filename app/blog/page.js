@@ -4,6 +4,7 @@ import Image from "next/image";
 import { POSTS_PAGE_SIZE, postsListQuery } from "@/lib/sanity.queries";
 import "./style.scss";
 import { metadata } from "../config/metadata.mjs";
+import { client } from "@/lib/sanity.client";
 
 //metadata
 export const generateMetadata = () => metadata.pages.blog;
