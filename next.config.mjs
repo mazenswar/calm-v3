@@ -16,13 +16,6 @@ const nextConfig = {
 
 	async redirects() {
 		return [
-			// Redirect www to non-www
-			{
-				source: "/:path*",
-				has: [{ type: "host", value: "www.calmtherapy.center" }],
-				destination: "https://calmtherapy.center/:path*",
-				permanent: true,
-			},
 			// Redirect old misspelled routes to correct spelling
 			{
 				source: "/specialities/:slug*",
