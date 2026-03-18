@@ -10,14 +10,28 @@
 	}
 	.event__title {
 		display: flex;
+		flex-direction: column-reverse;
+		gap: 1rem;
 		justify-content: space-between;
-		align-items: center;
+		// align-items: center;
 		margin-bottom: 1rem;
-
 		h3 {
 			margin: 0;
+			font-size: 1.5rem;
 		}
+		@include respond(md) {
+			flex-direction: row;
+			align-items: center;
+			// justify-content: flex-start;
+			// min-width: 100px;
+			h3 {
+				font-size: 2rem;
+			}
+		}
+
 		.event__status {
+			width: fit-content;
+			height: fit-content;
 			p {
 				font-size: 0.7rem;
 			}
@@ -70,9 +84,22 @@
 				display: flex;
 				gap: 2rem;
 			}
-			.more__details {
-				margin: 1rem 0;
+			.logos {
+				padding: 2rem 0;
+				display: flex;
+				// flex-direction: column;
+				// justify-content: flex-end;
+				align-items: center;
+				gap: 2rem;
+				a {
+					width: 50%;
+					max-width: 150px;
+				}
 			}
+		}
+		.more__details {
+			margin: 1rem 0;
+			text-decoration: none;
 		}
 	}
 }

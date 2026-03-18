@@ -2,6 +2,7 @@ import CustomLink from "@/app/Components/ui/CustomLink";
 import Image from "next/image";
 import edisonLibraryLogo from "./assets/EdisonPublicLibrary.png";
 import Link from "next/link";
+import Logos from "./Logos";
 
 export default function Header({ upcoming = false }) {
 	const eventStatus = upcoming ? "upcoming" : "past";
@@ -9,34 +10,7 @@ export default function Header({ upcoming = false }) {
 		<section className="block header">
 			<div className="block__content container">
 				<div className="header__details">
-					<div className="lib__logo">
-						<Link href="/" target="_blank" rel="noopener noreferrer">
-							<Image
-								src={"/logo-hr.webp"}
-								alt="CALM Therapy Logo"
-								aria-label="CALM Therapy Logo"
-								priority
-								sizes="(max-width: 768px) 100vw, 400px"
-								width={300}
-								height={300}
-							/>
-						</Link>
-						<a
-							href="https://edisonpubliclibrary.org/"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							<Image
-								src={edisonLibraryLogo}
-								alt="Edison Public Library Logo"
-								aria-label="Edison Public Library Logo"
-								priority
-								sizes="(max-width: 768px) 100vw, 400px"
-								width={600}
-								height={208}
-							/>
-						</a>
-					</div>
+					<Logos />
 					<div className="event__title">
 						<div className={"event__status " + eventStatus}>
 							<p>{upcoming ? "Upcoming" : "Past"}</p>

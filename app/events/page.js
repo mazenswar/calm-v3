@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import "./events__style.scss";
 import CustomLink from "../Components/ui/CustomLink";
+import Logos from "./edison-library-2026/Logos";
 
 function EventCard({
 	name,
@@ -10,36 +11,36 @@ function EventCard({
 	time,
 	detailsLink,
 	upcoming = false,
+	logos = null,
 }) {
 	const eventStatus = upcoming ? "upcoming" : "past";
+
 	return (
-		<div className="event__card">
-			<div className="event__title">
-				<h3 className="event__name">{name}</h3>
-				<div className={"event__status " + eventStatus}>
-					<p>{upcoming ? "Upcoming" : "Past"}</p>
+		<Link className="more__details" href={detailsLink}>
+			<div className="event__card">
+				<div className="event__title">
+					<h3 className="event__name">{name}</h3>
+					<div className={"event__status " + eventStatus}>
+						<p>{upcoming ? "Upcoming" : "Past"}</p>
+					</div>
 				</div>
-			</div>
-			<div className="event__location event__line">
-				<span className="span">📍</span>{" "}
-				<p className="event__location__text">{location}</p>
-			</div>
+				<div className="event__location event__line">
+					<span className="span">📍</span>{" "}
+					<p className="event__location__text">{location}</p>
+				</div>
 
-			<div className="event__date event__line">
-				<span className="span">🗓️</span>
-				<p className="event__date__text">{date}</p>
-			</div>
+				<div className="event__date event__line">
+					<span className="span">🗓️</span>
+					<p className="event__date__text">{date}</p>
+				</div>
 
-			<div className="event__time event__line">
-				<span className="span">🕒</span>{" "}
-				<p className="event__time__text">{time}</p>
+				<div className="event__time event__line">
+					<span className="span">🕒</span>{" "}
+					<p className="event__time__text">{time}</p>
+				</div>
+				{logos}
 			</div>
-			{/* CustomLink({ url, children, classN, newWindow, ariaLabel })  */}
-			<CustomLink classN="more__details" url={detailsLink}>
-				{" "}
-				More info
-			</CustomLink>
-		</div>
+		</Link>
 	);
 }
 
@@ -57,6 +58,7 @@ function Events() {
 							time={"2pm EST"}
 							detailsLink={"/events/edison-library-2026"}
 							upcoming={true}
+							logos={<Logos />}
 						/>
 					</div>
 				</div>
