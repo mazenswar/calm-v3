@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-function CustomLink({ url, children, classN, newWindow, ariaLabel }) {
+function CustomLink({ url, children, classN = "", newWindow, ariaLabel }) {
 	return (
 		<Link
 			aria-label={ariaLabel ? ariaLabel : ""}

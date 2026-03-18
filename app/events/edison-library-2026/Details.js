@@ -12,12 +12,15 @@ export default function Details() {
 						makes complete sense. This workshop starts there.
 					</p>
 					<p>
-						In this free one-hour session, Dr. Tanya Singh will offer a grounded
-						introduction to anxiety: what it is, how it shows up in the mind and
-						body, and what it actually means to manage it. We will look at
-						common myths about anxiety, why some of what we have been taught
-						about {"calming down"} does not work, and what a different
-						relationship with anxiety can look like.
+						In this free one-hour session,{" "}
+						<CustomLink url="/about#meet-the-founder">
+							Dr. Tanya Singh
+						</CustomLink>{" "}
+						will offer a grounded introduction to anxiety: what it is, how it
+						shows up in the mind and body, and what it actually means to manage
+						it. We will look at common myths about anxiety, why some of what we
+						have been taught about {"calming down"} does not work, and what a
+						different relationship with anxiety can look like.
 					</p>
 					<p>
 						The session will cover a range of practical approaches. We will
