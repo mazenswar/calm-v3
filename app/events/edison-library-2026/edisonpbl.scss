@@ -12,6 +12,8 @@
 			h1 {
 				margin: 0;
 				text-align: left;
+				text-size-adjust: 100%;
+				-webkit-text-size-adjust: 100%;
 			}
 			display: flex;
 			flex-direction: column;
