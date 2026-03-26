@@ -101,5 +101,17 @@
 			margin: 1rem 0;
 			text-decoration: none;
 		}
+		.logos {
+			padding-bottom: 2rem;
+			display: flex;
+			// flex-direction: column;
+			// justify-content: flex-end;
+			align-items: center;
+			gap: 2rem;
+			img {
+				width: 50%;
+				max-width: 200px;
+			}
+		}
 	}
 }

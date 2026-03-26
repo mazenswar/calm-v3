@@ -1,8 +1,8 @@
 import Link from "next/link";
 import React from "react";
 import "./events__style.scss";
-import CustomLink from "../Components/ui/CustomLink";
-import Logos from "./edison-library-2026/Logos";
+import Logos from "./Logos";
+import { metadata } from "../config/metadata.mjs";
 
 export const generateMetadata = () => metadata.pages.events;
 
