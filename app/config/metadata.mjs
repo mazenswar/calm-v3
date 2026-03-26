@@ -151,6 +151,32 @@ export const metadata = {
 			},
 		},
 
+		// Library Edison Event 2026
+		understandingAnxiety: {
+			title: "Understanding Anxiety: A Free Community Workshop | CALM Therapy",
+			description:
+				"A free one-hour community workshop on anxiety led by Tanya Singh, PhD. Learn what anxiety is, how it shows up in the mind and body, and practical tools to work with it. Edison Public Library, April 24, 2026.",
+			alternates: {
+				canonical: "https://calmtherapy.center/events/edison-library-2026",
+			},
+			openGraph: {
+				title:
+					"Understanding Anxiety: A Free Community Workshop | CALM Therapy",
+				description:
+					"Join Tanya Singh, PhD for a free community workshop on anxiety. Friday, April 24 · 2:00 PM · Edison Public Library, North Edison Temporary Branch.",
+				url: "https://calmtherapy.center/events/edison-library-2026",
+				images: [
+					{
+						url: "/social/ss.webp",
+						width: 1200,
+						height: 630,
+						alt: "Understanding Anxiety - A Free Community Workshop by CALM Therapy",
+					},
+				],
+			},
+		},
+		// END Edison Library Event 2026
+
 		specialties: {
 			title: "Therapy Specialties | CALM Therapy",
 			description:

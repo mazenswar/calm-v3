@@ -4,6 +4,7 @@ import Details from "./Details";
 import Map from "./Map";
 import "./edisonpbl.scss";
 
+export const generateMetadata = () => metadata.pages.understandingAnxiety;
 function EdisonLibrary() {
 	return (
 		<main id="edisonpbl">

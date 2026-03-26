@@ -4,6 +4,8 @@ import "./events__style.scss";
 import CustomLink from "../Components/ui/CustomLink";
 import Logos from "./edison-library-2026/Logos";
 
+export const generateMetadata = () => metadata.pages.events;
+
 function EventCard({
 	name,
 	location,
