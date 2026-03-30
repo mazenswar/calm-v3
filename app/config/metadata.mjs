@@ -253,6 +253,7 @@ export const metadata = {
 
 		blog: {
 			title: "Blog | CALM Therapy",
+			alternates: { canonical: "https://calmtherapy.center/blog" },
 			description:
 				"Latest posts from CALM Therapy, covering holistic and evidence-based approaches to growth and healing.",
 		},
@@ -349,6 +350,9 @@ export const metadata = {
 
 		complexTrauma: {
 			title: "Complex Trauma Therapy | C-PTSD Treatment | CALM Therapy",
+			alternates: {
+				canonical: "https://calmtherapy.center/specialties/complex-trauma",
+			},
 			description:
 				"Therapy for complex trauma and C-PTSD. Create safety, clarity, and self-compassion through trauma-informed care. Telehealth available in 43 U.S. states and jurisdictions.",
 			openGraph: {
@@ -369,6 +373,7 @@ export const metadata = {
 
 		bdd: {
 			title: "BDD Therapy | Body Dysmorphic Disorder Treatment | CALM Therapy",
+			alternates: { canonical: "https://calmtherapy.center/specialties/bdd" },
 			description:
 				"Care for body dysmorphic disorder (BDD). Develop a compassionate relationship with yourself and challenge distorted self-image through individualized support.",
 			openGraph: {
@@ -389,6 +394,7 @@ export const metadata = {
 
 		panicDisorder: {
 			title: "Panic Disorder Therapy | Panic Attack Treatment | CALM Therapy",
+			alternates: { canonical: "https://calmtherapy.center/specialties/pd" },
 			description:
 				"Support for panic disorder and panic attacks. Change your relationship with panic sensations through acceptance-based approaches and nervous system regulation.",
 			openGraph: {
@@ -410,6 +416,9 @@ export const metadata = {
 		perfectionism: {
 			title:
 				"Perfectionism Therapy | Overcome Perfectionist Patterns | CALM Therapy",
+			alternates: {
+				canonical: "https://calmtherapy.center/specialties/perfectionism",
+			},
 			description:
 				"Therapy for perfectionism. Practice enoughness from the inside out and explore the protective parts that drive perfectionist patterns.",
 			openGraph: {
@@ -430,6 +439,9 @@ export const metadata = {
 
 		socialAnxiety: {
 			title: "Social Anxiety Therapy | CALM Therapy",
+			alternates: {
+				canonical: "https://calmtherapy.center/specialties/sad",
+			},
 			description:
 				"Therapy for social anxiety disorder (SAD). Overcome fear of judgment and reclaim your voice through exposure therapy and self-worth work.",
 			openGraph: {
@@ -451,6 +463,9 @@ export const metadata = {
 		selfEsteem: {
 			title:
 				"Self-Esteem & Self-Worth Therapy | Build Confidence | CALM Therapy",
+			alternates: {
+				canonical: "https://calmtherapy.center/specialties/self-worth",
+			},
 			description:
 				"Therapy for self-esteem and self-worth issues. Reconnect with internal worth independent of performance or approval. Compassionate, individualized care.",
 			openGraph: {
@@ -472,6 +487,9 @@ export const metadata = {
 		lifeTransitions: {
 			title:
 				"Life Transitions Therapy | Career & Life Change Support | CALM Therapy",
+			alternates: {
+				canonical: "https://calmtherapy.center/specialties/life-transitions",
+			},
 			description:
 				"Therapy for life transitions and major life changes. Navigate career, relationship, and personal transitions with clarity, integrity, and support.",
 			openGraph: {
@@ -492,6 +510,9 @@ export const metadata = {
 
 		spiritualExploration: {
 			title: "Spiritual Inquiry | CALM Therapy",
+			alternates: {
+				canonical: "https://calmtherapy.center/specialties/spiritual-inquiry",
+			},
 			description:
 				"Sessions for spiritual exploration and existential inquiry. Explore deeper longings and meaning without imposed frameworks in a supportive, open space.",
 			openGraph: {
@@ -512,6 +533,9 @@ export const metadata = {
 
 		stressManagement: {
 			title: "Stress Management Therapy | Work-Life Balance | CALM Therapy",
+			alternates: {
+				canonical: "https://calmtherapy.center/specialties/stress-management",
+			},
 			description:
 				"Therapy for stress management and work-life balance. Recalibrate your life patterns, set boundaries, and create sustainable balance through integrative approaches.",
 			openGraph: {

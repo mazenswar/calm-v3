@@ -20,11 +20,10 @@ function Groups() {
 
 function GroupCard() {
 	return (
-		<div className="group__card">
+		<Link href="/groups/peer-bipoc" className="group__card">
 			<h3>BIPOC Group</h3>
 			<p>Group for BIPOC clinicians</p>
-			<Link href="/groups/peer-bipoc">More Info</Link>
-		</div>
+		</Link>
 	);
 }
 
