@@ -8,7 +8,7 @@ function Groups() {
 			<section className="block">
 				<div className="block__content container">
 					<h1>Peer Groups</h1>
-					<p>Peer groups are for clinicians</p>
+					<p>Groups are for clinicians</p>
 					<div className="groups__container">
 						<GroupCard />
 					</div>
@@ -20,7 +20,7 @@ function Groups() {
 
 function GroupCard() {
 	return (
-		<Link href="/groups/peer-bipoc" className="group__card">
+		<Link href="/peer-groups/bipoc" className="group__card">
 			<h3>BIPOC Group</h3>
 			<p>Group for BIPOC clinicians</p>
 		</Link>

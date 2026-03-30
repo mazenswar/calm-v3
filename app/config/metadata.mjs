@@ -24,6 +24,7 @@ export const metadata = {
 	},
 
 	pages: {
+		// HOME
 		home: {
 			title: "CALM Therapy | Modern Psychology, Timeless Wisdom",
 			description:
@@ -44,7 +45,7 @@ export const metadata = {
 				],
 			},
 		},
-
+		// ABOUT
 		about: {
 			title: "About CALM Therapy",
 			description:
@@ -65,7 +66,7 @@ export const metadata = {
 				],
 			},
 		},
-
+		// KAP
 		kap: {
 			title: "Ketamine-Assisted Psychotherapy (KAP) | CALM Therapy",
 			description:
@@ -93,7 +94,7 @@ export const metadata = {
 				images: ["/social/ss.webp"],
 			},
 		},
-
+		// FAQ
 		faq: {
 			title: "FAQ | CALM Therapy",
 			description:
@@ -109,6 +110,7 @@ export const metadata = {
 				],
 			},
 		},
+		// COMMUNITY SPOT
 		communitySpot: {
 			title: "Community Spot | CALM Therapy",
 			description:
@@ -129,7 +131,7 @@ export const metadata = {
 				],
 			},
 		},
-
+		// EVENTS
 		events: {
 			title: "Events | CALM Therapy",
 			description:
@@ -175,8 +177,8 @@ export const metadata = {
 				],
 			},
 		},
-		// END Edison Library Event 2026
 
+		// SPECIALTIES
 		specialties: {
 			title: "Therapy Specialties | CALM Therapy",
 			description:
@@ -198,6 +200,7 @@ export const metadata = {
 			},
 		},
 
+		// FEES AND INSURANCE
 		feesAndInsurance: {
 			title: "Fees & Insurance | CALM Therapy",
 			description:
@@ -221,6 +224,7 @@ export const metadata = {
 			},
 		},
 
+		// CREDENTIALS
 		credentials: {
 			title: "Dr. Tanya Singh - Credentials | CALM Therapy",
 			description:
@@ -251,6 +255,7 @@ export const metadata = {
 			},
 		},
 
+		// BLOG
 		blog: {
 			title: "Blog | CALM Therapy",
 			alternates: { canonical: "https://calmtherapy.center/blog" },
@@ -279,8 +284,9 @@ export const metadata = {
 			},
 		},
 	},
-
+	// SPECIALTIES
 	specialties: {
+		// OCD
 		ocd: {
 			alternates: { canonical: "https://calmtherapy.center/specialties/ocd" },
 			title:
@@ -302,7 +308,7 @@ export const metadata = {
 				],
 			},
 		},
-
+		// GAD
 		gad: {
 			alternates: { canonical: "https://calmtherapy.center/specialties/gad" },
 			title:
@@ -324,7 +330,7 @@ export const metadata = {
 				],
 			},
 		},
-
+		// DEPRESSION
 		depression: {
 			alternates: {
 				canonical: "https://calmtherapy.center/specialties/depression",
@@ -347,7 +353,7 @@ export const metadata = {
 				],
 			},
 		},
-
+		// COMPLEX TRAUMA
 		complexTrauma: {
 			title: "Complex Trauma Therapy | C-PTSD Treatment | CALM Therapy",
 			alternates: {
@@ -370,7 +376,7 @@ export const metadata = {
 				],
 			},
 		},
-
+		// BDD
 		bdd: {
 			title: "BDD Therapy | Body Dysmorphic Disorder Treatment | CALM Therapy",
 			alternates: { canonical: "https://calmtherapy.center/specialties/bdd" },
@@ -391,7 +397,7 @@ export const metadata = {
 				],
 			},
 		},
-
+		// PANIC DISORDER
 		panicDisorder: {
 			title: "Panic Disorder Therapy | Panic Attack Treatment | CALM Therapy",
 			alternates: { canonical: "https://calmtherapy.center/specialties/pd" },
@@ -412,7 +418,7 @@ export const metadata = {
 				],
 			},
 		},
-
+		// PERFECTIONISM
 		perfectionism: {
 			title:
 				"Perfectionism Therapy | Overcome Perfectionist Patterns | CALM Therapy",
@@ -436,7 +442,7 @@ export const metadata = {
 				],
 			},
 		},
-
+		// SOCIAL ANXIETY
 		socialAnxiety: {
 			title: "Social Anxiety Therapy | CALM Therapy",
 			alternates: {
@@ -459,7 +465,7 @@ export const metadata = {
 				],
 			},
 		},
-
+		// SELF ESTEEM
 		selfEsteem: {
 			title:
 				"Self-Esteem & Self-Worth Therapy | Build Confidence | CALM Therapy",
@@ -484,6 +490,7 @@ export const metadata = {
 			},
 		},
 
+		// LIFE TRANSITIONS
 		lifeTransitions: {
 			title:
 				"Life Transitions Therapy | Career & Life Change Support | CALM Therapy",
@@ -507,7 +514,7 @@ export const metadata = {
 				],
 			},
 		},
-
+		// SPIRITUAL
 		spiritualExploration: {
 			title: "Spiritual Inquiry | CALM Therapy",
 			alternates: {
@@ -530,7 +537,7 @@ export const metadata = {
 				],
 			},
 		},
-
+		// STRESS MANAGEMENT
 		stressManagement: {
 			title: "Stress Management Therapy | Work-Life Balance | CALM Therapy",
 			alternates: {
@@ -554,4 +561,5 @@ export const metadata = {
 			},
 		},
 	},
+	// END SPECIALTIES
 };

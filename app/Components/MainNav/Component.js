@@ -83,7 +83,7 @@ export default function MainNav() {
 			items: [
 				{ label: "Community Spot", href: "/community-spot" },
 				{ label: "Events", href: "/events" },
-				// { label: "Groups", href: "/groups" },
+				{ label: "Peer Groups", href: "/peer-groups" },
 			],
 		},
 		{ label: "Fees & Insurance", href: "/fees-and-insurance" },
