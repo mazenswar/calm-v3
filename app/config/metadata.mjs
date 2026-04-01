@@ -283,6 +283,48 @@ export const metadata = {
 				],
 			},
 		},
+		// GROUPS
+		peerGroups: {
+			title: "Free Peer Consultation Groups for Clinicians | CALM Therapy",
+			description:
+				"Join CALM Therapy's free peer consultation groups for clinicians. A collegial space for case discussion and professional exchange — not supervision.",
+			alternates: { canonical: "https://calmtherapy.center/peer-groups" },
+			openGraph: {
+				title: "Free Peer Consultation Groups for Clinicians | CALM Therapy",
+				description:
+					"CALM Therapy hosts free peer consultation groups for clinicians — a collegial space for case discussion and professional exchange, not supervision.",
+				url: "https://calmtherapy.center/peer-groups",
+				images: [
+					{
+						url: "/social/ss.webp",
+						width: 1200,
+						height: 630,
+						alt: "Peer Consultation Groups for Clinicians",
+					},
+				],
+			},
+		},
+		// BIPOC GROUP
+		bipocPeerGroup: {
+			title: "BIPOC Peer Consultation Group for Clinicians | CALM Therapy",
+			description:
+				"A free, monthly virtual peer consultation group for BIPOC clinicians on the East Coast working with anxiety, OCD, and complex trauma. Limited spots.",
+			alternates: { canonical: "https://calmtherapy.center/peer-groups/bipoc" },
+			openGraph: {
+				title: "BIPOC Peer Consultation Group for Clinicians | CALM Therapy",
+				description:
+					"A no-fee, 75-minute monthly group for BIPOC clinicians working with anxiety disorders, OCD, and complex trauma. Collegial case consultation with space for cultural and clinical discussion.",
+				url: "https://calmtherapy.center/peer-groups/bipoc",
+				images: [
+					{
+						url: "/social/ss.webp",
+						width: 1200,
+						height: 630,
+						alt: "BIPOC Peer Consultation Group",
+					},
+				],
+			},
+		},
 	},
 	// SPECIALTIES
 	specialties: {
