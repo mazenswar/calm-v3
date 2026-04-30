@@ -10,7 +10,7 @@ export const generateMetadata = () => metadata.pages.understandingAnxiety;
 function EdisonLibrary() {
 	return (
 		<main id="edisonpbl">
-			<Header upcoming={true} />
+			<Header upcoming={false} />
 			<Details />
 			<Map />
 		</main>
