@@ -23,7 +23,7 @@
 			}
 			background: var(--brand-8);
 			padding: 1.5rem;
-			width: fit-content;
+			// width: 75ch;
 			height: auto;
 			border-radius: 25px;
 			box-shadow: var(--shadow-2);
@@ -34,6 +34,9 @@
 			&:hover {
 				transform: scale(1.1);
 				opacity: 0.8;
+			}
+			p {
+				color: var(--color-text);
 			}
 		}
 	}

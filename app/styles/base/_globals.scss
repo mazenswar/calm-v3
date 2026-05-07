@@ -19,6 +19,8 @@ a {
 	font-size: inherit;
 }
 
+//
+
 .link {
 	text-decoration: underline;
 	color: var(--brand-1);
@@ -68,4 +70,13 @@ a {
 			width: 0%;
 		}
 	}
+}
+
+// cursor
+a,
+button,
+.btnPrimary,
+.btnSecondary,
+.link {
+	cursor: pointer;
 }

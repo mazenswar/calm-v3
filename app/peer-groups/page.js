@@ -8,7 +8,7 @@ function Groups() {
 			<section className="block">
 				<div className="block__content container">
 					<h1>Peer Groups</h1>
-					<p>Groups are for clinicians</p>
+					<p>These groups are intended for clinicians only</p>
 					<div className="groups__container">
 						<GroupCard />
 					</div>
@@ -22,7 +22,11 @@ function GroupCard() {
 	return (
 		<Link href="/peer-groups/bipoc" className="group__card">
 			<h3>BIPOC Group</h3>
-			<p>Group for BIPOC clinicians</p>
+			<p>
+				a small, monthly virtual peer consultation group for BIPOC clinicians
+				(clinicians of color) based on the East Coast who work with anxiety
+				disorders, OCD, and complex trauma.
+			</p>
 		</Link>
 	);
 }
