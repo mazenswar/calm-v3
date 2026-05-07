@@ -37,7 +37,7 @@ export const metadata = {
 				url: "https://calmtherapy.center",
 				images: [
 					{
-						url: "/social/Home.png",
+						url: "https://calmtherapy.center/social/Home.png",
 						width: 1200,
 						height: 630,
 						alt: "CALM Therapy",
@@ -58,7 +58,7 @@ export const metadata = {
 				url: "https://calmtherapy.center/about",
 				images: [
 					{
-						url: "/social/About.png",
+						url: "https://calmtherapy.center/social/About.png",
 						width: 1200,
 						height: 630,
 						alt: "About CALM Therapy",
@@ -79,7 +79,7 @@ export const metadata = {
 				url: "https://calmtherapy.center/kap",
 				images: [
 					{
-						url: "/social/KAP.png",
+						url: "https://calmtherapy.center/social/KAP.png",
 						width: 1200,
 						height: 630,
 						alt: "CALM Therapy - KAP",
@@ -91,7 +91,7 @@ export const metadata = {
 				title: "Ketamine-Assisted Psychotherapy (KAP) | CALM Therapy",
 				description:
 					"CALM Therapy offers virtual, trauma-informed KAP for adults. Licensed in NY, NJ, and PA, with telehealth available in 40 other states through PSYPACT.",
-				images: ["/social/Home.png"],
+				images: ["https://calmtherapy.center/social/Home.png"],
 			},
 		},
 		// FAQ
@@ -106,7 +106,12 @@ export const metadata = {
 					"Answers about therapy specialties, fees, and how we work with clients.",
 				url: "https://calmtherapy.center/faq",
 				images: [
-					{ url: "/social/Home.png", width: 1200, height: 630, alt: "FAQ" },
+					{
+						url: "https://calmtherapy.center/social/Home.png",
+						width: 1200,
+						height: 630,
+						alt: "FAQ",
+					},
 				],
 			},
 		},
@@ -123,7 +128,7 @@ export const metadata = {
 				url: "https://calmtherapy.center/community-spot",
 				images: [
 					{
-						url: "/social/CommunitySpot.png",
+						url: "https://calmtherapy.center/social/CommunitySpot.png",
 						width: 1200,
 						height: 630,
 						alt: "Community Spot - Accessible Mental Health Care",
@@ -144,7 +149,7 @@ export const metadata = {
 				url: "https://calmtherapy.center/events",
 				images: [
 					{
-						url: "/social/Home.png",
+						url: "https://calmtherapy.center/social/Home.png",
 						width: 1200,
 						height: 630,
 						alt: "CALM Therapy Community Events",
@@ -169,7 +174,7 @@ export const metadata = {
 				url: "https://calmtherapy.center/events/edison-library-2026",
 				images: [
 					{
-						url: "/social/Home.png",
+						url: "https://calmtherapy.center/social/Home.png",
 						width: 1200,
 						height: 630,
 						alt: "Understanding Anxiety - A Free Community Workshop by CALM Therapy",
@@ -191,7 +196,7 @@ export const metadata = {
 				url: "https://calmtherapy.center/specialties",
 				images: [
 					{
-						url: "/social/Home.png",
+						url: "https://calmtherapy.center/social/Home.png",
 						width: 1200,
 						height: 630,
 						alt: "Therapy Specialties | CALM Therapy",
@@ -215,7 +220,7 @@ export const metadata = {
 				url: "https://calmtherapy.center/fees-and-insurance",
 				images: [
 					{
-						url: "/social/FeesAndInsurance.png",
+						url: "https://calmtherapy.center/social/FeesAndInsurance.png",
 						width: 1200,
 						height: 630,
 						alt: "Fees & Insurance",
@@ -239,7 +244,7 @@ export const metadata = {
 				url: "https://calmtherapy.center/people/tanya-singh",
 				images: [
 					{
-						url: "/social/Home.png",
+						url: "https://calmtherapy.center/social/Home.png",
 						width: 1200,
 						height: 630,
 						alt: "Dr. Tanya Singh Credentials",
@@ -251,7 +256,7 @@ export const metadata = {
 				title: "Dr. Tanya Singh - Credentials | CALM Therapy",
 				description:
 					"Clinical training, education, and experience. Licensed psychologist specializing in anxiety, OCD, trauma, and integrative therapy.",
-				images: ["/social/Home.png"],
+				images: ["https://calmtherapy.center/social/Home.png"],
 			},
 		},
 
@@ -266,7 +271,7 @@ export const metadata = {
 				url: "https://calmtherapy.center/blog",
 				images: [
 					{
-						url: "/social/Blog.png",
+						url: "https://calmtherapy.center/social/Blog.png",
 						width: 1200,
 						height: 630,
 						alt: "Blog",
@@ -287,7 +292,7 @@ export const metadata = {
 				url: "https://calmtherapy.center/where-we-serve",
 				images: [
 					{
-						url: "/social/Home.png",
+						url: "https://calmtherapy.center/social/Home.png",
 						width: 1200,
 						height: 630,
 						alt: "Where We Serve",
@@ -308,7 +313,7 @@ export const metadata = {
 				url: "https://calmtherapy.center/peer-groups",
 				images: [
 					{
-						url: "/social/PeerGroups.png",
+						url: "https://calmtherapy.center/social/PeerGroups.png",
 						width: 1200,
 						height: 630,
 						alt: "Peer Consultation Groups for Clinicians",
@@ -329,7 +334,7 @@ export const metadata = {
 				url: "https://calmtherapy.center/peer-groups/bipoc",
 				images: [
 					{
-						url: "/social/Home.png",
+						url: "https://calmtherapy.center/social/Home.png",
 						width: 1200,
 						height: 630,
 						alt: "BIPOC Peer Consultation Group",
@@ -354,7 +359,7 @@ export const metadata = {
 				url: "https://calmtherapy.center/specialties/ocd",
 				images: [
 					{
-						url: "/social/Specialties.png",
+						url: "https://calmtherapy.center/social/Specialties.png",
 						width: 1200,
 						height: 630,
 						alt: "CALM Therapy - OCD Treatment & Therapy Services",
@@ -376,7 +381,7 @@ export const metadata = {
 				url: "https://calmtherapy.center/specialties/gad",
 				images: [
 					{
-						url: "/social/Home.png",
+						url: "https://calmtherapy.center/social/Home.png",
 						width: 1200,
 						height: 630,
 						alt: "CALM Therapy - GAD & Anxiety Treatment Services",
@@ -399,7 +404,7 @@ export const metadata = {
 				url: "https://calmtherapy.center/specialties/depression",
 				images: [
 					{
-						url: "/social/Home.png",
+						url: "https://calmtherapy.center/social/Home.png",
 						width: 1200,
 						height: 630,
 						alt: "CALM Therapy - Depression Therapy",
@@ -422,7 +427,7 @@ export const metadata = {
 				url: "https://calmtherapy.center/specialties/complex-trauma",
 				images: [
 					{
-						url: "/social/Home.png",
+						url: "https://calmtherapy.center/social/Home.png",
 						width: 1200,
 						height: 630,
 						alt: "CALM Therapy - Complex Trauma & C-PTSD Treatment Services",
@@ -443,7 +448,7 @@ export const metadata = {
 				url: "https://calmtherapy.center/specialties/bdd",
 				images: [
 					{
-						url: "/social/Home.png",
+						url: "https://calmtherapy.center/social/Home.png",
 						width: 1200,
 						height: 630,
 						alt: "CALM Therapy - BDD & Body Image Treatment Services",
@@ -464,7 +469,7 @@ export const metadata = {
 				url: "https://calmtherapy.center/specialties/pd",
 				images: [
 					{
-						url: "/social/Home.png",
+						url: "https://calmtherapy.center/social/Home.png",
 						width: 1200,
 						height: 630,
 						alt: "CALM Therapy - Panic Disorder & Panic Attack Treatment Services",
@@ -488,7 +493,7 @@ export const metadata = {
 				url: "https://calmtherapy.center/specialties/perfectionism",
 				images: [
 					{
-						url: "/social/Home.png",
+						url: "https://calmtherapy.center/social/Home.png",
 						width: 1200,
 						height: 630,
 						alt: "CALM Therapy - Perfectionism Treatment & Therapy Services",
@@ -511,7 +516,7 @@ export const metadata = {
 				url: "https://calmtherapy.center/specialties/sad",
 				images: [
 					{
-						url: "/social/Home.png",
+						url: "https://calmtherapy.center/social/Home.png",
 						width: 1200,
 						height: 630,
 						alt: "CALM Therapy - Social Anxiety Treatment Services",
@@ -535,7 +540,7 @@ export const metadata = {
 				url: "https://calmtherapy.center/specialties/self-worth",
 				images: [
 					{
-						url: "/social/Home.png",
+						url: "https://calmtherapy.center/social/Home.png",
 						width: 1200,
 						height: 630,
 						alt: "CALM Therapy - Self-Esteem & Self-Worth Therapy Services",
@@ -560,7 +565,7 @@ export const metadata = {
 				url: "https://calmtherapy.center/specialties/life-transitions",
 				images: [
 					{
-						url: "/social/Home.png",
+						url: "https://calmtherapy.center/social/Home.png",
 						width: 1200,
 						height: 630,
 						alt: "CALM Therapy - Life Transitions & Change Support Services",
@@ -583,7 +588,7 @@ export const metadata = {
 				url: "https://calmtherapy.center/specialties/spiritual-inquiry",
 				images: [
 					{
-						url: "/social/Home.png",
+						url: "https://calmtherapy.center/social/Home.png",
 						width: 1200,
 						height: 630,
 						alt: "CALM Therapy - Spiritual Exploration & Existential Inquiry Services",
@@ -606,7 +611,7 @@ export const metadata = {
 				url: "https://calmtherapy.center/specialties/stress-management",
 				images: [
 					{
-						url: "/social/Home.png",
+						url: "https://calmtherapy.center/social/Home.png",
 						width: 1200,
 						height: 630,
 						alt: "CALM Therapy - Stress Management & Work-Life Balance Services",
